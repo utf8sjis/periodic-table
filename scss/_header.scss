@@ -1,0 +1,205 @@
+/****** header ******/
+$headerHeight: 80px;
+$headerHeightPhone: 60px;
+$navHeight: 80vh;
+$navOpenTime: .5s;
+
+header {
+    height: $headerHeight;
+    color: $colorWhite;
+    a, a:hover {
+        color: $colorWhite;
+    }
+    @include mediaQuery() {
+        height: $headerHeightPhone;
+    }
+}
+
+.header-start {
+    position: fixed;
+    width: 100%;
+    height: $headerHeight;
+    overflow: hidden;
+    background: $colorMainA;
+    @include mediaQuery() {
+        height: $headerHeightPhone;
+    }
+    &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(46, 36, 94, 0.3);
+        opacity: 0;
+        transition: opacity $navOpenTime;
+    }
+    &.active::before {
+        opacity: 1;
+    }
+    .logo {
+        padding-left: 30px;
+        @include mediaQuery() {
+            padding-left: 20px;
+            transform: translateY(-2px);
+        }
+        a {
+            cursor: pointer;
+            text-decoration: none;
+            font-family: $fontEN;
+            font-weight: 300;
+            font-size: 40px;
+            @include mediaQuery() {
+                font-size: 35px;
+            }
+        }
+    }
+    .site {
+        padding-left: 50px;
+        @include mediaQuery() {
+            padding-left: 30px;
+            transform: translateY(-7px);
+        }
+        i {
+            padding-right: 5px;
+        }
+    }
+}
+
+.header-end {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: $headerHeight;
+    margin-right: 30px;
+    @include flexCentering();
+    @include mediaQuery() {
+        height: $headerHeightPhone;
+        margin-right: 10px;
+    }
+    .share-wrapper {
+        @include flexCentering(center, flex-end);
+        flex-direction: column;
+        @include mediaQuery() {
+            position: fixed;
+            flex-direction: row;
+            right: 0;
+            bottom: 0;
+            margin-bottom: 10px;
+            transform: translateX(100%);
+            transition: transform .7s;
+        }
+        .share-label {
+            font-family: $fontEN;
+            font-weight: 300;
+            font-size: 20px;
+            @include mediaQuery() {
+                display: none;
+            }
+        }
+        .share-icons {
+            @include flexCentering();
+        }
+        .top-button-phone {
+            display: none;
+            margin: 0 10px 0 5px;
+            width: 45px;
+            height: 45px;
+            @include mediaQuery() {
+                display: flex;
+            }
+        }
+    }
+    .top-button-pc {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 50px;
+        margin: 0 25px 25px 0;
+        transform: translateX(200%);
+        transition: transform .7s;
+        @include mediaQuery() {
+            display: none;
+        }
+    }
+    &.notAroundTop {
+        .share-wrapper {
+            @include mediaQuery() {
+                transform: translateX(0);
+            }
+        }
+        .top-button-pc {
+            transform: translateX(0);
+        }
+    }
+}
+.share {
+    margin: 0 4px;
+    text-decoration: none;
+    @include mediaQuery() {
+        margin: 0 2px;
+    }
+    &:hover {
+        text-decoration: none;
+        text-shadow: none;
+    }
+}
+.share-twitter,
+.share-facebook,
+.share-line {
+    @include flexCentering();
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    font-size: 20px;
+    transition: .2s;
+    @include mediaQuery() {
+        width: 34px;
+        height: 34px;
+        font-size: 20px;
+    }
+}
+.share-twitter {
+    &:hover {
+        background: $colorTwitter;
+    }
+    @include mediaQuery() {
+        background: $colorTwitter;
+    }
+}
+.share-facebook {
+    &:hover {
+        background: $colorFacebook;
+    }
+    @include mediaQuery() {
+        background: $colorFacebook;
+    }
+}
+.share-line {
+    &:hover {
+        background: $colorLINE;
+    }
+    @include mediaQuery() {
+        background: $colorLINE;
+    }
+}
+
+.top-button-phone,
+.top-button-pc {
+    cursor: pointer;
+    @include flexCentering();
+    border: solid 2px rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    font-size: 30px;
+    background: $colorMain3;
+    transition: transform .2s;
+    i {
+        padding-bottom: 3px;
+    }
+}
+.top-button-pc:hover {
+    transform: scale(1.1);
+}

@@ -1,0 +1,172 @@
+/////////////////////
+// エリアの設定
+/////////////////////
+
+// エリア１：元素情報コンテナ
+.area-element-info {
+    grid-area: elm;
+    display: grid;
+    grid-template-areas:
+        "es an"
+        "es pr"
+        "es gr"
+        "ca aw";
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: 2fr 1fr;
+    @include gridGap($areaGap, $areaGap);
+    @include mediaQuery() {
+        grid-template-areas:
+            "es es es"
+            "an pr gr"
+            "ca ca aw";
+        grid-template-rows: auto 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+// エリア２：漢字情報コンテナのエリア
+.area-kanji-info {
+    grid-area: knj;
+    display: grid;
+    grid-template-areas:
+        "cn tw hk";
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    @include gridGap($areaGap, $areaGap);
+}
+// エリア３：読みコンテナのエリア
+.area-reading-info {
+    grid-area: rdn;
+    display: grid;
+    grid-template-areas:
+        "py bp";
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
+    @include gridGap($areaGap, $areaGap);
+}
+// // エリア４：詳細コンテナのエリア
+// .area-detial-info {
+//     grid-area: det;
+//     display: grid;
+//     grid-template-areas:
+//         "ca aw";
+//     grid-template-rows: auto;
+//     grid-template-columns: 1fr 2fr;
+//     @include gridGap($areaGap, $areaGap);
+// }
+// エリア５：名称コンテナのエリア
+.area-name-info {
+    grid-area: nam;
+    display: grid;
+    grid-template-areas:
+        "ja en";
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
+    @include gridGap($areaGap, $areaGap);
+    @include mediaQuery($se) {
+        grid-template-columns: repeat(2, auto);
+    }
+}
+// エリア６：切り替えのエリア
+.area-change-elements {
+    position: fixed;
+    box-sizing: border-box;
+    left: 0;
+    bottom: 20px;
+    padding: 0 20%;
+    width: 100%;
+    height: 70px;
+    @include mediaQuery($tablet) {
+        padding: 0 50px;
+    }
+    @include mediaQuery() {
+        padding: 0 15px;
+    }
+}
+// エリア７：ツイートのエリア
+.area-twitter-tweet {
+    grid-area: twi;
+}
+// エリア８：閉じるボタンのエリア
+.area-close {
+    grid-area: cls;
+}
+
+/////////////////////
+// サブエリアの設定
+/////////////////////
+
+// エリア１：元素記号、原子番号、周期、族のサブエリア
+.sub-area-element-symbol {
+    grid-area: es;
+    display: grid;
+    grid-template-areas:
+        "es-layer";
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+}
+.sub-area-atomic-num {
+    grid-area: an;
+}
+.sub-area-period {
+    grid-area: pr;
+}
+.sub-area-group {
+    grid-area: gr;
+}
+// エリア２：大陸簡体、台湾正体、香港繁体のサブエリア
+.sub-area-cn {
+    grid-area: cn;
+}
+.sub-area-tw {
+    grid-area: tw;
+}
+.sub-area-hk {
+    grid-area: hk;
+}
+// エリア３：ピンイン、ボポモフォのサブエリア
+.sub-area-pinyin {
+    grid-area: py;
+}
+.sub-area-bopomofo {
+    grid-area: bp;
+}
+// エリア１（旧エリア４）：原子量とグループのサブエリア
+.sub-area-atomic-weight {
+    grid-area: aw;
+}
+.sub-area-category {
+    grid-area: ca;
+}
+// エリア５：日本語名、英語名のサブエリア
+.sub-area-japanese-name {
+    grid-area: ja;
+}
+.sub-area-english-name {
+    grid-area: en;
+}
+// エリア６：切り替えのサブエリア
+.sub-area-change {
+    user-select: none;
+    background: rgba(255, 255, 255, 0.8);
+}
+// エリア７：ツイートのサブエリア
+.sub-area-tweet {
+    background: linear-gradient(
+        .25turn, rgba(255, 255, 255, 0.2), transparent, rgba(255, 255, 255, 0.2));
+}
+.ov-bg-h .sub-area-tweet {
+    background: linear-gradient(
+        .25turn, rgba(0, 0, 0, 0.2), transparent, rgba(0, 0, 0, 0.2));
+}
+// エリア８：閉じるボタンのサブエリア
+.sub-area-close {
+    &:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+    transition: .2s;
+}
+.ov-bg-h .sub-area-close {
+    &:hover {
+        background: #fff;
+    }
+}
