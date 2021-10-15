@@ -162,31 +162,31 @@ nav {
 
 @font-face {
     font-family: "Source Han Sans CN";
-    src: url("/periodic-table/font/woff/SourceHanSansCN-ExtraLight_lim2.woff");
+    src: url("../font/woff/SourceHanSansCN-ExtraLight_lim2.woff");
 }
 @font-face {
     font-family: "Source Han Sans TW";
-    src: url("/periodic-table/font/woff/SourceHanSansTW-ExtraLight_lim.woff");
+    src: url("../font/woff/SourceHanSansTW-ExtraLight_lim.woff");
 }
 @font-face {
     font-family: "Source Han Sans HK";
-    src: url("/periodic-table/font/woff/SourceHanSansHK-ExtraLight_lim.woff");
+    src: url("../font/woff/SourceHanSansHK-ExtraLight_lim.woff");
 }
 @font-face {
     font-family: "make up for CN";
-    src: url("/periodic-table/font/woff/SubsetLv.woff");
+    src: url("../font/woff/SubsetLv.woff");
 }
 @font-face {
     font-family: "make up for TW and HK";
-    src: url("/periodic-table/font/woff/SubsetBkCnNh.woff");
+    src: url("../font/woff/SubsetBkCnNh.woff");
 }
 @font-face {
     font-family: "pinyin and bopomofo";
-    src: url("/periodic-table/font/woff/pinyin.woff");
+    src: url("../font/woff/pinyin.woff");
 }
 // @font-face {
 //     font-family: "HanyiSentySuciTablet";
-//     src: url("/periodic-table/font/HanyiSentySuciTablet.ttf");
+//     src: url("../font/HanyiSentySuciTablet.ttf");
 // }
 
 $animeNameList: "intoAN" "intoES" "intoJA" "intoEN" "intoSC" "intoTW" "intoHK";
