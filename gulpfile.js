@@ -17,11 +17,22 @@ gulp.task('default', () =>
         browsers: ['last 2 versions'],
       }))
       .pipe(sourcemaps.write())
-      .pipe(gulp.dest('app/static/css/'))
+      .pipe(gulp.dest('dist/static/css/'))
       .pipe(cleanCSS())
       .pipe(rename({
         suffix: '.min',
       }))
-      .pipe(gulp.dest('app/static/css/'))
+      .pipe(gulp.dest('dist/static/css/'))
   )
 );
+
+// ファイルのdistへのコピー
+gulp.task('copy', () => {
+  gulp.src([
+    'app/**',
+    '!app/static/scss/**',
+  ], {
+    base: 'app/',
+  })
+    .pipe(gulp.dest('dist/'))
+});
