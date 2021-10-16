@@ -5,8 +5,9 @@ const sourcemaps = require('gulp-sourcemaps');
 const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
 
+
 // scssファイルの変更を監視しcssを生成する
-gulp.task('default', () =>
+const compileScss = () =>
   gulp.watch('app/static/scss/*.scss', () =>
     gulp.src('app/static/scss/style.scss')
       .pipe(sourcemaps.init())
@@ -22,17 +23,19 @@ gulp.task('default', () =>
       .pipe(rename({
         suffix: '.min',
       }))
-      .pipe(gulp.dest('dist/static/css/'))
-  )
-);
+      .pipe(gulp.dest('dist/static/css/')));
+
 
 // ファイルのdistへのコピー
-gulp.task('copy', () => {
+const copyToDist = () =>
   gulp.src([
     'app/**',
     '!app/static/scss/**',
   ], {
     base: 'app/',
   })
-    .pipe(gulp.dest('dist/'))
-});
+    .pipe(gulp.dest('dist/'));
+
+
+exports.default = compileScss;
+exports.copy = copyToDist;
