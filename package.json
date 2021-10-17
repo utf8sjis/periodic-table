@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/utf8sjis/periodic-table#readme",
   "devDependencies": {
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",

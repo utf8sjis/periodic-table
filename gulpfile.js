@@ -5,6 +5,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const replace = require('gulp-replace');
+const del = require('del');
 
 
 // scssファイルの変更を監視しcssファイルを生成する
@@ -20,6 +21,10 @@ const compileSass = () =>
       }))
       .pipe(sourcemaps.write())
       .pipe(gulp.dest('app/static/css/')));
+
+
+// dist以下のファイルを削除する
+const clean = () => del('dist/*');
 
 
 // cssファイルを圧縮する
@@ -53,4 +58,4 @@ const copyToDist = () =>
 
 
 exports.default = compileSass;
-exports.build = gulp.series(minifyCss, replacePath, copyToDist);
+exports.build = gulp.series(clean, minifyCss, replacePath, copyToDist);
