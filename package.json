@@ -2,7 +2,7 @@
   "name": "periodic-table",
   "version": "1.0.0",
   "description": "This repository is for the website [gensokanji.netlify.app/periodic-table](https://gensokanji.netlify.app/periodic-table).",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
