@@ -34,7 +34,7 @@ const clean = () => del('dist/*');
 
 
 // cssファイルを圧縮する
-const minifyCss = () =>
+const minifyCSS = () =>
   gulp.src('app/static/css/style.css')
     .pipe(cleanCSS())
     .pipe(rename({
@@ -44,7 +44,7 @@ const minifyCss = () =>
 
 
 // jsファイルを結合、圧縮する
-const minifyJs = () =>
+const minifyJS = () =>
   gulp.src([
     'app/static/js/bodyScrollLock.js',
     'app/static/js/check_browser.js',
@@ -64,7 +64,7 @@ const minifyJs = () =>
 
 
 // htmlファイル内のパスを置換し圧縮する
-const minifyHtml = () =>
+const minifyHTML = () =>
   gulp.src('app/*.html')
     .pipe(replace('static/css/style.css', 'static/css/style.min.css'))
     .pipe(replace(
@@ -110,4 +110,4 @@ const copyToDist = () =>
 
 exports.default = compileSass;
 exports.build = gulp.series(
-  clean, minifyCss, minifyJs, minifyHtml, minifyImage, copyToDist);
+  clean, minifyCSS, minifyJS, minifyHTML, minifyImage, copyToDist);
