@@ -8,6 +8,9 @@ const replace = require('gulp-replace');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const htmlmin = require('gulp-htmlmin');
+const imagemin = require('gulp-imagemin');
+const pngquant = require('imagemin-pngquant');
+const svgo = require('imagemin-svgo');
 const del = require('del');
 
 
@@ -74,6 +77,19 @@ const minifyHtml = () =>
     .pipe(gulp.dest('dist/'));
 
 
+// 画像を圧縮する
+const minifyImage = () =>
+  gulp.src('app/static/img/**')
+    .pipe(imagemin([
+      pngquant({
+        quality: [.65, .80],
+        speed: 1,
+      }),
+      svgo(),
+    ]))
+    .pipe(gulp.dest('dist/static/img/'));
+
+
 // ファイルのdistへのコピー
 const copyToDist = () =>
   gulp.src([
@@ -81,6 +97,7 @@ const copyToDist = () =>
     '!app/static/scss/**',
     '!app/static/css/**',
     '!app/static/js/**',
+    '!app/static/img/**',
     '!app/*.html',
   ], {
     base: 'app/',
@@ -89,4 +106,5 @@ const copyToDist = () =>
 
 
 exports.default = compileSass;
-exports.build = gulp.series(clean, minifyCss, minifyJs, minifyHtml, copyToDist);
+exports.build = gulp.series(
+  clean, minifyCss, minifyJs, minifyHtml, minifyImage, copyToDist);
