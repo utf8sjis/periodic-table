@@ -68,6 +68,9 @@ const minifyHtml = () =>
   gulp.src('app/*.html')
     .pipe(replace('static/css/style.css', 'static/css/style.min.css'))
     .pipe(replace(
+      '<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>',
+      '<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>'))
+    .pipe(replace(
       /<script src=\"static\/js\/bodyScrollLock\.js\"><\/script>.+<script src=\"static\/js\/main\.js\"><\/script>/s,
       '<script src="static/js/main.min.js"></script>'))
     .pipe(htmlmin({
