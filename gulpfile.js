@@ -7,6 +7,7 @@ const rename = require('gulp-rename');
 const replace = require('gulp-replace');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
+const htmlmin = require('gulp-htmlmin');
 const del = require('del');
 
 
@@ -59,13 +60,17 @@ const minifyJs = () =>
     .pipe(gulp.dest('dist/static/js/'));
 
 
-// htmlファイル内のパスを置換
-const replacePath = () =>
+// htmlファイル内のパスを置換し圧縮する
+const minifyHtml = () =>
   gulp.src('app/*.html')
     .pipe(replace('static/css/style.css', 'static/css/style.min.css'))
     .pipe(replace(
       /<script src=\"static\/js\/bodyScrollLock\.js\"><\/script>.+<script src=\"static\/js\/main\.js\"><\/script>/s,
       '<script src="static/js/main.min.js"></script>'))
+    .pipe(htmlmin({
+      collapseWhitespace: true,
+      removeComments: true,
+    }))
     .pipe(gulp.dest('dist/'));
 
 
@@ -84,4 +89,4 @@ const copyToDist = () =>
 
 
 exports.default = compileSass;
-exports.build = gulp.series(clean, minifyCss, minifyJs, replacePath, copyToDist);
+exports.build = gulp.series(clean, minifyCss, minifyJs, minifyHtml, copyToDist);
