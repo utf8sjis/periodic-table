@@ -29,6 +29,7 @@ new Vue({
   data: {
     langList: langList,
     cellList: cellList,
+    demoCell: demoCell,
     elementList: elementList,
     categoryList: categoryList,
     groupClassList: groupClassList,
@@ -59,7 +60,6 @@ new Vue({
     isStart: false,
     /** データページの元素は最後の元素か否か */
     isEnd: false,
-    demoCell: demoCell,
     /** ナビゲーションメニューが開いているか否か */
     navOpened: false,
     /** スクロール量がページのトップあたりではないか否か */
