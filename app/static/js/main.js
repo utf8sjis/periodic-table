@@ -49,8 +49,8 @@ new Vue({
     },
     /** オーバーレイ表示しているか否か */
     isOverlayDisplayed: false,
-    /** オーバーレイ表示に連動するoverflow-hiddenが有効か否か */
-    isHidden: false,
+    /** bodyScrollLockが有効か否か */
+    isBodyScrollLocked: false,
     /** データページを遷移するボタンのHTML */
     signHtml: {
       previous: '', // 前の元素
@@ -177,7 +177,7 @@ new Vue({
       bodyScrollLock.disableBodyScroll(targetEl, {
         reserveScrollBarGap: true,
       });
-      this.isHidden = true;
+      this.isBodyScrollLocked = true;
     },
     /**
      * オーバーレイを閉じる前、bodyのスクロールを有効にする
@@ -185,7 +185,7 @@ new Vue({
      */
     beforeLeaveFade: function (el) {
       bodyScrollLock.clearAllBodyScrollLocks();
-      this.isHidden = false;
+      this.isBodyScrollLocked = false;
     },
     /**
      * Twitterのスクリプトタグを再設置し実行する

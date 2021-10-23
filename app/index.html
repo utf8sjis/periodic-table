@@ -133,7 +133,7 @@
       <div class="changer-wrapper">
 
         <div
-          :class="['contents', 'lang-changer', {'overflow-hidden': isHidden}]"
+          :class="['contents', 'lang-changer', {'overflow-hidden': isBodyScrollLocked}]"
           :style="{'transform': 'translateY(' + changerTranslate + 'px)'}"
         >
           <ul>
@@ -173,7 +173,7 @@
       </div>
 
       <div
-        :class="['main-contents', {'mc-overflow': mcIsOverflow, 'overflow-hidden': isHidden}]"
+        :class="['main-contents', {'mc-overflow': mcIsOverflow, 'overflow-hidden': isBodyScrollLocked}]"
         :style="{'height': ((54 * 9 + 6 * 8 + 60 * 2) * rangeValue) + 'px'}"
       >
         <div class="periodic-table" :style="{'transform': 'scale(' + rangeValue + ')'}">
@@ -218,7 +218,7 @@
         v-show="isOverlayDisplayed"
         v-cloak
       >
-        <div :class="['ov-container-box', {'overflow-hidden': !isHidden}]">
+        <div :class="['ov-container-box', {'overflow-hidden': !isBodyScrollLocked}]">
           <div class="ov-container">
             <div class="area-element-info">
               <div class="sub-area sub-area-element-symbol">
