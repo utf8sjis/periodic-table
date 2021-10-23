@@ -215,7 +215,7 @@
     >
       <div
         :class="['overlay-screen', elementList[currentCell.obj.atomicNum].bgClass]"
-        v-show="isDisp"
+        v-show="isOverlayDisplayed"
         v-cloak
       >
         <div :class="['ov-container-box', {'overflow-hidden': !isHidden}]">

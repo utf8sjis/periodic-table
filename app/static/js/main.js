@@ -48,7 +48,7 @@ new Vue({
       index: 0,         // cellListでのインデクス
     },
     /** オーバーレイ表示しているか否か */
-    isDisp: false,
+    isOverlayDisplayed: false,
     /** オーバーレイ表示に連動するoverflow-hiddenが有効か否か */
     isHidden: false,
     /** データページを遷移するボタンのHTML */
@@ -103,7 +103,7 @@ new Vue({
     openOverlay: function (cellIndex) {
       this.currentCell.obj = this.cellList[cellIndex];
       this.currentCell.index = cellIndex;
-      this.isDisp = true;
+      this.isOverlayDisplayed = true;
       this.cellList[cellIndex].isActive = true;
       const z = this.cellList[cellIndex].atomicNum;
       const nextIndex = this.atomicNumToIndex(z + 1);
@@ -130,7 +130,7 @@ new Vue({
      */
     openDemoOverlay: function () {
       this.currentCell.obj = demoCell;
-      this.isDisp = true;
+      this.isOverlayDisplayed = true;
       demoCell.isActive = true;
       this.signHtml.next = '次の元素';
       this.signHtml.previous = '前の元素';
@@ -140,7 +140,7 @@ new Vue({
      * 元素のデータページを閉じる
      */
     closeOverlay: function () {
-      this.isDisp = false;
+      this.isOverlayDisplayed = false;
       this.cellList[this.currentCell.index].isActive = false;
       demoCell.isActive = false;
     },
