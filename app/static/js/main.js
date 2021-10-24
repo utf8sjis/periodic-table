@@ -29,7 +29,6 @@ new Vue({
   data: {
     langList: langList,
     cellList: cellList,
-    demoCell: demoCell,
     elementList: elementList,
     categoryList: categoryList,
     groupClassList: groupClassList,
@@ -126,23 +125,11 @@ new Vue({
       this.isStart = previousIndex != -1 ? false : true;
     },
     /**
-     * デモのデータページをオーバーレイ表示する
-     */
-    openDemoOverlay: function () {
-      this.currentCell.obj = demoCell;
-      this.isOverlayDisplayed = true;
-      demoCell.isActive = true;
-      this.signHtml.next = '次の元素';
-      this.signHtml.previous = '前の元素';
-      this.isEnd = this.isStart = true;
-    },
-    /**
      * 元素のデータページを閉じる
      */
     closeOverlay: function () {
       this.isOverlayDisplayed = false;
       this.cellList[this.currentCell.index].isActive = false;
-      demoCell.isActive = false;
     },
     /**
      * データページを遷移する
