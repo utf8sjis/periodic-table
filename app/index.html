@@ -321,13 +321,17 @@
                 @click="changeOverlay('previous')"
               >
                 <ion-icon name="arrow-back"></ion-icon>
-                <span v-html="signHtml.previous"></span>
+                <span>
+                  <span>{{elementChangeButton.prev.atomicNum}}</span>{{elementChangeButton.prev.elementSymbol}}
+                </span>
               </span>
               <span
                 :class="['arrow-forward', {'disabled': isEnd}]"
                 @click="changeOverlay('next')"
               >
-                <span v-html="signHtml.next"></span>
+                <span>
+                  <span>{{elementChangeButton.next.atomicNum}}</span>{{elementChangeButton.next.elementSymbol}}
+                </span>
                 <ion-icon name="arrow-forward"></ion-icon>
               </span>
             </div>

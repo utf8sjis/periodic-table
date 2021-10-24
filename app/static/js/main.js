@@ -50,13 +50,8 @@ new Vue({
     isOverlayDisplayed: false,
     /** bodyScrollLockが有効か否か */
     isBodyScrollLocked: false,
-    /** データページを遷移するボタンのHTML */
-    signHtml: {
-      previous: '', // 前の元素
-      next: '',     // 後の元素
-    },
     /** データページの元素は最初の元素か否か */
-    isStart: false,
+    isStart: true,
     /** データページの元素は最後の元素か否か */
     isEnd: false,
     /** ナビゲーションメニューが開いているか否か */
@@ -104,25 +99,6 @@ new Vue({
       this.currentCell.index = cellIndex;
       this.isOverlayDisplayed = true;
       this.cellList[cellIndex].isActive = true;
-      const z = this.cellList[cellIndex].atomicNum;
-      const nextIndex = this.atomicNumToIndex(z + 1);
-      const previousIndex = this.atomicNumToIndex(z - 1);
-      this.signHtml.next =
-        nextIndex != -1
-          ? '<span>' +
-            this.cellList[nextIndex].atomicNum +
-            '</span>' +
-            this.cellList[nextIndex].innerStr['element-symbol']
-          : '<span>119</span>Uue';
-      this.signHtml.previous =
-        previousIndex != -1
-          ? '<span>' +
-            this.cellList[previousIndex].atomicNum +
-            '</span>' +
-            this.cellList[previousIndex].innerStr['element-symbol']
-          : '<span>0</span>n';
-      this.isEnd = nextIndex != -1 ? false : true;
-      this.isStart = previousIndex != -1 ? false : true;
     },
     /**
      * 元素のデータページを閉じる
@@ -324,6 +300,45 @@ new Vue({
     },
   },
   computed: {
+    /**
+     * データページを遷移するボタンの表示を作成する
+     * @returns {object} 表示内容の情報を含んだのオブジェクト
+     */
+    elementChangeButton: function () {
+      const z = this.currentCell.obj.atomicNum;
+      const obj = {
+        prev: {
+          atomicNum: 0,
+          elementSymbol: '',
+        },
+        next: {
+          atomicNum: 0,
+          elementSymbol: '',
+        },
+      };
+      if (z - 1 < 1) {
+        obj.prev.atomicNum = 0;
+        obj.prev.elementSymbol = 'n';
+        obj.next.atomicNum = this.elementList[z + 1].atomicNumber;
+        obj.next.elementSymbol = this.elementList[z + 1].elementSymbol;
+        this.isStart = true;
+        this.isEnd = false;
+      } else if (z + 1 > 118) {
+        obj.prev.atomicNum = this.elementList[z - 1].atomicNumber;
+        obj.prev.elementSymbol = this.elementList[z - 1].elementSymbol;
+        obj.next.atomicNum = 119;
+        obj.next.elementSymbol = 'Uue';
+        this.isStart = false;
+        this.isEnd = true;
+      } else {
+        obj.prev.atomicNum = this.elementList[z - 1].atomicNumber;
+        obj.prev.elementSymbol = this.elementList[z - 1].elementSymbol;
+        obj.next.atomicNum = this.elementList[z + 1].atomicNumber;
+        obj.next.elementSymbol = this.elementList[z + 1].elementSymbol;
+        this.isStart = this.isEnd = false;
+      }
+      return obj;
+    },
     /**
      * main-contentsのメディアクエリを作成する
      */
