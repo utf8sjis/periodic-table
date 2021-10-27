@@ -70,13 +70,16 @@ new Vue({
     isDisableUp: true,
     /** 操作パネルの内容が最後のものか */
     isDisableDown: false,
-    /** main-contentsの幅を設定したMediaQueryList */
-    mql: null,
-    /** 画面幅がmain-contentsを超過しているか否か */
-    mcIsOverflow: null,
-    /** main-contentsの幅 */
-    mcWidth: 54 * 18 + 6 * 17 + 60 * 2, // cellSize cellGap padding
-    /** main-contentsの幅の倍率 */
+    /** 周期表の幅と高さ */
+    periodicTableRect: {
+      width: 0,
+      height: 0,
+    },
+    /** 周期表の幅に対して作成したMediaQueryList */
+    periodicTableMQL: null,
+    /** 画面幅が周期表の幅を超過しているか否か */
+    isMainContentsOverflow: null,
+    /** 周期表の大きさの倍率 */
     rangeValue: 1,
   },
   methods: {
@@ -255,11 +258,21 @@ new Vue({
       this.inPopup = false;
     },
     /**
-     * 画面幅がmain-contentsを超過しているかを示すハンドラ
-     * @param {MediaQueryList} mql - main-contentsの幅を設定したMediaQueryList
+     * 画面幅が周期表の幅を超過しているかを示すハンドラ
      */
-    mcMediaQuery: function (mql) {
-      this.mcIsOverflow = !mql.matches;
+    checkMainContentsOverflow: function () {
+      this.isMainContentsOverflow = !this.periodicTableMQL.matches;
+    },
+    /**
+     * 周期表の幅に対するメディアクエリを作成する
+     */
+    createMediaQuery: function () {
+      if (this.periodicTableMQL) {
+        this.periodicTableMQL.removeEventListener('change', this.checkMainContentsOverflow);
+      }
+      this.periodicTableMQL = window.matchMedia(
+        '(min-width: ' + (this.periodicTableRect.width * this.rangeValue) + 'px)');
+      this.periodicTableMQL.addEventListener('change', this.checkMainContentsOverflow);
     },
     /**
      * 操作パネルの操作の内容を変更する
@@ -293,7 +306,7 @@ new Vue({
       }
     },
     /**
-     * main-contentsの幅の倍率を1にする
+     * 周期表の大きさの倍率を1にする
      */
     defaultRange: function () {
       this.rangeValue = 1;
@@ -339,32 +352,22 @@ new Vue({
       }
       return obj;
     },
-    /**
-     * main-contentsのメディアクエリを作成する
-     */
-    createMcMediaQuery: function () {
-      if (this.mql) {
-        this.mql.removeListener(this.mcMediaQuery);
-      }
-      const mcMaxWidth = this.mcWidth;
-      this.mql = window.matchMedia('(min-width: ' + mcMaxWidth + 'px)');
-      this.mql.addListener(this.mcMediaQuery);
-      this.mcMediaQuery(this.mql);
-    },
   },
   watch: {
     /**
-     * 倍率に応じてmain-contentsの幅を変更する
+     * 周期表の大きさの倍率を監視する
      */
     rangeValue: function () {
-      this.mcWidth = (54 * 18 + 6 * 17 + 60 * 2) * this.rangeValue;
-      this.createMcMediaQuery;
+      this.createMediaQuery();
+      this.checkMainContentsOverflow();
       const itemObj = JSON.parse(localStorage.getItem('itemStorage'));
       itemObj.rangeValue = this.rangeValue;
       localStorage.setItem('itemStorage', JSON.stringify(itemObj));
     },
   },
   mounted: function () {
+    // 周期表の幅と高さの初期値をセット
+    this.periodicTableRect = this.$refs.periodicTable.getBoundingClientRect();
     // Twitterのスクリプトを実行
     this.runScriptTag();
     // スクロールのイベントリスナを追加
@@ -380,8 +383,9 @@ new Vue({
     }
     this.changeThemeColor(itemObj.themeColorName);
     this.rangeValue = itemObj.rangeValue;
-    // main-contentsのメディアクエリを作成
-    this.createMcMediaQuery;
+    // 周期表の幅に対するメディアクエリを作成
+    this.createMediaQuery();
+    this.checkMainContentsOverflow();
   },
   updated: function () {
     // Twitterのスクリプトを実行

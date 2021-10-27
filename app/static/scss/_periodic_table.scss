@@ -3,13 +3,11 @@
 /* main-contents periodic-table */
 $cellSize: 54px;
 $cellGap: 6px;
-$tableWidth: $cellSize * 18 + $cellGap * 17;
 
 .main-contents {
     height: 654px;
     @include flexCentering();
-    overflow-x: visible;
-    overflow-y: hidden;
+    overflow: hidden;
     -webkit-overflow-scrolling: touch;
     .periodic-table {
         transform-origin: top 50%;
@@ -24,7 +22,6 @@ $tableWidth: $cellSize * 18 + $cellGap * 17;
 }
 .periodic-table {
     display: grid;
-    min-width: $tableWidth;
     padding: 60px;
     grid-template: repeat(9, $cellSize) / repeat(18, $cellSize);
     @include gridGap($cellGap, $cellGap);

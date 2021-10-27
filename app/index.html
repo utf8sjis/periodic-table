@@ -173,10 +173,10 @@
       </div>
 
       <div
-        :class="['main-contents', {'mc-overflow': mcIsOverflow, 'overflow-hidden': isBodyScrollLocked}]"
-        :style="{'height': ((54 * 9 + 6 * 8 + 60 * 2) * rangeValue) + 'px'}"
+        :class="['main-contents', {'mc-overflow': isMainContentsOverflow, 'overflow-hidden': isBodyScrollLocked}]"
+        :style="{'height': (periodicTableRect.height * rangeValue) + 'px'}"
       >
-        <div class="periodic-table" :style="{'transform': 'scale(' + rangeValue + ')'}">
+        <div ref="periodicTable" class="periodic-table" :style="{'transform': 'scale(' + rangeValue + ')'}">
 
           <div class="table-guide">
             <!-- <div class="state-guide"></div> -->
