@@ -130,7 +130,7 @@ new Vue({
      * @param {object} el - オーバーレイの要素
      */
     beforeEnterFade: function (el) {
-      const targetEl = document.querySelector('.ov-container-box');
+      const targetEl = el.querySelector('.ov-container-box');
       bodyScrollLock.disableBodyScroll(targetEl, {
         reserveScrollBarGap: true,
       });
