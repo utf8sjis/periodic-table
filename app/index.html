@@ -30,7 +30,7 @@
   <div id="app">
 
     <header v-cloak>
-      <div :class="['header-start', {'active': navOpened}]">
+      <div :class="['header-start', {'active': isNavOpened}]">
         <div class="logo">
           <a href="https://gensokanji.netlify.app">gensokanji</a>
         </div>
@@ -66,7 +66,7 @@
           </div>
         </div>
         <div
-          :class="['nav-button', {'active': navOpened}]"
+          :class="['nav-button', {'active': isNavOpened}]"
           @click="navOpen"
         >
           <span class="nav-button-more">MORE</span>
@@ -82,7 +82,7 @@
       </div>
     </header>
 
-    <nav v-cloak :class="{'active': navOpened}">
+    <nav v-cloak :class="{'active': isNavOpened}">
       <div class="nav-content">
         <div class="nav-section-title">テーマカラー</div>
         <div class="theme-color-changer">
@@ -123,7 +123,7 @@
     </nav>
 
     <div
-      :class="['nav-back', {'active': navOpened}]"
+      :class="['nav-back', {'active': isNavOpened}]"
       @click="navOpen"
       v-cloak
     ></div>

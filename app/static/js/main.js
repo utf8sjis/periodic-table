@@ -47,7 +47,7 @@ new Vue({
     /** bodyScrollLockが有効か否か */
     isBodyScrollLocked: false,
     /** ナビゲーションメニューが開いているか否か */
-    navOpened: false,
+    isNavOpened: false,
     /** スクロール量がページのトップあたりではないか否か */
     isNotAroundTop: false,
     /** ポップアップに表示するメッセージ */
@@ -169,7 +169,7 @@ new Vue({
      * ナビゲーションメニューを開く
      */
     navOpen: function () {
-      this.navOpened = !this.navOpened;
+      this.isNavOpened = !this.isNavOpened;
     },
     /**
      * スクロール量がページのトップあたりかを示すハンドラ
