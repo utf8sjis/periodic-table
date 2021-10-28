@@ -531,11 +531,11 @@
     </footer>
 
     <div
-      :class="['popup-box', {'active': inPopup}]"
+      :class="['popup-box', {'active': popup.isDisplayed}]"
       @click="clearPopup"
       v-cloak
     >
-      <i class="fas fa-info-circle"></i>{{ popupMessage }}
+      <i class="fas fa-info-circle"></i>{{ popup.message }}
     </div>
 
   </div>

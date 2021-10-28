@@ -50,12 +50,12 @@ new Vue({
     isNavOpened: false,
     /** スクロール量がページのトップあたりではないか否か */
     isNotAroundTop: false,
-    /** ポップアップに表示するメッセージ */
-    popupMessage: '',
-    /** ポップアップが表示中か否か */
-    inPopup: false,
-    /** ポップアップ表示のタイマーID */
-    timerId: null,
+    /** ポップアップのメッセージ、表示されているか否か、タイムアウトID */
+    popup: {
+      message: '',
+      isDisplayed: false,
+      timeoutID: 0,
+    },
     /** 操作パネルの表示のtranslateYの値 */
     changerTranslate: 0,
     /** 操作パネルの内容が最初のものか */
@@ -229,24 +229,24 @@ new Vue({
     },
     /**
      * ポップアップを表示する
-     * @param {string} mes - ポップアップに表示するメッセージ
+     * @param {string} message - ポップアップに表示するメッセージ
      */
-    activePopup: function (mes) {
-      if (this.timerId != null) {
-        clearTimeout(this.timerId);
+    activePopup: function (message) {
+      if (this.popup.timeoutID != null) {
+        clearTimeout(this.popup.timeoutID);
       }
-      this.popupMessage = mes;
-      this.inPopup = true;
-      this.timerId = setTimeout(() => (this.inPopup = false), 3000);
+      this.popup.message = message;
+      this.popup.isDisplayed = true;
+      this.popup.timeoutID = setTimeout(() => (this.popup.isDisplayed = false), 3000);
     },
     /**
      * ポップアップを閉じる
      */
     clearPopup: function () {
-      if (this.timerId != null) {
-        clearTimeout(this.timerId);
+      if (this.popup.timeoutID != null) {
+        clearTimeout(this.popup.timeoutID);
       }
-      this.inPopup = false;
+      this.popup.isDisplayed = false;
     },
     /**
      * 画面幅が周期表の幅を超過しているかを示すハンドラ
