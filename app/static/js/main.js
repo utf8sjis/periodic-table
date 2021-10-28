@@ -237,7 +237,10 @@ new Vue({
       }
       this.popup.message = message;
       this.popup.isDisplayed = true;
-      this.popup.timeoutID = setTimeout(() => (this.popup.isDisplayed = false), 3000);
+      this.popup.timeoutID = setTimeout(
+        () => (this.popup.isDisplayed = false),
+        3000
+      );
     },
     /**
      * ポップアップを閉じる
