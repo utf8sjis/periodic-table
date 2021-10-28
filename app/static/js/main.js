@@ -184,7 +184,7 @@ new Vue({
     /**
      * ページトップまでスクロールする
      */
-    toTop: function () {
+    goToTop: function () {
       jQuery(function () {
         $('body, html').animate({scrollTop: 0}, 500);
       });
