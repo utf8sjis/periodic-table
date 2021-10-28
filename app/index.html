@@ -198,9 +198,9 @@
           >{{ num + 1 }}</div>
           <span
             v-for="(cellObj, cellIndex) in cellList"
-            :class="[cellObj.cellClass, currentLang.className, {'click-effect': cellList[cellIndex].isActive}]"
+            :class="[cellObj.cellClass, langList[current.langIndex].langClass, {'click-effect': cellList[cellIndex].isActive}]"
             @click="openOverlay(cellIndex)"
-            v-html="cellObj.innerStr[currentLang.className]"
+            v-html="cellObj.innerStr[langList[current.langIndex].langClass]"
           ></span>
         </div>
 

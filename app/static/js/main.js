@@ -37,9 +37,8 @@ new Vue({
     themeColorList: themeColorList,
     changerTitleList: changerTitleList,
     /** 現在の表示言語 */
-    currentLang: {
-      className: 'taiwan-trad', // CSSのクラス
-      index: 3,                 // langListでのインデクス
+    current: {
+      langIndex: 3,
     },
     /** オーバーレイ表示したセル */
     currentCell: {
@@ -88,9 +87,8 @@ new Vue({
      * @param {number} langIndex - 選択された言語のlangListでのインデクス
      */
     setCurrentLang: function (langIndex) {
-      this.langList[this.currentLang.index].isActive = false;
-      this.currentLang.index = langIndex;
-      this.currentLang.className = this.langList[langIndex].langClass;
+      this.langList[this.current.langIndex].isActive = false;
+      this.current.langIndex = langIndex;
       this.langList[langIndex].isActive = true;
     },
     /**
