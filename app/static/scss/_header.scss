@@ -124,7 +124,7 @@ header {
             display: none;
         }
     }
-    &.notAroundTop {
+    &.not-around-top {
         .share-wrapper {
             @include mediaQuery() {
                 transform: translateX(0);

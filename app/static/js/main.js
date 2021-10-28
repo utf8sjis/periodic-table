@@ -48,8 +48,8 @@ new Vue({
     isBodyScrollLocked: false,
     /** ナビゲーションメニューが開いているか否か */
     isNavOpened: false,
-    /** スクロール量がページのトップあたりではないか否か */
-    isNotAroundTop: false,
+    /** スクロール量がページのトップあたりか否か */
+    isAroundTop: true,
     /** ポップアップのメッセージ、表示されているか否か、タイムアウトID */
     popup: {
       message: '',
@@ -176,9 +176,9 @@ new Vue({
      */
     handleScroll: function () {
       if (window.scrollY > 200) {
-        this.isNotAroundTop = true;
+        this.isAroundTop = false;
       } else {
-        this.isNotAroundTop = false;
+        this.isAroundTop = true;
       }
     },
     /**
