@@ -214,7 +214,7 @@
       @before-leave="beforeLeaveFade"
     >
       <div
-        :class="['overlay-screen', elementList[currentCell.obj.atomicNum].bgClass]"
+        :class="['overlay-screen', elementList[current.cell.atomicNum].bgClass]"
         v-show="isOverlayDisplayed"
         v-cloak
       >
@@ -224,84 +224,84 @@
               <div class="sub-area sub-area-element-symbol">
                 <div
                   class="float-area float-area-state"
-                  v-html="elementList[currentCell.obj.atomicNum].state"
+                  v-html="elementList[current.cell.atomicNum].state"
                 ></div>
                 <div
                   class="float-area float-area-radioactivity"
-                  v-html="elementList[currentCell.obj.atomicNum].radioactivity"
+                  v-html="elementList[current.cell.atomicNum].radioactivity"
                 ></div>
                 <div
                   class="cont-area cont-area-element-symbol"
-                  v-html="currentCell.obj.innerStr['element-symbol']"
+                  v-html="current.cell.innerStr['element-symbol']"
                 ></div>
               </div>
               <normal-sub-area name="atomic-num" label="Z =">
-                {{elementList[currentCell.obj.atomicNum].atomicNumber }}
+                {{elementList[current.cell.atomicNum].atomicNumber }}
               </normal-sub-area>
               <normal-sub-area name="period" label="Period">
-                {{ elementList[currentCell.obj.atomicNum].period }}
+                {{ elementList[current.cell.atomicNum].period }}
               </normal-sub-area>
               <normal-sub-area name="group" label="Group">
-                {{ elementList[currentCell.obj.atomicNum].group }}
+                {{ elementList[current.cell.atomicNum].group }}
               </normal-sub-area>
               <normal-sub-area name="atomic-weight" label="A<sub>r</sub> =">
-                {{ elementList[currentCell.obj.atomicNum].atomicWeight }}
+                {{ elementList[current.cell.atomicNum].atomicWeight }}
               </normal-sub-area>
               <normal-sub-area name="category" label="Category">
-                {{ elementList[currentCell.obj.atomicNum].category }}
+                {{ elementList[current.cell.atomicNum].category }}
               </normal-sub-area>
             </div>
             <div class="area-kanji-info">
               <normal-sub-area name="cn" label="Mainland China">
-                <div class="kanji">{{ currentCell.obj.innerStr['simplified-chinese'] }}</div>
-                <div class="code-point">U+{{ elementList[currentCell.obj.atomicNum].UnicodeCodePointCN }}</div>
+                <div class="kanji">{{ current.cell.innerStr['simplified-chinese'] }}</div>
+                <div class="code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointCN }}</div>
                 <div
                   class="kanji-copy-button"
-                  @click="copyToClipboard(currentCell.obj.innerStr['simplified-chinese'])"
+                  @click="copyToClipboard(current.cell.innerStr['simplified-chinese'])"
                   data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-sc"
                 ><i id="fa-clipboard-sc" class="fas fa-clipboard" data-micron="swing"></i></div>
               </normal-sub-area>
               <normal-sub-area name="tw" label="Taiwan">
-                <div class="kanji">{{ currentCell.obj.innerStr['taiwan-trad'] }}</div>
-                <div class="code-point">U+{{ elementList[currentCell.obj.atomicNum].UnicodeCodePointTW }}</div>
+                <div class="kanji">{{ current.cell.innerStr['taiwan-trad'] }}</div>
+                <div class="code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointTW }}</div>
                 <div
                   class="kanji-copy-button"
-                  @click="copyToClipboard(currentCell.obj.innerStr['taiwan-trad'])"
+                  @click="copyToClipboard(current.cell.innerStr['taiwan-trad'])"
                   data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-tw"
                 ><i id="fa-clipboard-tw" class="fas fa-clipboard" data-micron="swing"></i></div>
               </normal-sub-area>
               <normal-sub-area name="hk" label="Hong Kong">
-                <div class="kanji">{{ currentCell.obj.innerStr['hongkong-trad'] }}</div>
-                <div class="code-point">U+{{ elementList[currentCell.obj.atomicNum].UnicodeCodePointHK }}</div>
+                <div class="kanji">{{ current.cell.innerStr['hongkong-trad'] }}</div>
+                <div class="code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointHK }}</div>
                 <div
                   class="kanji-copy-button"
-                  @click="copyToClipboard(currentCell.obj.innerStr['hongkong-trad'])"
+                  @click="copyToClipboard(current.cell.innerStr['hongkong-trad'])"
                   data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-hk"
                 ><i id="fa-clipboard-hk" class="fas fa-clipboard" data-micron="swing"></i></div>
               </normal-sub-area>
             </div>
             <div class="area-reading-info">
               <normal-sub-area name="pinyin" label="<span>Pinyin</span><span>Mainland China</span>">
-                {{ elementList[currentCell.obj.atomicNum].pinyin }}
+                {{ elementList[current.cell.atomicNum].pinyin }}
               </normal-sub-area>
               <normal-sub-area name="bopomofo" label="<span>Bopomofo</span><span>Taiwan</span>">
-                {{ elementList[currentCell.obj.atomicNum].bopomofo
-                  + ' (' + elementList[currentCell.obj.atomicNum].taiwanPinyin + ')' }}
+                {{ elementList[current.cell.atomicNum].bopomofo
+                  + ' (' + elementList[current.cell.atomicNum].taiwanPinyin + ')' }}
               </normal-sub-area>
             </div>
             <div class="area-name-info">
               <normal-sub-area name="japanese-name" label="Japanese Name">
-                {{ currentCell.obj.innerStr['japanese-name'] }}
+                {{ current.cell.innerStr['japanese-name'] }}
               </normal-sub-area>
               <normal-sub-area name="english-name" label="English Name">
-                {{ currentCell.obj.innerStr['english-name'] }}
+                {{ current.cell.innerStr['english-name'] }}
               </normal-sub-area>
             </div>
             <div class="area-twitter-tweet">
               <div class="sub-area sub-area-tweet">
                 <div
                   class="cont-area cont-area-tweet"
-                  v-html="elementList[currentCell.obj.atomicNum].twitterTweet"
+                  v-html="elementList[current.cell.atomicNum].twitterTweet"
                 ></div>
               </div>
             </div>

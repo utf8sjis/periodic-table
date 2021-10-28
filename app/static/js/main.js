@@ -36,14 +36,11 @@ new Vue({
     navLinkSectionList: navLinkSectionList,
     themeColorList: themeColorList,
     changerTitleList: changerTitleList,
-    /** 現在の表示言語 */
+    /** 現在の表示言語とセル */
     current: {
       langIndex: 3,
-    },
-    /** オーバーレイ表示したセル */
-    currentCell: {
-      obj: cellList[0], // cellListの要素
-      index: 0,         // cellListでのインデクス
+      cellIndex: 0,
+      cell: cellList[0],
     },
     /** オーバーレイ表示しているか否か */
     isOverlayDisplayed: false,
@@ -96,8 +93,8 @@ new Vue({
      * @param {number} cellIndex - 選択された元素のcellListでのインデクス
      */
     openOverlay: function (cellIndex) {
-      this.currentCell.obj = this.cellList[cellIndex];
-      this.currentCell.index = cellIndex;
+      this.current.cell = this.cellList[cellIndex];
+      this.current.cellIndex = cellIndex;
       this.isOverlayDisplayed = true;
       this.cellList[cellIndex].isActive = true;
     },
@@ -106,14 +103,14 @@ new Vue({
      */
     closeOverlay: function () {
       this.isOverlayDisplayed = false;
-      this.cellList[this.currentCell.index].isActive = false;
+      this.cellList[this.current.cellIndex].isActive = false;
     },
     /**
      * データページを遷移する
      * @param {string} to - 'next'＝次の元素か'previous'＝前の元素 
      */
     changeOverlay: function (to) {
-      let z = this.currentCell.obj.atomicNum;
+      let z = this.current.cell.atomicNum;
       if (to === 'next') {
         z++;
       } else if (to === 'previous') {
@@ -121,7 +118,7 @@ new Vue({
       }
       if (z >= 1 && z <= 118) {
         const toIndex = this.atomicNumToIndex(z);
-        this.cellList[this.currentCell.index].isActive = false;
+        this.cellList[this.current.cellIndex].isActive = false;
         this.openOverlay(toIndex);
       }
     },
@@ -316,7 +313,7 @@ new Vue({
      * @returns {object} 表示内容の情報を含んだのオブジェクト
      */
     elementChangeButton: function () {
-      const z = this.currentCell.obj.atomicNum;
+      const z = this.current.cell.atomicNum;
       const obj = {
         prev: {
           atomicNum: 0,
