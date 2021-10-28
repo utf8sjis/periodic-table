@@ -317,7 +317,7 @@
           <div class="sub-area sub-area-change">
             <div class="cont-area cont-area-change">
               <span
-                :class="['arrow-back', {'disabled': isStart}]"
+                :class="['arrow-back', {'disabled': elementChangeButton.isStart}]"
                 @click="changeOverlay('previous')"
               >
                 <ion-icon name="arrow-back"></ion-icon>
@@ -326,7 +326,7 @@
                 </span>
               </span>
               <span
-                :class="['arrow-forward', {'disabled': isEnd}]"
+                :class="['arrow-forward', {'disabled': elementChangeButton.isEnd}]"
                 @click="changeOverlay('next')"
               >
                 <span>

@@ -46,10 +46,6 @@ new Vue({
     isOverlayDisplayed: false,
     /** bodyScrollLockが有効か否か */
     isBodyScrollLocked: false,
-    /** データページの元素は最初の元素か否か */
-    isStart: true,
-    /** データページの元素は最後の元素か否か */
-    isEnd: false,
     /** ナビゲーションメニューが開いているか否か */
     navOpened: false,
     /** スクロール量がページのトップあたりではないか否か */
@@ -323,27 +319,29 @@ new Vue({
           atomicNum: 0,
           elementSymbol: '',
         },
+        isStart: true,
+        isEnd: false,
       };
       if (z - 1 < 1) {
         obj.prev.atomicNum = 0;
         obj.prev.elementSymbol = 'n';
         obj.next.atomicNum = this.elementList[z + 1].atomicNumber;
         obj.next.elementSymbol = this.elementList[z + 1].elementSymbol;
-        this.isStart = true;
-        this.isEnd = false;
+        obj.isStart = true;
+        obj.isEnd = false;
       } else if (z + 1 > 118) {
         obj.prev.atomicNum = this.elementList[z - 1].atomicNumber;
         obj.prev.elementSymbol = this.elementList[z - 1].elementSymbol;
         obj.next.atomicNum = 119;
         obj.next.elementSymbol = 'Uue';
-        this.isStart = false;
-        this.isEnd = true;
+        obj.isStart = false;
+        obj.isEnd = true;
       } else {
         obj.prev.atomicNum = this.elementList[z - 1].atomicNumber;
         obj.prev.elementSymbol = this.elementList[z - 1].elementSymbol;
         obj.next.atomicNum = this.elementList[z + 1].atomicNumber;
         obj.next.elementSymbol = this.elementList[z + 1].elementSymbol;
-        this.isStart = this.isEnd = false;
+        obj.isStart = obj.isEnd = false;
       }
       return obj;
     },
