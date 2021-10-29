@@ -93,6 +93,7 @@ new Vue({
       this.current.cellIndex = cellIndex;
       this.isOverlayDisplayed = true;
       this.cellList[cellIndex].isActive = true;
+      this.runTwitterScript();
     },
     /**
      * 元素のデータページを閉じる
@@ -145,14 +146,13 @@ new Vue({
       this.isBodyScrollLocked = false;
     },
     /**
-     * Twitterのスクリプトタグを再設置し実行する
+     * Twitterのスクリプトタグを明示的に設置し実行する
      */
-    runScriptTag: function () {
-      this.$el.querySelectorAll('script').forEach(function (script) {
-        const alternativeNode = document.createElement('script');
-        alternativeNode.src = script.src;
-        script.parentNode.replaceChild(alternativeNode, script);
-      });
+    runTwitterScript: function () {
+      const scriptEl = document.createElement('script');
+      scriptEl.async = true;
+      scriptEl.src = 'https://platform.twitter.com/widgets.js';
+      this.$refs.contAreaTweet.appendChild(scriptEl);
     },
     /**
      * 原子番号からcellListのインデクスを返す
@@ -364,8 +364,6 @@ new Vue({
   mounted: function () {
     // 周期表の幅と高さの初期値をセット
     this.periodicTableRect = this.$refs.periodicTable.getBoundingClientRect();
-    // Twitterのスクリプトを実行
-    this.runScriptTag();
     // スクロールのイベントリスナを追加
     window.addEventListener('scroll', this.handleScroll);
     // localStorageの初期化と読み出し
@@ -382,9 +380,5 @@ new Vue({
     // 周期表の幅に対するメディアクエリを作成
     this.createMediaQuery();
     this.checkMainContentsOverflow();
-  },
-  updated: function () {
-    // Twitterのスクリプトを実行
-    this.runScriptTag();
   },
 });

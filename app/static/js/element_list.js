@@ -30,7 +30,7 @@ const elementList = [
     atomicWeight: '1.008',
     category: '典型元素',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1426141276932644866?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426141276932644866?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'qīng',
     bopomofo: 'ㄑㄧㄥ',
     taiwanPinyin: 'qīng',
@@ -50,7 +50,7 @@ const elementList = [
     atomicWeight: '4.003',
     category: '典型元素／貴ガス',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1426133508796387328?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426133508796387328?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'hài',
     bopomofo: 'ㄏㄞˋ',
     taiwanPinyin: 'hài',
@@ -70,7 +70,7 @@ const elementList = [
     atomicWeight: '6.941',
     category: '典型元素／アルカリ金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1426156434618822659?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426156434618822659?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lǐ',
     bopomofo: 'ㄌㄧˇ',
     taiwanPinyin: 'lǐ',
@@ -90,7 +90,7 @@ const elementList = [
     atomicWeight: '9.012',
     category: '典型元素',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425854211443597312?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425854211443597312?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'pí',
     bopomofo: 'ㄆㄧˊ',
     taiwanPinyin: 'pí',
@@ -110,7 +110,7 @@ const elementList = [
     atomicWeight: '10.81',
     category: '典型元素／ホウ素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424764736646885379?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424764736646885379?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'péng',
     bopomofo: 'ㄆㄥˊ',
     taiwanPinyin: 'péng',
@@ -130,7 +130,7 @@ const elementList = [
     atomicWeight: '12.01',
     category: '典型元素／炭素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424681504563679234?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424681504563679234?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tàn',
     bopomofo: 'ㄊㄢˋ',
     taiwanPinyin: 'tàn',
@@ -150,7 +150,7 @@ const elementList = [
     atomicWeight: '14.01',
     category: '典型元素／窒素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1422656832699609090?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422656832699609090?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'dàn',
     bopomofo: 'ㄉㄢˋ',
     taiwanPinyin: 'dàn',
@@ -170,7 +170,7 @@ const elementList = [
     atomicWeight: '16.00',
     category: '典型元素／酸素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424789658605703170?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424789658605703170?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yǎng',
     bopomofo: 'ㄧㄤˇ',
     taiwanPinyin: 'yǎng',
@@ -190,7 +190,7 @@ const elementList = [
     atomicWeight: '19.00',
     category: '典型元素／ハロゲン',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424724770256531462?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424724770256531462?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'fú',
     bopomofo: 'ㄈㄨˊ',
     taiwanPinyin: 'fú',
@@ -210,7 +210,7 @@ const elementList = [
     atomicWeight: '20.18',
     category: '典型元素／貴ガス',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423725103800537094?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423725103800537094?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'nǎi',
     bopomofo: 'ㄋㄞˇ',
     taiwanPinyin: 'nǎi',
@@ -230,7 +230,7 @@ const elementList = [
     atomicWeight: '22.99',
     category: '典型元素／アルカリ金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424482659489701893?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424482659489701893?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'nà',
     bopomofo: 'ㄋㄚˋ',
     taiwanPinyin: 'nà',
@@ -250,7 +250,7 @@ const elementList = [
     atomicWeight: '24.31',
     category: '典型元素',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423627235618172929?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423627235618172929?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'měi',
     bopomofo: 'ㄇㄟˇ',
     taiwanPinyin: 'měi',
@@ -270,7 +270,7 @@ const elementList = [
     atomicWeight: '26.98',
     category: '典型元素／ホウ素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423712832827371521?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423712832827371521?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lǚ',
     bopomofo: 'ㄌㄩˇ',
     taiwanPinyin: 'lǚ',
@@ -290,7 +290,7 @@ const elementList = [
     atomicWeight: '28.09',
     category: '典型元素／炭素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424444890696519684?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424444890696519684?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'guī',
     bopomofo: 'ㄒㄧˋ',
     taiwanPinyin: 'xì',
@@ -310,7 +310,7 @@ const elementList = [
     atomicWeight: '30.97',
     category: '典型元素／窒素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1375796823072374791?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1375796823072374791?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lín',
     bopomofo: 'ㄌㄧㄣˊ',
     taiwanPinyin: 'lín',
@@ -330,7 +330,7 @@ const elementList = [
     atomicWeight: '32.07',
     category: '典型元素／酸素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423443285050265600?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423443285050265600?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'liú',
     bopomofo: 'ㄌㄧㄡˊ',
     taiwanPinyin: 'liú',
@@ -350,7 +350,7 @@ const elementList = [
     atomicWeight: '35.45',
     category: '典型元素／ハロゲン',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1422791472072597504?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422791472072597504?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lǜ',
     bopomofo: 'ㄌㄩˋ',
     taiwanPinyin: 'lǜ',
@@ -370,7 +370,7 @@ const elementList = [
     atomicWeight: '39.95',
     category: '典型元素／貴ガス',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423468514204073985?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423468514204073985?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yà',
     bopomofo: 'ㄧㄚˇ',
     taiwanPinyin: 'yǎ',
@@ -390,7 +390,7 @@ const elementList = [
     atomicWeight: '39.10',
     category: '典型元素／アルカリ金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425713544289562629?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425713544289562629?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'jiǎ',
     bopomofo: 'ㄐㄧㄚˇ',
     taiwanPinyin: 'jiǎ',
@@ -410,7 +410,7 @@ const elementList = [
     atomicWeight: '40.08',
     category: '典型元素／アルカリ土類金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425235312129753095?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425235312129753095?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'gài',
     bopomofo: 'ㄍㄞˋ',
     taiwanPinyin: 'gài',
@@ -430,7 +430,7 @@ const elementList = [
     atomicWeight: '44.96',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424908438673444867?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424908438673444867?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'kàng',
     bopomofo: 'ㄎㄤˋ',
     taiwanPinyin: 'kàng',
@@ -450,7 +450,7 @@ const elementList = [
     atomicWeight: '47.87',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1426010152206020610?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426010152206020610?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tài',
     bopomofo: 'ㄊㄞˋ',
     taiwanPinyin: 'tài',
@@ -470,7 +470,7 @@ const elementList = [
     atomicWeight: '50.94',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425604984570327040?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425604984570327040?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'fán',
     bopomofo: 'ㄈㄢˊ',
     taiwanPinyin: 'fán',
@@ -490,7 +490,7 @@ const elementList = [
     atomicWeight: '52.00',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423023166876798990?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423023166876798990?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'gè',
     bopomofo: 'ㄍㄜˋ',
     taiwanPinyin: 'gè',
@@ -510,7 +510,7 @@ const elementList = [
     atomicWeight: '54.94',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423788345797251080?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423788345797251080?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'měng',
     bopomofo: 'ㄇㄥˇ',
     taiwanPinyin: 'měng',
@@ -530,7 +530,7 @@ const elementList = [
     atomicWeight: '55.85',
     category: '遷移金属／鉄族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424261557131878403?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424261557131878403?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tiě',
     bopomofo: 'ㄊㄧㄝˇ',
     taiwanPinyin: 'tiě',
@@ -550,7 +550,7 @@ const elementList = [
     atomicWeight: '58.93',
     category: '遷移金属／鉄族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424389610176720900?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424389610176720900?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'gǔ',
     bopomofo: 'ㄍㄨ',
     taiwanPinyin: 'gū',
@@ -570,7 +570,7 @@ const elementList = [
     atomicWeight: '58.69',
     category: '遷移金属／鉄族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425169647721226244?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425169647721226244?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'niè',
     bopomofo: 'ㄋㄧㄝˋ',
     taiwanPinyin: 'niè',
@@ -590,7 +590,7 @@ const elementList = [
     atomicWeight: '63.55',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425829307721474052?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425829307721474052?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tóng',
     bopomofo: 'ㄊㄨㄥˊ',
     taiwanPinyin: 'tóng',
@@ -610,7 +610,7 @@ const elementList = [
     atomicWeight: '65.38',
     category: '典型元素／亜鉛族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424860121998495744?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424860121998495744?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'xīn',
     bopomofo: 'ㄒㄧㄣ',
     taiwanPinyin: 'xīn',
@@ -630,7 +630,7 @@ const elementList = [
     atomicWeight: '69.72',
     category: '典型元素／ホウ素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1422747443070898176?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422747443070898176?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'jiā',
     bopomofo: 'ㄐㄧㄚ',
     taiwanPinyin: 'jiā',
@@ -650,7 +650,7 @@ const elementList = [
     atomicWeight: '72.63',
     category: '典型元素／炭素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425393766429601792?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425393766429601792?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'zhě',
     bopomofo: 'ㄓㄜˇ',
     taiwanPinyin: 'zhě',
@@ -670,7 +670,7 @@ const elementList = [
     atomicWeight: '74.92',
     category: '典型元素／窒素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425647795625672705?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425647795625672705?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'shēn',
     bopomofo: 'ㄕㄣ',
     taiwanPinyin: 'shēn',
@@ -690,7 +690,7 @@ const elementList = [
     atomicWeight: '78.97',
     category: '典型元素／酸素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423891419983458307?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423891419983458307?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'xī',
     bopomofo: 'ㄒㄧ',
     taiwanPinyin: 'xī',
@@ -710,7 +710,7 @@ const elementList = [
     atomicWeight: '79.90',
     category: '典型元素／ハロゲン',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423592017783894017?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423592017783894017?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'xiù',
     bopomofo: 'ㄒㄧㄡˋ',
     taiwanPinyin: 'xiù',
@@ -730,7 +730,7 @@ const elementList = [
     atomicWeight: '83.80',
     category: '典型元素／貴ガス',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425519839876194304?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425519839876194304?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'kè',
     bopomofo: 'ㄎㄜˋ',
     taiwanPinyin: 'kè',
@@ -750,7 +750,7 @@ const elementList = [
     atomicWeight: '85.47',
     category: '典型元素／アルカリ金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424097827588825097?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424097827588825097?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'rú',
     bopomofo: 'ㄖㄨˊ',
     taiwanPinyin: 'rú',
@@ -770,7 +770,7 @@ const elementList = [
     atomicWeight: '87.62',
     category: '典型元素／アルカリ土類金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425225483629875200?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425225483629875200?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'sī',
     bopomofo: 'ㄙ',
     taiwanPinyin: 'sī',
@@ -790,7 +790,7 @@ const elementList = [
     atomicWeight: '88.91',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423674954961367041?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423674954961367041?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yǐ',
     bopomofo: 'ㄧˇ',
     taiwanPinyin: 'yǐ',
@@ -810,7 +810,7 @@ const elementList = [
     atomicWeight: '91.22',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424993577243971586?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424993577243971586?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'gào',
     bopomofo: 'ㄍㄠˋ',
     taiwanPinyin: 'gào',
@@ -830,7 +830,7 @@ const elementList = [
     atomicWeight: '92.91',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1426065927624347649?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426065927624347649?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'ní',
     bopomofo: 'ㄋㄧˊ',
     taiwanPinyin: 'ní',
@@ -850,7 +850,7 @@ const elementList = [
     atomicWeight: '95.95',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423682540897030145?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423682540897030145?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'mù',
     bopomofo: 'ㄇㄨˋ',
     taiwanPinyin: 'mù',
@@ -870,7 +870,7 @@ const elementList = [
     atomicWeight: '(99)',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1422900015190712326?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422900015190712326?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'dé',
     bopomofo: 'ㄊㄚˇ',
     taiwanPinyin: 'tǎ',
@@ -890,7 +890,7 @@ const elementList = [
     atomicWeight: '101.1',
     category: '遷移金属／白金族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423408424797212672?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423408424797212672?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'liǎo',
     bopomofo: 'ㄌㄧㄠˇ',
     taiwanPinyin: 'liǎo',
@@ -910,7 +910,7 @@ const elementList = [
     atomicWeight: '102.9',
     category: '遷移金属／白金族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1422757535556177920?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422757535556177920?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lǎo',
     bopomofo: 'ㄌㄠˇ',
     taiwanPinyin: 'lǎo',
@@ -930,7 +930,7 @@ const elementList = [
     atomicWeight: '106.4',
     category: '遷移金属／白金族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425929787105742863?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425929787105742863?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'bǎ',
     bopomofo: 'ㄅㄚ',
     taiwanPinyin: 'bā',
@@ -950,7 +950,7 @@ const elementList = [
     atomicWeight: '107.9',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425258056514998274?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425258056514998274?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yín',
     bopomofo: 'ㄧㄣˊ',
     taiwanPinyin: 'yín',
@@ -970,7 +970,7 @@ const elementList = [
     atomicWeight: '112.4',
     category: '典型元素／亜鉛族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425660821212905476?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425660821212905476?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'gé',
     bopomofo: 'ㄍㄜˊ',
     taiwanPinyin: 'gé',
@@ -990,7 +990,7 @@ const elementList = [
     atomicWeight: '114.8',
     category: '典型元素／ホウ素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423992236887396353?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423992236887396353?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yīn',
     bopomofo: 'ㄧㄣ',
     taiwanPinyin: 'yīn',
@@ -1010,7 +1010,7 @@ const elementList = [
     atomicWeight: '118.7',
     category: '典型元素／炭素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424452536480632836?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424452536480632836?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'xī',
     bopomofo: 'ㄒㄧˊ',
     taiwanPinyin: 'xí',
@@ -1030,7 +1030,7 @@ const elementList = [
     atomicWeight: '121.8',
     category: '典型元素／窒素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423382961764831237?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423382961764831237?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tī',
     bopomofo: 'ㄊㄧˋ',
     taiwanPinyin: 'tì',
@@ -1050,7 +1050,7 @@ const elementList = [
     atomicWeight: '127.6',
     category: '典型元素／酸素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424024674275627016?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424024674275627016?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'dì',
     bopomofo: 'ㄉㄧˋ',
     taiwanPinyin: 'dì',
@@ -1070,7 +1070,7 @@ const elementList = [
     atomicWeight: '126.9',
     category: '典型元素／ハロゲン',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423816293715677185?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423816293715677185?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'diǎn',
     bopomofo: 'ㄉㄧㄢˇ',
     taiwanPinyin: 'diǎn',
@@ -1090,7 +1090,7 @@ const elementList = [
     atomicWeight: '131.3',
     category: '典型元素／貴ガス',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423453438302695427?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423453438302695427?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'xiān',
     bopomofo: 'ㄒㄧㄢ',
     taiwanPinyin: 'xiān',
@@ -1110,7 +1110,7 @@ const elementList = [
     atomicWeight: '132.9',
     category: '典型元素／アルカリ金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425587619749142534?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425587619749142534?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'sè',
     bopomofo: 'ㄙㄜˋ',
     taiwanPinyin: 'sè',
@@ -1130,7 +1130,7 @@ const elementList = [
     atomicWeight: '137.3',
     category: '典型元素／アルカリ土類金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423612294555176964?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423612294555176964?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'bèi',
     bopomofo: 'ㄅㄟˋ',
     taiwanPinyin: 'bèi',
@@ -1150,7 +1150,7 @@ const elementList = [
     atomicWeight: '138.9',
     category: '遷移金属／ランタノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423259689811386373?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423259689811386373?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lán',
     bopomofo: 'ㄌㄢˊ',
     taiwanPinyin: 'lán',
@@ -1170,7 +1170,7 @@ const elementList = [
     atomicWeight: '140.1',
     category: '遷移金属／ランタノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1422669448192856064?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422669448192856064?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'shì',
     bopomofo: 'ㄕˋ',
     taiwanPinyin: 'shì',
@@ -1190,7 +1190,7 @@ const elementList = [
     atomicWeight: '140.9',
     category: '遷移金属／ランタノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423068513665789952?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423068513665789952?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'pǔ',
     bopomofo: 'ㄆㄨˇ',
     taiwanPinyin: 'pǔ',
@@ -1210,7 +1210,7 @@ const elementList = [
     atomicWeight: '144.2',
     category: '遷移金属／ランタノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425099516873674753?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425099516873674753?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'nǚ',
     bopomofo: 'ㄋㄩˇ',
     taiwanPinyin: 'nǚ',
@@ -1230,7 +1230,7 @@ const elementList = [
     atomicWeight: '(145)',
     category: '遷移金属／ランタノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425914601787568131?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425914601787568131?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'pǒ',
     bopomofo: 'ㄆㄛˇ',
     taiwanPinyin: 'pǒ',
@@ -1250,7 +1250,7 @@ const elementList = [
     atomicWeight: '150.4',
     category: '遷移金属／ランタノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423269783940866055?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423269783940866055?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'shān',
     bopomofo: 'ㄕㄢ',
     taiwanPinyin: 'shān',
@@ -1270,7 +1270,7 @@ const elementList = [
     atomicWeight: '152.0',
     category: '遷移金属／ランタノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423365410460684300?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423365410460684300?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yǒu',
     bopomofo: 'ㄧㄡˇ',
     taiwanPinyin: 'yǒu',
@@ -1290,7 +1290,7 @@ const elementList = [
     atomicWeight: '157.3',
     category: '遷移金属／ランタノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423297730554834947?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423297730554834947?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'gá',
     bopomofo: 'ㄍㄚˊ',
     taiwanPinyin: 'gá',
@@ -1310,7 +1310,7 @@ const elementList = [
     atomicWeight: '158.9',
     category: '遷移金属／ランタノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424200997833003010?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424200997833003010?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tè',
     bopomofo: 'ㄊㄜˋ',
     taiwanPinyin: 'tè',
@@ -1330,7 +1330,7 @@ const elementList = [
     atomicWeight: '162.5',
     category: '遷移金属／ランタノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423838436142747650?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423838436142747650?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'dī',
     bopomofo: 'ㄉㄧ',
     taiwanPinyin: 'dī',
@@ -1350,7 +1350,7 @@ const elementList = [
     atomicWeight: '164.9',
     category: '遷移金属／ランタノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425715932845027329?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425715932845027329?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'huǒ',
     bopomofo: 'ㄏㄨㄛˇ',
     taiwanPinyin: 'huǒ',
@@ -1370,7 +1370,7 @@ const elementList = [
     atomicWeight: '167.3',
     category: '遷移金属／ランタノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424799799677698058?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424799799677698058?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'ěr',
     bopomofo: 'ㄦˇ',
     taiwanPinyin: 'ěr',
@@ -1390,7 +1390,7 @@ const elementList = [
     atomicWeight: '168.9',
     category: '遷移金属／ランタノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1422702132533342214?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422702132533342214?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'diū',
     bopomofo: 'ㄉㄧㄡ',
     taiwanPinyin: 'diū',
@@ -1410,7 +1410,7 @@ const elementList = [
     atomicWeight: '173.0',
     category: '遷移金属／ランタノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424533107923881989?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424533107923881989?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yì',
     bopomofo: 'ㄧˋ',
     taiwanPinyin: 'yì',
@@ -1430,7 +1430,7 @@ const elementList = [
     atomicWeight: '175.0',
     category: '遷移金属／ランタノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423863784490287108?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423863784490287108?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lǔ',
     bopomofo: 'ㄌㄧㄡˊ',
     taiwanPinyin: 'liú',
@@ -1450,7 +1450,7 @@ const elementList = [
     atomicWeight: '178.5',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425844234888830980?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425844234888830980?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'hā',
     bopomofo: 'ㄏㄚ',
     taiwanPinyin: 'hā',
@@ -1470,7 +1470,7 @@ const elementList = [
     atomicWeight: '180.9',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423652116808314885?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423652116808314885?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tǎn',
     bopomofo: 'ㄉㄢˋ',
     taiwanPinyin: 'dàn',
@@ -1490,7 +1490,7 @@ const elementList = [
     atomicWeight: '183.8',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424052488014020617?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424052488014020617?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'wū',
     bopomofo: 'ㄨ',
     taiwanPinyin: 'wū',
@@ -1510,7 +1510,7 @@ const elementList = [
     atomicWeight: '186.2',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425330860513955842?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425330860513955842?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lái',
     bopomofo: 'ㄌㄞˊ',
     taiwanPinyin: 'lái',
@@ -1530,7 +1530,7 @@ const elementList = [
     atomicWeight: '190.2',
     category: '遷移金属／白金族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424646627877441538?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424646627877441538?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'é',
     bopomofo: 'ㄜˊ',
     taiwanPinyin: 'é',
@@ -1550,7 +1550,7 @@ const elementList = [
     atomicWeight: '192.2',
     category: '遷移金属／白金族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1422805328912166914?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422805328912166914?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yī',
     bopomofo: 'ㄧ',
     taiwanPinyin: 'yī',
@@ -1570,7 +1570,7 @@ const elementList = [
     atomicWeight: '195.1',
     category: '遷移金属／白金族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423232062950084608?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423232062950084608?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'bó',
     bopomofo: 'ㄅㄛˊ',
     taiwanPinyin: 'bó',
@@ -1590,7 +1590,7 @@ const elementList = [
     atomicWeight: '197.0',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424216097692295170?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424216097692295170?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'jīn',
     bopomofo: 'ㄐㄧㄣ',
     taiwanPinyin: 'jīn',
@@ -1610,7 +1610,7 @@ const elementList = [
     atomicWeight: '200.6',
     category: '典型元素／亜鉛族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425794131733909504?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425794131733909504?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'gǒng',
     bopomofo: 'ㄍㄨㄥˇ',
     taiwanPinyin: 'gǒng',
@@ -1630,7 +1630,7 @@ const elementList = [
     atomicWeight: '204.4',
     category: '典型元素／ホウ素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425992808733753347?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425992808733753347?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tā',
     bopomofo: 'ㄊㄚ',
     taiwanPinyin: 'tā',
@@ -1650,7 +1650,7 @@ const elementList = [
     atomicWeight: '207.2',
     category: '典型元素／炭素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423959247818272776?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423959247818272776?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'qiān',
     bopomofo: 'ㄑㄧㄢ',
     taiwanPinyin: 'qiān',
@@ -1670,7 +1670,7 @@ const elementList = [
     atomicWeight: '209.0',
     category: '典型元素／窒素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424160922453614600?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424160922453614600?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'bì',
     bopomofo: 'ㄅㄧˋ',
     taiwanPinyin: 'bì',
@@ -1690,7 +1690,7 @@ const elementList = [
     atomicWeight: '(210)',
     category: '典型元素／酸素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423700106575073282?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423700106575073282?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'pō',
     bopomofo: 'ㄆㄛˋ',
     taiwanPinyin: 'pò',
@@ -1710,7 +1710,7 @@ const elementList = [
     atomicWeight: '(210)',
     category: '典型元素／ハロゲン',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1426106270986158082?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426106270986158082?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'ài',
     bopomofo: 'ㄜˋ',
     taiwanPinyin: 'è',
@@ -1730,7 +1730,7 @@ const elementList = [
     atomicWeight: '(222)',
     category: '典型元素／貴ガス',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1422772669930479616?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422772669930479616?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'dōng',
     bopomofo: 'ㄉㄨㄥ',
     taiwanPinyin: 'dōng',
@@ -1750,7 +1750,7 @@ const elementList = [
     atomicWeight: '(223)',
     category: '典型元素／アルカリ金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1426171495731056644?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426171495731056644?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'fāng',
     bopomofo: 'ㄈㄚˇ',
     taiwanPinyin: 'fǎ',
@@ -1770,7 +1770,7 @@ const elementList = [
     atomicWeight: '(226)',
     category: '典型元素／アルカリ土類金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423003053003845643?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423003053003845643?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'léi',
     bopomofo: 'ㄌㄟˊ',
     taiwanPinyin: 'léi',
@@ -1790,7 +1790,7 @@ const elementList = [
     atomicWeight: '(227)',
     category: '遷移金属／アクチノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1426206448913158146?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426206448913158146?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'ā',
     bopomofo: 'ㄚ',
     taiwanPinyin: 'ā',
@@ -1810,7 +1810,7 @@ const elementList = [
     atomicWeight: '232.0',
     category: '遷移金属／アクチノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1422884811761405954?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422884811761405954?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tǔ',
     bopomofo: 'ㄊㄨˇ',
     taiwanPinyin: 'tǔ',
@@ -1830,7 +1830,7 @@ const elementList = [
     atomicWeight: '231.0',
     category: '遷移金属／アクチノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425562729830621204?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425562729830621204?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'pú',
     bopomofo: 'ㄆㄨˊ',
     taiwanPinyin: 'pú',
@@ -1850,7 +1850,7 @@ const elementList = [
     atomicWeight: '238.0',
     category: '遷移金属／アクチノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424422333616467969?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424422333616467969?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yóu',
     bopomofo: 'ㄧㄡˋ',
     taiwanPinyin: 'yòu',
@@ -1870,7 +1870,7 @@ const elementList = [
     atomicWeight: '(237)',
     category: '遷移金属／アクチノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1426080851985637376?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426080851985637376?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'ná',
     bopomofo: 'ㄋㄞˋ',
     taiwanPinyin: 'nài',
@@ -1890,7 +1890,7 @@ const elementList = [
     atomicWeight: '(239)',
     category: '遷移金属／アクチノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1422955159529967617?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422955159529967617?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'bù',
     bopomofo: 'ㄅㄨˋ',
     taiwanPinyin: 'bù',
@@ -1910,7 +1910,7 @@ const elementList = [
     atomicWeight: '(243)',
     category: '遷移金属／アクチノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425670571405230080?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425670571405230080?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'méi',
     bopomofo: 'ㄇㄟˊ',
     taiwanPinyin: 'méi',
@@ -1930,7 +1930,7 @@ const elementList = [
     atomicWeight: '(247)',
     category: '遷移金属／アクチノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425315875079561217?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425315875079561217?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'jú',
     bopomofo: 'ㄐㄩˊ',
     taiwanPinyin: 'jú',
@@ -1950,7 +1950,7 @@ const elementList = [
     atomicWeight: '(247)',
     category: '遷移金属／アクチノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425471658526191620?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425471658526191620?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'péi',
     bopomofo: 'ㄅㄟˇ',
     taiwanPinyin: 'běi',
@@ -1970,7 +1970,7 @@ const elementList = [
     atomicWeight: '(252)',
     category: '遷移金属／アクチノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424598763809693703?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424598763809693703?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'kāi',
     bopomofo: 'ㄎㄚˇ',
     taiwanPinyin: 'kǎ',
@@ -1990,7 +1990,7 @@ const elementList = [
     atomicWeight: '(252)',
     category: '遷移金属／アクチノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1426020410206736386?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426020410206736386?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'āi',
     bopomofo: 'ㄞˋ',
     taiwanPinyin: 'ài',
@@ -2010,7 +2010,7 @@ const elementList = [
     atomicWeight: '(257)',
     category: '遷移金属／アクチノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425202516560646148?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425202516560646148?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'fèi',
     bopomofo: 'ㄈㄟˋ',
     taiwanPinyin: 'fèi',
@@ -2030,7 +2030,7 @@ const elementList = [
     atomicWeight: '(258)',
     category: '遷移金属／アクチノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425876904452763651?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425876904452763651?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'mén',
     bopomofo: 'ㄇㄣˊ',
     taiwanPinyin: 'mén',
@@ -2050,7 +2050,7 @@ const elementList = [
     atomicWeight: '(259)',
     category: '遷移金属／アクチノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424832505220378628?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424832505220378628?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'nuò',
     bopomofo: 'ㄋㄨㄛˋ',
     taiwanPinyin: 'nuò',
@@ -2070,7 +2070,7 @@ const elementList = [
     atomicWeight: '(262)',
     category: '遷移金属／アクチノイド',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424331672670060547?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424331672670060547?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'láo',
     bopomofo: 'ㄌㄠˊ',
     taiwanPinyin: 'láo',
@@ -2090,7 +2090,7 @@ const elementList = [
     atomicWeight: '(267)',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425688318344376322?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425688318344376322?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lú',
     bopomofo: 'ㄌㄨˊ',
     taiwanPinyin: 'lú',
@@ -2110,7 +2110,7 @@ const elementList = [
     atomicWeight: '(268)',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425273440878088194?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425273440878088194?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'dù',
     bopomofo: 'ㄉㄨˋ',
     taiwanPinyin: 'dù',
@@ -2130,7 +2130,7 @@ const elementList = [
     atomicWeight: '(271)',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424988588039680000?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424988588039680000?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'xǐ',
     bopomofo: 'ㄒㄧˇ',
     taiwanPinyin: 'xǐ',
@@ -2150,7 +2150,7 @@ const elementList = [
     atomicWeight: '(272)',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424814872206925832?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424814872206925832?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'bō',
     bopomofo: 'ㄆㄛ',
     taiwanPinyin: 'pō',
@@ -2170,7 +2170,7 @@ const elementList = [
     atomicWeight: '(277)',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1426186326940991491?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426186326940991491?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'hēi',
     bopomofo: 'ㄏㄟ',
     taiwanPinyin: 'hēi',
@@ -2190,7 +2190,7 @@ const elementList = [
     atomicWeight: '(276)',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424009474554146818?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424009474554146818?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'mài',
     bopomofo: 'ㄇㄞˋ',
     taiwanPinyin: 'mài',
@@ -2210,7 +2210,7 @@ const elementList = [
     atomicWeight: '(281)',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1422841956326121472?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422841956326121472?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'dá',
     bopomofo: 'ㄉㄚˊ',
     taiwanPinyin: 'dá',
@@ -2230,7 +2230,7 @@ const elementList = [
     atomicWeight: '(280)',
     category: '遷移金属',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425139544324808708?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425139544324808708?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lún',
     bopomofo: 'ㄌㄨㄣˊ',
     taiwanPinyin: 'lún',
@@ -2250,7 +2250,7 @@ const elementList = [
     atomicWeight: '(285)',
     category: '典型元素／亜鉛族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425179954367668225?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425179954367668225?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'gē',
     bopomofo: 'ㄍㄜ',
     taiwanPinyin: 'gē',
@@ -2270,7 +2270,7 @@ const elementList = [
     atomicWeight: '(278)',
     category: '典型元素／ホウ素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425411380367269892?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425411380367269892?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'nǐ',
     bopomofo: 'ㄋㄧˇ',
     taiwanPinyin: 'nǐ',
@@ -2290,7 +2290,7 @@ const elementList = [
     atomicWeight: '(289)',
     category: '典型元素／炭素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425967804335939585?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425967804335939585?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'fū',
     bopomofo: 'ㄈㄨ',
     taiwanPinyin: 'fū',
@@ -2310,7 +2310,7 @@ const elementList = [
     atomicWeight: '(289)',
     category: '典型元素／窒素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1425491788668747789?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425491788668747789?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'mò',
     bopomofo: 'ㄇㄛˋ',
     taiwanPinyin: 'mò',
@@ -2330,7 +2330,7 @@ const elementList = [
     atomicWeight: '(293)',
     category: '典型元素／酸素族',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1423312426179702790?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423312426179702790?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lì',
     bopomofo: 'ㄌㄧˋ',
     taiwanPinyin: 'lì',
@@ -2350,7 +2350,7 @@ const elementList = [
     atomicWeight: '(293)',
     category: '典型元素／ハロゲン',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424344462776586241?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424344462776586241?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tián',
     bopomofo: 'ㄊㄧㄢˊ',
     taiwanPinyin: 'tián',
@@ -2370,7 +2370,7 @@ const elementList = [
     atomicWeight: '(294)',
     category: '典型元素／貴ガス',
     twitterTweet:
-      '<blockquote class="twitter-tweet"><i>Loading...</i><a href="https://twitter.com/gensokanji_bot/status/1424893075932028932?ref_src=twsrc%5Etfw"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote>',
+      '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424893075932028932?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'ào',
     bopomofo: 'ㄠˋ',
     taiwanPinyin: 'ào',
