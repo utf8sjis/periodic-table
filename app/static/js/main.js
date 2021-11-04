@@ -191,17 +191,19 @@ new Vue({
     },
     /**
      * 漢字をクリップボードにコピーする
-     * @param {string} str - currentCellの元素の漢字
+     * @param {string} text - currentCellの元素の漢字
      */
-    copyToClipboard: function (str) {
-      const listener = function (e) {
-        e.clipboardData.setData('text/plain', str);
-        e.preventDefault();
-        document.removeEventListener('copy', listener);
-      };
-      document.addEventListener('copy', listener);
-      document.execCommand('copy');
-      this.activePopup('漢字をコピーしました。');
+    copyToClipboard: function (text) {
+      const successMessage = '漢字をコピーしました';
+      const failureMessage = '漢字のコピーに失敗しました';
+      if (!navigator.clipboard) {
+        this.activePopup(failureMessage);
+      } else {
+        navigator.clipboard.writeText(text).then(
+          () => this.activePopup(successMessage),
+          () => this.activePopup(failureMessage)
+        );
+      }
     },
     /**
      * テーマカラーを変更する
