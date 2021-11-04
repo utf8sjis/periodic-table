@@ -48,7 +48,7 @@ $langChangerHeight: 25px + 15px * 2 + 20px;
     > div {
         cursor: pointer;
         width: 30px;
-        height: $langChangerHeight / 2;
+        height: math.div($langChangerHeight, 2);
         @include flexCentering();
         color: $colorWhiteA;
         font-size: 20px;
