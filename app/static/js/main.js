@@ -104,13 +104,13 @@ new Vue({
     },
     /**
      * データページを遷移する
-     * @param {string} to - 'next'＝次の元素か'previous'＝前の元素 
+     * @param {string} to - 'next'か'prev'
      */
     changeOverlay: function (to) {
       let z = this.current.cell.atomicNum;
       if (to === 'next') {
         z++;
-      } else if (to === 'previous') {
+      } else if (to === 'prev') {
         z--;
       }
       if (z >= 1 && z <= 118) {
