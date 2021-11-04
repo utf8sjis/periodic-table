@@ -56,13 +56,13 @@ new Vue({
       isDisplayed: false,
       timeoutID: 0,
     },
-    /** 操作パネルの表示のtranslateYの値 */
-    changerTranslate: 0,
-    /** 操作パネルの内容が最初のものか */
-    isDisableUp: true,
-    /** 操作パネルの内容が最後のものか */
-    isDisableDown: false,
-    /** 周期表の幅と高さ */
+    /** 操作パネルの高さ、内容のインデクス、内容が最初（最後）のものか否か */
+    changer: {
+      height: 0,
+      index: 0,
+      isStart: true,
+      isEnd: false,
+    },
     periodicTableRect: {
       width: 0,
       height: 0,
@@ -272,33 +272,23 @@ new Vue({
     },
     /**
      * 操作パネルの操作の内容を変更する
-     * @param {string} d - 'up'か'down'
+     * @param {string} to - 'next'か'prev'
      */
-    changeContents: function (d) {
-      const contentsNum = 2;
-      const changerHeight = 75;
-      if (d === 'up') {
-        if (this.changerTranslate === 0) {
-          this.changerTranslate = this.changerTranslate;
-        } else {
-          this.changerTranslate += changerHeight;
-        }
-      } else {
-        if (this.changerTranslate === -changerHeight * (contentsNum - 1)) {
-          this.changerTranslate = this.changerTranslate;
-        } else {
-          this.changerTranslate -= changerHeight;
-        }
+    changeContents: function (to) {
+      if (to === 'next' && !this.changer.isEnd) {
+        this.changer.index++;
+      } else if (to === 'prev' && !this.changer.isStart) {
+        this.changer.index--;
       }
-      if (this.changerTranslate === 0) {
-        this.isDisableUp = true;
+      if (this.changer.index === 0) {
+        this.changer.isStart = true;
       } else {
-        this.isDisableUp = false;
+        this.changer.isStart = false;
       }
-      if (this.changerTranslate === -changerHeight * (contentsNum - 1)) {
-        this.isDisableDown = true;
+      if (this.changer.index === this.changerTitleList.length - 1) {
+        this.changer.isEnd = true;
       } else {
-        this.isDisableDown = false;
+        this.changer.isEnd = false;
       }
     },
     /**
@@ -366,6 +356,9 @@ new Vue({
   mounted: function () {
     // 周期表の幅と高さの初期値をセット
     this.periodicTableRect = this.$refs.periodicTable.getBoundingClientRect();
+    // 操作パネルの高さの初期値をセット
+    const compStyles = window.getComputedStyle(this.$refs.changerWrapper);
+    this.changer.height = parseInt(compStyles.getPropertyValue('height'));
     // スクロールのイベントリスナを追加
     window.addEventListener('scroll', this.handleScroll);
     // localStorageの初期化と読み出し
