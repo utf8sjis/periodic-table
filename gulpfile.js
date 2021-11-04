@@ -22,9 +22,7 @@ const compileSass = () =>
       .pipe(sass({
         outputStyle: 'expanded',
       }).on('error', sass.logError))
-      .pipe(autoprefixer({
-        browsers: ['last 2 versions'],
-      }))
+      .pipe(autoprefixer())
       .pipe(sourcemaps.write())
       .pipe(gulp.dest('app/static/css/')));
 
