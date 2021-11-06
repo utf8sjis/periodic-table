@@ -4,7 +4,7 @@ $headerHeightPhone: 60px;
 $navHeight: 80vh;
 $navOpenTime: .5s;
 
-header {
+.header {
     height: $headerHeight;
     color: $colorWhite;
     a, a:hover {
@@ -15,7 +15,7 @@ header {
     }
 }
 
-.header-start {
+.header__start {
     position: fixed;
     width: 100%;
     height: $headerHeight;
@@ -35,10 +35,10 @@ header {
         opacity: 0;
         transition: opacity $navOpenTime;
     }
-    &.active::before {
+    &._active::before {
         opacity: 1;
     }
-    .logo {
+    .header__logo {
         padding-left: 30px;
         @include mediaQuery() {
             padding-left: 20px;
@@ -55,7 +55,7 @@ header {
             }
         }
     }
-    .site {
+    .header__site {
         padding-left: 50px;
         @include mediaQuery() {
             padding-left: 30px;
@@ -67,7 +67,7 @@ header {
     }
 }
 
-.header-end {
+.header__end {
     position: fixed;
     right: 0;
     top: 0;
@@ -78,7 +78,7 @@ header {
         height: $headerHeightPhone;
         margin-right: 10px;
     }
-    .share-wrapper {
+    .header__share-wrapper {
         @include flexCentering(center, flex-end);
         flex-direction: column;
         @include mediaQuery() {
@@ -90,7 +90,7 @@ header {
             transform: translateX(100%);
             transition: transform .7s;
         }
-        .share-label {
+        .header__share-label {
             font-family: $fontEN;
             font-weight: 300;
             font-size: 20px;
@@ -98,10 +98,10 @@ header {
                 display: none;
             }
         }
-        .share-icons {
+        .header__share-icons {
             @include flexCentering();
         }
-        .top-button-phone {
+        .header__top-button-phone {
             display: none;
             margin: 0 10px 0 5px;
             width: 45px;
@@ -111,7 +111,7 @@ header {
             }
         }
     }
-    .top-button-pc {
+    .header__top-button-pc {
         position: fixed;
         right: 0;
         bottom: 0;
@@ -124,18 +124,18 @@ header {
             display: none;
         }
     }
-    &.not-around-top {
-        .share-wrapper {
+    &._not-around-top {
+        .header__share-wrapper {
             @include mediaQuery() {
                 transform: translateX(0);
             }
         }
-        .top-button-pc {
+        .header__top-button-pc {
             transform: translateX(0);
         }
     }
 }
-.share {
+.header__share {
     margin: 0 4px;
     text-decoration: none;
     @include mediaQuery() {
@@ -146,9 +146,9 @@ header {
         text-shadow: none;
     }
 }
-.share-twitter,
-.share-facebook,
-.share-line {
+.header__share-twitter,
+.header__share-facebook,
+.header__share-line {
     @include flexCentering();
     width: 30px;
     height: 30px;
@@ -162,7 +162,7 @@ header {
         font-size: 20px;
     }
 }
-.share-twitter {
+.header__share-twitter {
     &:hover {
         background: $colorTwitter;
     }
@@ -170,7 +170,7 @@ header {
         background: $colorTwitter;
     }
 }
-.share-facebook {
+.header__share-facebook {
     &:hover {
         background: $colorFacebook;
     }
@@ -178,7 +178,7 @@ header {
         background: $colorFacebook;
     }
 }
-.share-line {
+.header__share-line {
     &:hover {
         background: $colorLINE;
     }
@@ -187,8 +187,8 @@ header {
     }
 }
 
-.top-button-phone,
-.top-button-pc {
+.header__top-button-phone,
+.header__top-button-pc {
     cursor: pointer;
     @include flexCentering();
     border: solid 2px rgba(255, 255, 255, 0.7);
@@ -200,6 +200,53 @@ header {
         padding-bottom: 3px;
     }
 }
-.top-button-pc:hover {
+.header__top-button-pc:hover {
     transform: scale(1.1);
+}
+
+.header__nav-button {  // in Header end
+    cursor: pointer;
+    @include flexCentering();
+    flex-direction: column;
+    margin: 0 10px;
+    padding-bottom: 2px;
+    width: 80px;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    font-family: $fontEN;
+    font-weight: 300;
+    font-size: 20px;
+    transition: background-color .2s;
+    @include mediaQuery() {
+        width: 50px;
+        height: 40px;
+        font-size: 16px;
+    }
+    &:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    .header__nav-button-close {
+        display: none;
+    }
+    i {
+        font-size: 22px;
+        &:first-of-type {
+            transition: transform $navOpenTime;
+        }
+        @include mediaQuery() {
+            font-size: 20px;
+        }
+    }
+    &._active{
+        i:first-of-type {
+            transform: rotateX(.5turn);
+        }
+        .header__nav-button-more {
+            display: none;
+        }
+        .header__nav-button-close {
+            display: block;
+        }
+    }
 }

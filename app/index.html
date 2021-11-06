@@ -29,54 +29,55 @@
 <body>
   <div id="app">
 
-    <header v-cloak>
-      <div :class="['header-start', {'active': isNavOpened}]">
-        <div class="logo">
+    <header v-cloak class="header">
+      <div class="header__start" :class="{'_active': isNavOpened}">
+        <div class="header__logo">
           <a href="https://gensokanji.netlify.app">gensokanji</a>
         </div>
-        <div class="site">
-          <div class="site-name">
+        <div class="header__site">
+          <div class="header__site-name">
             <i class="fas fa-location-arrow"></i>元素の漢字周期表
           </div>
         </div>
       </div>
 
-      <div :class="['header-end', {'not-around-top': !isAroundTop}]">
-        <div class="share-wrapper">
-          <div class="share-label">Share!!</div>
-          <div class="share-icons">
-            <a class="share" target="_blank" rel="noreferrer noopener" href="https://twitter.com/share?url=https://gensokanji.netlify.app/periodic-table&text=元素の漢字周期表%20-%20gensokanji%20@gensokanji_bot">
-              <div class="share-twitter">
+      <div class="header__end" :class="{'_not-around-top': !isAroundTop}">
+        <div class="header__share-wrapper">
+          <div class="header__share-label">Share!!</div>
+          <div class="header__share-icons">
+            <a class="header__share" target="_blank" rel="noreferrer noopener" href="https://twitter.com/share?url=https://gensokanji.netlify.app/periodic-table&text=元素の漢字周期表%20-%20gensokanji%20@gensokanji_bot">
+              <div class="header__share-twitter">
                 <i class="fab fa-twitter"></i>
               </div>
             </a>
-            <a class="share" target="_blank" rel="noreferrer noopener" href="https://www.facebook.com/sharer/sharer.php?u=https://gensokanji.netlify.app/periodic-table">
-              <div class="share-facebook">
+            <a class="header__share" target="_blank" rel="noreferrer noopener" href="https://www.facebook.com/sharer/sharer.php?u=https://gensokanji.netlify.app/periodic-table">
+              <div class="header__share-facebook">
                 <i class="fab fa-facebook"></i>
               </div>
             </a>
-            <a class="share" target="_blank" rel="noreferrer noopener" href="https://social-plugins.line.me/lineit/share?url=https://gensokanji.netlify.app/periodic-table">
-              <div class="share-line">
+            <a class="header__share" target="_blank" rel="noreferrer noopener" href="https://social-plugins.line.me/lineit/share?url=https://gensokanji.netlify.app/periodic-table">
+              <div class="header__share-line">
                 <i class="fab fa-line"></i>
               </div>
             </a>
           </div>
-          <div class="top-button-phone" @click="goToTop">
+          <div class="header__top-button-phone" @click="goToTop">
             <i class="fas fa-angle-up"></i>
           </div>
         </div>
         <div
-          :class="['nav-button', {'active': isNavOpened}]"
+          class="header__nav-button"
+          :class="{'_active': isNavOpened}"
           @click="navOpen"
         >
-          <span class="nav-button-more">MORE</span>
-          <span class="nav-button-close">CLOSE</span>
+          <span class="header__nav-button-more">MORE</span>
+          <span class="header__nav-button-close">CLOSE</span>
           <span>
             <i class="fas fa-long-arrow-alt-down"></i>
             <i class="fas fa-list"></i>
           </span>
         </div>
-        <div class="top-button-pc" @click="goToTop">
+        <div class="header__top-button-pc" @click="goToTop">
           <i class="fas fa-angle-up"></i>
         </div>
       </div>

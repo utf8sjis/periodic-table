@@ -123,14 +123,14 @@ $se: 350px; // iphone SE用
 * {
     margin: 0;
 }
-header {
-    .header-start {
+.header {
+    .header__start {
         z-index: 12;
         &::before {
             z-index: -1;
         }
     }
-    .header-end {
+    .header__end {
         z-index: 12;
     }
 }
