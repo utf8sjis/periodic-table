@@ -1,84 +1,89 @@
 /****** header ******/
 $headerHeight: 80px;
 $headerHeightPhone: 60px;
-$navHeight: 80vh;
 $navOpenTime: .5s;
+
 
 .header {
     height: $headerHeight;
     color: $colorWhite;
+    @include mediaQuery() {
+        height: $headerHeightPhone;
+    }
     a, a:hover {
         color: $colorWhite;
     }
-    @include mediaQuery() {
-        height: $headerHeightPhone;
-    }
-}
 
-.header__start {
-    position: fixed;
-    width: 100%;
-    height: $headerHeight;
-    overflow: hidden;
-    background: $colorMainA;
-    @include mediaQuery() {
-        height: $headerHeightPhone;
-    }
-    &::before {
-        position: absolute;
-        content: "";
-        top: 0;
-        left: 0;
+    &__start {
+        position: fixed;
         width: 100%;
-        height: 100%;
-        background: rgba(46, 36, 94, 0.3);
-        opacity: 0;
-        transition: opacity $navOpenTime;
+        height: $headerHeight;
+        overflow: hidden;
+        background: $colorMainA;
+        @include mediaQuery() {
+            height: $headerHeightPhone;
+        }
+        &::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(46, 36, 94, 0.3);
+            opacity: 0;
+            transition: opacity $navOpenTime;
+        }
+        &.tgl_active::before {
+            opacity: 1;
+        }
     }
-    &._active::before {
-        opacity: 1;
-    }
-    .header__logo {
+
+    &__logo-wrapper {
         padding-left: 30px;
         @include mediaQuery() {
             padding-left: 20px;
             transform: translateY(-2px);
         }
-        a {
-            cursor: pointer;
-            text-decoration: none;
-            font-family: $fontEN;
-            font-weight: 300;
-            font-size: 40px;
-            @include mediaQuery() {
-                font-size: 35px;
-            }
+    }
+
+    &__logo {
+        cursor: pointer;
+        text-decoration: none;
+        font-family: $fontEN;
+        font-weight: 300;
+        font-size: 40px;
+        @include mediaQuery() {
+            font-size: 35px;
         }
     }
-    .header__site {
+
+    &__site-wrapper {
         padding-left: 50px;
         @include mediaQuery() {
             padding-left: 30px;
             transform: translateY(-7px);
         }
-        i {
-            padding-right: 5px;
+    }
+
+    &__site-icon {
+        padding-right: 5px;
+    }
+
+    &__end {
+        @include flexCentering();
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: $headerHeight;
+        margin-right: 30px;
+        @include mediaQuery() {
+            height: $headerHeightPhone;
+            margin-right: 10px;
         }
     }
-}
 
-.header__end {
-    position: fixed;
-    right: 0;
-    top: 0;
-    height: $headerHeight;
-    margin-right: 30px;
-    @include flexCentering();
-    @include mediaQuery() {
-        height: $headerHeightPhone;
-        margin-right: 10px;
-    }
-    .header__share-wrapper {
+    &__share-container {
         @include flexCentering(center, flex-end);
         flex-direction: column;
         @include mediaQuery() {
@@ -90,18 +95,35 @@ $navOpenTime: .5s;
             transform: translateX(100%);
             transition: transform .7s;
         }
-        .header__share-label {
-            font-family: $fontEN;
-            font-weight: 300;
-            font-size: 20px;
+        &.tgl_not-around-top {
             @include mediaQuery() {
-                display: none;
+                transform: translateX(0);
             }
         }
-        .header__share-icons {
-            @include flexCentering();
+    }
+
+    &__share-label {
+        font-family: $fontEN;
+        font-weight: 300;
+        font-size: 20px;
+        @include mediaQuery() {
+            display: none;
         }
-        .header__top-button-phone {
+    }
+
+    &__share-button-container {
+        @include flexCentering();
+    }
+
+    &__top-button {
+        @include flexCentering();
+        cursor: pointer;
+        border: solid 2px rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        font-size: 30px;
+        background: $colorMain3;
+        transition: transform .2s;
+        &.mod_phone {
             display: none;
             margin: 0 10px 0 5px;
             width: 45px;
@@ -110,143 +132,127 @@ $navOpenTime: .5s;
                 display: flex;
             }
         }
-    }
-    .header__top-button-pc {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        width: 50px;
-        height: 50px;
-        margin: 0 25px 25px 0;
-        transform: translateX(200%);
-        transition: transform .7s;
-        @include mediaQuery() {
-            display: none;
-        }
-    }
-    &._not-around-top {
-        .header__share-wrapper {
+        &.mod_pc {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 50px;
+            height: 50px;
+            margin: 0 25px 25px 0;
+            transform: translateX(200%);
+            transition: transform .7s;
             @include mediaQuery() {
+                display: none;
+            }
+            &:hover {
+                transform: scale(1.1);
+            }
+            &.tgl_not-around-top {
                 transform: translateX(0);
             }
         }
-        .header__top-button-pc {
-            transform: translateX(0);
-        }
     }
-}
-.header__share {
-    margin: 0 4px;
-    text-decoration: none;
-    @include mediaQuery() {
-        margin: 0 2px;
-    }
-    &:hover {
-        text-decoration: none;
-        text-shadow: none;
-    }
-}
-.header__share-twitter,
-.header__share-facebook,
-.header__share-line {
-    @include flexCentering();
-    width: 30px;
-    height: 30px;
-    border: 2px solid rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    font-size: 20px;
-    transition: .2s;
-    @include mediaQuery() {
-        width: 34px;
-        height: 34px;
-        font-size: 20px;
-    }
-}
-.header__share-twitter {
-    &:hover {
-        background: $colorTwitter;
-    }
-    @include mediaQuery() {
-        background: $colorTwitter;
-    }
-}
-.header__share-facebook {
-    &:hover {
-        background: $colorFacebook;
-    }
-    @include mediaQuery() {
-        background: $colorFacebook;
-    }
-}
-.header__share-line {
-    &:hover {
-        background: $colorLINE;
-    }
-    @include mediaQuery() {
-        background: $colorLINE;
-    }
-}
 
-.header__top-button-phone,
-.header__top-button-pc {
-    cursor: pointer;
-    @include flexCentering();
-    border: solid 2px rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    font-size: 30px;
-    background: $colorMain3;
-    transition: transform .2s;
-    i {
+    &__top-button-icon {
         padding-bottom: 3px;
     }
-}
-.header__top-button-pc:hover {
-    transform: scale(1.1);
-}
 
-.header__nav-button {  // in Header end
-    cursor: pointer;
-    @include flexCentering();
-    flex-direction: column;
-    margin: 0 10px;
-    padding-bottom: 2px;
-    width: 80px;
-    height: 50px;
-    border-radius: 5px;
-    border: 2px solid rgba(255, 255, 255, 0.7);
-    font-family: $fontEN;
-    font-weight: 300;
-    font-size: 20px;
-    transition: background-color .2s;
-    @include mediaQuery() {
-        width: 50px;
-        height: 40px;
-        font-size: 16px;
-    }
-    &:hover {
-        background: rgba(255, 255, 255, 0.2);
-    }
-    .header__nav-button-close {
-        display: none;
-    }
-    i {
-        font-size: 22px;
-        &:first-of-type {
-            transition: transform $navOpenTime;
+    &__share-button {
+        margin: 0 4px;
+        text-decoration: none;
+        @include mediaQuery() {
+            margin: 0 2px;
         }
+        &:hover {
+            text-decoration: none;
+            text-shadow: none;
+        }
+    }
+
+    &__share-icon-wrapper {
+        @include flexCentering();
+        width: 30px;
+        height: 30px;
+        border: 2px solid rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        font-size: 20px;
+        transition: .2s;
+        @include mediaQuery() {
+            width: 34px;
+            height: 34px;
+            font-size: 20px;
+        }
+        &.mod_twitter {
+            @include mediaQuery() {
+                background: $colorTwitter;
+            }
+            &:hover {
+                background: $colorTwitter;
+            }
+        }
+        &.mod_facebook {
+            @include mediaQuery() {
+                background: $colorFacebook;
+            }
+            &:hover {
+                background: $colorFacebook;
+            }
+        }
+        &.mod_line {
+            @include mediaQuery() {
+                background: $colorLINE;
+            }
+            &:hover {
+                background: $colorLINE;
+            }
+        }
+    }
+
+    &__nav-open-button {
+        @include flexCentering();
+        flex-direction: column;
+        cursor: pointer;
+        margin: 0 10px;
+        padding-bottom: 2px;
+        width: 80px;
+        height: 50px;
+        border-radius: 5px;
+        border: 2px solid rgba(255, 255, 255, 0.7);
+        font-family: $fontEN;
+        font-weight: 300;
+        font-size: 20px;
+        transition: background-color .2s;
+        @include mediaQuery() {
+            width: 50px;
+            height: 40px;
+            font-size: 16px;
+        }
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    }
+
+    &__nav-open-button-more {
+        &.tgl_active {
+            display: none;
+        }
+    }
+
+    &__nav-open-button-close {
+        display: none;
+        &.tgl_active {
+            display: block;
+        }
+    }
+
+    &__nav-open-button-icon {
+        font-size: 22px;
+        transition: transform $navOpenTime;
         @include mediaQuery() {
             font-size: 20px;
         }
-    }
-    &._active{
-        i:first-of-type {
+        &.tgl_active {
             transform: rotateX(.5turn);
-        }
-        .header__nav-button-more {
-            display: none;
-        }
-        .header__nav-button-close {
-            display: block;
         }
     }
 }
