@@ -72,8 +72,10 @@
             <i class="header__nav-open-button-icon fas fa-list"></i>
           </span>
         </div>
-        <div class="header__top-button mod_pc" :class="{'tgl_not-around-top': !isAroundTop}" @click="goToTop">
-          <i class="header__top-button-icon fas fa-angle-up"></i>
+        <div class="header__top-button-wrapper mod_pc" :class="{'tgl_not-around-top': !isAroundTop}" @click="goToTop">
+          <div class="header__top-button mod_pc">
+            <i class="header__top-button-icon fas fa-angle-up"></i>
+          </div>
         </div>
       </div>
 

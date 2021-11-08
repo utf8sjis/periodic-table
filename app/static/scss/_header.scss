@@ -115,6 +115,19 @@ $navOpenTime: .5s;
         @include flexCentering();
     }
 
+    &__top-button-wrapper {
+        &.mod_pc {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            transform: translateX(200%);
+            transition: transform .7s;
+            &.tgl_not-around-top {
+                transform: translateX(0);
+            }
+        }
+    }
+
     &__top-button {
         @include flexCentering();
         cursor: pointer;
@@ -133,22 +146,15 @@ $navOpenTime: .5s;
             }
         }
         &.mod_pc {
-            position: fixed;
-            right: 0;
-            bottom: 0;
+            margin: 0 25px 25px 0;
             width: 50px;
             height: 50px;
-            margin: 0 25px 25px 0;
-            transform: translateX(200%);
-            transition: transform .7s;
+            transition: .2s;
             @include mediaQuery() {
                 display: none;
             }
             &:hover {
                 transform: scale(1.1);
-            }
-            &.tgl_not-around-top {
-                transform: translateX(0);
             }
         }
     }
