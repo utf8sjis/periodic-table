@@ -70,34 +70,6 @@ p {
     font-size: 36px;
 }
 
-/****** theme color changer in nav ******/
-.theme-color-changer {
-    @include flexCentering();
-    height: 45px;
-    div {
-        cursor: pointer;
-        @include flexCentering();
-        margin: 10px;
-        width: 70px;
-        height: 40px;
-        border: 1px solid $colorWhite;
-        border-radius: 3px;
-        transition: .2s;
-        &:hover {
-            width: 70px * 1.1;
-            height: 40px * 1.1;
-        }
-        &:nth-child(1) {
-            background: #74bb83;
-        }
-        &:nth-child(2) {
-            background: #80acca;
-        }
-        &:nth-child(3) {
-            background: #c99f77;
-        }
-    }
-}
 
 /****** footer ******/
 footer {
