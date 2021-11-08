@@ -1,264 +1,264 @@
 /****** header ******/
 $headerHeight: 80px;
 $headerHeightPhone: 60px;
-$navOpenTime: .5s;
-
+$navOpenTime: 0.5s;
 
 .header {
-    height: $headerHeight;
+  height: $headerHeight;
+  color: $colorWhite;
+  @include mediaQuery() {
+    height: $headerHeightPhone;
+  }
+  a,
+  a:hover {
     color: $colorWhite;
+  }
+
+  &__start {
+    position: fixed;
+    width: 100%;
+    height: $headerHeight;
+    overflow: hidden;
+    background: $colorMainA;
     @include mediaQuery() {
-        height: $headerHeightPhone;
+      height: $headerHeightPhone;
     }
-    a, a:hover {
-        color: $colorWhite;
+    &::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(46, 36, 94, 0.3);
+      opacity: 0;
+      transition: opacity $navOpenTime;
     }
+    &.tgl_active::before {
+      opacity: 1;
+    }
+  }
 
-    &__start {
-        position: fixed;
-        width: 100%;
-        height: $headerHeight;
-        overflow: hidden;
-        background: $colorMainA;
-        @include mediaQuery() {
-            height: $headerHeightPhone;
-        }
-        &::before {
-            position: absolute;
-            content: "";
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(46, 36, 94, 0.3);
-            opacity: 0;
-            transition: opacity $navOpenTime;
-        }
-        &.tgl_active::before {
-            opacity: 1;
-        }
+  &__logo-wrapper {
+    padding-left: 30px;
+    @include mediaQuery() {
+      padding-left: 20px;
+      transform: translateY(-2px);
     }
+  }
 
-    &__logo-wrapper {
-        padding-left: 30px;
-        @include mediaQuery() {
-            padding-left: 20px;
-            transform: translateY(-2px);
-        }
+  &__logo {
+    cursor: pointer;
+    text-decoration: none;
+    font-family: $fontEN;
+    font-weight: 300;
+    font-size: 40px;
+    @include mediaQuery() {
+      font-size: 35px;
     }
+  }
 
-    &__logo {
-        cursor: pointer;
-        text-decoration: none;
-        font-family: $fontEN;
-        font-weight: 300;
-        font-size: 40px;
-        @include mediaQuery() {
-            font-size: 35px;
-        }
+  &__site-wrapper {
+    padding-left: 50px;
+    @include mediaQuery() {
+      padding-left: 30px;
+      transform: translateY(-7px);
     }
+  }
 
-    &__site-wrapper {
-        padding-left: 50px;
-        @include mediaQuery() {
-            padding-left: 30px;
-            transform: translateY(-7px);
-        }
+  &__site-icon {
+    padding-right: 5px;
+  }
+
+  &__end {
+    @include flexCentering();
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: $headerHeight;
+    margin-right: 30px;
+    @include mediaQuery() {
+      height: $headerHeightPhone;
+      margin-right: 10px;
     }
+  }
 
-    &__site-icon {
-        padding-right: 5px;
+  &__share-container {
+    @include flexCentering(center, flex-end);
+    flex-direction: column;
+    @include mediaQuery() {
+      position: fixed;
+      flex-direction: row;
+      right: 0;
+      bottom: 0;
+      margin-bottom: 10px;
+      transform: translateX(100%);
+      transition: transform 0.7s;
     }
-
-    &__end {
-        @include flexCentering();
-        position: fixed;
-        right: 0;
-        top: 0;
-        height: $headerHeight;
-        margin-right: 30px;
-        @include mediaQuery() {
-            height: $headerHeightPhone;
-            margin-right: 10px;
-        }
+    &.tgl_not-around-top {
+      @include mediaQuery() {
+        transform: translateX(0);
+      }
     }
+  }
 
-    &__share-container {
-        @include flexCentering(center, flex-end);
-        flex-direction: column;
-        @include mediaQuery() {
-            position: fixed;
-            flex-direction: row;
-            right: 0;
-            bottom: 0;
-            margin-bottom: 10px;
-            transform: translateX(100%);
-            transition: transform .7s;
-        }
-        &.tgl_not-around-top {
-            @include mediaQuery() {
-                transform: translateX(0);
-            }
-        }
+  &__share-label {
+    font-family: $fontEN;
+    font-weight: 300;
+    font-size: 20px;
+    @include mediaQuery() {
+      display: none;
     }
+  }
 
-    &__share-label {
-        font-family: $fontEN;
-        font-weight: 300;
-        font-size: 20px;
-        @include mediaQuery() {
-            display: none;
-        }
+  &__share-button-container {
+    @include flexCentering();
+  }
+
+  &__top-button-wrapper {
+    &.mod_pc {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      transform: translateX(200%);
+      transition: transform 0.7s;
+      &.tgl_not-around-top {
+        transform: translateX(0);
+      }
     }
+  }
 
-    &__share-button-container {
-        @include flexCentering();
+  &__top-button {
+    @include flexCentering();
+    cursor: pointer;
+    border: solid 2px rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    font-size: 30px;
+    background: $colorMain3;
+    transition: transform 0.2s;
+    &.mod_phone {
+      display: none;
+      margin: 0 10px 0 5px;
+      width: 45px;
+      height: 45px;
+      @include mediaQuery() {
+        display: flex;
+      }
     }
-
-    &__top-button-wrapper {
-        &.mod_pc {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            transform: translateX(200%);
-            transition: transform .7s;
-            &.tgl_not-around-top {
-                transform: translateX(0);
-            }
-        }
-    }
-
-    &__top-button {
-        @include flexCentering();
-        cursor: pointer;
-        border: solid 2px rgba(255, 255, 255, 0.7);
-        border-radius: 50%;
-        font-size: 30px;
-        background: $colorMain3;
-        transition: transform .2s;
-        &.mod_phone {
-            display: none;
-            margin: 0 10px 0 5px;
-            width: 45px;
-            height: 45px;
-            @include mediaQuery() {
-                display: flex;
-            }
-        }
-        &.mod_pc {
-            margin: 0 25px 25px 0;
-            width: 50px;
-            height: 50px;
-            transition: .2s;
-            @include mediaQuery() {
-                display: none;
-            }
-            &:hover {
-                transform: scale(1.1);
-            }
-        }
-    }
-
-    &__top-button-icon {
-        padding-bottom: 3px;
-    }
-
-    &__share-button {
-        margin: 0 4px;
-        text-decoration: none;
-        @include mediaQuery() {
-            margin: 0 2px;
-        }
-        &:hover {
-            text-decoration: none;
-            text-shadow: none;
-        }
-    }
-
-    &__share-icon-wrapper {
-        @include flexCentering();
-        width: 30px;
-        height: 30px;
-        border: 2px solid rgba(255, 255, 255, 0.7);
-        border-radius: 50%;
-        font-size: 20px;
-        transition: .2s;
-        @include mediaQuery() {
-            width: 34px;
-            height: 34px;
-            font-size: 20px;
-        }
-        &.mod_twitter {
-            @include mediaQuery() {
-                background: $colorTwitter;
-            }
-            &:hover {
-                background: $colorTwitter;
-            }
-        }
-        &.mod_facebook {
-            @include mediaQuery() {
-                background: $colorFacebook;
-            }
-            &:hover {
-                background: $colorFacebook;
-            }
-        }
-        &.mod_line {
-            @include mediaQuery() {
-                background: $colorLINE;
-            }
-            &:hover {
-                background: $colorLINE;
-            }
-        }
-    }
-
-    &__nav-open-button {
-        @include flexCentering();
-        flex-direction: column;
-        cursor: pointer;
-        margin: 0 10px;
-        padding-bottom: 2px;
-        width: 80px;
-        height: 50px;
-        border-radius: 5px;
-        border: 2px solid rgba(255, 255, 255, 0.7);
-        font-family: $fontEN;
-        font-weight: 300;
-        font-size: 20px;
-        transition: background-color .2s;
-        @include mediaQuery() {
-            width: 50px;
-            height: 40px;
-            font-size: 16px;
-        }
-        &:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-    }
-
-    &__nav-open-button-more {
-        &.tgl_active {
-            display: none;
-        }
-    }
-
-    &__nav-open-button-close {
+    &.mod_pc {
+      margin: 0 25px 25px 0;
+      width: 50px;
+      height: 50px;
+      transition: 0.2s;
+      @include mediaQuery() {
         display: none;
-        &.tgl_active {
-            display: block;
-        }
+      }
+      &:hover {
+        transform: scale(1.1);
+      }
     }
+  }
 
-    &__nav-open-button-icon {
-        font-size: 22px;
-        transition: transform $navOpenTime;
-        @include mediaQuery() {
-            font-size: 20px;
-        }
-        &.tgl_active {
-            transform: rotateX(.5turn);
-        }
+  &__top-button-icon {
+    padding-bottom: 3px;
+  }
+
+  &__share-button {
+    margin: 0 4px;
+    text-decoration: none;
+    @include mediaQuery() {
+      margin: 0 2px;
     }
+    &:hover {
+      text-decoration: none;
+      text-shadow: none;
+    }
+  }
+
+  &__share-icon-wrapper {
+    @include flexCentering();
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    font-size: 20px;
+    transition: 0.2s;
+    @include mediaQuery() {
+      width: 34px;
+      height: 34px;
+      font-size: 20px;
+    }
+    &.mod_twitter {
+      @include mediaQuery() {
+        background: $colorTwitter;
+      }
+      &:hover {
+        background: $colorTwitter;
+      }
+    }
+    &.mod_facebook {
+      @include mediaQuery() {
+        background: $colorFacebook;
+      }
+      &:hover {
+        background: $colorFacebook;
+      }
+    }
+    &.mod_line {
+      @include mediaQuery() {
+        background: $colorLINE;
+      }
+      &:hover {
+        background: $colorLINE;
+      }
+    }
+  }
+
+  &__nav-open-button {
+    @include flexCentering();
+    flex-direction: column;
+    cursor: pointer;
+    margin: 0 10px;
+    padding-bottom: 2px;
+    width: 80px;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    font-family: $fontEN;
+    font-weight: 300;
+    font-size: 20px;
+    transition: background-color 0.2s;
+    @include mediaQuery() {
+      width: 50px;
+      height: 40px;
+      font-size: 16px;
+    }
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  &__nav-open-button-more {
+    &.tgl_active {
+      display: none;
+    }
+  }
+
+  &__nav-open-button-close {
+    display: none;
+    &.tgl_active {
+      display: block;
+    }
+  }
+
+  &__nav-open-button-icon {
+    font-size: 22px;
+    transition: transform $navOpenTime;
+    @include mediaQuery() {
+      font-size: 20px;
+    }
+    &.tgl_active {
+      transform: rotateX(0.5turn);
+    }
+  }
 }
