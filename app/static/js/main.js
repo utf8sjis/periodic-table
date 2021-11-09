@@ -357,7 +357,7 @@ new Vue({
     // 周期表の幅と高さの初期値をセット
     this.periodicTableRect = this.$refs.periodicTable.getBoundingClientRect();
     // 操作パネルの高さの初期値をセット
-    const compStyles = window.getComputedStyle(this.$refs.changerWrapper);
+    const compStyles = window.getComputedStyle(this.$refs.controlPanel);
     this.changer.height = parseInt(compStyles.getPropertyValue('height'));
     // スクロールのイベントリスナを追加
     window.addEventListener('scroll', this.handleScroll);

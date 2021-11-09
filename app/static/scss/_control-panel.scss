@@ -1,8 +1,9 @@
+/****** control-panel ******/
 $langNum: 7;
 $langChangerWidth: 700px;
 $langChangerHeight: 25px + 15px * 2 + 20px;
 
-.changer-wrapper {
+.control-panel {
     position: sticky;
     position: -webkit-sticky;
     top: $headerHeight + 15px;
@@ -16,7 +17,7 @@ $langChangerHeight: 25px + 15px * 2 + 20px;
     @include mediaQuery() {
         top: $headerHeightPhone + 15px;
     }
-    > div.contents {
+    .control-panel__contents {
         box-sizing: border-box;
         padding-left: 20px;
         padding-right: 40px;
@@ -25,7 +26,7 @@ $langChangerHeight: 25px + 15px * 2 + 20px;
         transition: .3s;
     }
 }
-.changer-title {
+.control-panel__title-wrapper {
     position: absolute;
     top: 5px;
     left: 13px;
@@ -34,18 +35,18 @@ $langChangerHeight: 25px + 15px * 2 + 20px;
         top: 3px;
         left: 10px;
     }
-    span {
+    .control-panel__title {
         padding: 0 5px;
     }
 }
-.changer-button {
+.control-panel__button-container {
     position: absolute;
     top: 0px;
     right: 0px;
     height: $langChangerHeight;
     @include flexCentering();
     flex-direction: column;
-    > div {
+    .control-panel__button {
         cursor: pointer;
         width: 30px;
         height: math.div($langChangerHeight, 2);
@@ -54,7 +55,7 @@ $langChangerHeight: 25px + 15px * 2 + 20px;
         font-size: 20px;
         background: $colorMain2;
         transition: background-color .3s;
-        &.disable-changer-button {
+        &.tgl_disable {
             cursor: default;
             background: #d7dbdd;
         }
@@ -67,14 +68,14 @@ $langChangerHeight: 25px + 15px * 2 + 20px;
     padding-top: 20px;
     overflow-x: visible;
 }
-.lang-changer ul {
+.lang-changer .lang-changer__button-container {
     display: grid;
     grid-template-columns: repeat($langNum, auto auto) auto;
     list-style: none;
     padding: 0;
     white-space: nowrap;
 }
-.lang-changer li:nth-child(even) {
+.lang-changer .lang-changer__button:nth-child(even) {
     position: relative;
     cursor: pointer;
     height: 25px;
@@ -100,7 +101,7 @@ $langChangerHeight: 25px + 15px * 2 + 20px;
             transition: .3s;
         }
     }
-    &.active-lang {
+    &.tgl_active-lang {
         color: $colorMain1;
         transition: 1s;
         &::after {
@@ -118,7 +119,7 @@ $langChangerHeight: 25px + 15px * 2 + 20px;
         display: none;
     }
 }
-.lang-changer li:nth-child(odd) {
+.lang-changer .lang-changer__button:nth-child(odd) {
     position: relative;
     @include flexCentering();
     width: 10px;
@@ -134,7 +135,7 @@ $langChangerHeight: 25px + 15px * 2 + 20px;
     }
 }
 @media(max-width: $langChangerWidth) {
-    .changer-wrapper {
+    .control-panel {
         margin: 0 10px;
         width: auto;
     }
@@ -142,17 +143,17 @@ $langChangerHeight: 25px + 15px * 2 + 20px;
         @include flexCentering(flex-start, center);
         overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
-        ul {
+        .lang-changer__button-container {
             padding-right: 40px;
         }
     }
 }
 
-/****** mc-width-changer ******/
-.mc-width-changer {
+/****** periodic-table-scaler ******/
+.periodic-table-scaler {
     padding-top: 20px;
     @include flexCentering();
-    input[type="range"] {
+    .periodic-table-scaler__input[type="range"] {
         cursor: pointer;
         -webkit-appearance: none;
         vertical-align: middle;
@@ -235,7 +236,7 @@ $langChangerHeight: 25px + 15px * 2 + 20px;
             border: none;
         }
     }
-    span {
+    .periodic-table-scaler__value {
         cursor: pointer;
         flex-shrink: 0;
         margin-left: 10px;
@@ -245,4 +246,8 @@ $langChangerHeight: 25px + 15px * 2 + 20px;
         border: solid 2px $colorMain2;
         border-radius: 5px;
     }
+}
+
+.tgl_overflow-hidden {
+    overflow: hidden;
 }
