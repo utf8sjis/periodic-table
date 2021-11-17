@@ -35,7 +35,7 @@ new Vue({
     periodClassList: periodClassList,
     navLinkSectionList: navLinkSectionList,
     themeColorList: themeColorList,
-    changerTitleList: changerTitleList,
+    controlPanelTitleList: controlPanelTitleList,
     /** 現在の表示言語とセル */
     current: {
       langIndex: 3,
@@ -285,7 +285,7 @@ new Vue({
       } else {
         this.changer.isStart = false;
       }
-      if (this.changer.index === this.changerTitleList.length - 1) {
+      if (this.changer.index === this.controlPanelTitleList.length - 1) {
         this.changer.isEnd = true;
       } else {
         this.changer.isEnd = false;

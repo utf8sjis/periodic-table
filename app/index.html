@@ -153,7 +153,7 @@
           <span class="periodic-table-scaler__value-display" @click="defaultRange">{{ rangeValue + 'x' }}</span>
         </div>
 
-        <div class="control-panel__title-wrapper" v-html="changerTitleList[changer.index]"></div>
+        <div class="control-panel__title-wrapper" v-html="controlPanelTitleList[changer.index]"></div>
 
         <div class="control-panel__button-container">
           <div class="control-panel__button" :class="{'tgl_disable': changer.isStart}" @click="changeContents('prev')">
