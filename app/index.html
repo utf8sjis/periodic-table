@@ -130,7 +130,7 @@
         <div
           class="control-panel__contents lang-changer"
           :class="{'tgl_overflow-hidden': isBodyScrollLocked}"
-          :style="{'transform': 'translateY(' + (changer.index * -changer.height) + 'px)'}"
+          :style="{'transform': 'translateY(' + (controlPanel.index * -controlPanel.height) + 'px)'}"
         >
           <ul class="lang-changer__button-container">
             <template v-for="(langObj, langIndex) in langList">
@@ -147,19 +147,19 @@
 
         <div
           class="control-panel__contents periodic-table-scaler"
-          :style="{'transform': 'translateY(' + (changer.index * -changer.height) + 'px)'}"
+          :style="{'transform': 'translateY(' + (controlPanel.index * -controlPanel.height) + 'px)'}"
         >
           <input class="periodic-table-scaler__input-range" type="range" min="0.5" max="2" step="0.05" v-model="rangeValue">
           <span class="periodic-table-scaler__value-display" @click="defaultRange">{{ rangeValue + 'x' }}</span>
         </div>
 
-        <div class="control-panel__title-wrapper" v-html="controlPanelTitleList[changer.index]"></div>
+        <div class="control-panel__title-wrapper" v-html="controlPanelTitleList[controlPanel.index]"></div>
 
         <div class="control-panel__button-container">
-          <div class="control-panel__button" :class="{'tgl_disable': changer.isStart}" @click="changeContents('prev')">
+          <div class="control-panel__button" :class="{'tgl_disable': controlPanel.isStart}" @click="changeContents('prev')">
             <i class="fas fa-angle-up"></i>
           </div>
-          <div class="control-panel__button" :class="{'tgl_disable': changer.isEnd}" @click="changeContents('next')">
+          <div class="control-panel__button" :class="{'tgl_disable': controlPanel.isEnd}" @click="changeContents('next')">
             <i class="fas fa-angle-down"></i>
           </div>
         </div>

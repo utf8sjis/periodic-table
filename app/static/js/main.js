@@ -57,7 +57,7 @@ new Vue({
       timeoutID: 0,
     },
     /** 操作パネルの高さ、内容のインデクス、内容が最初（最後）のものか否か */
-    changer: {
+    controlPanel: {
       height: 0,
       index: 0,
       isStart: true,
@@ -275,20 +275,20 @@ new Vue({
      * @param {string} to - 'next'か'prev'
      */
     changeContents: function (to) {
-      if (to === 'next' && !this.changer.isEnd) {
-        this.changer.index++;
-      } else if (to === 'prev' && !this.changer.isStart) {
-        this.changer.index--;
+      if (to === 'next' && !this.controlPanel.isEnd) {
+        this.controlPanel.index++;
+      } else if (to === 'prev' && !this.controlPanel.isStart) {
+        this.controlPanel.index--;
       }
-      if (this.changer.index === 0) {
-        this.changer.isStart = true;
+      if (this.controlPanel.index === 0) {
+        this.controlPanel.isStart = true;
       } else {
-        this.changer.isStart = false;
+        this.controlPanel.isStart = false;
       }
-      if (this.changer.index === this.controlPanelTitleList.length - 1) {
-        this.changer.isEnd = true;
+      if (this.controlPanel.index === this.controlPanelTitleList.length - 1) {
+        this.controlPanel.isEnd = true;
       } else {
-        this.changer.isEnd = false;
+        this.controlPanel.isEnd = false;
       }
     },
     /**
@@ -358,7 +358,7 @@ new Vue({
     this.periodicTableRect = this.$refs.periodicTable.getBoundingClientRect();
     // 操作パネルの高さの初期値をセット
     const compStyles = window.getComputedStyle(this.$refs.controlPanel);
-    this.changer.height = parseInt(compStyles.getPropertyValue('height'));
+    this.controlPanel.height = parseInt(compStyles.getPropertyValue('height'));
     // スクロールのイベントリスナを追加
     window.addEventListener('scroll', this.handleScroll);
     // localStorageの初期化と読み出し
