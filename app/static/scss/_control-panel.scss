@@ -4,266 +4,266 @@ $langChangerWidth: 700px;
 $langChangerHeight: 25px + 15px * 2 + 20px;
 
 .control-panel {
-    position: sticky;
-    position: -webkit-sticky;
-    top: $headerHeight + 15px;
-    width: $langChangerWidth;
+  position: sticky;
+  position: -webkit-sticky;
+  top: $headerHeight + 15px;
+  width: $langChangerWidth;
+  height: $langChangerHeight;
+  margin: 0 auto 0;
+  border: solid 2px $colorMain2;
+  border-radius: 10px;
+  background: $colorBaseA;
+  overflow: hidden;
+  @include mediaQuery() {
+    top: $headerHeightPhone + 15px;
+  }
+  @include mediaQuery($langChangerWidth) {
+    margin: 0 10px;
+    width: auto;
+  }
+
+  &__contents {
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 40px;
     height: $langChangerHeight;
-    margin: 0 auto 0;
-    border: solid 2px $colorMain2;
-    border-radius: 10px;
-    background: $colorBaseA;
-    overflow: hidden;
+    flex-shrink: 0;
+    transition: 0.3s;
+  }
+
+  &__title-wrapper {
+    position: absolute;
+    top: 5px;
+    left: 13px;
+    color: $colorMain2;
     @include mediaQuery() {
-        top: $headerHeightPhone + 15px;
+      top: 3px;
+      left: 10px;
     }
-    @include mediaQuery($langChangerWidth) {
-        margin: 0 10px;
-        width: auto;
-    }
+  }
 
-    &__contents {
-        box-sizing: border-box;
-        padding-left: 20px;
-        padding-right: 40px;
-        height: $langChangerHeight;
-        flex-shrink: 0;
-        transition: .3s;
-    }
+  &__title {
+    padding: 0 5px;
+  }
 
-    &__title-wrapper {
-        position: absolute;
-        top: 5px;
-        left: 13px;
-        color: $colorMain2;
-        @include mediaQuery() {
-            top: 3px;
-            left: 10px;
-        }
-    }
+  &__button-container {
+    @include flexCentering();
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: $langChangerHeight;
+    flex-direction: column;
+  }
 
-    &__title {
-        padding: 0 5px;
+  &__button {
+    @include flexCentering();
+    cursor: pointer;
+    width: 30px;
+    height: math.div($langChangerHeight, 2);
+    color: $colorWhiteA;
+    font-size: 20px;
+    background: $colorMain2;
+    transition: background-color 0.3s;
+    &.tgl_disable {
+      cursor: default;
+      background: #d7dbdd;
     }
-    
-    &__button-container {
-        @include flexCentering();
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        height: $langChangerHeight;
-        flex-direction: column;
-    }
-
-    &__button {
-        @include flexCentering();
-        cursor: pointer;
-        width: 30px;
-        height: math.div($langChangerHeight, 2);
-        color: $colorWhiteA;
-        font-size: 20px;
-        background: $colorMain2;
-        transition: background-color .3s;
-        &.tgl_disable {
-            cursor: default;
-            background: #d7dbdd;
-        }
-    }
+  }
 }
 
 /****** lang-changer ******/
 .lang-changer {
-    @include flexCentering();
-    padding-top: 20px;
-    overflow-x: visible;
+  @include flexCentering();
+  padding-top: 20px;
+  overflow-x: visible;
+  @include mediaQuery($langChangerWidth) {
+    @include flexCentering(flex-start, center);
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  &.tgl_overflow-hidden {
+    overflow: hidden;
+  }
+
+  &__button-container {
+    display: grid;
+    grid-template-columns: repeat($langNum, auto auto) auto;
+    list-style: none;
+    padding: 0;
+    white-space: nowrap;
     @include mediaQuery($langChangerWidth) {
-        @include flexCentering(flex-start, center);
-        overflow-x: scroll;
-        -webkit-overflow-scrolling: touch;
+      padding-right: 40px;
     }
-    &.tgl_overflow-hidden {
-        overflow: hidden;
-    }
+  }
 
-    &__button-container {
-        display: grid;
-        grid-template-columns: repeat($langNum, auto auto) auto;
-        list-style: none;
-        padding: 0;
-        white-space: nowrap;
-        @include mediaQuery($langChangerWidth) {
-            padding-right: 40px;
+  &__button {
+    &:nth-child(even) {
+      position: relative;
+      cursor: pointer;
+      height: 25px;
+      padding: 15px 10px;
+      color: $colorBlackA;
+      transition: 0.3s;
+      &:hover {
+        color: $colorBlack;
+        &::after {
+          left: 0;
+          width: 100%;
+          background: $colorMain2;
+          transition: 0.3s;
         }
+      }
+      &:last-child {
+        display: none;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 5px;
+        background: transparent;
+        transition: 0.5s;
+      }
+      &.tgl_active-lang {
+        color: $colorMain1;
+        transition: 1s;
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 5px;
+          background: $colorMain1;
+          transition: 1s;
+        }
+      }
     }
-
-    &__button {
-        &:nth-child(even) {
-            position: relative;
-            cursor: pointer;
-            height: 25px;
-            padding: 15px 10px;
-            color: $colorBlackA;
-            transition: .3s;
-            &:hover {
-                color: $colorBlack;
-                &::after{
-                    left: 0;
-                    width: 100%;
-                    background: $colorMain2;
-                    transition: .3s;
-                }
-            }
-            &:last-child {
-                display: none;
-            }
-            &::after {
-                content: "";
-                position: absolute;
-                left: 50%;
-                bottom: 0;
-                width: 0;
-                height: 5px;
-                background: transparent;
-                transition: .5s;
-            }
-            &.tgl_active-lang {
-                color: $colorMain1;
-                transition: 1s;
-                &::after {
-                    content: "";
-                    position: absolute;
-                    left: 0;
-                    bottom: 0;
-                    width: 100%;
-                    height: 5px;
-                    background: $colorMain1;
-                    transition: 1s;
-                }
-            }
-        }
-        &:nth-child(odd) {
-            @include flexCentering();
-            position: relative;
-            width: 10px;
-            &:first-child,
-            &:last-child {
-                display: none;
-            }
-            &::after {
-                position: absolute;
-                content: "";
-                width: 1px;
-                height: 20px;
-                background: $colorBlack;
-            }
-        }
+    &:nth-child(odd) {
+      @include flexCentering();
+      position: relative;
+      width: 10px;
+      &:first-child,
+      &:last-child {
+        display: none;
+      }
+      &::after {
+        position: absolute;
+        content: '';
+        width: 1px;
+        height: 20px;
+        background: $colorBlack;
+      }
     }
+  }
 }
 
 /****** periodic-table-scaler ******/
 .periodic-table-scaler {
-    @include flexCentering();
-    padding-top: 20px;
+  @include flexCentering();
+  padding-top: 20px;
 
-    &__input-range {
-        cursor: pointer;
-        -webkit-appearance: none;
-        vertical-align: middle;
+  &__input-range {
+    cursor: pointer;
+    -webkit-appearance: none;
+    vertical-align: middle;
+    outline: none;
+    border: none;
+    padding: 0;
+    background: none;
+    width: 300px;
+    // バー
+    &::-webkit-slider-runnable-track {
+      background-color: #d7dbdd; // 色1
+      height: 6px;
+      border-radius: 3px;
+      border: 1px solid transparent;
+    }
+    &::-moz-range-track {
+      background-color: #d7dbdd; // 色1
+      height: 6px;
+      border-radius: 3px;
+      border: none;
+    }
+    &::-ms-track {
+      color: transparent;
+      border: none;
+      background: none;
+      height: 6px;
+    }
+    &::-ms-fill-lower {
+      background-color: #d7dbdd; // 色1
+      border-radius: 3px;
+    }
+    &::-ms-fill-upper {
+      background-color: #d7dbdd; // 色1
+      border-radius: 3px;
+    }
+    &::-ms-tooltip {
+      display: none; /* display and visibility only */
+    }
+    // つまみ
+    &::-moz-range-thumb {
+      border-radius: 20px;
+      height: 25px;
+      width: 25px;
+      border: none;
+      background: none;
+      background-color: $colorMain2; // 色2
+    }
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none !important;
+      border-radius: 100%;
+      background-color: $colorMain2; // 色2
+      height: 25px;
+      width: 25px;
+      margin-top: -11px;
+      border: none;
+    }
+    &::-ms-thumb {
+      border-radius: 100%;
+      background-color: $colorMain2; // 色2
+      height: 25px;
+      width: 25px;
+      border: none;
+    }
+    &[disabled] {
+      // バー
+      &::-webkit-slider-runnable-track {
+        border: 1px solid #d7dbdd; // 色1
+        background-color: transparent;
+        opacity: 0.4;
+      }
+      // つまみ
+      &::-webkit-slider-thumb {
+        background-color: transparent;
+        border: 1px solid #d7dbdd; // 色1
+      }
+    }
+    &:active {
+      // つまみ
+      &::-moz-range-thumb {
         outline: none;
+      }
+      &::-webkit-slider-thumb {
+        outline: none;
+      }
+      &::-ms-thumb {
         border: none;
-        padding: 0;
-        background: none;
-        width: 300px;
-        // バー
-        &::-webkit-slider-runnable-track {
-            background-color: #d7dbdd; // 色1
-            height: 6px;
-            border-radius: 3px;
-            border: 1px solid transparent;
-        }
-        &::-moz-range-track {
-            background-color: #d7dbdd; // 色1
-            height: 6px;
-            border-radius: 3px;
-            border: none;
-        }
-        &::-ms-track {
-            color: transparent;
-            border: none;
-            background: none;
-            height: 6px;
-        }
-        &::-ms-fill-lower {
-            background-color: #d7dbdd; // 色1
-            border-radius: 3px;
-        }
-        &::-ms-fill-upper {
-            background-color: #d7dbdd; // 色1
-            border-radius: 3px;
-        }
-        &::-ms-tooltip {
-            display: none; /* display and visibility only */
-        }
-        // つまみ
-        &::-moz-range-thumb {
-            border-radius: 20px;
-            height: 25px;
-            width: 25px;
-            border: none;
-            background: none;
-            background-color: $colorMain2; // 色2
-        }
-        &::-webkit-slider-thumb {
-            -webkit-appearance: none !important;
-            border-radius: 100%;
-            background-color: $colorMain2; // 色2
-            height: 25px;
-            width: 25px;
-            margin-top: -11px;
-            border: none;
-        }
-        &::-ms-thumb {
-            border-radius: 100%;
-            background-color: $colorMain2; // 色2
-            height: 25px;
-            width: 25px;
-            border: none;
-        }
-        &[disabled] {
-            // バー
-            &::-webkit-slider-runnable-track {
-                border: 1px solid #d7dbdd; // 色1
-                background-color: transparent;
-                opacity: 0.4;
-            }
-            // つまみ
-            &::-webkit-slider-thumb {
-                background-color: transparent;
-                border: 1px solid #d7dbdd; // 色1
-            }
-        }
-        &:active {
-            // つまみ
-            &::-moz-range-thumb {
-                outline: none;
-            }
-            &::-webkit-slider-thumb {
-                outline: none;
-            }
-            &::-ms-thumb {
-                border: none;
-            }
-        }
+      }
     }
+  }
 
-    &__value-display {
-        @include flexCentering();
-        cursor: pointer;
-        flex-shrink: 0;
-        margin-left: 10px;
-        padding: 2px;
-        width: 50px;
-        border: solid 2px $colorMain2;
-        border-radius: 5px;
-    }
+  &__value-display {
+    @include flexCentering();
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-left: 10px;
+    padding: 2px;
+    width: 50px;
+    border: solid 2px $colorMain2;
+    border-radius: 5px;
+  }
 }
