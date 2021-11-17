@@ -167,13 +167,13 @@
       </div>
 
       <div
-        :class="['main-contents', {'mc-overflow': isMainContentsOverflow, 'overflow-hidden': isBodyScrollLocked}]"
+        class="periodic-table"
+        :class="{'tgl_overflow-scroll': isMainContentsOverflow, 'tgl_overflow-hidden': isBodyScrollLocked}"
         :style="{'height': (periodicTableRect.height * rangeValue) + 'px'}"
       >
-        <div ref="periodicTable" class="periodic-table" :style="{'transform': 'scale(' + rangeValue + ')'}">
 
+        <div ref="periodicTable" class="periodic-table__grid-container" :style="{'transform': 'scale(' + rangeValue + ')'}">
           <div class="table-guide">
-            <!-- <div class="state-guide"></div> -->
             <div class="category-guide">
               <div v-for="categoryObj in categoryList" class="category-guide-cell">
                 <div><div :class="categoryObj.categoryClass"></div></div>
@@ -181,24 +181,22 @@
               </div>
             </div>
           </div>
-
-          <div
-            v-for="(groupClass, num) in groupClassList"
-            :class="['group-number', groupClass]"
-          >{{ num + 1 }}</div>
-          <div
-            v-for="(periodClass, num) in periodClassList"
-            :class="['period-number', periodClass]"
-          >{{ num + 1 }}</div>
+          <div v-for="(groupClass, num) in groupClassList" class="periodic-table__group-number" :class="groupClass">
+            {{ num + 1 }}
+          </div>
+          <div v-for="(periodClass, num) in periodClassList" class="periodic-table__period-number" :class="periodClass">
+            {{ num + 1 }}
+          </div>
           <span
             v-for="(cellObj, cellIndex) in cellList"
-            :class="[cellObj.cellClass, langList[current.langIndex].langClass, {'click-effect': cellList[cellIndex].isActive}]"
+            :class="[cellObj.cellClass, langList[current.langIndex].langClass, {'tgl_click-effect': cellList[cellIndex].isActive}]"
             @click="openOverlay(cellIndex)"
             v-html="cellObj.innerStr[langList[current.langIndex].langClass]"
           ></span>
         </div>
 
       </div>
+
     </div>
 
     <transition
@@ -226,7 +224,7 @@
                 ></div>
                 <div
                   class="cont-area cont-area-element-symbol"
-                  v-html="current.cell.innerStr['element-symbol']"
+                  v-html="current.cell.innerStr['tgl_element-symbol']"
                 ></div>
               </div>
               <normal-sub-area name="atomic-num" label="Z =">
@@ -247,29 +245,29 @@
             </div>
             <div class="area-kanji-info">
               <normal-sub-area name="cn" label="Mainland China">
-                <div class="kanji">{{ current.cell.innerStr['simplified-chinese'] }}</div>
+                <div class="kanji">{{ current.cell.innerStr['tgl_simplified-chinese'] }}</div>
                 <div class="code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointCN }}</div>
                 <div
                   class="kanji-copy-button"
-                  @click="copyToClipboard(current.cell.innerStr['simplified-chinese'])"
+                  @click="copyToClipboard(current.cell.innerStr['tgl_simplified-chinese'])"
                   data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-sc"
                 ><i id="fa-clipboard-sc" class="fas fa-clipboard" data-micron="swing"></i></div>
               </normal-sub-area>
               <normal-sub-area name="tw" label="Taiwan">
-                <div class="kanji">{{ current.cell.innerStr['taiwan-trad'] }}</div>
+                <div class="kanji">{{ current.cell.innerStr['tgl_taiwan-trad'] }}</div>
                 <div class="code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointTW }}</div>
                 <div
                   class="kanji-copy-button"
-                  @click="copyToClipboard(current.cell.innerStr['taiwan-trad'])"
+                  @click="copyToClipboard(current.cell.innerStr['tgl_taiwan-trad'])"
                   data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-tw"
                 ><i id="fa-clipboard-tw" class="fas fa-clipboard" data-micron="swing"></i></div>
               </normal-sub-area>
               <normal-sub-area name="hk" label="Hong Kong">
-                <div class="kanji">{{ current.cell.innerStr['hongkong-trad'] }}</div>
+                <div class="kanji">{{ current.cell.innerStr['tgl_hongkong-trad'] }}</div>
                 <div class="code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointHK }}</div>
                 <div
                   class="kanji-copy-button"
-                  @click="copyToClipboard(current.cell.innerStr['hongkong-trad'])"
+                  @click="copyToClipboard(current.cell.innerStr['tgl_hongkong-trad'])"
                   data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-hk"
                 ><i id="fa-clipboard-hk" class="fas fa-clipboard" data-micron="swing"></i></div>
               </normal-sub-area>
@@ -285,10 +283,10 @@
             </div>
             <div class="area-name-info">
               <normal-sub-area name="japanese-name" label="Japanese Name">
-                {{ current.cell.innerStr['japanese-name'] }}
+                {{ current.cell.innerStr['tgl_japanese-name'] }}
               </normal-sub-area>
               <normal-sub-area name="english-name" label="English Name">
-                {{ current.cell.innerStr['english-name'] }}
+                {{ current.cell.innerStr['tgl_english-name'] }}
               </normal-sub-area>
             </div>
             <div class="area-twitter-tweet">

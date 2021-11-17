@@ -141,9 +141,9 @@ nav {
 .control-panel {
     z-index: 7;
 }
-.periodic-table {
+.periodic-table__grid-container {
     z-index: 5;
-    .click-effect {
+    .tgl_click-effect {
         z-index: 6;
     }
 }
