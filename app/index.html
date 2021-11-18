@@ -179,10 +179,10 @@
           :style="{'transform': 'scale(' + rangeValue + ')'}"
         >
           <div class="table-guide">
-            <div class="category-guide">
-              <div v-for="categoryObj in categoryList" class="category-guide-cell">
-                <div><div :class="categoryObj.categoryClass"></div></div>
-                <div><span>{{ categoryObj.categoryName }}</span></div>
+            <div class="table-guide__category-container">
+              <div v-for="categoryObj in categoryList" class="table-guide__category">
+                <div :class="categoryObj.categoryClass"></div>
+                <div>{{ categoryObj.categoryName }}</div>
               </div>
             </div>
           </div>

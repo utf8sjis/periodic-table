@@ -1,66 +1,66 @@
 const categoryList = [
   {
-    categoryClass: 'icon-cell icon-h',
+    categoryClass: 'table-guide__category-icon mod_category-h',
     categoryName: '水素',
   },
   {
-    categoryClass: 'icon-cell icon-li',
+    categoryClass: 'table-guide__category-icon mod_category-li',
     categoryName: 'アルカリ金属',
   },
   {
-    categoryClass: 'icon-cell icon-ca',
+    categoryClass: 'table-guide__category-icon mod_category-ca',
     categoryName: 'アルカリ土類金属',
   },
   {
-    categoryClass: 'icon-cell icon-zn',
+    categoryClass: 'table-guide__category-icon mod_category-zn',
     categoryName: '亜鉛族',
   },
   {
-    categoryClass: 'icon-cell icon-b',
+    categoryClass: 'table-guide__category-icon mod_category-b',
     categoryName: 'ホウ素族',
   },
   {
-    categoryClass: 'icon-cell icon-c',
+    categoryClass: 'table-guide__category-icon mod_category-c',
     categoryName: '炭素族',
   },
   {
-    categoryClass: 'icon-cell icon-n',
+    categoryClass: 'table-guide__category-icon mod_category-n',
     categoryName: '窒素族',
   },
   {
-    categoryClass: 'icon-cell icon-o',
+    categoryClass: 'table-guide__category-icon mod_category-o',
     categoryName: '酸素族',
   },
   {
-    categoryClass: 'icon-cell icon-f',
+    categoryClass: 'table-guide__category-icon mod_category-f',
     categoryName: 'ハロゲン',
   },
   {
-    categoryClass: 'icon-cell icon-he',
+    categoryClass: 'table-guide__category-icon mod_category-he',
     categoryName: '貴ガス',
   },
   {
-    categoryClass: 'icon-cell icon-la',
+    categoryClass: 'table-guide__category-icon mod_category-la',
     categoryName: 'ランタノイド',
   },
   {
-    categoryClass: 'icon-cell icon-ac',
+    categoryClass: 'table-guide__category-icon mod_category-ac',
     categoryName: 'アクチノイド',
   },
   {
-    categoryClass: 'icon-cell icon-fe',
+    categoryClass: 'table-guide__category-icon mod_category-fe',
     categoryName: '鉄族元素',
   },
   {
-    categoryClass: 'icon-cell icon-pt',
+    categoryClass: 'table-guide__category-icon mod_category-pt',
     categoryName: '白金族元素',
   },
   {
-    categoryClass: 'icon-cell icon-be',
+    categoryClass: 'table-guide__category-icon mod_category-be',
     categoryName: 'その他の典型元素',
   },
   {
-    categoryClass: 'icon-cell icon-transition-metal',
+    categoryClass: 'table-guide__category-icon mod_category-transition-metal',
     categoryName: 'その他の遷移金属',
   },
 ];
