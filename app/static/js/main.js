@@ -168,7 +168,7 @@ new Vue({
     /**
      * ナビゲーションメニューを開く
      */
-    navOpen: function () {
+    openNav: function () {
       this.isNavOpened = !this.isNavOpened;
     },
     /**

@@ -67,7 +67,7 @@
         </div>
         <div
           :class="['nav-button', {'active': isNavOpened}]"
-          @click="navOpen"
+          @click="openNav"
         >
           <span class="nav-button-more">MORE</span>
           <span class="nav-button-close">CLOSE</span>
@@ -124,7 +124,7 @@
 
     <div
       :class="['nav-back', {'active': isNavOpened}]"
-      @click="navOpen"
+      @click="openNav"
       v-cloak
     ></div>
 
