@@ -2,280 +2,288 @@
 $cellSize: 54px;
 $cellGap: 6px;
 
-.periodic-table {
-    height: 654px;
-    @include flexCentering();
-    overflow: hidden;
-    -webkit-overflow-scrolling: touch;
-    .periodic-table__grid-container {
-        transform-origin: top 50%;
-    }
-    &.tgl_overflow-scroll {
-        @include flexCentering(flex-start, flex-start);
-        overflow-x: scroll;
-        .periodic-table__grid-container {
-            transform-origin: top left;
-        }
-    }
-    &.tgl_overflow-hidden {
-        overflow: hidden;
-    }
-}
-.periodic-table__grid-container {
-    display: grid;
-    padding: 60px;
-    grid-template: repeat(9, $cellSize) / repeat(18, $cellSize);
-    @include gridGap($cellGap, $cellGap);
-    user-select: none;
-}
-
-// 言語クラス
-.tgl_atomic-number,
-.tgl_element-symbol {
-    padding-bottom: 4px;
-    font-family: $fontEN;
-    font-weight: 200;
-    font-size: 35px;
-}
-.tgl_atomic-number {
-    animation: intoAN .8s;
-}
-.tgl_element-symbol {
-    animation: intoES .8s;
-}
-.tgl_japanese-name {
-    padding-bottom: 2px;
-    font-size: 11px;
-    animation: intoJA .8s;
-}
-.tgl_english-name {
-    padding-bottom: 3px;
-    font-family: $fontEN;
-    font-weight: 300;
-    font-size: 10px;
-    animation: intoEN .8s;
-}
-.tgl_simplified-chinese,
-.tgl_taiwan-trad,
-.tgl_hongkong-trad {
-    padding-bottom: 5px;
-    font-size: 35px;
-}
-.tgl_simplified-chinese {
-    font-family: $fontCN;
-    animation: intoSC .8s;
-}
-.tgl_taiwan-trad {
-    font-family: $fontTW;
-    animation: intoTW .8s;
-}
-.tgl_hongkong-trad {
-    font-family: $fontHK;
-    animation: intoHK .8s;
-}
-
-// セルクラス（cellClass）
-// 余白のスタイルとグリッド位置情報
-.periodic-table__blank {
-    visibility: hidden;
-}
-.mod_blank-1 {
-    grid-column: 2 / -2;
-    grid-row: 1 / span 1;
-}
-.mod_blank-2 {
-    grid-column: 3 / -7;
-    grid-row: 2 / span 1;
-}
-.mod_blank-3 {
-    grid-column: 3 / -7;
-    grid-row: 3 / span 1;
-}
-.mod_blank-4 {
-    grid-column: 1 / 3;
-    grid-row: 8 / span 1;
-}
-.mod_blank-5 {
-    grid-column: 1 / 3;
-    grid-row: 9 / span 1;
-}
-.mod_blank-6 {
-    grid-column: 18 / 19;
-    grid-row: 8 / span 1;
-}
-.mod_blank-7 {
-    grid-column: 18 / 19;
-    grid-row: 9 / span 1;
-}
-.periodic-table__la-ac-cell {
-    @include flexCentering();
-    pointer-events: none;
-    padding: 0;
-    text-align: center;
-    text-decoration: none;
-    line-height: 100%;
-    color: $colorBlack;
-    &.tgl_atomic-number,
-    &.tgl_element-symbol {
-        padding-bottom: 4px;
-        font-family: $fontEN;
-        font-size: 20px;
-    }
-    &.tgl_japanese-name {
-        padding-bottom: 2px;
-        font-size: 10px;
-        white-space: nowrap;
-    }
-    &.tgl_english-name {
-        padding-bottom: 3px;
-        font-family: $fontEN;
-        font-size: 10px;
-    }
-    &.tgl_simplified-chinese,
-    &.tgl_hongkong-trad,
-    &.tgl_taiwan-trad {
-        padding-bottom: 3px;
-        font-size: 20px;
-    }
-    &.tgl_simplified-chinese {
-        font-family: $fontCN;
-    }
-    &.tgl_taiwan-trad {
-        font-family: $fontTW;
-    }
-    &.tgl_hongkong-trad {
-        font-family: $fontHK;
-    }
-}
-.mod_la-ac-cell-1 {
-    grid-column: 3 / span 1;
-    grid-row: 6 / span 1;
-}
-.mod_la-ac-cell-2 {
-    grid-column: 3 / span 1;
-    grid-row: 7 / span 1;
-}
-// グループ（category）
-.periodic-table__cell {
-    @include flexCentering();
-    border-radius: 2px;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    box-shadow: 0 2px 1px rgba(0, 0, 0, .2);
-    transform: translate3d(0, 0, 0) scale(1) rotateY(0);
-    transition-property: transform, background-color, color, border-color;
-    transition-duration: 1s;
-    &:hover {
-        cursor: pointer;
-        background: #fff;
-        transform: translate3d(0, -5px, 10px) scale(1.2) rotateY(0);
-        transition: .2s;
-    }
-}
-// それ以外のグループ
-@each $category in $categoryList {
-    $categoryColor: nth($categoryColorList, index($categoryList, $category));
-
-    .mod_category-#{$category} {
-        border: 2px solid $categoryColor;
-        background: $categoryColor;
-        &:hover {
-            color: $categoryColor;
-        }
-    }
-}
-// グループ水素
-.mod_category-h {
-    border: 2px solid #fff;
-    color: #333;
-    &:hover {
-        border: 2px solid #333;
-        color: #333;
-    }
-}
-// クリックエフェクトクラス
-.tgl_click-effect, :hover.tgl_click-effect {
-    cursor: default;
-    transform: translate3d(0, -5px, 100px) scale(2) rotateY(1turn);
-    transition: 1s;
-    opacity: 0;
-}
-
-// 各元素のグリッド位置情報
-$cellClassList: "mod_cell-H" "mod_cell-He" "mod_cell-Li" "mod_cell-Be" "mod_cell-B" "mod_cell-C" "mod_cell-N" "mod_cell-O" "mod_cell-F" "mod_cell-Ne" "mod_cell-Na" "mod_cell-Mg" "mod_cell-Al" "mod_cell-Si" "mod_cell-P" "mod_cell-S" "mod_cell-Cl" "mod_cell-Ar" "mod_cell-K" "mod_cell-Ca" "mod_cell-Sc" "mod_cell-Ti" "mod_cell-V" "mod_cell-Cr" "mod_cell-Mn" "mod_cell-Fe" "mod_cell-Co" "mod_cell-Ni" "mod_cell-Cu" "mod_cell-Zn" "mod_cell-Ga" "mod_cell-Ge" "mod_cell-As" "mod_cell-Se" "mod_cell-Br" "mod_cell-Kr" "mod_cell-Rb" "mod_cell-Sr" "mod_cell-Y" "mod_cell-Zr" "mod_cell-Nb" "mod_cell-Mo" "mod_cell-Tc" "mod_cell-Ru" "mod_cell-Rh" "mod_cell-Pd" "mod_cell-Ag" "mod_cell-Cd" "mod_cell-In" "mod_cell-Sn" "mod_cell-Sb" "mod_cell-Te" "mod_cell-I" "mod_cell-Xe" "mod_cell-Cs" "mod_cell-Ba" "mod_cell-Hf" "mod_cell-Ta" "mod_cell-W" "mod_cell-Re" "mod_cell-Os" "mod_cell-Ir" "mod_cell-Pt" "mod_cell-Au" "mod_cell-Hg" "mod_cell-Tl" "mod_cell-Pb" "mod_cell-Bi" "mod_cell-Po" "mod_cell-At" "mod_cell-Rn" "mod_cell-Fr" "mod_cell-Ra" "mod_cell-Rf" "mod_cell-Db" "mod_cell-Sg" "mod_cell-Bh" "mod_cell-Hs" "mod_cell-Mt" "mod_cell-Ds" "mod_cell-Rg" "mod_cell-Cn" "mod_cell-Nh" "mod_cell-Fl" "mod_cell-Mc" "mod_cell-Lv" "mod_cell-Ts" "mod_cell-Og" "mod_cell-La" "mod_cell-Ce" "mod_cell-Pr" "mod_cell-Nd" "mod_cell-Pm" "mod_cell-Sm" "mod_cell-Eu" "mod_cell-Gd" "mod_cell-Tb" "mod_cell-Dy" "mod_cell-Ho" "mod_cell-Er" "mod_cell-Tm" "mod_cell-Yb" "mod_cell-Lu" "mod_cell-Ac" "mod_cell-Th" "mod_cell-Pa" "mod_cell-U" "mod_cell-Np" "mod_cell-Pu" "mod_cell-Am" "mod_cell-Cm" "mod_cell-Bk" "mod_cell-Cf" "mod_cell-Es" "mod_cell-Fm" "mod_cell-Md" "mod_cell-No" "mod_cell-Lr";
-$cellRowList: 1 1 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9;
-$cellColumnList: 1 18 1 2 13 14 15 16 17 18 1 2 13 14 15 16 17 18 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 1 2 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 1 2 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17;
-
-@each $cellClass in $cellClassList {
-    $cellRow: nth($cellRowList, index($cellClassList, $cellClass));
-    $cellColumn: nth($cellColumnList, index($cellClassList, $cellClass));
-
-    .#{$cellClass} {
-        grid-column: #{$cellColumn} / span 1;
-        grid-row: #{$cellRow} / span 1;
-    }
-}
-.tgl_english-name {
-    &.mod_cell-Sg, &.mod_cell-Lr {
-        font-size: 9.8px;
-    }
-    &.mod_cell-Nd {
-        font-size: 9.6px;
-    }
-    &.mod_cell-Pm, &.mod_cell-Cn, &.mod_cell-Lv {
-        font-size: 9.4px;
-    }
-    &.mod_cell-Mo, &.mod_cell-Pa {
-        font-size: 9px;
-    }
-    &.mod_cell-Rg, &.mod_cell-Md {
-        font-size: 8.6px;
-    }
-    &.mod_cell-Ds {
-        font-size: 8.2px;
-    }
-    &.mod_cell-Rf {
-        font-size: 8px;
-    }
-    &.mod_cell-Pr {
-        font-size: 7.8px;
-    }
-}
-
 // 族と周期のグリッド位置情報
 $groupNumberList: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18;
 $groupRowList:    1 2 4 4 4 4 4 4 4 4  4  4  2  2  2  2  2  1;
 $periodNumberList: 1 2 3 4 5 6 7;
 
-@each $groupNumber in $groupNumberList {
-    $groupRow: nth($groupRowList, index($groupNumberList, $groupNumber));
+// 各元素のグリッド位置情報
+$cellSymbolList: "H" "He" "Li" "Be" "B" "C" "N" "O" "F" "Ne" "Na" "Mg" "Al" "Si" "P" "S" "Cl" "Ar" "K" "Ca" "Sc" "Ti" "V" "Cr" "Mn" "Fe" "Co" "Ni" "Cu" "Zn" "Ga" "Ge" "As" "Se" "Br" "Kr" "Rb" "Sr" "Y" "Zr" "Nb" "Mo" "Tc" "Ru" "Rh" "Pd" "Ag" "Cd" "In" "Sn" "Sb" "Te" "I" "Xe" "Cs" "Ba" "Hf" "Ta" "W" "Re" "Os" "Ir" "Pt" "Au" "Hg" "Tl" "Pb" "Bi" "Po" "At" "Rn" "Fr" "Ra" "Rf" "Db" "Sg" "Bh" "Hs" "Mt" "Ds" "Rg" "Cn" "Nh" "Fl" "Mc" "Lv" "Ts" "Og" "La" "Ce" "Pr" "Nd" "Pm" "Sm" "Eu" "Gd" "Tb" "Dy" "Ho" "Er" "Tm" "Yb" "Lu" "Ac" "Th" "Pa" "U" "Np" "Pu" "Am" "Cm" "Bk" "Cf" "Es" "Fm" "Md" "No" "Lr";
+$cellRowList: 1 1 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9;
+$cellColumnList: 1 18 1 2 13 14 15 16 17 18 1 2 13 14 15 16 17 18 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 1 2 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 1 2 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17;
 
-    .mod_group-#{$groupNumber} {
-        @include flexCentering();
-        grid-column: #{$groupNumber} / span 1;
-        grid-row: #{$groupRow} / span 1;
+// 見た目変更時のアニメーション
+$animeNameList: "intoAN" "intoES" "intoJA" "intoEN" "intoSC" "intoTW" "intoHK";
+@each $animeName in $animeNameList {
+    @keyframes #{$animeName} {
+        0% {
+            transform-origin: center top;
+            color: transparent;
+            transform: rotateZ(12deg);
+        }
+        25% {
+            transform: rotateZ(-8deg);
+        }
+        50% {
+            transform: rotateZ(3deg);
+        }
+        75% {
+            transform: rotateZ(-1deg);
+        }
+        100% {
+            transform-origin: center top;
+            transform: rotateZ(0deg);
+        }
     }
 }
-@each $periodNumber in $periodNumberList {
-    .mod_period-#{$periodNumber} {
-        position: relative;
-        @include flexCentering();
-        grid-column: 1 / span 1;
-        grid-row: #{$periodNumber} / span 1;
+
+.periodic-table {
+    @include flexCentering();
+    height: 654px;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    &.tgl_overflow-scroll {
+        @include flexCentering(flex-start, flex-start);
+        overflow-x: scroll;
     }
-}
-.periodic-table__group-number, .periodic-table__period-number {
-    color: $colorBlack;
-    font-family: $fontEN;
-    font-weight: 300;
-    font-size: 20px;
-}
-.periodic-table__group-number {
-    height: 0;
-    transform: translateY(-15px);
-}
-.periodic-table__period-number {
-    width: 0;
-    transform: translateX(-15px);
+    &.tgl_overflow-hidden {
+        overflow: hidden;
+    }
+
+    &__grid-container {
+        display: grid;
+        padding: 60px;
+        grid-template: repeat(9, $cellSize) / repeat(18, $cellSize);
+        @include gridGap($cellGap, $cellGap);
+        user-select: none;
+        transform-origin: top 50%;
+        &.tgl_overflow-scroll {
+            transform-origin: top left;
+        }
+    }
+
+    &__group-number {
+        @include flexCentering();
+        height: 0;
+        transform: translateY(-15px);
+        color: $colorBlack;
+        font-family: $fontEN;
+        font-weight: 300;
+        font-size: 20px;
+        @each $groupNumber in $groupNumberList {
+            $groupRow: nth($groupRowList, index($groupNumberList, $groupNumber));
+            &.mod_group-#{$groupNumber} {
+                grid-column: #{$groupNumber} / span 1;
+                grid-row: #{$groupRow} / span 1;
+            }
+        }
+    }
+
+    &__period-number {
+        @include flexCentering();
+        width: 0;
+        transform: translateX(-15px);
+        color: $colorBlack;
+        font-family: $fontEN;
+        font-weight: 300;
+        font-size: 20px;
+        @each $periodNumber in $periodNumberList {
+            &.mod_period-#{$periodNumber} {
+                grid-column: 1 / span 1;
+                grid-row: #{$periodNumber} / span 1;
+            }
+        }
+    }
+
+    &__cell-wrapper {
+        transition: 1s;
+        @each $cellClass in $cellSymbolList {
+            $cellRow: nth($cellRowList, index($cellSymbolList, $cellClass));
+            $cellColumn: nth($cellColumnList, index($cellSymbolList, $cellClass));
+            &.mod_cell-#{$cellClass} {
+                grid-column: #{$cellColumn} / span 1;
+                grid-row: #{$cellRow} / span 1;
+            }
+        }
+        &.tgl_click-effect {
+            cursor: default;
+            transform: translate3d(0, -5px, 100px) scale(2) rotateY(1turn);
+            opacity: 0;
+        }
+    }
+
+    &__cell {
+        @include flexCentering();
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        border-radius: 2px;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        box-shadow: 0 2px 1px rgba(0, 0, 0, .2);
+        transform: translate3d(0, 0, 0) scale(1) rotateY(0);
+        transition-property: transform, background-color, color, border-color;
+        transition-duration: 1s;
+        @each $category in $categoryList {
+            $categoryColor: nth($categoryColorList, index($categoryList, $category));
+            &.mod_category-#{$category} {
+                @if $category == h {
+                    border: 2px solid #fff;
+                    color: #333;
+                } @else {
+                    border: 2px solid $categoryColor;
+                    background: $categoryColor;
+                }
+                &:hover {
+                    cursor: pointer;
+                    background: #fff;
+                    transform: translate3d(0, -5px, 10px) scale(1.2) rotateY(0);
+                    transition: .2s;
+                    @if $category == h {
+                        border: 2px solid #333;
+                        color: #333;
+                    } @else {
+                        color: $categoryColor;
+                    }
+                }
+            }
+        }
+        &.tgl_atomic-number {
+            padding-bottom: 4px;
+            font-family: $fontEN;
+            font-weight: 200;
+            font-size: 35px;
+            animation: intoAN .8s;
+        }
+        &.tgl_element-symbol {
+            padding-bottom: 4px;
+            font-family: $fontEN;
+            font-weight: 200;
+            font-size: 35px;
+            animation: intoES .8s;
+        }
+        &.tgl_simplified-chinese {
+            padding-bottom: 5px;
+            font-size: 35px;
+            font-family: $fontCN;
+            animation: intoSC .8s;
+        }
+        &.tgl_taiwan-trad {
+            padding-bottom: 5px;
+            font-size: 35px;
+            font-family: $fontTW;
+            animation: intoTW .8s;
+        }
+        &.tgl_hongkong-trad {
+            padding-bottom: 5px;
+            font-size: 35px;
+            font-family: $fontHK;
+            animation: intoHK .8s;
+        }
+        &.tgl_japanese-name {
+            padding-bottom: 2px;
+            font-size: 11px;
+            animation: intoJA .8s;
+        }
+        &.tgl_english-name {
+            padding-bottom: 3px;
+            font-family: $fontEN;
+            font-weight: 300;
+            font-size: 10px;
+            animation: intoEN .8s;
+            &.mod_cell-Sg,
+            &.mod_cell-Lr {
+                font-size: 9.8px;
+            }
+            &.mod_cell-Nd {
+                font-size: 9.6px;
+            }
+            &.mod_cell-Pm,
+            &.mod_cell-Cn,
+            &.mod_cell-Lv {
+                font-size: 9.4px;
+            }
+            &.mod_cell-Mo,
+            &.mod_cell-Pa {
+                font-size: 9px;
+            }
+            &.mod_cell-Rg,
+            &.mod_cell-Md {
+                font-size: 8.6px;
+            }
+            &.mod_cell-Ds {
+                font-size: 8.2px;
+            }
+            &.mod_cell-Rf {
+                font-size: 8px;
+            }
+            &.mod_cell-Pr {
+                font-size: 7.8px;
+            }
+        }
+    }
+
+    &__la-ac-wrapper {
+        &.mod_lanthanoid {
+            grid-column: 3 / span 1;
+            grid-row: 6 / span 1;
+        }
+        &.mod_actinoid {
+            grid-column: 3 / span 1;
+            grid-row: 7 / span 1;
+        }
+    }
+
+    &__la-ac {
+        @include flexCentering();
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 100%;
+        color: $colorBlack;
+        &.tgl_atomic-number {
+            padding-bottom: 4px;
+            font-family: $fontEN;
+            font-size: 20px;
+            animation: intoAN .8s;
+        }
+        &.tgl_element-symbol {
+            padding-bottom: 4px;
+            font-family: $fontEN;
+            font-size: 20px;
+            animation: intoES .8s;
+        }
+        &.tgl_simplified-chinese {
+            padding-bottom: 3px;
+            font-size: 20px;
+            font-family: $fontCN;
+            animation: intoSC .8s;
+        }
+        &.tgl_taiwan-trad {
+            padding-bottom: 3px;
+            font-size: 20px;
+            font-family: $fontTW;
+            animation: intoTW .8s;
+        }
+        &.tgl_hongkong-trad {
+            padding-bottom: 3px;
+            font-size: 20px;
+            font-family: $fontHK;
+            animation: intoHK .8s;
+        }
+        &.tgl_japanese-name {
+            padding-bottom: 2px;
+            font-size: 10px;
+            white-space: nowrap;
+            animation: intoJA .8s;
+        }
+        &.tgl_english-name {
+            padding-bottom: 3px;
+            font-family: $fontEN;
+            font-size: 10px;
+            animation: intoEN .8s;
+        }
+    }
 }

@@ -172,7 +172,12 @@
         :style="{'height': (periodicTableRect.height * rangeValue) + 'px'}"
       >
 
-        <div ref="periodicTable" class="periodic-table__grid-container" :style="{'transform': 'scale(' + rangeValue + ')'}">
+        <div
+          ref="periodicTable"
+          class="periodic-table__grid-container"
+          :class="{'tgl_overflow-scroll': isMainContentsOverflow}"
+          :style="{'transform': 'scale(' + rangeValue + ')'}"
+        >
           <div class="table-guide">
             <div class="category-guide">
               <div v-for="categoryObj in categoryList" class="category-guide-cell">
@@ -187,12 +192,16 @@
           <div v-for="(periodClass, num) in periodClassList" class="periodic-table__period-number" :class="periodClass">
             {{ num + 1 }}
           </div>
-          <span
+          <div
             v-for="(cellObj, cellIndex) in cellList"
-            :class="[cellObj.cellClass, langList[current.langIndex].langClass, {'tgl_click-effect': cellList[cellIndex].isActive}]"
+            :class="[cellObj.cellWrapperClass, cellObj.uniqueClass, {'tgl_click-effect': cellList[cellIndex].isActive}]"
             @click="openOverlay(cellIndex)"
-            v-html="cellObj.innerStr[langList[current.langIndex].langClass]"
-          ></span>
+          >
+            <div
+              :class="[cellObj.cellClass, cellObj.uniqueClass, langList[current.langIndex].langClass]"
+              v-html="cellObj.innerStr[langList[current.langIndex].langClass]"
+            ></div>
+          </div>
         </div>
 
       </div>

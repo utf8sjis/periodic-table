@@ -1,23 +1,10 @@
-const demoCell = {
-  isActive: false,
-  atomicNum: 0,
-  cellClass: 'periodic-table__cell mod_category-demo',
-  innerStr: {
-    'tgl_atomic-number': '0',
-    'tgl_element-symbol': '元素記号',
-    'tgl_japanese-name': '日本語元素名',
-    'tgl_english-name': '英語元素名',
-    'tgl_simplified-chinese': '大陸簡体',
-    'tgl_taiwan-trad': '台湾正体',
-    'tgl_hongkong-trad': '香港繁体',
-  },
-};
-
 const cellList = [
   {
     isActive: false,
     atomicNum: 1,
-    cellClass: 'periodic-table__cell mod_category-h mod_cell-H',
+    uniqueClass: 'mod_cell-H',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-h',
     innerStr: {
       'tgl_atomic-number': '1',
       'tgl_element-symbol': 'H',
@@ -30,22 +17,10 @@ const cellList = [
   },
   {
     isActive: false,
-    atomicNum: -1,
-    cellClass: 'periodic-table__blank mod_blank-1',
-    innerStr: {
-      'tgl_atomic-number': '-1',
-      'tgl_element-symbol': '',
-      'tgl_japanese-name': '',
-      'tgl_english-name': '',
-      'tgl_simplified-chinese': '',
-      'tgl_taiwan-trad': '',
-      'tgl_hongkong-trad': '',
-    },
-  },
-  {
-    isActive: false,
     atomicNum: 2,
-    cellClass: 'periodic-table__cell mod_category-he mod_cell-He',
+    uniqueClass: 'mod_cell-He',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-he',
     innerStr: {
       'tgl_atomic-number': '2',
       'tgl_element-symbol': 'He',
@@ -59,7 +34,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 3,
-    cellClass: 'periodic-table__cell mod_category-li mod_cell-Li',
+    uniqueClass: 'mod_cell-Li',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-li',
     innerStr: {
       'tgl_atomic-number': '3',
       'tgl_element-symbol': 'Li',
@@ -73,7 +50,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 4,
-    cellClass: 'periodic-table__cell mod_category-be mod_cell-Be',
+    uniqueClass: 'mod_cell-Be',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-be',
     innerStr: {
       'tgl_atomic-number': '4',
       'tgl_element-symbol': 'Be',
@@ -86,22 +65,10 @@ const cellList = [
   },
   {
     isActive: false,
-    atomicNum: -1,
-    cellClass: 'periodic-table__blank mod_blank-2',
-    innerStr: {
-      'tgl_atomic-number': '-1',
-      'tgl_element-symbol': '',
-      'tgl_japanese-name': '',
-      'tgl_english-name': '',
-      'tgl_simplified-chinese': '',
-      'tgl_taiwan-trad': '',
-      'tgl_hongkong-trad': '',
-    },
-  },
-  {
-    isActive: false,
     atomicNum: 5,
-    cellClass: 'periodic-table__cell mod_category-b mod_cell-B',
+    uniqueClass: 'mod_cell-B',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-b',
     innerStr: {
       'tgl_atomic-number': '5',
       'tgl_element-symbol': 'B',
@@ -115,7 +82,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 6,
-    cellClass: 'periodic-table__cell mod_category-c mod_cell-C',
+    uniqueClass: 'mod_cell-C',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-c',
     innerStr: {
       'tgl_atomic-number': '6',
       'tgl_element-symbol': 'C',
@@ -129,7 +98,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 7,
-    cellClass: 'periodic-table__cell mod_category-n mod_cell-N',
+    uniqueClass: 'mod_cell-N',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-n',
     innerStr: {
       'tgl_atomic-number': '7',
       'tgl_element-symbol': 'N',
@@ -143,7 +114,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 8,
-    cellClass: 'periodic-table__cell mod_category-o mod_cell-O',
+    uniqueClass: 'mod_cell-O',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-o',
     innerStr: {
       'tgl_atomic-number': '8',
       'tgl_element-symbol': 'O',
@@ -157,7 +130,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 9,
-    cellClass: 'periodic-table__cell mod_category-f mod_cell-F',
+    uniqueClass: 'mod_cell-F',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-f',
     innerStr: {
       'tgl_atomic-number': '9',
       'tgl_element-symbol': 'F',
@@ -171,7 +146,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 10,
-    cellClass: 'periodic-table__cell mod_category-he mod_cell-Ne',
+    uniqueClass: 'mod_cell-Ne',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-he',
     innerStr: {
       'tgl_atomic-number': '10',
       'tgl_element-symbol': 'Ne',
@@ -185,7 +162,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 11,
-    cellClass: 'periodic-table__cell mod_category-li mod_cell-Na',
+    uniqueClass: 'mod_cell-Na',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-li',
     innerStr: {
       'tgl_atomic-number': '11',
       'tgl_element-symbol': 'Na',
@@ -199,7 +178,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 12,
-    cellClass: 'periodic-table__cell mod_category-be mod_cell-Mg',
+    uniqueClass: 'mod_cell-Mg',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-be',
     innerStr: {
       'tgl_atomic-number': '12',
       'tgl_element-symbol': 'Mg',
@@ -212,22 +193,10 @@ const cellList = [
   },
   {
     isActive: false,
-    atomicNum: -1,
-    cellClass: 'periodic-table__blank mod_blank-3',
-    innerStr: {
-      'tgl_atomic-number': '-1',
-      'tgl_element-symbol': '',
-      'tgl_japanese-name': '',
-      'tgl_english-name': '',
-      'tgl_simplified-chinese': '',
-      'tgl_taiwan-trad': '',
-      'tgl_hongkong-trad': '',
-    },
-  },
-  {
-    isActive: false,
     atomicNum: 13,
-    cellClass: 'periodic-table__cell mod_category-b mod_cell-Al',
+    uniqueClass: 'mod_cell-Al',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-b',
     innerStr: {
       'tgl_atomic-number': '13',
       'tgl_element-symbol': 'Al',
@@ -241,7 +210,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 14,
-    cellClass: 'periodic-table__cell mod_category-c mod_cell-Si',
+    uniqueClass: 'mod_cell-Si',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-c',
     innerStr: {
       'tgl_atomic-number': '14',
       'tgl_element-symbol': 'Si',
@@ -255,7 +226,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 15,
-    cellClass: 'periodic-table__cell mod_category-n mod_cell-P',
+    uniqueClass: 'mod_cell-P',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-n',
     innerStr: {
       'tgl_atomic-number': '15',
       'tgl_element-symbol': 'P',
@@ -269,7 +242,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 16,
-    cellClass: 'periodic-table__cell mod_category-o mod_cell-S',
+    uniqueClass: 'mod_cell-S',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-o',
     innerStr: {
       'tgl_atomic-number': '16',
       'tgl_element-symbol': 'S',
@@ -283,7 +258,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 17,
-    cellClass: 'periodic-table__cell mod_category-f mod_cell-Cl',
+    uniqueClass: 'mod_cell-Cl',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-f',
     innerStr: {
       'tgl_atomic-number': '17',
       'tgl_element-symbol': 'Cl',
@@ -297,7 +274,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 18,
-    cellClass: 'periodic-table__cell mod_category-he mod_cell-Ar',
+    uniqueClass: 'mod_cell-Ar',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-he',
     innerStr: {
       'tgl_atomic-number': '18',
       'tgl_element-symbol': 'Ar',
@@ -311,7 +290,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 19,
-    cellClass: 'periodic-table__cell mod_category-li mod_cell-K',
+    uniqueClass: 'mod_cell-K',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-li',
     innerStr: {
       'tgl_atomic-number': '19',
       'tgl_element-symbol': 'K',
@@ -325,7 +306,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 20,
-    cellClass: 'periodic-table__cell mod_category-ca mod_cell-Ca',
+    uniqueClass: 'mod_cell-Ca',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ca',
     innerStr: {
       'tgl_atomic-number': '20',
       'tgl_element-symbol': 'Ca',
@@ -339,7 +322,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 21,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Sc',
+    uniqueClass: 'mod_cell-Sc',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '21',
       'tgl_element-symbol': 'Sc',
@@ -353,7 +338,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 22,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Ti',
+    uniqueClass: 'mod_cell-Ti',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '22',
       'tgl_element-symbol': 'Ti',
@@ -367,7 +354,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 23,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-V',
+    uniqueClass: 'mod_cell-V',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '23',
       'tgl_element-symbol': 'V',
@@ -381,7 +370,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 24,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Cr',
+    uniqueClass: 'mod_cell-Cr',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '24',
       'tgl_element-symbol': 'Cr',
@@ -395,7 +386,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 25,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Mn',
+    uniqueClass: 'mod_cell-Mn',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '25',
       'tgl_element-symbol': 'Mn',
@@ -409,7 +402,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 26,
-    cellClass: 'periodic-table__cell mod_category-fe mod_cell-Fe',
+    uniqueClass: 'mod_cell-Fe',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-fe',
     innerStr: {
       'tgl_atomic-number': '26',
       'tgl_element-symbol': 'Fe',
@@ -423,7 +418,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 27,
-    cellClass: 'periodic-table__cell mod_category-fe mod_cell-Co',
+    uniqueClass: 'mod_cell-Co',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-fe',
     innerStr: {
       'tgl_atomic-number': '27',
       'tgl_element-symbol': 'Co',
@@ -437,7 +434,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 28,
-    cellClass: 'periodic-table__cell mod_category-fe mod_cell-Ni',
+    uniqueClass: 'mod_cell-Ni',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-fe',
     innerStr: {
       'tgl_atomic-number': '28',
       'tgl_element-symbol': 'Ni',
@@ -451,7 +450,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 29,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Cu',
+    uniqueClass: 'mod_cell-Cu',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '29',
       'tgl_element-symbol': 'Cu',
@@ -465,7 +466,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 30,
-    cellClass: 'periodic-table__cell mod_category-zn mod_cell-Zn',
+    uniqueClass: 'mod_cell-Zn',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-zn',
     innerStr: {
       'tgl_atomic-number': '30',
       'tgl_element-symbol': 'Zn',
@@ -479,7 +482,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 31,
-    cellClass: 'periodic-table__cell mod_category-b mod_cell-Ga',
+    uniqueClass: 'mod_cell-Ga',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-b',
     innerStr: {
       'tgl_atomic-number': '31',
       'tgl_element-symbol': 'Ga',
@@ -493,7 +498,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 32,
-    cellClass: 'periodic-table__cell mod_category-c mod_cell-Ge',
+    uniqueClass: 'mod_cell-Ge',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-c',
     innerStr: {
       'tgl_atomic-number': '32',
       'tgl_element-symbol': 'Ge',
@@ -507,7 +514,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 33,
-    cellClass: 'periodic-table__cell mod_category-n mod_cell-As',
+    uniqueClass: 'mod_cell-As',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-n',
     innerStr: {
       'tgl_atomic-number': '33',
       'tgl_element-symbol': 'As',
@@ -521,7 +530,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 34,
-    cellClass: 'periodic-table__cell mod_category-o mod_cell-Se',
+    uniqueClass: 'mod_cell-Se',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-o',
     innerStr: {
       'tgl_atomic-number': '34',
       'tgl_element-symbol': 'Se',
@@ -535,7 +546,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 35,
-    cellClass: 'periodic-table__cell mod_category-f mod_cell-Br',
+    uniqueClass: 'mod_cell-Br',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-f',
     innerStr: {
       'tgl_atomic-number': '35',
       'tgl_element-symbol': 'Br',
@@ -549,7 +562,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 36,
-    cellClass: 'periodic-table__cell mod_category-he mod_cell-Kr',
+    uniqueClass: 'mod_cell-Kr',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-he',
     innerStr: {
       'tgl_atomic-number': '36',
       'tgl_element-symbol': 'Kr',
@@ -563,7 +578,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 37,
-    cellClass: 'periodic-table__cell mod_category-li mod_cell-Rb',
+    uniqueClass: 'mod_cell-Rb',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-li',
     innerStr: {
       'tgl_atomic-number': '37',
       'tgl_element-symbol': 'Rb',
@@ -577,7 +594,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 38,
-    cellClass: 'periodic-table__cell mod_category-ca mod_cell-Sr',
+    uniqueClass: 'mod_cell-Sr',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ca',
     innerStr: {
       'tgl_atomic-number': '38',
       'tgl_element-symbol': 'Sr',
@@ -591,7 +610,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 39,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Y',
+    uniqueClass: 'mod_cell-Y',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '39',
       'tgl_element-symbol': 'Y',
@@ -605,7 +626,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 40,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Zr',
+    uniqueClass: 'mod_cell-Zr',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '40',
       'tgl_element-symbol': 'Zr',
@@ -619,7 +642,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 41,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Nb',
+    uniqueClass: 'mod_cell-Nb',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '41',
       'tgl_element-symbol': 'Nb',
@@ -633,7 +658,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 42,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Mo',
+    uniqueClass: 'mod_cell-Mo',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '42',
       'tgl_element-symbol': 'Mo',
@@ -647,7 +674,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 43,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Tc',
+    uniqueClass: 'mod_cell-Tc',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '43',
       'tgl_element-symbol': 'Tc',
@@ -661,7 +690,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 44,
-    cellClass: 'periodic-table__cell mod_category-pt mod_cell-Ru',
+    uniqueClass: 'mod_cell-Ru',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-pt',
     innerStr: {
       'tgl_atomic-number': '44',
       'tgl_element-symbol': 'Ru',
@@ -675,7 +706,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 45,
-    cellClass: 'periodic-table__cell mod_category-pt mod_cell-Rh',
+    uniqueClass: 'mod_cell-Rh',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-pt',
     innerStr: {
       'tgl_atomic-number': '45',
       'tgl_element-symbol': 'Rh',
@@ -689,7 +722,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 46,
-    cellClass: 'periodic-table__cell mod_category-pt mod_cell-Pd',
+    uniqueClass: 'mod_cell-Pd',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-pt',
     innerStr: {
       'tgl_atomic-number': '46',
       'tgl_element-symbol': 'Pd',
@@ -703,7 +738,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 47,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Ag',
+    uniqueClass: 'mod_cell-Ag',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '47',
       'tgl_element-symbol': 'Ag',
@@ -717,7 +754,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 48,
-    cellClass: 'periodic-table__cell mod_category-zn mod_cell-Cd',
+    uniqueClass: 'mod_cell-Cd',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-zn',
     innerStr: {
       'tgl_atomic-number': '48',
       'tgl_element-symbol': 'Cd',
@@ -731,7 +770,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 49,
-    cellClass: 'periodic-table__cell mod_category-b mod_cell-In',
+    uniqueClass: 'mod_cell-In',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-b',
     innerStr: {
       'tgl_atomic-number': '49',
       'tgl_element-symbol': 'In',
@@ -745,7 +786,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 50,
-    cellClass: 'periodic-table__cell mod_category-c mod_cell-Sn',
+    uniqueClass: 'mod_cell-Sn',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-c',
     innerStr: {
       'tgl_atomic-number': '50',
       'tgl_element-symbol': 'Sn',
@@ -759,7 +802,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 51,
-    cellClass: 'periodic-table__cell mod_category-n mod_cell-Sb',
+    uniqueClass: 'mod_cell-Sb',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-n',
     innerStr: {
       'tgl_atomic-number': '51',
       'tgl_element-symbol': 'Sb',
@@ -773,7 +818,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 52,
-    cellClass: 'periodic-table__cell mod_category-o mod_cell-Te',
+    uniqueClass: 'mod_cell-Te',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-o',
     innerStr: {
       'tgl_atomic-number': '52',
       'tgl_element-symbol': 'Te',
@@ -787,7 +834,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 53,
-    cellClass: 'periodic-table__cell mod_category-f mod_cell-I',
+    uniqueClass: 'mod_cell-I',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-f',
     innerStr: {
       'tgl_atomic-number': '53',
       'tgl_element-symbol': 'I',
@@ -801,7 +850,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 54,
-    cellClass: 'periodic-table__cell mod_category-he mod_cell-Xe',
+    uniqueClass: 'mod_cell-Xe',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-he',
     innerStr: {
       'tgl_atomic-number': '54',
       'tgl_element-symbol': 'Xe',
@@ -815,7 +866,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 55,
-    cellClass: 'periodic-table__cell mod_category-li mod_cell-Cs',
+    uniqueClass: 'mod_cell-Cs',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-li',
     innerStr: {
       'tgl_atomic-number': '55',
       'tgl_element-symbol': 'Cs',
@@ -829,7 +882,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 56,
-    cellClass: 'periodic-table__cell mod_category-ca mod_cell-Ba',
+    uniqueClass: 'mod_cell-Ba',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ca',
     innerStr: {
       'tgl_atomic-number': '56',
       'tgl_element-symbol': 'Ba',
@@ -843,7 +898,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: -1,
-    cellClass: 'periodic-table__la-ac-cell mod_la-ac-cell-1',
+    uniqueClass: 'mod_lanthanoid',
+    cellWrapperClass: 'periodic-table__la-ac-wrapper',
+    cellClass: 'periodic-table__la-ac',
     innerStr: {
       'tgl_atomic-number': '57-71',
       'tgl_element-symbol': 'La-Lu',
@@ -857,7 +914,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 72,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Hf',
+    uniqueClass: 'mod_cell-Hf',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '72',
       'tgl_element-symbol': 'Hf',
@@ -871,7 +930,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 73,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Ta',
+    uniqueClass: 'mod_cell-Ta',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '73',
       'tgl_element-symbol': 'Ta',
@@ -885,7 +946,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 74,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-W',
+    uniqueClass: 'mod_cell-W',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '74',
       'tgl_element-symbol': 'W',
@@ -899,7 +962,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 75,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Re',
+    uniqueClass: 'mod_cell-Re',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '75',
       'tgl_element-symbol': 'Re',
@@ -913,7 +978,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 76,
-    cellClass: 'periodic-table__cell mod_category-pt mod_cell-Os',
+    uniqueClass: 'mod_cell-Os',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-pt',
     innerStr: {
       'tgl_atomic-number': '76',
       'tgl_element-symbol': 'Os',
@@ -927,7 +994,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 77,
-    cellClass: 'periodic-table__cell mod_category-pt mod_cell-Ir',
+    uniqueClass: 'mod_cell-Ir',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-pt',
     innerStr: {
       'tgl_atomic-number': '77',
       'tgl_element-symbol': 'Ir',
@@ -941,7 +1010,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 78,
-    cellClass: 'periodic-table__cell mod_category-pt mod_cell-Pt',
+    uniqueClass: 'mod_cell-Pt',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-pt',
     innerStr: {
       'tgl_atomic-number': '78',
       'tgl_element-symbol': 'Pt',
@@ -955,7 +1026,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 79,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Au',
+    uniqueClass: 'mod_cell-Au',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '79',
       'tgl_element-symbol': 'Au',
@@ -969,7 +1042,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 80,
-    cellClass: 'periodic-table__cell mod_category-zn mod_cell-Hg',
+    uniqueClass: 'mod_cell-Hg',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-zn',
     innerStr: {
       'tgl_atomic-number': '80',
       'tgl_element-symbol': 'Hg',
@@ -983,7 +1058,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 81,
-    cellClass: 'periodic-table__cell mod_category-b mod_cell-Tl',
+    uniqueClass: 'mod_cell-Tl',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-b',
     innerStr: {
       'tgl_atomic-number': '81',
       'tgl_element-symbol': 'Tl',
@@ -997,7 +1074,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 82,
-    cellClass: 'periodic-table__cell mod_category-c mod_cell-Pb',
+    uniqueClass: 'mod_cell-Pb',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-c',
     innerStr: {
       'tgl_atomic-number': '82',
       'tgl_element-symbol': 'Pb',
@@ -1011,7 +1090,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 83,
-    cellClass: 'periodic-table__cell mod_category-n mod_cell-Bi',
+    uniqueClass: 'mod_cell-Bi',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-n',
     innerStr: {
       'tgl_atomic-number': '83',
       'tgl_element-symbol': 'Bi',
@@ -1025,7 +1106,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 84,
-    cellClass: 'periodic-table__cell mod_category-o mod_cell-Po',
+    uniqueClass: 'mod_cell-Po',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-o',
     innerStr: {
       'tgl_atomic-number': '84',
       'tgl_element-symbol': 'Po',
@@ -1039,7 +1122,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 85,
-    cellClass: 'periodic-table__cell mod_category-f mod_cell-At',
+    uniqueClass: 'mod_cell-At',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-f',
     innerStr: {
       'tgl_atomic-number': '85',
       'tgl_element-symbol': 'At',
@@ -1053,7 +1138,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 86,
-    cellClass: 'periodic-table__cell mod_category-he mod_cell-Rn',
+    uniqueClass: 'mod_cell-Rn',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-he',
     innerStr: {
       'tgl_atomic-number': '86',
       'tgl_element-symbol': 'Rn',
@@ -1067,7 +1154,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 87,
-    cellClass: 'periodic-table__cell mod_category-li mod_cell-Fr',
+    uniqueClass: 'mod_cell-Fr',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-li',
     innerStr: {
       'tgl_atomic-number': '87',
       'tgl_element-symbol': 'Fr',
@@ -1081,7 +1170,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 88,
-    cellClass: 'periodic-table__cell mod_category-ca mod_cell-Ra',
+    uniqueClass: 'mod_cell-Ra',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ca',
     innerStr: {
       'tgl_atomic-number': '88',
       'tgl_element-symbol': 'Ra',
@@ -1095,7 +1186,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: -1,
-    cellClass: 'periodic-table__la-ac-cell mod_la-ac-cell-2',
+    uniqueClass: 'mod_actinoid',
+    cellWrapperClass: 'periodic-table__la-ac-wrapper',
+    cellClass: 'periodic-table__la-ac',
     innerStr: {
       'tgl_atomic-number': '89-103',
       'tgl_element-symbol': 'Ac-Lr',
@@ -1109,7 +1202,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 104,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Rf',
+    uniqueClass: 'mod_cell-Rf',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '104',
       'tgl_element-symbol': 'Rf',
@@ -1123,7 +1218,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 105,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Db',
+    uniqueClass: 'mod_cell-Db',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '105',
       'tgl_element-symbol': 'Db',
@@ -1137,7 +1234,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 106,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Sg',
+    uniqueClass: 'mod_cell-Sg',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '106',
       'tgl_element-symbol': 'Sg',
@@ -1151,7 +1250,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 107,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Bh',
+    uniqueClass: 'mod_cell-Bh',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '107',
       'tgl_element-symbol': 'Bh',
@@ -1165,7 +1266,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 108,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Hs',
+    uniqueClass: 'mod_cell-Hs',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '108',
       'tgl_element-symbol': 'Hs',
@@ -1179,7 +1282,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 109,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Mt',
+    uniqueClass: 'mod_cell-Mt',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '109',
       'tgl_element-symbol': 'Mt',
@@ -1193,7 +1298,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 110,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Ds',
+    uniqueClass: 'mod_cell-Ds',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '110',
       'tgl_element-symbol': 'Ds',
@@ -1207,7 +1314,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 111,
-    cellClass: 'periodic-table__cell mod_category-transition-metal mod_cell-Rg',
+    uniqueClass: 'mod_cell-Rg',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-transition-metal',
     innerStr: {
       'tgl_atomic-number': '111',
       'tgl_element-symbol': 'Rg',
@@ -1221,7 +1330,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 112,
-    cellClass: 'periodic-table__cell mod_category-zn mod_cell-Cn',
+    uniqueClass: 'mod_cell-Cn',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-zn',
     innerStr: {
       'tgl_atomic-number': '112',
       'tgl_element-symbol': 'Cn',
@@ -1235,7 +1346,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 113,
-    cellClass: 'periodic-table__cell mod_category-b mod_cell-Nh',
+    uniqueClass: 'mod_cell-Nh',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-b',
     innerStr: {
       'tgl_atomic-number': '113',
       'tgl_element-symbol': 'Nh',
@@ -1249,7 +1362,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 114,
-    cellClass: 'periodic-table__cell mod_category-c mod_cell-Fl',
+    uniqueClass: 'mod_cell-Fl',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-c',
     innerStr: {
       'tgl_atomic-number': '114',
       'tgl_element-symbol': 'Fl',
@@ -1263,7 +1378,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 115,
-    cellClass: 'periodic-table__cell mod_category-n mod_cell-Mc',
+    uniqueClass: 'mod_cell-Mc',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-n',
     innerStr: {
       'tgl_atomic-number': '115',
       'tgl_element-symbol': 'Mc',
@@ -1277,7 +1394,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 116,
-    cellClass: 'periodic-table__cell mod_category-o mod_cell-Lv',
+    uniqueClass: 'mod_cell-Lv',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-o',
     innerStr: {
       'tgl_atomic-number': '116',
       'tgl_element-symbol': 'Lv',
@@ -1291,7 +1410,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 117,
-    cellClass: 'periodic-table__cell mod_category-f mod_cell-Ts',
+    uniqueClass: 'mod_cell-Ts',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-f',
     innerStr: {
       'tgl_atomic-number': '117',
       'tgl_element-symbol': 'Ts',
@@ -1305,7 +1426,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 118,
-    cellClass: 'periodic-table__cell mod_category-he mod_cell-Og',
+    uniqueClass: 'mod_cell-Og',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-he',
     innerStr: {
       'tgl_atomic-number': '118',
       'tgl_element-symbol': 'Og',
@@ -1318,22 +1441,10 @@ const cellList = [
   },
   {
     isActive: false,
-    atomicNum: -1,
-    cellClass: 'periodic-table__blank mod_blank-4',
-    innerStr: {
-      'tgl_atomic-number': '-1',
-      'tgl_element-symbol': '',
-      'tgl_japanese-name': '',
-      'tgl_english-name': '',
-      'tgl_simplified-chinese': '',
-      'tgl_taiwan-trad': '',
-      'tgl_hongkong-trad': '',
-    },
-  },
-  {
-    isActive: false,
     atomicNum: 57,
-    cellClass: 'periodic-table__cell mod_category-la mod_cell-La',
+    uniqueClass: 'mod_cell-La',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-la',
     innerStr: {
       'tgl_atomic-number': '57',
       'tgl_element-symbol': 'La',
@@ -1347,7 +1458,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 58,
-    cellClass: 'periodic-table__cell mod_category-la mod_cell-Ce',
+    uniqueClass: 'mod_cell-Ce',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-la',
     innerStr: {
       'tgl_atomic-number': '58',
       'tgl_element-symbol': 'Ce',
@@ -1361,7 +1474,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 59,
-    cellClass: 'periodic-table__cell mod_category-la mod_cell-Pr',
+    uniqueClass: 'mod_cell-Pr',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-la',
     innerStr: {
       'tgl_atomic-number': '59',
       'tgl_element-symbol': 'Pr',
@@ -1375,7 +1490,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 60,
-    cellClass: 'periodic-table__cell mod_category-la mod_cell-Nd',
+    uniqueClass: 'mod_cell-Nd',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-la',
     innerStr: {
       'tgl_atomic-number': '60',
       'tgl_element-symbol': 'Nd',
@@ -1389,7 +1506,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 61,
-    cellClass: 'periodic-table__cell mod_category-la mod_cell-Pm',
+    uniqueClass: 'mod_cell-Pm',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-la',
     innerStr: {
       'tgl_atomic-number': '61',
       'tgl_element-symbol': 'Pm',
@@ -1403,7 +1522,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 62,
-    cellClass: 'periodic-table__cell mod_category-la mod_cell-Sm',
+    uniqueClass: 'mod_cell-Sm',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-la',
     innerStr: {
       'tgl_atomic-number': '62',
       'tgl_element-symbol': 'Sm',
@@ -1417,7 +1538,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 63,
-    cellClass: 'periodic-table__cell mod_category-la mod_cell-Eu',
+    uniqueClass: 'mod_cell-Eu',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-la',
     innerStr: {
       'tgl_atomic-number': '63',
       'tgl_element-symbol': 'Eu',
@@ -1431,7 +1554,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 64,
-    cellClass: 'periodic-table__cell mod_category-la mod_cell-Gd',
+    uniqueClass: 'mod_cell-Gd',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-la',
     innerStr: {
       'tgl_atomic-number': '64',
       'tgl_element-symbol': 'Gd',
@@ -1445,7 +1570,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 65,
-    cellClass: 'periodic-table__cell mod_category-la mod_cell-Tb',
+    uniqueClass: 'mod_cell-Tb',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-la',
     innerStr: {
       'tgl_atomic-number': '65',
       'tgl_element-symbol': 'Tb',
@@ -1459,7 +1586,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 66,
-    cellClass: 'periodic-table__cell mod_category-la mod_cell-Dy',
+    uniqueClass: 'mod_cell-Dy',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-la',
     innerStr: {
       'tgl_atomic-number': '66',
       'tgl_element-symbol': 'Dy',
@@ -1473,7 +1602,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 67,
-    cellClass: 'periodic-table__cell mod_category-la mod_cell-Ho',
+    uniqueClass: 'mod_cell-Ho',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-la',
     innerStr: {
       'tgl_atomic-number': '67',
       'tgl_element-symbol': 'Ho',
@@ -1487,7 +1618,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 68,
-    cellClass: 'periodic-table__cell mod_category-la mod_cell-Er',
+    uniqueClass: 'mod_cell-Er',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-la',
     innerStr: {
       'tgl_atomic-number': '68',
       'tgl_element-symbol': 'Er',
@@ -1501,7 +1634,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 69,
-    cellClass: 'periodic-table__cell mod_category-la mod_cell-Tm',
+    uniqueClass: 'mod_cell-Tm',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-la',
     innerStr: {
       'tgl_atomic-number': '69',
       'tgl_element-symbol': 'Tm',
@@ -1515,7 +1650,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 70,
-    cellClass: 'periodic-table__cell mod_category-la mod_cell-Yb',
+    uniqueClass: 'mod_cell-Yb',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-la',
     innerStr: {
       'tgl_atomic-number': '70',
       'tgl_element-symbol': 'Yb',
@@ -1529,7 +1666,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 71,
-    cellClass: 'periodic-table__cell mod_category-la mod_cell-Lu',
+    uniqueClass: 'mod_cell-Lu',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-la',
     innerStr: {
       'tgl_atomic-number': '71',
       'tgl_element-symbol': 'Lu',
@@ -1542,36 +1681,10 @@ const cellList = [
   },
   {
     isActive: false,
-    atomicNum: -1,
-    cellClass: 'periodic-table__blank mod_blank-6',
-    innerStr: {
-      'tgl_atomic-number': '-1',
-      'tgl_element-symbol': '',
-      'tgl_japanese-name': '',
-      'tgl_english-name': '',
-      'tgl_simplified-chinese': '',
-      'tgl_taiwan-trad': '',
-      'tgl_hongkong-trad': '',
-    },
-  },
-  {
-    isActive: false,
-    atomicNum: -1,
-    cellClass: 'periodic-table__blank mod_blank-5',
-    innerStr: {
-      'tgl_atomic-number': '-1',
-      'tgl_element-symbol': '',
-      'tgl_japanese-name': '',
-      'tgl_english-name': '',
-      'tgl_simplified-chinese': '',
-      'tgl_taiwan-trad': '',
-      'tgl_hongkong-trad': '',
-    },
-  },
-  {
-    isActive: false,
     atomicNum: 89,
-    cellClass: 'periodic-table__cell mod_category-ac mod_cell-Ac',
+    uniqueClass: 'mod_cell-Ac',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ac',
     innerStr: {
       'tgl_atomic-number': '89',
       'tgl_element-symbol': 'Ac',
@@ -1585,7 +1698,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 90,
-    cellClass: 'periodic-table__cell mod_category-ac mod_cell-Th',
+    uniqueClass: 'mod_cell-Th',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ac',
     innerStr: {
       'tgl_atomic-number': '90',
       'tgl_element-symbol': 'Th',
@@ -1599,7 +1714,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 91,
-    cellClass: 'periodic-table__cell mod_category-ac mod_cell-Pa',
+    uniqueClass: 'mod_cell-Pa',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ac',
     innerStr: {
       'tgl_atomic-number': '91',
       'tgl_element-symbol': 'Pa',
@@ -1613,7 +1730,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 92,
-    cellClass: 'periodic-table__cell mod_category-ac mod_cell-U',
+    uniqueClass: 'mod_cell-U',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ac',
     innerStr: {
       'tgl_atomic-number': '92',
       'tgl_element-symbol': 'U',
@@ -1627,7 +1746,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 93,
-    cellClass: 'periodic-table__cell mod_category-ac mod_cell-Np',
+    uniqueClass: 'mod_cell-Np',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ac',
     innerStr: {
       'tgl_atomic-number': '93',
       'tgl_element-symbol': 'Np',
@@ -1641,7 +1762,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 94,
-    cellClass: 'periodic-table__cell mod_category-ac mod_cell-Pu',
+    uniqueClass: 'mod_cell-Pu',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ac',
     innerStr: {
       'tgl_atomic-number': '94',
       'tgl_element-symbol': 'Pu',
@@ -1655,7 +1778,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 95,
-    cellClass: 'periodic-table__cell mod_category-ac mod_cell-Am',
+    uniqueClass: 'mod_cell-Am',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ac',
     innerStr: {
       'tgl_atomic-number': '95',
       'tgl_element-symbol': 'Am',
@@ -1669,7 +1794,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 96,
-    cellClass: 'periodic-table__cell mod_category-ac mod_cell-Cm',
+    uniqueClass: 'mod_cell-Cm',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ac',
     innerStr: {
       'tgl_atomic-number': '96',
       'tgl_element-symbol': 'Cm',
@@ -1683,7 +1810,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 97,
-    cellClass: 'periodic-table__cell mod_category-ac mod_cell-Bk',
+    uniqueClass: 'mod_cell-Bk',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ac',
     innerStr: {
       'tgl_atomic-number': '97',
       'tgl_element-symbol': 'Bk',
@@ -1697,7 +1826,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 98,
-    cellClass: 'periodic-table__cell mod_category-ac mod_cell-Cf',
+    uniqueClass: 'mod_cell-Cf',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ac',
     innerStr: {
       'tgl_atomic-number': '98',
       'tgl_element-symbol': 'Cf',
@@ -1711,7 +1842,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 99,
-    cellClass: 'periodic-table__cell mod_category-ac mod_cell-Es',
+    uniqueClass: 'mod_cell-Es',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ac',
     innerStr: {
       'tgl_atomic-number': '99',
       'tgl_element-symbol': 'Es',
@@ -1725,7 +1858,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 100,
-    cellClass: 'periodic-table__cell mod_category-ac mod_cell-Fm',
+    uniqueClass: 'mod_cell-Fm',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ac',
     innerStr: {
       'tgl_atomic-number': '100',
       'tgl_element-symbol': 'Fm',
@@ -1739,7 +1874,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 101,
-    cellClass: 'periodic-table__cell mod_category-ac mod_cell-Md',
+    uniqueClass: 'mod_cell-Md',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ac',
     innerStr: {
       'tgl_atomic-number': '101',
       'tgl_element-symbol': 'Md',
@@ -1753,7 +1890,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 102,
-    cellClass: 'periodic-table__cell mod_category-ac mod_cell-No',
+    uniqueClass: 'mod_cell-No',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ac',
     innerStr: {
       'tgl_atomic-number': '102',
       'tgl_element-symbol': 'No',
@@ -1767,7 +1906,9 @@ const cellList = [
   {
     isActive: false,
     atomicNum: 103,
-    cellClass: 'periodic-table__cell mod_category-ac mod_cell-Lr',
+    uniqueClass: 'mod_cell-Lr',
+    cellWrapperClass: 'periodic-table__cell-wrapper',
+    cellClass: 'periodic-table__cell mod_category-ac',
     innerStr: {
       'tgl_atomic-number': '103',
       'tgl_element-symbol': 'Lr',
@@ -1776,20 +1917,6 @@ const cellList = [
       'tgl_simplified-chinese': '铹',
       'tgl_taiwan-trad': '鐒',
       'tgl_hongkong-trad': '鐒',
-    },
-  },
-  {
-    isActive: false,
-    atomicNum: -1,
-    cellClass: 'periodic-table__blank mod_blank-7',
-    innerStr: {
-      'tgl_atomic-number': '-1',
-      'tgl_element-symbol': '',
-      'tgl_japanese-name': '',
-      'tgl_english-name': '',
-      'tgl_simplified-chinese': '',
-      'tgl_taiwan-trad': '',
-      'tgl_hongkong-trad': '',
     },
   },
 ];
