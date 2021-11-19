@@ -1,14 +1,14 @@
-@charset "UTF-8";
-
-.overlay-screen {
+/* overlay */
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    transition: background-color 1s; // .ov-bg-* より
+    transition: background-color 1s; // .overlay.tgl_category-* より
 }
-.ov-container-box {
+
+.overlay__main-wrapper {
     position: relative;
     width: 100%;
     height: 100%;
@@ -31,9 +31,19 @@
 @each $category in $categoryList {
     $categoryColor: nth($categoryColorList2, index($categoryList, $category));
 
-    .ov-bg-#{$category} {
+    .overlay.tgl_category-#{$category} {
         background: #{$categoryColor};
-        .sub-area-change {
+    }
+}
+@each $category in $categoryList {
+    $categoryColor: nth($categoryColorList2, index($categoryList, $category));
+
+    @if $category == h {
+        .data-area.mod_element-changer.tgl_category-#{$category} {
+            background: rgba(255, 255, 255, 0.8);
+        }
+    } @else {
+        .data-area.mod_element-changer.tgl_category-#{$category} {
             color: #{$categoryColor};
         }
     }
@@ -43,7 +53,7 @@
 $areaGap: 10px;
 $areaBorder: 2px;
 
-.ov-container {
+.overlay__main {
     padding: 80px 10% 90px;
     display: grid;
     grid-template-areas:
@@ -74,12 +84,12 @@ $areaBorder: 2px;
         padding: 80px 15px 90px;
     }
 }
-.ov-container * {
+.overlay__main * {
     line-height: 100%;
 }
 
 // コンテナ内要素
-.sub-area {
+.data-area {
     display: grid;
     grid-template-rows:
         [label] auto
@@ -90,63 +100,19 @@ $areaBorder: 2px;
     transition-property: border-color, background-color, color;
     transition-duration: .5s;
 }
-.ov-bg-h .sub-area {
+.data-area.tgl_category-h {
     border: $areaBorder solid rgba(0, 0, 0, 0.3);
     background: rgba(255, 255, 255, 0.4);
     color: #333;
 }
-.ov-bg-h .sub-area-change {
-    background: rgba(255, 255, 255, 0.8);
-}
-
-.ov-bg-demo {
-    .cont-area {
-        padding: 10px 7px;
-        font-family: $fontJP;
-        font-weight: 300;
-        font-weight: normal;
-        font-size: 18px;
-    }
-    .cont-area-change .arrow-back span,
-    .cont-area-change .arrow-forward span {
-        padding: 0;
-        font-family: $fontJP;
-        font-weight: 300;
-        font-size: 18px;
-        @include mediaQuery($se) {
-            font-size: 16px;
-        }
-    }
-    .cont-area-atomic-num,
-    .cont-area-period,
-    .cont-area-group {
-        top: 0;
-    }
-    .cont-area-cn,
-    .cont-area-tw,
-    .cont-area-hk {
-        padding: 50px 0;
-    }
-    .cont-area-pinyin,
-    .cont-area-bopomofo,
-    .cont-area-category,
-    .cont-area-japanese-name,
-    .cont-area-english-name {
-        white-space: normal;
-    }
-    .cont-area-tweet {
-        height: 300px;
-    }
-}
 
 // floatの設定
-.float-area,
-.ov-bg-h .float-area {
+.data-area__float {
     border: none;
     background: none;
 }
 // labelの設定
-.label {
+.data-area__label {
     grid-row: label;
     @include flexCentering(flex-start, flex-start);
     opacity: 0.7;
@@ -167,14 +133,14 @@ $areaBorder: 2px;
     }
 }
 // contの設定
-.cont-area {
+.data-area__content {
     grid-row: cont;
     position: relative;
     @include flexCentering();
 }
 
 // 閉じるボタン
-.close-button {
+.overlay__close-button {
     position: fixed;
     top: 20px;
     right: 50px;
@@ -197,7 +163,7 @@ $areaBorder: 2px;
 }
 
 // 漢字コピーボタン
-.kanji-copy-button {
+.data-area__kanji-copy-button {
     position: absolute;
     cursor: pointer;
     @include flexCentering();
@@ -216,7 +182,7 @@ $areaBorder: 2px;
         font-size: 14px;
     }
 }
-.ov-bg-h .kanji-copy-button {
+.data-area__kanji-copy-button.tgl_category-h {
     border: 16px solid rgba(0, 0, 0, 0.3);
     color: $colorWhite;
     @include mediaQuery() {

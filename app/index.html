@@ -215,127 +215,219 @@
       @before-leave="beforeLeaveFade"
     >
       <div
-        :class="['overlay-screen', elementList[current.cell.atomicNum].bgClass]"
-        v-show="isOverlayDisplayed"
         v-cloak
+        class="overlay"
+        :class="elementList[current.cell.atomicNum].categoryClass"
+        v-show="isOverlayDisplayed"
       >
-        <div :class="['ov-container-box', {'overflow-hidden': !isBodyScrollLocked}]">
-          <div class="ov-container">
-            <div class="area-element-info">
-              <div class="sub-area sub-area-element-symbol">
-                <div
-                  class="float-area float-area-state"
-                  v-html="elementList[current.cell.atomicNum].state"
-                ></div>
-                <div
-                  class="float-area float-area-radioactivity"
-                  v-html="elementList[current.cell.atomicNum].radioactivity"
-                ></div>
-                <div
-                  class="cont-area cont-area-element-symbol"
-                  v-html="current.cell.innerStr['tgl_element-symbol']"
-                ></div>
+        <div class="overlay__main-wrapper" :class="{'overflow-hidden': !isBodyScrollLocked}">
+          <div class="overlay__main">
+            <div class="overlay__container mod_base">
+              <div class="overlay__area mod_element-symbol">
+                <div class="data-area mod_element-symbol" :class="elementList[current.cell.atomicNum].categoryClass">
+                  <div
+                    class="data-area__float mod_state"
+                  >
+                    <img
+                      class="data-area__state-image"
+                      :class="elementList[current.cell.atomicNum].categoryClass"
+                      :src="elementList[current.cell.atomicNum].stateSrc">
+                  </div>
+                  <div
+                    class="data-area__float mod_radioactivity"
+                    v-html="elementList[current.cell.atomicNum].radioactivity"
+                  ></div>
+                  <div
+                    class="data-area__content mod_element-symbol"
+                    v-html="current.cell.innerStr['tgl_element-symbol']"
+                  ></div>
+                </div>
               </div>
-              <normal-sub-area name="atomic-num" label="Z =">
-                {{elementList[current.cell.atomicNum].atomicNumber }}
-              </normal-sub-area>
-              <normal-sub-area name="period" label="Period">
-                {{ elementList[current.cell.atomicNum].period }}
-              </normal-sub-area>
-              <normal-sub-area name="group" label="Group">
-                {{ elementList[current.cell.atomicNum].group }}
-              </normal-sub-area>
-              <normal-sub-area name="atomic-weight" label="A<sub>r</sub> =">
-                {{ elementList[current.cell.atomicNum].atomicWeight }}
-              </normal-sub-area>
-              <normal-sub-area name="category" label="Category">
-                {{ elementList[current.cell.atomicNum].category }}
-              </normal-sub-area>
-            </div>
-            <div class="area-kanji-info">
-              <normal-sub-area name="cn" label="Mainland China">
-                <div class="kanji">{{ current.cell.innerStr['tgl_simplified-chinese'] }}</div>
-                <div class="code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointCN }}</div>
-                <div
-                  class="kanji-copy-button"
-                  @click="copyToClipboard(current.cell.innerStr['tgl_simplified-chinese'])"
-                  data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-sc"
-                ><i id="fa-clipboard-sc" class="fas fa-clipboard" data-micron="swing"></i></div>
-              </normal-sub-area>
-              <normal-sub-area name="tw" label="Taiwan">
-                <div class="kanji">{{ current.cell.innerStr['tgl_taiwan-trad'] }}</div>
-                <div class="code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointTW }}</div>
-                <div
-                  class="kanji-copy-button"
-                  @click="copyToClipboard(current.cell.innerStr['tgl_taiwan-trad'])"
-                  data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-tw"
-                ><i id="fa-clipboard-tw" class="fas fa-clipboard" data-micron="swing"></i></div>
-              </normal-sub-area>
-              <normal-sub-area name="hk" label="Hong Kong">
-                <div class="kanji">{{ current.cell.innerStr['tgl_hongkong-trad'] }}</div>
-                <div class="code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointHK }}</div>
-                <div
-                  class="kanji-copy-button"
-                  @click="copyToClipboard(current.cell.innerStr['tgl_hongkong-trad'])"
-                  data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-hk"
-                ><i id="fa-clipboard-hk" class="fas fa-clipboard" data-micron="swing"></i></div>
-              </normal-sub-area>
-            </div>
-            <div class="area-reading-info">
-              <normal-sub-area name="pinyin" label="<span>Pinyin</span><span>Mainland China</span>">
-                {{ elementList[current.cell.atomicNum].pinyin }}
-              </normal-sub-area>
-              <normal-sub-area name="bopomofo" label="<span>Bopomofo</span><span>Taiwan</span>">
-                {{ elementList[current.cell.atomicNum].bopomofo
-                  + ' (' + elementList[current.cell.atomicNum].taiwanPinyin + ')' }}
-              </normal-sub-area>
-            </div>
-            <div class="area-name-info">
-              <normal-sub-area name="japanese-name" label="Japanese Name">
-                {{ current.cell.innerStr['tgl_japanese-name'] }}
-              </normal-sub-area>
-              <normal-sub-area name="english-name" label="English Name">
-                {{ current.cell.innerStr['tgl_english-name'] }}
-              </normal-sub-area>
-            </div>
-            <div class="area-twitter-tweet">
-              <div class="sub-area sub-area-tweet">
-                <div
-                  ref="contAreaTweet"
-                  class="cont-area cont-area-tweet"
-                  v-html="elementList[current.cell.atomicNum].twitterTweet"
-                ></div>
+              <div class="overlay__area mod_atomic-num">
+                <data-area
+                  name="atomic-num"
+                  label="Z ="
+                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                >
+                  {{elementList[current.cell.atomicNum].atomicNumber }}
+                </data-area>
+              </div>
+              <div class="overlay__area mod_period">
+                <data-area
+                  name="period"
+                  label="Period"
+                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                >
+                  {{ elementList[current.cell.atomicNum].period }}
+                </data-area>
+              </div>
+              <div class="overlay__area mod_group">
+                <data-area
+                  name="group"
+                  label="Group"
+                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                >
+                  {{ elementList[current.cell.atomicNum].group }}
+                </data-area>
+              </div>
+              <div class="overlay__area mod_atomic-weight">
+                <data-area
+                  name="atomic-weight"
+                  label="A<sub>r</sub> ="
+                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                >
+                  {{ elementList[current.cell.atomicNum].atomicWeight }}
+                </data-area>
+              </div>
+              <div class="overlay__area mod_category">
+                <data-area
+                  name="category"
+                  label="Category"
+                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                >
+                  {{ elementList[current.cell.atomicNum].category }}
+                </data-area>
               </div>
             </div>
-            <div class="area-close">
-              <div class="sub-area sub-area-close">
-                <div class="cont-area cont-area-close" @click="closeOverlay">CLOSE</div>
+            <div class="overlay__container mod_kanji">
+              <div class="overlay__area mod_cn">
+                <data-area
+                  name="cn"
+                  label="Mainland China"
+                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                >
+                  <div class="data-area__kanji-character">{{ current.cell.innerStr['tgl_simplified-chinese'] }}</div>
+                  <div class="data-area__kanji-code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointCN }}</div>
+                  <div
+                    class="data-area__kanji-copy-button"
+                    :class="elementList[current.cell.atomicNum].categoryClass"
+                    @click="copyToClipboard(current.cell.innerStr['tgl_simplified-chinese'])"
+                    data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-sc"
+                  ><i id="fa-clipboard-sc" class="fas fa-clipboard" data-micron="swing"></i></div>
+                </data-area>
+              </div>
+              <div class="overlay__area mod_tw">
+                <data-area
+                  name="tw"
+                  label="Taiwan"
+                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                >
+                  <div class="data-area__kanji-character">{{ current.cell.innerStr['tgl_taiwan-trad'] }}</div>
+                  <div class="data-area__kanji-code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointTW }}</div>
+                  <div
+                    class="data-area__kanji-copy-button"
+                    :class="elementList[current.cell.atomicNum].categoryClass"
+                    @click="copyToClipboard(current.cell.innerStr['tgl_taiwan-trad'])"
+                    data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-tw"
+                  ><i id="fa-clipboard-tw" class="fas fa-clipboard" data-micron="swing"></i></div>
+                </data-area>
+              </div>
+              <div class="overlay__area mod_hk">
+                <data-area
+                  name="hk"
+                  label="Hong Kong"
+                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                >
+                  <div class="data-area__kanji-character">{{ current.cell.innerStr['tgl_hongkong-trad'] }}</div>
+                  <div class="data-area__kanji-code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointHK }}</div>
+                  <div
+                    class="data-area__kanji-copy-button"
+                    :class="elementList[current.cell.atomicNum].categoryClass"
+                    @click="copyToClipboard(current.cell.innerStr['tgl_hongkong-trad'])"
+                    data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-hk"
+                  ><i id="fa-clipboard-hk" class="fas fa-clipboard" data-micron="swing"></i></div>
+                </data-area>
+              </div>
+            </div>
+            <div class="overlay__container mod_reading">
+              <div class="overlay__area mod_pinyin">
+                <data-area
+                  name="pinyin"
+                  label="<span>Pinyin</span><span>Mainland China</span>"
+                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                >
+                  {{ elementList[current.cell.atomicNum].pinyin }}
+                </data-area>
+              </div>
+              <div class="overlay__area mod_bopomofo">
+                <data-area
+                  name="bopomofo"
+                  label="<span>Bopomofo</span><span>Taiwan</span>"
+                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                >
+                  {{ elementList[current.cell.atomicNum].bopomofo
+                    + ' (' + elementList[current.cell.atomicNum].taiwanPinyin + ')' }}
+                </data-area>
+              </div>
+            </div>
+            <div class="overlay__container mod_name">
+              <div class="overlay__area mod_japanese-name">
+                <data-area
+                  name="japanese-name"
+                  label="Japanese Name"
+                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                >
+                  {{ current.cell.innerStr['tgl_japanese-name'] }}
+                </data-area>
+              </div>
+              <div class="overlay__area mod_english-name">
+                <data-area
+                  name="english-name"
+                  label="English Name"
+                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                >
+                  {{ current.cell.innerStr['tgl_english-name'] }}
+                </data-area>
+              </div>
+            </div>
+            <div class="overlay__container mod_tweet">
+              <div class="overlay__area mod_tweet">
+                <div class="data-area mod_tweet" :class="elementList[current.cell.atomicNum].categoryClass">
+                  <div
+                    ref="contAreaTweet"
+                    class="data-area__content mod_tweet"
+                    v-html="elementList[current.cell.atomicNum].twitterTweet"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div class="overlay__container mod_close">
+              <div class="overlay__area mod_close">
+                <div class="data-area mod_close" :class="elementList[current.cell.atomicNum].categoryClass">
+                  <div class="data-area__content mod_close" @click="closeOverlay">CLOSE</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="close-button" @click="closeOverlay"><ion-icon name="close-circle"></ion-icon></div>
-        <div class="area-change-elements">
-          <div class="sub-area sub-area-change">
-            <div class="cont-area cont-area-change">
-              <span
-                :class="['arrow-back', {'disabled': elementChangeButton.isStart}]"
-                @click="changeOverlay('prev')"
-              >
-                <ion-icon name="arrow-back"></ion-icon>
-                <span>
-                  <span>{{elementChangeButton.prev.atomicNum}}</span>{{elementChangeButton.prev.elementSymbol}}
+        <div class="overlay__close-button" @click="closeOverlay">
+          <ion-icon name="close-circle"></ion-icon>
+        </div>
+        <div class="overlay__container mod_element-changer">
+          <div class="overlay__area mod_element-changer">
+            <div class="data-area mod_element-changer" :class="elementList[current.cell.atomicNum].categoryClass">
+              <div class="data-area__content mod_element-changer">
+                <span
+                  class="data-area__arrow-back"
+                  :class="{'tgl_disabled': elementChangeButton.isStart}"
+                  @click="changeOverlay('prev')"
+                >
+                  <ion-icon name="arrow-back"></ion-icon>
+                  <span>
+                    <span>{{elementChangeButton.prev.atomicNum}}</span>{{elementChangeButton.prev.elementSymbol}}
+                  </span>
                 </span>
-              </span>
-              <span
-                :class="['arrow-forward', {'disabled': elementChangeButton.isEnd}]"
-                @click="changeOverlay('next')"
-              >
-                <span>
-                  <span>{{elementChangeButton.next.atomicNum}}</span>{{elementChangeButton.next.elementSymbol}}
+                <span
+                  class="data-area__arrow-forward"
+                  :class="{'tgl_disabled': elementChangeButton.isEnd}"
+                  @click="changeOverlay('next')"
+                >
+                  <span>
+                    <span>{{elementChangeButton.next.atomicNum}}</span>{{elementChangeButton.next.elementSymbol}}
+                  </span>
+                  <ion-icon name="arrow-forward"></ion-icon>
                 </span>
-                <ion-icon name="arrow-forward"></ion-icon>
-              </span>
+              </div>
             </div>
           </div>
         </div>

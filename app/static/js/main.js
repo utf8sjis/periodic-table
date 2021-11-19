@@ -1,13 +1,13 @@
 Vue.config.ignoredElements = ['ion-icon'];
 
-Vue.component('normal-sub-area', {
-  props: ['name', 'label'],
+Vue.component('data-area', {
+  props: ['name', 'label', 'categoryClass'],
   template: `
-    <div :class="'sub-area sub-area-' + name">
-      <div class="label">
+    <div :class="['data-area', 'mod_' + name, categoryClass]">
+      <div class="data-area__label">
         <div v-html="label"></div>
       </div>
-      <div :class="'cont-area cont-area-' + name">
+      <div :class="['data-area__content', 'mod_' + name]">
         <slot></slot>
       </div>
     </div>`,
@@ -124,14 +124,14 @@ new Vue({
      * @param {object} el - オーバーレイの要素
      */
     enterFade: function (el) {
-      el.querySelector('.ov-container-box').scrollTop = 0;
+      el.querySelector('.overlay__main-wrapper').scrollTop = 0;
     },
     /**
      * オーバーレイ表示前、bodyのスクロールを無効にする
      * @param {object} el - オーバーレイの要素
      */
     beforeEnterFade: function (el) {
-      const targetEl = el.querySelector('.ov-container-box');
+      const targetEl = el.querySelector('.overlay__main-wrapper');
       bodyScrollLock.disableBodyScroll(targetEl, {
         reserveScrollBarGap: true,
       });
