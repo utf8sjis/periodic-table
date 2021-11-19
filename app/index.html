@@ -231,12 +231,16 @@
                     <img
                       class="data-area__state-image"
                       :class="elementList[current.cell.atomicNum].categoryClass"
-                      :src="elementList[current.cell.atomicNum].stateSrc">
+                      :src="elementList[current.cell.atomicNum].stateSrc"
+                    >
                   </div>
-                  <div
-                    class="data-area__float mod_radioactivity"
-                    v-html="elementList[current.cell.atomicNum].radioactivity"
-                  ></div>
+                  <div class="data-area__float mod_radioactivity">
+                    <img
+                      class="data-area__radioactivity-image"
+                      src="static/img/radioactivity.svg"
+                      v-show="elementList[current.cell.atomicNum].isRadioactive"
+                    >
+                  </div>
                   <div
                     class="data-area__content mod_element-symbol"
                     v-html="current.cell.innerStr['tgl_element-symbol']"
@@ -296,7 +300,7 @@
                   label="Mainland China"
                   :category-class="elementList[current.cell.atomicNum].categoryClass"
                 >
-                  <div class="data-area__kanji-character">{{ current.cell.innerStr['tgl_simplified-chinese'] }}</div>
+                  <div class="data-area__kanji-character mod_cn">{{ current.cell.innerStr['tgl_simplified-chinese'] }}</div>
                   <div class="data-area__kanji-code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointCN }}</div>
                   <div
                     class="data-area__kanji-copy-button"
@@ -312,7 +316,7 @@
                   label="Taiwan"
                   :category-class="elementList[current.cell.atomicNum].categoryClass"
                 >
-                  <div class="data-area__kanji-character">{{ current.cell.innerStr['tgl_taiwan-trad'] }}</div>
+                  <div class="data-area__kanji-character mod_tw">{{ current.cell.innerStr['tgl_taiwan-trad'] }}</div>
                   <div class="data-area__kanji-code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointTW }}</div>
                   <div
                     class="data-area__kanji-copy-button"
@@ -328,7 +332,7 @@
                   label="Hong Kong"
                   :category-class="elementList[current.cell.atomicNum].categoryClass"
                 >
-                  <div class="data-area__kanji-character">{{ current.cell.innerStr['tgl_hongkong-trad'] }}</div>
+                  <div class="data-area__kanji-character mod_hk">{{ current.cell.innerStr['tgl_hongkong-trad'] }}</div>
                   <div class="data-area__kanji-code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointHK }}</div>
                   <div
                     class="data-area__kanji-copy-button"
@@ -401,31 +405,31 @@
           </div>
         </div>
         <div class="overlay__close-button" @click="closeOverlay">
-          <ion-icon name="close-circle"></ion-icon>
+          <ion-icon class="overlay__close-button-icon" name="close-circle"></ion-icon>
         </div>
         <div class="overlay__container mod_element-changer">
           <div class="overlay__area mod_element-changer">
             <div class="data-area mod_element-changer" :class="elementList[current.cell.atomicNum].categoryClass">
               <div class="data-area__content mod_element-changer">
                 <span
-                  class="data-area__arrow-back"
+                  class="data-area__element-changer-button"
                   :class="{'tgl_disabled': elementChangeButton.isStart}"
                   @click="changeOverlay('prev')"
                 >
-                  <ion-icon name="arrow-back"></ion-icon>
-                  <span>
-                    <span>{{elementChangeButton.prev.atomicNum}}</span>{{elementChangeButton.prev.elementSymbol}}
+                  <ion-icon class="data-area__element-changer-button-icon" name="arrow-back"></ion-icon>
+                  <span class="data-area__element-changer-button-text">
+                    <span class="data-area__element-changer-button-atomic-number">{{elementChangeButton.prev.atomicNum}}</span>{{elementChangeButton.prev.elementSymbol}}
                   </span>
                 </span>
                 <span
-                  class="data-area__arrow-forward"
+                  class="data-area__element-changer-button"
                   :class="{'tgl_disabled': elementChangeButton.isEnd}"
                   @click="changeOverlay('next')"
                 >
-                  <span>
-                    <span>{{elementChangeButton.next.atomicNum}}</span>{{elementChangeButton.next.elementSymbol}}
+                  <span class="data-area__element-changer-button-text">
+                    <span class="data-area__element-changer-button-atomic-number">{{elementChangeButton.next.atomicNum}}</span>{{elementChangeButton.next.elementSymbol}}
                   </span>
-                  <ion-icon name="arrow-forward"></ion-icon>
+                  <ion-icon class="data-area__element-changer-button-icon" name="arrow-forward"></ion-icon>
                 </span>
               </div>
             </div>
