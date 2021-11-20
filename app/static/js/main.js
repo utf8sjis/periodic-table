@@ -13,12 +13,12 @@ Vue.component('data-area', {
     </div>`,
 });
 
-Vue.component('paragraph-section', {
+Vue.component('common-section', {
   props: ['title'],
   template: `
-    <section>
-      <h1 class="sec-title">{{ title }}</h1>
-      <div class="sec-contents">
+    <section class="section">
+      <h1 class="section__title">{{ title }}</h1>
+      <div class="section__contents">
         <slot></slot>
       </div>
     </section>`,

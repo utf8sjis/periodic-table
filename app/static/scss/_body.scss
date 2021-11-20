@@ -21,12 +21,6 @@ body {
 
 p {
     line-height: 2;
-    .clr {
-        background: linear-gradient(transparent 60%, $colorAccent 60%);
-    }
-    .b {
-        font-weight: 500;
-    }
     .del {
         text-decoration: line-through;
     }

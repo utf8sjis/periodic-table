@@ -1,6 +1,18 @@
 @charset "UTF-8";
 
-main > section {
+.section {
+    .section__marker {
+        background: linear-gradient(transparent 60%, $colorAccent 60%);
+    }
+    .section__bold {
+        font-weight: 500;
+    }
+    .section__line-through {
+        text-decoration: line-through;
+    }
+}
+
+.section {
     margin: 70px 15%;
     padding-top: 20px;
     background: #fff;
@@ -12,30 +24,30 @@ main > section {
     @include mediaQuery() {
         margin: 40px 10px;
     }
-    p {
+    .section__paragraph {
         line-height: 1.7;
     }
-    .k {
+    .section__kanji {
         font-family: $fontTWPlus;
     }
-    .k-cn {
+    .section__kanji-cn {
         font-family: $fontCN;
     }
-    .k-tw {
+    .section__kanji-tw {
         font-family: $fontTW;
     }
-    .k-hk {
+    .section__kanji-hk {
         font-family: $fontHK;
     }
-    .k-system {
+    .section__kanji-system {
         font-family: sans-serif;
     }
-    .sec-div {
+    .section__insert {
         @include flexCentering();
         flex-direction: column;
         margin: 40px 0;
         width: 100%;
-        > img, > div {
+        > .section__insert-diagram {
             box-sizing: border-box;
             width: 100%;
             padding: 0 20px;
@@ -43,7 +55,7 @@ main > section {
             border-radius: 3px;
             // box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
         }
-        > table {
+        > .section__insert-table {
             border-collapse: collapse;
             border-spacing: 0;
             text-align: center;
@@ -64,13 +76,13 @@ main > section {
                 }
             }
         }
-        > span {
+        > .section__insert-caption {
             padding-top: 15px;
             color: $colorBlackA;
         }
     }
 }
-h1.sec-title {
+h1.section__title {
     position: relative;
     display: block;
     margin: 0 30px 0 -8px;
@@ -120,7 +132,7 @@ h1.sec-title {
         }
     }
 }
-h2.sec-title2 {
+h2.section__title2 {
     border-bottom: dashed 2px $colorMain2;
     font-size: 20px;
     font-weight: 500;
@@ -128,7 +140,7 @@ h2.sec-title2 {
         font-size: 18px;
     }
 }
-.sec-contents {
+.section__contents {
     position: relative;
     padding: 10px 20px;
     @include mediaQuery() {
@@ -137,14 +149,6 @@ h2.sec-title2 {
     > * {
         margin: 20px 0;
     }
-}
-
-// データページの見方
-.demo-cell {
-    box-sizing: border-box;
-    margin-left: 30px;
-    width: $cellSize;
-    height: $cellSize;
 }
 
 // 状態のアイコン
