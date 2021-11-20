@@ -2,8 +2,9 @@
 
 @import 'init';
 @import 'base';
-@import 'header', 'nav';
-@import 'control-panel', 'table-guide', 'periodic-table';
+@import 'header', 'nav', 'nav-back';
+@import 'control-panel', 'lang-changer', 'periodic-table-scaler';
+@import 'table-guide', 'periodic-table';
 @import 'overlay', 'data-area';
 @import 'section', 'state-image-legend';
 @import 'footer';

@@ -1,4 +1,4 @@
-/****** nav, nav-back ******/
+/****** nav ******/
 $navHeight: 80vh;
 $navOpenTime: 0.5s;
 
@@ -144,19 +144,5 @@ $navOpenTime: 0.5s;
     &:nth-child(3) {
       background: #c99f77;
     }
-  }
-}
-
-.nav-back {
-  display: none;
-  position: fixed;
-  top: 0;
-  z-index: 8;
-  &.tgl_active {
-    display: block;
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
   }
 }
