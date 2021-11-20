@@ -63,34 +63,3 @@ p {
     line-height: 1;
     font-size: 36px;
 }
-
-/****** popup-box ******/
-.popup-box {
-    cursor: pointer;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 40px;
-    max-width: 400px;
-    padding: 10px 10px 10px 50px;
-    margin: 10px;
-    @include flexCentering();
-    background: $colorWhite;
-    border: solid 2px $colorMain3;
-    border-radius: 10px;
-    transform: translateX(-150%);
-    transition: transform .3s;
-    @include mediaQuery() {
-        padding: 5px 5px 5px 50px;
-    }
-    i {
-        position: absolute;
-        left: 0;
-        padding: 10px;
-        color: $colorMain3;
-        font-size: 30px;
-    }
-    &.active {
-        transform: translateX(0);
-    }
-}

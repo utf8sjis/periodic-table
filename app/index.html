@@ -651,12 +651,8 @@
       <div class="footer__content">© 2019 gensokanji</div>
     </footer>
 
-    <div
-      :class="['popup-box', {'active': popup.isDisplayed}]"
-      @click="clearPopup"
-      v-cloak
-    >
-      <i class="fas fa-info-circle"></i>{{ popup.message }}
+    <div v-cloak class="popup-box" :class="{'tgl_active': popup.isDisplayed}" @click="clearPopup">
+      <i class="popup-box__icon fas fa-info-circle"></i>{{ popup.message }}
     </div>
 
   </div>
