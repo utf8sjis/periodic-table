@@ -17,6 +17,7 @@ $navOpenTime: 0.5s;
   transition-duration: $navOpenTime;
   color: $colorWhite;
   background: $colorMainA;
+  z-index: 11;
   &.tgl_active {
     opacity: 1;
     transform: translateY(0);
@@ -150,6 +151,7 @@ $navOpenTime: 0.5s;
   display: none;
   position: fixed;
   top: 0;
+  z-index: 8;
   &.tgl_active {
     display: block;
     cursor: pointer;

@@ -133,6 +133,16 @@
     color: $colorBlackA;
   }
 
+  &__link-text {
+    color: $colorBlack;
+    text-decoration: underline;
+    transition: color 0.2s;
+    &:hover {
+      cursor: pointer;
+      color: $colorBlackA;
+    }
+  }
+
   &__marker {
     background: linear-gradient(transparent 60%, $colorAccent 60%);
   }

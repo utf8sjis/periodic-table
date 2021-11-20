@@ -1,37 +1,37 @@
-.overflow-hidden {
-    overflow: hidden;
-}
-
-[v-cloak]:not(footer) {
+/* v-cloak */
+[v-cloak] {
+  &:not(.footer) {
     display: none;
-}
-footer[v-cloak] {
+  }
+  &.footer {
     font-family: sans-serif;
     background: #888;
+  }
 }
 
-.fade-enter-active{
-    transition: opacity ease .5s .3s;
+/* Vue transition fade */
+.fade-enter-active {
+  transition: opacity ease 0.5s 0.3s;
 }
 .fade-leave-active {
-    transition: opacity ease .5s;
+  transition: opacity ease 0.5s;
 }
 .fade-enter,
 .fade-leave-to {
-    opacity: 0;
+  opacity: 0;
 }
 
-/* 埋め込みツイートのクラス */
+/* 埋め込みツイート */
 .twitter-tweet {
-    grid-row: cont;
-    max-width: 500px !important;
-    margin: 0 !important;
-    width: 100% !important;
+  grid-row: cont;
+  max-width: 500px !important;
+  margin: 0 !important;
+  width: 100% !important;
 }
 
 /* 埋め込みツイートの読み込み前 */
 blockquote.twitter-tweet {
-    @include flexCentering(flex-start, center);
-    height: 500px;
-    opacity: 0.7;
+  @include flexCentering(flex-start, center);
+  height: 500px;
+  opacity: 0.7;
 }

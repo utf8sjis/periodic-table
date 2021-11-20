@@ -8,6 +8,7 @@ $areaGap: 10px;
   width: 100%;
   height: 100%;
   transition: background-color 1s;
+  z-index: 13;
   @each $category in $categoryList {
     $categoryColor: nth($categoryColorList2, index($categoryList, $category));
     &.tgl_category-#{$category} {
@@ -22,6 +23,9 @@ $areaGap: 10px;
     color: #fff;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+    &.tgl_overflow-hidden {
+      overflow: hidden;
+    }
   }
 
   &__main {
@@ -69,6 +73,7 @@ $areaGap: 10px;
     height: 50px;
     cursor: pointer;
     transition: 0.3s;
+    z-index: 14;
     &:hover {
       transform: scale(1.1);
     }
@@ -145,6 +150,7 @@ $areaGap: 10px;
       padding: 0 20%;
       width: 100%;
       height: 70px;
+      z-index: 14;
       @include mediaQuery($tablet) {
         padding: 0 50px;
       }

@@ -10,6 +10,13 @@
     padding-bottom: 60px;
   }
 
+  &__twitter-follow-button {
+    color: $colorWhite;
+    &:hover {
+        color: $colorWhiteA;
+    }
+  }
+
   &__content {
     padding: 5px 0;
     text-align: center;

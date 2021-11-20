@@ -1,14 +1,12 @@
-/*! Copyright 2020 @gensokanji_bot */
-@charset "UTF-8";
-@use "sass:math";
+@use 'sass:math';
 
-@import "init";
-@import "body";
-@import "header", "nav";
-@import "control-panel", "table-guide", "periodic-table";
-@import "overlay", "data-area";
-@import "section", "state-image-legend";
-@import "footer";
-@import "popup-box";
-@import "alert-modal";
-@import "addition";
+@import 'init';
+@import 'base';
+@import 'header', 'nav';
+@import 'control-panel', 'table-guide', 'periodic-table';
+@import 'overlay', 'data-area';
+@import 'section', 'state-image-legend';
+@import 'footer';
+@import 'popup-box';
+@import 'alert-modal';
+@import 'addition';
