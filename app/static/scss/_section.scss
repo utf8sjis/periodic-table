@@ -164,24 +164,8 @@
   &__system-font {
     font-family: sans-serif;
   }
-}
 
-// 状態のアイコン
-.state-icons-wrapper {
-  display: grid;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-  @include gridGap(15px, 15px);
-  text-align: center;
-}
-.state-icons {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 10px;
-  object-fit: cover;
-  border-radius: 3px;
-  background: $colorMain2;
-}
-.inline-external-link-icon {
-  padding-left: 5px;
+  &__external-link-icon {
+    padding-left: 5px;
+  }
 }
