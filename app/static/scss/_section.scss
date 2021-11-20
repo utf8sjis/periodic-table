@@ -1,187 +1,187 @@
 /****** section ******/
 
 .section {
-    margin: 70px 15%;
-    padding-top: 20px;
-    background: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-    @include mediaQuery($tablet) {
-        margin: 40px 10%;
+  margin: 70px 15%;
+  padding-top: 20px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  @include mediaQuery($tablet) {
+    margin: 40px 10%;
+  }
+  @include mediaQuery() {
+    margin: 40px 10px;
+  }
+
+  &__headline {
+    position: relative;
+    display: block;
+    margin: 0 30px 0 -8px;
+    padding: 10px 20px;
+    border-radius: 3px 0 0 0;
+    color: $colorWhite;
+    font-weight: 500;
+    font-size: 25px;
+    background: $colorMain2;
+    &::before {
+      position: absolute;
+      content: '';
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border: 8px solid #fff;
+      border-top: 8px solid $colorMain2B;
+      border-left: 8px solid $colorMain2B;
+    }
+    &::after {
+      position: absolute;
+      content: '';
+      bottom: -8px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border: 4px solid transparent;
+      border-top: 4px solid $colorMain2B;
+      border-right: 4px solid $colorMain2B;
     }
     @include mediaQuery() {
-        margin: 40px 10px;
+      margin: 0 10px 0 -6px;
+      padding: 10px 15px;
+      border-radius: 2px 0 0 0;
+      font-size: 20px;
+      &::before {
+        border: 6px solid #fff;
+        border-top: 6px solid $colorMain2B;
+        border-left: 6px solid $colorMain2B;
+      }
+      &::after {
+        bottom: -6px;
+        border: 3px solid transparent;
+        border-top: 3px solid $colorMain2B;
+        border-right: 3px solid $colorMain2B;
+      }
+    }
+  }
+
+  &__contents {
+    position: relative;
+    padding: 10px 20px;
+    @include mediaQuery() {
+      padding: 10px;
+    }
+  }
+
+  &__headline-2 {
+    margin: 20px 0;
+    border-bottom: dashed 2px $colorMain2;
+    font-size: 20px;
+    font-weight: 500;
+    @include mediaQuery() {
+      font-size: 18px;
+    }
+  }
+
+  &__paragraph {
+    margin: 20px 0;
+    line-height: 1.7;
+  }
+
+  &__insert {
+    @include flexCentering();
+    margin: 20px 0;
+    flex-direction: column;
+    margin: 40px 0;
+    width: 100%;
+  }
+
+  &__insert-diagram {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 20px;
+    max-width: 600px;
+    border-radius: 3px;
+    // box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  }
+
+  &__insert-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: center;
+
+    th {
+      padding: 7px 20px;
+      color: $colorWhite;
+      font-weight: 500;
+      background: $colorMain2;
+      @include mediaQuery() {
+        padding: 5px;
+      }
     }
 
-    &__headline {
-        position: relative;
-        display: block;
-        margin: 0 30px 0 -8px;
-        padding: 10px 20px;
-        border-radius: 3px 0 0 0;
-        color: $colorWhite;
-        font-weight: 500;
-        font-size: 25px;
-        background: $colorMain2;
-        &::before {
-            position: absolute;
-            content: "";
-            bottom: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border: 8px solid #fff;
-            border-top: 8px solid $colorMain2B;
-            border-left: 8px solid $colorMain2B;
-        }
-        &::after {
-            position: absolute;
-            content: "";
-            bottom: -8px;
-            left: 0;
-            width: 0;
-            height: 0;
-            border: 4px solid transparent;
-            border-top: 4px solid $colorMain2B;
-            border-right: 4px solid $colorMain2B;
-        }
-        @include mediaQuery() {
-            margin: 0 10px 0 -6px;
-            padding: 10px 15px;
-            border-radius: 2px 0 0 0;
-            font-size: 20px;
-            &::before {
-                border: 6px solid #fff;
-                border-top: 6px solid $colorMain2B;
-                border-left: 6px solid $colorMain2B;
-            }
-            &::after {
-                bottom: -6px;
-                border: 3px solid transparent;
-                border-top: 3px solid $colorMain2B;
-                border-right: 3px solid $colorMain2B;
-            }
-        }
+    td {
+      padding: 7px 20px;
+      border-bottom: 1px solid $colorBlackA;
+      @include mediaQuery() {
+        padding: 5px;
+      }
     }
+  }
 
-    &__contents {
-        position: relative;
-        padding: 10px 20px;
-        @include mediaQuery() {
-            padding: 10px;
-        }
-    }
+  &__insert-caption {
+    padding-top: 15px;
+    color: $colorBlackA;
+  }
 
-    &__headline-2 {
-        margin: 20px 0;
-        border-bottom: dashed 2px $colorMain2;
-        font-size: 20px;
-        font-weight: 500;
-        @include mediaQuery() {
-            font-size: 18px;
-        }
-    }
+  &__marker {
+    background: linear-gradient(transparent 60%, $colorAccent 60%);
+  }
 
-    &__paragraph {
-        margin: 20px 0;
-        line-height: 1.7;
-    }
+  &__bold {
+    font-weight: 500;
+  }
 
-    &__insert {
-        @include flexCentering();
-        margin: 20px 0;
-        flex-direction: column;
-        margin: 40px 0;
-        width: 100%;
-    }
+  &__line-through {
+    text-decoration: line-through;
+  }
 
-    &__insert-diagram {
-        box-sizing: border-box;
-        width: 100%;
-        padding: 0 20px;
-        max-width: 600px;
-        border-radius: 3px;
-        // box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-    }
+  &__kanji {
+    font-family: $fontTWPlus;
+  }
 
-    &__insert-table {
-        border-collapse: collapse;
-        border-spacing: 0;
-        text-align: center;
+  &__kanji-cn {
+    font-family: $fontCN;
+  }
 
-        th {
-            padding: 7px 20px;
-            color: $colorWhite;
-            font-weight: 500;
-            background: $colorMain2;
-            @include mediaQuery() {
-                padding: 5px;
-            }
-        }
+  &__kanji-tw {
+    font-family: $fontTW;
+  }
 
-        td {
-            padding: 7px 20px;
-            border-bottom: 1px solid $colorBlackA;
-            @include mediaQuery() {
-                padding: 5px;
-            }
-        }
-    }
+  &__kanji-hk {
+    font-family: $fontHK;
+  }
 
-    &__insert-caption {
-        padding-top: 15px;
-        color: $colorBlackA;
-    }
-
-    &__marker {
-        background: linear-gradient(transparent 60%, $colorAccent 60%);
-    }
-
-    &__bold {
-        font-weight: 500;
-    }
-
-    &__line-through {
-        text-decoration: line-through;
-    }
-
-    &__kanji {
-        font-family: $fontTWPlus;
-    }
-
-    &__kanji-cn {
-        font-family: $fontCN;
-    }
-
-    &__kanji-tw {
-        font-family: $fontTW;
-    }
-
-    &__kanji-hk {
-        font-family: $fontHK;
-    }
-
-    &__system-font {
-        font-family: sans-serif;
-    }
+  &__system-font {
+    font-family: sans-serif;
+  }
 }
 
 // 状態のアイコン
 .state-icons-wrapper {
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(3, 1fr);
-    @include gridGap(15px, 15px);
-    text-align: center;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  @include gridGap(15px, 15px);
+  text-align: center;
 }
 .state-icons {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 10px;
-    object-fit: cover;
-    border-radius: 3px;
-    background: $colorMain2;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  object-fit: cover;
+  border-radius: 3px;
+  background: $colorMain2;
 }
 .inline-external-link-icon {
-    padding-left: 5px;
+  padding-left: 5px;
 }
