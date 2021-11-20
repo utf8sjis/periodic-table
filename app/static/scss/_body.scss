@@ -64,29 +64,6 @@ p {
     font-size: 36px;
 }
 
-
-/****** footer ******/
-footer {
-    @include flexCentering();
-    flex-direction: column;
-    padding: 15px 0;
-    background: $colorMainA;
-    color: $colorWhite;
-    a {
-        color: $colorWhite;
-        &:hover {
-            color: $colorWhiteA;
-        }
-    }
-    * {
-        padding: 5px 0;
-        text-align: center;
-    }
-    @include mediaQuery() {
-        padding-bottom: 60px;
-    }
-}
-
 /****** popup-box ******/
 .popup-box {
     cursor: pointer;

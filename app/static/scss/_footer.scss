@@ -1,0 +1,17 @@
+/****** footer ******/
+
+.footer {
+  @include flexCentering();
+  flex-direction: column;
+  padding: 15px 0;
+  background: $colorMainA;
+  color: $colorWhite;
+  @include mediaQuery() {
+    padding-bottom: 60px;
+  }
+
+  &__content {
+    padding: 5px 0;
+    text-align: center;
+  }
+}
