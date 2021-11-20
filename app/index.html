@@ -657,17 +657,19 @@
 
   </div>
 
-  <div id="alertIE">
-    <div class="modal-wrapper">
-      <div class="modal-window">
-        <div class="modal-title">
+  <div id="alertIE" class="alert-modal">
+    <div class="alert-modal__window-wrapper">
+      <div class="alert-modal__window">
+        <div class="alert-modal__title">
           <span><i class="fas fa-info-circle"></i> 当サイトはInternet Explorerに対応しておりません</span>
         </div>
-        <p>
-          当サイトは運営者がIE対応を<span class="del">面倒くさがった</span>見送ったためIEでは閲覧できません。<br>
+        <p class="alert-modal__paragraph">
+          当サイトは運営者がIE対応を<span class="alert-modal__line-through">面倒くさがった</span>見送ったためIEでは閲覧できません。<br>
           今後の対応の可能性はありますが、閲覧はEdgeやChromeなどのモダンブラウザをお使いください。
         </p>
-        <div class="modal-close" onclick="closeAlertIEModal()"><ion-icon name="close"></ion-icon></div>
+        <div class="alert-modal__close-button" onclick="closeAlertIEModal()">
+          <ion-icon name="close"></ion-icon>
+        </div>
       </div>
     </div>
   </div>
