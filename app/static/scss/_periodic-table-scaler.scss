@@ -1,0 +1,110 @@
+
+/****** periodic-table-scaler ******/
+
+.periodic-table-scaler {
+  @include flexCentering();
+  padding-top: 20px;
+
+  &__input-range {
+    cursor: pointer;
+    -webkit-appearance: none;
+    vertical-align: middle;
+    outline: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: none;
+    width: 300px;
+    // バー
+    &::-webkit-slider-runnable-track {
+      background-color: #d7dbdd;
+      height: 6px;
+      border-radius: 3px;
+      border: 1px solid transparent;
+    }
+    &::-moz-range-track {
+      background-color: #d7dbdd;
+      height: 6px;
+      border-radius: 3px;
+      border: none;
+    }
+    &::-ms-track {
+      color: transparent;
+      border: none;
+      background: none;
+      height: 6px;
+    }
+    &::-ms-fill-lower {
+      background-color: #d7dbdd;
+      border-radius: 3px;
+    }
+    &::-ms-fill-upper {
+      background-color: #d7dbdd;
+      border-radius: 3px;
+    }
+    &::-ms-tooltip {
+      display: none;  /* display and visibility only */
+    }
+    // つまみ
+    &::-moz-range-thumb {
+      border-radius: 20px;
+      height: 25px;
+      width: 25px;
+      border: none;
+      background: none;
+      background-color: $colorMain2;
+    }
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none !important;
+      border-radius: 100%;
+      background-color: $colorMain2;
+      height: 25px;
+      width: 25px;
+      margin-top: -11px;
+      border: none;
+    }
+    &::-ms-thumb {
+      border-radius: 100%;
+      background-color: $colorMain2;
+      height: 25px;
+      width: 25px;
+      border: none;
+    }
+    &[disabled] {
+      // バー
+      &::-webkit-slider-runnable-track {
+        border: 1px solid #d7dbdd;
+        background-color: transparent;
+        opacity: 0.4;
+      }
+      // つまみ
+      &::-webkit-slider-thumb {
+        background-color: transparent;
+        border: 1px solid #d7dbdd;
+      }
+    }
+    &:active {
+      // つまみ
+      &::-moz-range-thumb {
+        outline: none;
+      }
+      &::-webkit-slider-thumb {
+        outline: none;
+      }
+      &::-ms-thumb {
+        border: none;
+      }
+    }
+  }
+
+  &__value-display {
+    @include flexCentering();
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-left: 10px;
+    padding: 2px;
+    width: 50px;
+    border: solid 2px $colorMain2;
+    border-radius: 5px;
+  }
+}

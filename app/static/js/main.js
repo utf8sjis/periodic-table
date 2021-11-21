@@ -1,24 +1,24 @@
 Vue.config.ignoredElements = ['ion-icon'];
 
-Vue.component('normal-sub-area', {
-  props: ['name', 'label'],
+Vue.component('data-area', {
+  props: ['name', 'label', 'categoryClass'],
   template: `
-    <div :class="'sub-area sub-area-' + name">
-      <div class="label">
+    <div :class="['data-area', 'mod_' + name, categoryClass]">
+      <div class="data-area__label">
         <div v-html="label"></div>
       </div>
-      <div :class="'cont-area cont-area-' + name">
+      <div :class="['data-area__content', 'mod_' + name]">
         <slot></slot>
       </div>
     </div>`,
 });
 
-Vue.component('paragraph-section', {
-  props: ['title'],
+Vue.component('common-section', {
+  props: ['headline'],
   template: `
-    <section>
-      <h1 class="sec-title">{{ title }}</h1>
-      <div class="sec-contents">
+    <section class="section">
+      <h1 class="section__headline">{{ headline }}</h1>
+      <div class="section__contents">
         <slot></slot>
       </div>
     </section>`,
@@ -35,7 +35,7 @@ new Vue({
     periodClassList: periodClassList,
     navLinkSectionList: navLinkSectionList,
     themeColorList: themeColorList,
-    changerTitleList: changerTitleList,
+    controlPanelTitleList: controlPanelTitleList,
     /** 現在の表示言語とセル */
     current: {
       langIndex: 3,
@@ -57,7 +57,7 @@ new Vue({
       timeoutID: 0,
     },
     /** 操作パネルの高さ、内容のインデクス、内容が最初（最後）のものか否か */
-    changer: {
+    controlPanel: {
       height: 0,
       index: 0,
       isStart: true,
@@ -124,14 +124,14 @@ new Vue({
      * @param {object} el - オーバーレイの要素
      */
     enterFade: function (el) {
-      el.querySelector('.ov-container-box').scrollTop = 0;
+      el.querySelector('.overlay__main-wrapper').scrollTop = 0;
     },
     /**
      * オーバーレイ表示前、bodyのスクロールを無効にする
      * @param {object} el - オーバーレイの要素
      */
     beforeEnterFade: function (el) {
-      const targetEl = el.querySelector('.ov-container-box');
+      const targetEl = el.querySelector('.overlay__main-wrapper');
       bodyScrollLock.disableBodyScroll(targetEl, {
         reserveScrollBarGap: true,
       });
@@ -275,20 +275,20 @@ new Vue({
      * @param {string} to - 'next'か'prev'
      */
     changeContents: function (to) {
-      if (to === 'next' && !this.changer.isEnd) {
-        this.changer.index++;
-      } else if (to === 'prev' && !this.changer.isStart) {
-        this.changer.index--;
+      if (to === 'next' && !this.controlPanel.isEnd) {
+        this.controlPanel.index++;
+      } else if (to === 'prev' && !this.controlPanel.isStart) {
+        this.controlPanel.index--;
       }
-      if (this.changer.index === 0) {
-        this.changer.isStart = true;
+      if (this.controlPanel.index === 0) {
+        this.controlPanel.isStart = true;
       } else {
-        this.changer.isStart = false;
+        this.controlPanel.isStart = false;
       }
-      if (this.changer.index === this.changerTitleList.length - 1) {
-        this.changer.isEnd = true;
+      if (this.controlPanel.index === this.controlPanelTitleList.length - 1) {
+        this.controlPanel.isEnd = true;
       } else {
-        this.changer.isEnd = false;
+        this.controlPanel.isEnd = false;
       }
     },
     /**
@@ -357,8 +357,8 @@ new Vue({
     // 周期表の幅と高さの初期値をセット
     this.periodicTableRect = this.$refs.periodicTable.getBoundingClientRect();
     // 操作パネルの高さの初期値をセット
-    const compStyles = window.getComputedStyle(this.$refs.changerWrapper);
-    this.changer.height = parseInt(compStyles.getPropertyValue('height'));
+    const compStyles = window.getComputedStyle(this.$refs.controlPanel);
+    this.controlPanel.height = parseInt(compStyles.getPropertyValue('height'));
     // スクロールのイベントリスナを追加
     window.addEventListener('scroll', this.handleScroll);
     // localStorageの初期化と読み出し

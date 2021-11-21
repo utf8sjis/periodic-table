@@ -1,0 +1,73 @@
+/****** control-panel ******/
+$langNum: 7;
+$controlPanelWidth: 700px;
+$controlPanelHeight: 25px + 15px * 2 + 20px;
+
+.control-panel {
+  position: sticky;
+  position: -webkit-sticky;
+  top: $headerHeight + 15px;
+  width: $controlPanelWidth;
+  height: $controlPanelHeight;
+  margin: 0 auto 0;
+  border: solid 2px $colorMain2;
+  border-radius: 10px;
+  background: $colorBaseA;
+  overflow: hidden;
+  z-index: 7;
+  @include mediaQuery() {
+    top: $headerHeightPhone + 15px;
+  }
+  @include mediaQuery($controlPanelWidth) {
+    margin: 0 10px;
+    width: auto;
+  }
+
+  &__contents {
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 40px;
+    height: $controlPanelHeight;
+    flex-shrink: 0;
+    transition: 0.3s;
+  }
+
+  &__title-wrapper {
+    position: absolute;
+    top: 5px;
+    left: 13px;
+    color: $colorMain2;
+    @include mediaQuery() {
+      top: 3px;
+      left: 10px;
+    }
+  }
+
+  &__title {
+    padding: 0 5px;
+  }
+
+  &__button-container {
+    @include flexCentering();
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: $controlPanelHeight;
+    flex-direction: column;
+  }
+
+  &__button {
+    @include flexCentering();
+    cursor: pointer;
+    width: 30px;
+    height: math.div($controlPanelHeight, 2);
+    color: $colorWhiteA;
+    font-size: 20px;
+    background: $colorMain2;
+    transition: background-color 0.3s;
+    &.tgl_disable {
+      cursor: default;
+      background: #d7dbdd;
+    }
+  }
+}

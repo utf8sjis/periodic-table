@@ -1,45 +1,13 @@
-@charset "UTF-8";
+/* フォントファミリー */
+$fontEN: 'Blinker', sans-serif;
+$fontJP: 'M PLUS Rounded 1c', sans-serif;
+$fontTWPlus: 'Source Han Sans TW', 'make up for TW and HK', 'Source Han Sans CN', 'Noto Sans TC', sans-serif;
+$fontCN: 'Source Han Sans CN', 'make up for CN', sans-serif;
+$fontTW: 'Source Han Sans TW', 'make up for TW and HK', 'Source Han Sans CN', sans-serif;
+$fontHK: 'Source Han Sans HK', 'make up for TW and HK', 'Source Han Sans CN', sans-serif;
+$fontPY: 'pinyin and bopomofo', sans-serif;
 
-/***** 変数・関数定義 *****/
-$fontEN: "Blinker", sans-serif;
-$fontJP: "M PLUS Rounded 1c", sans-serif;
-$fontTWPlus: "Source Han Sans TW", "make up for TW and HK", "Source Han Sans CN", "Noto Sans TC", sans-serif;
-$fontCN: "Source Han Sans CN", "make up for CN", sans-serif;
-$fontTW: "Source Han Sans TW", "make up for TW and HK", "Source Han Sans CN", sans-serif;
-$fontHK: "Source Han Sans HK", "make up for TW and HK", "Source Han Sans CN", sans-serif;
-$fontPY: "pinyin and bopomofo", sans-serif;
-
-// もみじ
-// $colorMain1:  #994a4a;
-// $colorMain2:  #c99f77;
-// $colorMain2B: #a78362;
-// $colorMain3:  #c9c373;
-
-// ラムネ
-// $colorMain1:  #4568a8;
-// $colorMain2:  #80acca;
-// $colorMain2B: #6c8fa0;
-// $colorMain3:  #91c9d3;
-
-// わかば
-$colorMain1:  #3d8d69;
-$colorMain2:  #74bb83;
-$colorMain2B: #639b6f;
-$colorMain3:  #a0be77;
-
-:root {
-    --theme-color-main-1: #{$colorMain1};
-    --theme-color-main-2: #{$colorMain2};
-    --theme-color-main-2b: #{$colorMain2B};
-    --theme-color-main-3: #{$colorMain3};
-    --theme-color-main-a: linear-gradient(
-        0.375turn,
-        #{$colorMain1}e6,
-        #{$colorMain2}e6,
-        #{$colorMain3}e6
-    );
-}
-
+/* 色 */
 $colorMain1: var(--theme-color-main-1);
 $colorMain2: var(--theme-color-main-2);
 $colorMain2B: var(--theme-color-main-2b);
@@ -53,162 +21,44 @@ $colorWhite: #fff;
 $colorWhiteA: rgba(255, 255, 255, 0.7);
 $colorBlack: #53554a;
 $colorBlackA: rgba(83, 85, 74, 0.7);
+
 $colorTwitter: #55acee;
 $colorFacebook: #315096;
 $colorLINE: #00c300;
 
+/* カテゴリのリスト */
 $a: 0.925;
-$categoryList: "h" "he" "li" "be" "b" "c" "n" "o" "f" "ca" "zn" "fe" "pt" "la" "ac" "transition-metal" "demo";
+$categoryList: 'h' 'he' 'li' 'be' 'b' 'c' 'n' 'o' 'f' 'ca' 'zn' 'fe' 'pt' 'la' 'ac' 'transition-metal';
 $categoryColorList:
-    rgb(255, 255, 255)
-    rgb(20, 166, 219)
-    rgb(218, 45, 111)
-    rgb(190, 190, 190)
-    rgb(170, 141, 22)
-    rgb(155, 94, 40)
-    rgb(138, 35, 175)
-    rgb(17, 141, 122)
-    rgb(184, 187, 0)
-    rgb(206, 109, 45)
-    rgb(218, 154, 16)
-    rgb(192, 42, 42)
-    rgb(150, 150, 150)
-    rgb(77, 173, 13)
-    rgb(65, 22, 207)
-    rgb(100, 100, 100)
-    rgb(100, 100, 100);
+  rgb(255, 255, 255) rgb(20, 166, 219) rgb(218, 45, 111) rgb(190, 190, 190)
+  rgb(170, 141, 22) rgb(155, 94, 40) rgb(138, 35, 175) rgb(17, 141, 122)
+  rgb(184, 187, 0) rgb(206, 109, 45) rgb(218, 154, 16) rgb(192, 42, 42)
+  rgb(150, 150, 150) rgb(77, 173, 13) rgb(65, 22, 207) rgb(100, 100, 100);
 $categoryColorList2:
-    rgba(255, 255, 255, $a)
-    rgba(0, 100, 137, $a)
-    rgba(133, 1, 51, $a)
-    rgba(150, 150, 150, $a)
-    rgba(76, 61, 0, $a)
-    rgba(72, 33, 0, $a)
-    rgba(69, 25, 86, $a)
-    rgba(0, 80, 66, $a)
-    rgba(135, 137, 1, $a)
-    rgba(138, 56, 0, $a)
-    rgba(190, 130, 0, $a)
-    rgba(122, 0, 0, $a)
-    rgba(89, 89, 89, $a)
-    rgba(42, 105, 0, $a)
-    rgba(24, 0, 98, $a)
-    rgba(51, 51, 51, $a)
-    rgba(51, 51, 51, $a);
+  rgba(255, 255, 255, $a) rgba(0, 100, 137, $a) rgba(133, 1, 51, $a) rgba(150, 150, 150, $a)
+  rgba(76, 61, 0, $a) rgba(72, 33, 0, $a) rgba(69, 25, 86, $a) rgba(0, 80, 66, $a)
+  rgba(135, 137, 1, $a) rgba(138, 56, 0, $a) rgba(190, 130, 0, $a) rgba(122, 0, 0, $a)
+  rgba(89, 89, 89, $a) rgba(42, 105, 0, $a) rgba(24, 0, 98, $a) rgba(51, 51, 51, $a);
 
+/* 関数 */
 @mixin flexCentering($justify: center, $align: center) {
-    display: flex;
-    justify-content: $justify;  // row:横, col:縦
-    align-items: $align;        // row:縦, col:横
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
 }
 
 @mixin gridGap($row, $col) {
-    grid-row-gap: $row;
-    row-gap: $row;
-    grid-column-gap: $col;
-    column-gap: $col;
+  grid-row-gap: $row;
+  row-gap: $row;
+  grid-column-gap: $col;
+  column-gap: $col;
 }
 
-$tablet: 1000px; // タブレット用
-$phone: 550px;  // スマホ用
-$se: 350px; // iphone SE用
+$tablet: 1000px; // タブレット
+$phone: 550px;   // スマートフォン
+$se: 350px;      // iPhone SE
 @mixin mediaQuery($breakpoint: $phone) {
-    @media (max-width: ($breakpoint)){
-        @content;
-    }
-}
-
-
-/***** CSSの初期化 *****/
-* {
-    margin: 0;
-}
-header {
-    .header-start {
-        z-index: 12;
-        &::before {
-            z-index: -1;
-        }
-    }
-    .header-end {
-        z-index: 12;
-    }
-}
-nav {
-    z-index: 11;
-}
-.nav-back {
-    z-index: 8;
-}
-.changer-wrapper {
-    z-index: 7;
-}
-.periodic-table {
-    z-index: 5;
-    .click-effect {
-        z-index: 6;
-    }
-}
-.overlay-screen {
-    z-index: 13;
-    .close-button, .area-change-elements {
-        z-index: 14;
-    }
-}
-
-.popup-box {
-    z-index: 14;
-}
-
-@font-face {
-    font-family: "Source Han Sans CN";
-    src: url("../font/woff/SourceHanSansCN-ExtraLight_lim2.woff");
-}
-@font-face {
-    font-family: "Source Han Sans TW";
-    src: url("../font/woff/SourceHanSansTW-ExtraLight_lim.woff");
-}
-@font-face {
-    font-family: "Source Han Sans HK";
-    src: url("../font/woff/SourceHanSansHK-ExtraLight_lim.woff");
-}
-@font-face {
-    font-family: "make up for CN";
-    src: url("../font/woff/SubsetLv.woff");
-}
-@font-face {
-    font-family: "make up for TW and HK";
-    src: url("../font/woff/SubsetBkCnNh.woff");
-}
-@font-face {
-    font-family: "pinyin and bopomofo";
-    src: url("../font/woff/pinyin.woff");
-}
-// @font-face {
-//     font-family: "HanyiSentySuciTablet";
-//     src: url("../font/HanyiSentySuciTablet.ttf");
-// }
-
-$animeNameList: "intoAN" "intoES" "intoJA" "intoEN" "intoSC" "intoTW" "intoHK";
-@each $animeName in $animeNameList {
-    @keyframes #{$animeName} {
-        0% {
-            transform-origin: center top;
-            color: transparent;
-            transform: rotateZ(12deg);
-        }
-        25% {
-            transform: rotateZ(-8deg);
-        }
-        50% {
-            transform: rotateZ(3deg);
-        }
-        75% {
-            transform: rotateZ(-1deg);
-        }
-        100% {
-            transform-origin: center top;
-            transform: rotateZ(0deg);
-        }
-    }
+  @media (max-width: ($breakpoint)) {
+    @content;
+  }
 }

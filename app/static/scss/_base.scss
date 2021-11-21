@@ -1,0 +1,52 @@
+/* font-family */
+@font-face {
+  font-family: 'Source Han Sans CN';
+  src: url('../font/woff/SourceHanSansCN-ExtraLight_lim2.woff');
+}
+@font-face {
+  font-family: 'Source Han Sans TW';
+  src: url('../font/woff/SourceHanSansTW-ExtraLight_lim.woff');
+}
+@font-face {
+  font-family: 'Source Han Sans HK';
+  src: url('../font/woff/SourceHanSansHK-ExtraLight_lim.woff');
+}
+@font-face {
+  font-family: 'make up for CN';
+  src: url('../font/woff/SubsetLv.woff');
+}
+@font-face {
+  font-family: 'make up for TW and HK';
+  src: url('../font/woff/SubsetBkCnNh.woff');
+}
+@font-face {
+  font-family: 'pinyin and bopomofo';
+  src: url('../font/woff/pinyin.woff');
+}
+
+/* :root */
+:root {
+  --theme-color-main-1: #{$colorMain1};
+  --theme-color-main-2: #{$colorMain2};
+  --theme-color-main-2b: #{$colorMain2B};
+  --theme-color-main-3: #{$colorMain3};
+  --theme-color-main-a: linear-gradient(
+    0.375turn,
+    #{$colorMain1}e6,
+    #{$colorMain2}e6,
+    #{$colorMain3}e6
+  );
+}
+
+/* body */
+body {
+  margin: 0;
+  font-family: $fontJP;
+  font-weight: 300;
+  font-size: 16px;
+  color: $colorBlack;
+  background: $colorBase;
+  @include mediaQuery() {
+    font-size: 15px;
+  }
+}

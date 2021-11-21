@@ -1,0 +1,312 @@
+/* periodic-table */
+$cellSize: 54px;
+$cellGap: 6px;
+
+// 族と周期のグリッド位置情報
+$groupNumberList: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18;
+$groupRowList:    1 2 4 4 4 4 4 4 4 4  4  4  2  2  2  2  2  1;
+$periodNumberList: 1 2 3 4 5 6 7;
+
+// 各元素のグリッド位置情報
+$cellSymbolList:
+  'H'  'He' 'Li' 'Be' 'B'  'C'  'N'  'O'  'F'  'Ne' 'Na' 'Mg' 'Al' 'Si' 'P'  'S'  'Cl' 'Ar'
+  'K'  'Ca' 'Sc' 'Ti' 'V'  'Cr' 'Mn' 'Fe' 'Co' 'Ni' 'Cu' 'Zn' 'Ga' 'Ge' 'As' 'Se' 'Br' 'Kr'
+  'Rb' 'Sr' 'Y'  'Zr' 'Nb' 'Mo' 'Tc' 'Ru' 'Rh' 'Pd' 'Ag' 'Cd' 'In' 'Sn' 'Sb' 'Te' 'I'  'Xe'
+  'Cs' 'Ba' 'Hf' 'Ta' 'W'  'Re' 'Os' 'Ir' 'Pt' 'Au' 'Hg' 'Tl' 'Pb' 'Bi' 'Po' 'At' 'Rn'
+  'Fr' 'Ra' 'Rf' 'Db' 'Sg' 'Bh' 'Hs' 'Mt' 'Ds' 'Rg' 'Cn' 'Nh' 'Fl' 'Mc' 'Lv' 'Ts' 'Og'
+  'La' 'Ce' 'Pr' 'Nd' 'Pm' 'Sm' 'Eu' 'Gd' 'Tb' 'Dy' 'Ho' 'Er' 'Tm' 'Yb' 'Lu'
+  'Ac' 'Th' 'Pa' 'U'  'Np' 'Pu' 'Am' 'Cm' 'Bk' 'Cf' 'Es' 'Fm' 'Md' 'No' 'Lr';
+$cellRowList:
+  1  1  2  2  2  2  2  2  2  2  3  3  3  3  3  3  3  3
+  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4
+  5  5  5  5  5  5  5  5  5  5  5  5  5  5  5  5  5  5
+  6  6  6  6  6  6  6  6  6  6  6  6  6  6  6  6  6
+  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7
+  8  8  8  8  8  8  8  8  8  8  8  8  8  8  8
+  9  9  9  9  9  9  9  9  9  9  9  9  9  9  9;
+$cellColumnList:
+  1  18 1  2  13 14 15 16 17 18 1  2  13 14 15 16 17 18
+  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18
+  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18
+  1  2  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18
+  1  2  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18
+  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17
+  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17;
+
+// 見た目変更時のアニメーション
+$animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
+@each $animeName in $animeNameList {
+  @keyframes #{$animeName} {
+    0% {
+      transform-origin: center top;
+      color: transparent;
+      transform: rotateZ(12deg);
+    }
+    25% {
+      transform: rotateZ(-8deg);
+    }
+    50% {
+      transform: rotateZ(3deg);
+    }
+    75% {
+      transform: rotateZ(-1deg);
+    }
+    100% {
+      transform-origin: center top;
+      transform: rotateZ(0deg);
+    }
+  }
+}
+
+.periodic-table {
+  @include flexCentering();
+  height: 654px;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  &.tgl_overflow-scroll {
+    @include flexCentering(flex-start, flex-start);
+    overflow-x: scroll;
+  }
+  &.tgl_overflow-hidden {
+    overflow: hidden;
+  }
+
+  &__grid-container {
+    display: grid;
+    padding: 60px;
+    grid-template: repeat(9, $cellSize) / repeat(18, $cellSize);
+    @include gridGap($cellGap, $cellGap);
+    user-select: none;
+    transform-origin: top 50%;
+    z-index: 5;
+    &.tgl_overflow-scroll {
+      transform-origin: top left;
+    }
+  }
+
+  &__group-number {
+    @include flexCentering();
+    height: 0;
+    transform: translateY(-15px);
+    color: $colorBlack;
+    font-family: $fontEN;
+    font-weight: 300;
+    font-size: 20px;
+    @each $groupNumber in $groupNumberList {
+      $groupRow: nth($groupRowList, index($groupNumberList, $groupNumber));
+      &.mod_group-#{$groupNumber} {
+        grid-column: #{$groupNumber} / span 1;
+        grid-row: #{$groupRow} / span 1;
+      }
+    }
+  }
+
+  &__period-number {
+    @include flexCentering();
+    width: 0;
+    transform: translateX(-15px);
+    color: $colorBlack;
+    font-family: $fontEN;
+    font-weight: 300;
+    font-size: 20px;
+    @each $periodNumber in $periodNumberList {
+      &.mod_period-#{$periodNumber} {
+        grid-column: 1 / span 1;
+        grid-row: #{$periodNumber} / span 1;
+      }
+    }
+  }
+
+  &__cell-wrapper {
+    transition: 1s;
+    @each $cellClass in $cellSymbolList {
+      $cellRow: nth($cellRowList, index($cellSymbolList, $cellClass));
+      $cellColumn: nth($cellColumnList, index($cellSymbolList, $cellClass));
+      &.mod_cell-#{$cellClass} {
+        grid-column: #{$cellColumn} / span 1;
+        grid-row: #{$cellRow} / span 1;
+      }
+    }
+    &.tgl_click-effect {
+      cursor: default;
+      transform: translate3d(0, -5px, 100px) scale(2) rotateY(1turn);
+      opacity: 0;
+      z-index: 6;
+    }
+  }
+
+  &__cell {
+    @include flexCentering();
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+    transform: translate3d(0, 0, 0) scale(1) rotateY(0);
+    transition-property: transform, background-color, color, border-color;
+    transition-duration: 1s;
+    @each $category in $categoryList {
+      $categoryColor: nth($categoryColorList, index($categoryList, $category));
+      &.mod_category-#{$category} {
+        @if $category == h {
+          border: 2px solid #fff;
+          color: #333;
+        } @else {
+          border: 2px solid $categoryColor;
+          background: $categoryColor;
+        }
+        &:hover {
+          cursor: pointer;
+          background: #fff;
+          transform: translate3d(0, -5px, 10px) scale(1.2) rotateY(0);
+          transition: 0.2s;
+          @if $category == h {
+            border: 2px solid #333;
+            color: #333;
+          } @else {
+            color: $categoryColor;
+          }
+        }
+      }
+    }
+    &.tgl_atomic-number {
+      padding-bottom: 4px;
+      font-family: $fontEN;
+      font-weight: 200;
+      font-size: 35px;
+      animation: intoAN 0.8s;
+    }
+    &.tgl_element-symbol {
+      padding-bottom: 4px;
+      font-family: $fontEN;
+      font-weight: 200;
+      font-size: 35px;
+      animation: intoES 0.8s;
+    }
+    &.tgl_simplified-chinese {
+      padding-bottom: 5px;
+      font-size: 35px;
+      font-family: $fontCN;
+      animation: intoSC 0.8s;
+    }
+    &.tgl_taiwan-trad {
+      padding-bottom: 5px;
+      font-size: 35px;
+      font-family: $fontTW;
+      animation: intoTW 0.8s;
+    }
+    &.tgl_hongkong-trad {
+      padding-bottom: 5px;
+      font-size: 35px;
+      font-family: $fontHK;
+      animation: intoHK 0.8s;
+    }
+    &.tgl_japanese-name {
+      padding-bottom: 2px;
+      font-size: 11px;
+      animation: intoJA 0.8s;
+    }
+    &.tgl_english-name {
+      padding-bottom: 3px;
+      font-family: $fontEN;
+      font-weight: 300;
+      font-size: 10px;
+      animation: intoEN 0.8s;
+      &.mod_cell-Sg,
+      &.mod_cell-Lr {
+        font-size: 9.8px;
+      }
+      &.mod_cell-Nd {
+        font-size: 9.6px;
+      }
+      &.mod_cell-Pm,
+      &.mod_cell-Cn,
+      &.mod_cell-Lv {
+        font-size: 9.4px;
+      }
+      &.mod_cell-Mo,
+      &.mod_cell-Pa {
+        font-size: 9px;
+      }
+      &.mod_cell-Rg,
+      &.mod_cell-Md {
+        font-size: 8.6px;
+      }
+      &.mod_cell-Ds {
+        font-size: 8.2px;
+      }
+      &.mod_cell-Rf {
+        font-size: 8px;
+      }
+      &.mod_cell-Pr {
+        font-size: 7.8px;
+      }
+    }
+  }
+
+  &__la-ac-wrapper {
+    &.mod_lanthanoid {
+      grid-column: 3 / span 1;
+      grid-row: 6 / span 1;
+    }
+    &.mod_actinoid {
+      grid-column: 3 / span 1;
+      grid-row: 7 / span 1;
+    }
+  }
+
+  &__la-ac {
+    @include flexCentering();
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 100%;
+    color: $colorBlack;
+    &.tgl_atomic-number {
+      padding-bottom: 4px;
+      font-family: $fontEN;
+      font-size: 20px;
+      animation: intoAN 0.8s;
+    }
+    &.tgl_element-symbol {
+      padding-bottom: 4px;
+      font-family: $fontEN;
+      font-size: 20px;
+      animation: intoES 0.8s;
+    }
+    &.tgl_simplified-chinese {
+      padding-bottom: 3px;
+      font-size: 20px;
+      font-family: $fontCN;
+      animation: intoSC 0.8s;
+    }
+    &.tgl_taiwan-trad {
+      padding-bottom: 3px;
+      font-size: 20px;
+      font-family: $fontTW;
+      animation: intoTW 0.8s;
+    }
+    &.tgl_hongkong-trad {
+      padding-bottom: 3px;
+      font-size: 20px;
+      font-family: $fontHK;
+      animation: intoHK 0.8s;
+    }
+    &.tgl_japanese-name {
+      padding-bottom: 2px;
+      font-size: 10px;
+      white-space: nowrap;
+      animation: intoJA 0.8s;
+    }
+    &.tgl_english-name {
+      padding-bottom: 3px;
+      font-family: $fontEN;
+      font-size: 10px;
+      animation: intoEN 0.8s;
+    }
+  }
+}
