@@ -21,7 +21,7 @@ $navOpenTime: 0.5s;
   color: $colorWhite;
   background: $colorMainA;
   z-index: 11;
-  &.tgl_active {
+  &.is-active {
     opacity: 1;
     transform: translateY(0);
   }

@@ -12,7 +12,7 @@ $areaGap: 10px;
   z-index: 13;
   @each $category in $categoryList {
     $categoryColor: nth($categoryColorList2, index($categoryList, $category));
-    &.tgl_category-#{$category} {
+    &.is-category-#{$category} {
       background: #{$categoryColor};
     }
   }
@@ -24,7 +24,7 @@ $areaGap: 10px;
     color: #fff;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    &.tgl_overflow-hidden {
+    &.is-overflow-hidden {
       overflow: hidden;
     }
   }

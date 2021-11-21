@@ -20,7 +20,7 @@
   @include mediaQuery() {
     padding: 5px 5px 5px 50px;
   }
-  &.tgl_active {
+  &.is-active {
     transform: translateX(0);
   }
 

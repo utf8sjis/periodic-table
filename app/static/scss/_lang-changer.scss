@@ -11,7 +11,7 @@
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
   }
-  &.tgl_overflow-hidden {
+  &.is-overflow-hidden {
     overflow: hidden;
   }
 
@@ -56,7 +56,7 @@
         background: transparent;
         transition: 0.5s;
       }
-      &.tgl_active-lang {
+      &.is-active-lang {
         color: $colorMain1;
         transition: 1s;
         &::after {

@@ -38,7 +38,7 @@ $navOpenTime: 0.5s;
       transition: opacity $navOpenTime;
       z-index: -1;
     }
-    &.tgl_active::before {
+    &.is-active::before {
       opacity: 1;
     }
   }
@@ -100,7 +100,7 @@ $navOpenTime: 0.5s;
       transform: translateX(100%);
       transition: transform 0.7s;
     }
-    &.tgl_not-around-top {
+    &.is-not-around-top {
       @include mediaQuery() {
         transform: translateX(0);
       }
@@ -127,7 +127,7 @@ $navOpenTime: 0.5s;
       bottom: 0;
       transform: translateX(200%);
       transition: transform 0.7s;
-      &.tgl_not-around-top {
+      &.is-not-around-top {
         transform: translateX(0);
       }
     }
@@ -244,14 +244,14 @@ $navOpenTime: 0.5s;
   }
 
   &__nav-open-button-more {
-    &.tgl_active {
+    &.is-active {
       display: none;
     }
   }
 
   &__nav-open-button-close {
     display: none;
-    &.tgl_active {
+    &.is-active {
       display: block;
     }
   }
@@ -262,7 +262,7 @@ $navOpenTime: 0.5s;
     @include mediaQuery() {
       font-size: 20px;
     }
-    &.tgl_active {
+    &.is-active {
       transform: rotateX(0.5turn);
     }
   }

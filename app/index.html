@@ -31,7 +31,7 @@
 
     <header v-cloak class="header">
 
-      <div class="header__start" :class="{'tgl_active': isNavOpened}">
+      <div class="header__start" :class="{'is-active': isNavOpened}">
         <div class="header__logo-wrapper">
           <a class="header__logo" href="https://gensokanji.netlify.app">gensokanji</a>
         </div>
@@ -41,7 +41,7 @@
       </div>
 
       <div class="header__end">
-        <div class="header__share-container" :class="{'tgl_not-around-top': !isAroundTop}">
+        <div class="header__share-container" :class="{'is-not-around-top': !isAroundTop}">
           <div class="header__share-label">Share!!</div>
           <div class="header__share-button-container">
             <a class="header__share-button" target="_blank" rel="noreferrer noopener" href="https://twitter.com/share?url=https://gensokanji.netlify.app/periodic-table&text=元素の漢字周期表%20-%20gensokanji%20@gensokanji_bot">
@@ -65,14 +65,14 @@
           </div>
         </div>
         <div class="header__nav-open-button" @click="openNav">
-          <span class="header__nav-open-button-more" :class="{'tgl_active': isNavOpened}">MORE</span>
-          <span class="header__nav-open-button-close" :class="{'tgl_active': isNavOpened}">CLOSE</span>
+          <span class="header__nav-open-button-more" :class="{'is-active': isNavOpened}">MORE</span>
+          <span class="header__nav-open-button-close" :class="{'is-active': isNavOpened}">CLOSE</span>
           <span>
-            <i class="header__nav-open-button-icon fas fa-long-arrow-alt-down" :class="{'tgl_active': isNavOpened}"></i>
+            <i class="header__nav-open-button-icon fas fa-long-arrow-alt-down" :class="{'is-active': isNavOpened}"></i>
             <i class="header__nav-open-button-icon fas fa-list"></i>
           </span>
         </div>
-        <div class="header__top-button-wrapper mod_pc" :class="{'tgl_not-around-top': !isAroundTop}" @click="goToTop">
+        <div class="header__top-button-wrapper mod_pc" :class="{'is-not-around-top': !isAroundTop}" @click="goToTop">
           <div class="header__top-button mod_pc">
             <i class="header__top-button-icon fas fa-angle-up"></i>
           </div>
@@ -81,7 +81,7 @@
 
     </header>
 
-    <nav v-cloak class="nav" :class="{'tgl_active': isNavOpened}">
+    <nav v-cloak class="nav" :class="{'is-active': isNavOpened}">
 
       <div class="nav__content">
         <div class="nav__section-title">テーマカラー</div>
@@ -121,7 +121,7 @@
 
     </nav>
 
-    <div v-cloak class="nav-back" :class="{'tgl_active': isNavOpened}" @click="openNav"></div>
+    <div v-cloak class="nav-back" :class="{'is-active': isNavOpened}" @click="openNav"></div>
 
     <div v-cloak>
 
@@ -129,14 +129,14 @@
 
         <div
           class="control-panel__contents lang-changer"
-          :class="{'tgl_overflow-hidden': isBodyScrollLocked}"
+          :class="{'is-overflow-hidden': isBodyScrollLocked}"
           :style="{'transform': 'translateY(' + (controlPanel.index * -controlPanel.height) + 'px)'}"
         >
           <ul class="lang-changer__button-container">
             <template v-for="(langObj, langIndex) in langList">
               <li class="lang-changer__button"></li>
               <li class="lang-changer__button"
-                :class="[{'tgl_active-lang': langList[langIndex].isActive}]"
+                :class="[{'is-active-lang': langList[langIndex].isActive}]"
                 @click="setCurrentLang(langIndex)"
                 v-html="langObj.langName"
               ></li>
@@ -156,10 +156,10 @@
         <div class="control-panel__title-wrapper" v-html="controlPanelTitleList[controlPanel.index]"></div>
 
         <div class="control-panel__button-container">
-          <div class="control-panel__button" :class="{'tgl_disable': controlPanel.isStart}" @click="changeContents('prev')">
+          <div class="control-panel__button" :class="{'is-disable': controlPanel.isStart}" @click="changeContents('prev')">
             <i class="fas fa-angle-up"></i>
           </div>
-          <div class="control-panel__button" :class="{'tgl_disable': controlPanel.isEnd}" @click="changeContents('next')">
+          <div class="control-panel__button" :class="{'is-disable': controlPanel.isEnd}" @click="changeContents('next')">
             <i class="fas fa-angle-down"></i>
           </div>
         </div>
@@ -168,14 +168,14 @@
 
       <div
         class="periodic-table"
-        :class="{'tgl_overflow-scroll': isMainContentsOverflow, 'tgl_overflow-hidden': isBodyScrollLocked}"
+        :class="{'is-overflow-scroll': isMainContentsOverflow, 'is-overflow-hidden': isBodyScrollLocked}"
         :style="{'height': (periodicTableRect.height * rangeValue) + 'px'}"
       >
 
         <div
           ref="periodicTable"
           class="periodic-table__grid-container"
-          :class="{'tgl_overflow-scroll': isMainContentsOverflow}"
+          :class="{'is-overflow-scroll': isMainContentsOverflow}"
           :style="{'transform': 'scale(' + rangeValue + ')'}"
         >
           <div class="table-guide">
@@ -194,7 +194,7 @@
           </div>
           <div
             v-for="(cellObj, cellIndex) in cellList"
-            :class="[cellObj.cellWrapperClass, cellObj.uniqueClass, {'tgl_click-effect': cellList[cellIndex].isActive}]"
+            :class="[cellObj.cellWrapperClass, cellObj.uniqueClass, {'is-active': cellList[cellIndex].isActive}]"
             @click="openOverlay(cellIndex)"
           >
             <div
@@ -220,7 +220,7 @@
         :class="elementList[current.cell.atomicNum].categoryClass"
         v-show="isOverlayDisplayed"
       >
-        <div class="overlay__main-wrapper" :class="{'tgl_overflow-hidden': !isBodyScrollLocked}">
+        <div class="overlay__main-wrapper" :class="{'is-overflow-hidden': !isBodyScrollLocked}">
           <div class="overlay__main">
             <div class="overlay__container mod_base">
               <div class="overlay__area mod_element-symbol">
@@ -243,7 +243,7 @@
                   </div>
                   <div
                     class="data-area__content mod_element-symbol"
-                    v-html="current.cell.innerStr['tgl_element-symbol']"
+                    v-html="current.cell.innerStr['is-element-symbol']"
                   ></div>
                 </div>
               </div>
@@ -300,12 +300,12 @@
                   label="Mainland China"
                   :category-class="elementList[current.cell.atomicNum].categoryClass"
                 >
-                  <div class="data-area__kanji-character mod_cn">{{ current.cell.innerStr['tgl_simplified-chinese'] }}</div>
+                  <div class="data-area__kanji-character mod_cn">{{ current.cell.innerStr['is-simplified-chinese'] }}</div>
                   <div class="data-area__kanji-code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointCN }}</div>
                   <div
                     class="data-area__kanji-copy-button"
                     :class="elementList[current.cell.atomicNum].categoryClass"
-                    @click="copyToClipboard(current.cell.innerStr['tgl_simplified-chinese'])"
+                    @click="copyToClipboard(current.cell.innerStr['is-simplified-chinese'])"
                     data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-sc"
                   ><i id="fa-clipboard-sc" class="fas fa-clipboard" data-micron="swing"></i></div>
                 </data-area>
@@ -316,12 +316,12 @@
                   label="Taiwan"
                   :category-class="elementList[current.cell.atomicNum].categoryClass"
                 >
-                  <div class="data-area__kanji-character mod_tw">{{ current.cell.innerStr['tgl_taiwan-trad'] }}</div>
+                  <div class="data-area__kanji-character mod_tw">{{ current.cell.innerStr['is-taiwan-trad'] }}</div>
                   <div class="data-area__kanji-code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointTW }}</div>
                   <div
                     class="data-area__kanji-copy-button"
                     :class="elementList[current.cell.atomicNum].categoryClass"
-                    @click="copyToClipboard(current.cell.innerStr['tgl_taiwan-trad'])"
+                    @click="copyToClipboard(current.cell.innerStr['is-taiwan-trad'])"
                     data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-tw"
                   ><i id="fa-clipboard-tw" class="fas fa-clipboard" data-micron="swing"></i></div>
                 </data-area>
@@ -332,12 +332,12 @@
                   label="Hong Kong"
                   :category-class="elementList[current.cell.atomicNum].categoryClass"
                 >
-                  <div class="data-area__kanji-character mod_hk">{{ current.cell.innerStr['tgl_hongkong-trad'] }}</div>
+                  <div class="data-area__kanji-character mod_hk">{{ current.cell.innerStr['is-hongkong-trad'] }}</div>
                   <div class="data-area__kanji-code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointHK }}</div>
                   <div
                     class="data-area__kanji-copy-button"
                     :class="elementList[current.cell.atomicNum].categoryClass"
-                    @click="copyToClipboard(current.cell.innerStr['tgl_hongkong-trad'])"
+                    @click="copyToClipboard(current.cell.innerStr['is-hongkong-trad'])"
                     data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-hk"
                   ><i id="fa-clipboard-hk" class="fas fa-clipboard" data-micron="swing"></i></div>
                 </data-area>
@@ -371,7 +371,7 @@
                   label="Japanese Name"
                   :category-class="elementList[current.cell.atomicNum].categoryClass"
                 >
-                  {{ current.cell.innerStr['tgl_japanese-name'] }}
+                  {{ current.cell.innerStr['is-japanese-name'] }}
                 </data-area>
               </div>
               <div class="overlay__area mod_english-name">
@@ -380,7 +380,7 @@
                   label="English Name"
                   :category-class="elementList[current.cell.atomicNum].categoryClass"
                 >
-                  {{ current.cell.innerStr['tgl_english-name'] }}
+                  {{ current.cell.innerStr['is-english-name'] }}
                 </data-area>
               </div>
             </div>
@@ -413,7 +413,7 @@
               <div class="data-area__content mod_element-changer">
                 <span
                   class="data-area__element-changer-button"
-                  :class="{'tgl_disabled': elementChangeButton.isStart}"
+                  :class="{'is-disabled': elementChangeButton.isStart}"
                   @click="changeOverlay('prev')"
                 >
                   <ion-icon class="data-area__element-changer-button-icon" name="arrow-back"></ion-icon>
@@ -423,7 +423,7 @@
                 </span>
                 <span
                   class="data-area__element-changer-button"
-                  :class="{'tgl_disabled': elementChangeButton.isEnd}"
+                  :class="{'is-disabled': elementChangeButton.isEnd}"
                   @click="changeOverlay('next')"
                 >
                   <span class="data-area__element-changer-button-text">
@@ -651,7 +651,7 @@
       <div class="footer__content">© 2019 gensokanji</div>
     </footer>
 
-    <div v-cloak class="popup-box" :class="{'tgl_active': popup.isDisplayed}" @click="clearPopup">
+    <div v-cloak class="popup-box" :class="{'is-active': popup.isDisplayed}" @click="clearPopup">
       <i class="popup-box__icon fas fa-info-circle"></i>{{ popup.message }}
     </div>
 

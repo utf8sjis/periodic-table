@@ -65,11 +65,11 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
   height: 654px;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
-  &.tgl_overflow-scroll {
+  &.is-overflow-scroll {
     @include flexCentering(flex-start, flex-start);
     overflow-x: scroll;
   }
-  &.tgl_overflow-hidden {
+  &.is-overflow-hidden {
     overflow: hidden;
   }
 
@@ -81,7 +81,7 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
     user-select: none;
     transform-origin: top 50%;
     z-index: 5;
-    &.tgl_overflow-scroll {
+    &.is-overflow-scroll {
       transform-origin: top left;
     }
   }
@@ -129,7 +129,7 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
         grid-row: #{$cellRow} / span 1;
       }
     }
-    &.tgl_click-effect {
+    &.is-active {
       cursor: default;
       transform: translate3d(0, -5px, 100px) scale(2) rotateY(1turn);
       opacity: 0;
@@ -174,44 +174,44 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
         }
       }
     }
-    &.tgl_atomic-number {
+    &.is-atomic-number {
       padding-bottom: 4px;
       font-family: $fontEN;
       font-weight: 200;
       font-size: 35px;
       animation: intoAN 0.8s;
     }
-    &.tgl_element-symbol {
+    &.is-element-symbol {
       padding-bottom: 4px;
       font-family: $fontEN;
       font-weight: 200;
       font-size: 35px;
       animation: intoES 0.8s;
     }
-    &.tgl_simplified-chinese {
+    &.is-simplified-chinese {
       padding-bottom: 5px;
       font-size: 35px;
       font-family: $fontCN;
       animation: intoSC 0.8s;
     }
-    &.tgl_taiwan-trad {
+    &.is-taiwan-trad {
       padding-bottom: 5px;
       font-size: 35px;
       font-family: $fontTW;
       animation: intoTW 0.8s;
     }
-    &.tgl_hongkong-trad {
+    &.is-hongkong-trad {
       padding-bottom: 5px;
       font-size: 35px;
       font-family: $fontHK;
       animation: intoHK 0.8s;
     }
-    &.tgl_japanese-name {
+    &.is-japanese-name {
       padding-bottom: 2px;
       font-size: 11px;
       animation: intoJA 0.8s;
     }
-    &.tgl_english-name {
+    &.is-english-name {
       padding-bottom: 3px;
       font-family: $fontEN;
       font-weight: 300;
@@ -268,43 +268,43 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
     text-align: center;
     line-height: 100%;
     color: $colorBlack;
-    &.tgl_atomic-number {
+    &.is-atomic-number {
       padding-bottom: 4px;
       font-family: $fontEN;
       font-size: 20px;
       animation: intoAN 0.8s;
     }
-    &.tgl_element-symbol {
+    &.is-element-symbol {
       padding-bottom: 4px;
       font-family: $fontEN;
       font-size: 20px;
       animation: intoES 0.8s;
     }
-    &.tgl_simplified-chinese {
+    &.is-simplified-chinese {
       padding-bottom: 3px;
       font-size: 20px;
       font-family: $fontCN;
       animation: intoSC 0.8s;
     }
-    &.tgl_taiwan-trad {
+    &.is-taiwan-trad {
       padding-bottom: 3px;
       font-size: 20px;
       font-family: $fontTW;
       animation: intoTW 0.8s;
     }
-    &.tgl_hongkong-trad {
+    &.is-hongkong-trad {
       padding-bottom: 3px;
       font-size: 20px;
       font-family: $fontHK;
       animation: intoHK 0.8s;
     }
-    &.tgl_japanese-name {
+    &.is-japanese-name {
       padding-bottom: 2px;
       font-size: 10px;
       white-space: nowrap;
       animation: intoJA 0.8s;
     }
-    &.tgl_english-name {
+    &.is-english-name {
       padding-bottom: 3px;
       font-family: $fontEN;
       font-size: 10px;

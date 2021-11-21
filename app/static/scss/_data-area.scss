@@ -14,7 +14,7 @@
   background: rgba(0, 0, 0, 0.2);
   transition-property: border-color, background-color, color;
   transition-duration: 0.5s;
-  &.tgl_category-h {
+  &.is-category-h {
     border: 2px solid rgba(0, 0, 0, 0.3);
     background: rgba(255, 255, 255, 0.4);
     color: #333;
@@ -31,7 +31,7 @@
       transparent,
       rgba(255, 255, 255, 0.2)
     );
-    &.tgl_category-h {
+    &.is-category-h {
       background: linear-gradient(
         0.25turn,
         rgba(0, 0, 0, 0.2),
@@ -45,7 +45,7 @@
     &:hover {
       background: rgba(255, 255, 255, 0.3);
     }
-    &.tgl_category-h {
+    &.is-category-h {
       &:hover {
         background: #fff;
       }
@@ -57,11 +57,11 @@
     @each $category in $categoryList {
       $categoryColor: nth($categoryColorList2, index($categoryList, $category));
       @if $category == h {
-        &.tgl_category-#{$category} {
+        &.is-category-#{$category} {
           background: rgba(255, 255, 255, 0.8);
         }
       } @else {
-        &.tgl_category-#{$category} {
+        &.is-category-#{$category} {
           color: #{$categoryColor};
         }
       }
@@ -196,7 +196,7 @@
     @include mediaQuery() {
       height: 150px;
     }
-    &.tgl_category-h {
+    &.is-category-h {
       opacity: 0.1;
     }
   }
@@ -251,7 +251,7 @@
       border: 12px solid rgba(255, 255, 255, 0.5);
       font-size: 14px;
     }
-    &.tgl_category-h {
+    &.is-category-h {
       border: 16px solid rgba(0, 0, 0, 0.3);
       color: $colorWhite;
       @include mediaQuery() {
@@ -272,7 +272,7 @@
         transform: translateY(2px);
       }
     }
-    &.tgl_disabled {
+    &.is-disabled {
       pointer-events: none;
       > * {
         opacity: 0.4;

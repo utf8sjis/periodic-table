@@ -6,7 +6,7 @@
   position: fixed;
   top: 0;
   z-index: 8;
-  &.tgl_active {
+  &.is-active {
     display: block;
     cursor: pointer;
     background: rgba(0, 0, 0, 0.5);

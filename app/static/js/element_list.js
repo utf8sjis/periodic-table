@@ -21,7 +21,7 @@ const elementList = [
   {
     atomicNumber: 1,
     elementSymbol: 'H',
-    categoryClass: 'tgl_category-h',
+    categoryClass: 'is-category-h',
     isRadioactive: false,
     stateSrc: 'static/img/gas_gray.svg',
     period: '1',
@@ -41,7 +41,7 @@ const elementList = [
   {
     atomicNumber: 2,
     elementSymbol: 'He',
-    categoryClass: 'tgl_category-he',
+    categoryClass: 'is-category-he',
     isRadioactive: false,
     stateSrc: 'static/img/gas.svg',
     period: '1',
@@ -61,7 +61,7 @@ const elementList = [
   {
     atomicNumber: 3,
     elementSymbol: 'Li',
-    categoryClass: 'tgl_category-li',
+    categoryClass: 'is-category-li',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '2',
@@ -81,7 +81,7 @@ const elementList = [
   {
     atomicNumber: 4,
     elementSymbol: 'Be',
-    categoryClass: 'tgl_category-be',
+    categoryClass: 'is-category-be',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '2',
@@ -101,7 +101,7 @@ const elementList = [
   {
     atomicNumber: 5,
     elementSymbol: 'B',
-    categoryClass: 'tgl_category-b',
+    categoryClass: 'is-category-b',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metalloid.svg',
     period: '2',
@@ -121,7 +121,7 @@ const elementList = [
   {
     atomicNumber: 6,
     elementSymbol: 'C',
-    categoryClass: 'tgl_category-c',
+    categoryClass: 'is-category-c',
     isRadioactive: false,
     stateSrc: 'static/img/solid_non-metal.svg',
     period: '2',
@@ -141,7 +141,7 @@ const elementList = [
   {
     atomicNumber: 7,
     elementSymbol: 'N',
-    categoryClass: 'tgl_category-n',
+    categoryClass: 'is-category-n',
     isRadioactive: false,
     stateSrc: 'static/img/gas.svg',
     period: '2',
@@ -161,7 +161,7 @@ const elementList = [
   {
     atomicNumber: 8,
     elementSymbol: 'O',
-    categoryClass: 'tgl_category-o',
+    categoryClass: 'is-category-o',
     isRadioactive: false,
     stateSrc: 'static/img/gas.svg',
     period: '2',
@@ -181,7 +181,7 @@ const elementList = [
   {
     atomicNumber: 9,
     elementSymbol: 'F',
-    categoryClass: 'tgl_category-f',
+    categoryClass: 'is-category-f',
     isRadioactive: false,
     stateSrc: 'static/img/gas.svg',
     period: '2',
@@ -201,7 +201,7 @@ const elementList = [
   {
     atomicNumber: 10,
     elementSymbol: 'Ne',
-    categoryClass: 'tgl_category-he',
+    categoryClass: 'is-category-he',
     isRadioactive: false,
     stateSrc: 'static/img/gas.svg',
     period: '2',
@@ -221,7 +221,7 @@ const elementList = [
   {
     atomicNumber: 11,
     elementSymbol: 'Na',
-    categoryClass: 'tgl_category-li',
+    categoryClass: 'is-category-li',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '3',
@@ -241,7 +241,7 @@ const elementList = [
   {
     atomicNumber: 12,
     elementSymbol: 'Mg',
-    categoryClass: 'tgl_category-be',
+    categoryClass: 'is-category-be',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '3',
@@ -261,7 +261,7 @@ const elementList = [
   {
     atomicNumber: 13,
     elementSymbol: 'Al',
-    categoryClass: 'tgl_category-b',
+    categoryClass: 'is-category-b',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '3',
@@ -281,7 +281,7 @@ const elementList = [
   {
     atomicNumber: 14,
     elementSymbol: 'Si',
-    categoryClass: 'tgl_category-c',
+    categoryClass: 'is-category-c',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metalloid.svg',
     period: '3',
@@ -301,7 +301,7 @@ const elementList = [
   {
     atomicNumber: 15,
     elementSymbol: 'P',
-    categoryClass: 'tgl_category-n',
+    categoryClass: 'is-category-n',
     isRadioactive: false,
     stateSrc: 'static/img/solid_non-metal.svg',
     period: '3',
@@ -321,7 +321,7 @@ const elementList = [
   {
     atomicNumber: 16,
     elementSymbol: 'S',
-    categoryClass: 'tgl_category-o',
+    categoryClass: 'is-category-o',
     isRadioactive: false,
     stateSrc: 'static/img/solid_non-metal.svg',
     period: '3',
@@ -341,7 +341,7 @@ const elementList = [
   {
     atomicNumber: 17,
     elementSymbol: 'Cl',
-    categoryClass: 'tgl_category-f',
+    categoryClass: 'is-category-f',
     isRadioactive: false,
     stateSrc: 'static/img/gas.svg',
     period: '3',
@@ -361,7 +361,7 @@ const elementList = [
   {
     atomicNumber: 18,
     elementSymbol: 'Ar',
-    categoryClass: 'tgl_category-he',
+    categoryClass: 'is-category-he',
     isRadioactive: false,
     stateSrc: 'static/img/gas.svg',
     period: '3',
@@ -381,7 +381,7 @@ const elementList = [
   {
     atomicNumber: 19,
     elementSymbol: 'K',
-    categoryClass: 'tgl_category-li',
+    categoryClass: 'is-category-li',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '4',
@@ -401,7 +401,7 @@ const elementList = [
   {
     atomicNumber: 20,
     elementSymbol: 'Ca',
-    categoryClass: 'tgl_category-ca',
+    categoryClass: 'is-category-ca',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '4',
@@ -421,7 +421,7 @@ const elementList = [
   {
     atomicNumber: 21,
     elementSymbol: 'Sc',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '4',
@@ -441,7 +441,7 @@ const elementList = [
   {
     atomicNumber: 22,
     elementSymbol: 'Ti',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '4',
@@ -461,7 +461,7 @@ const elementList = [
   {
     atomicNumber: 23,
     elementSymbol: 'V',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '4',
@@ -481,7 +481,7 @@ const elementList = [
   {
     atomicNumber: 24,
     elementSymbol: 'Cr',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '4',
@@ -501,7 +501,7 @@ const elementList = [
   {
     atomicNumber: 25,
     elementSymbol: 'Mn',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '4',
@@ -521,7 +521,7 @@ const elementList = [
   {
     atomicNumber: 26,
     elementSymbol: 'Fe',
-    categoryClass: 'tgl_category-fe',
+    categoryClass: 'is-category-fe',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '4',
@@ -541,7 +541,7 @@ const elementList = [
   {
     atomicNumber: 27,
     elementSymbol: 'Co',
-    categoryClass: 'tgl_category-fe',
+    categoryClass: 'is-category-fe',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '4',
@@ -561,7 +561,7 @@ const elementList = [
   {
     atomicNumber: 28,
     elementSymbol: 'Ni',
-    categoryClass: 'tgl_category-fe',
+    categoryClass: 'is-category-fe',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '4',
@@ -581,7 +581,7 @@ const elementList = [
   {
     atomicNumber: 29,
     elementSymbol: 'Cu',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '4',
@@ -601,7 +601,7 @@ const elementList = [
   {
     atomicNumber: 30,
     elementSymbol: 'Zn',
-    categoryClass: 'tgl_category-zn',
+    categoryClass: 'is-category-zn',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '4',
@@ -621,7 +621,7 @@ const elementList = [
   {
     atomicNumber: 31,
     elementSymbol: 'Ga',
-    categoryClass: 'tgl_category-b',
+    categoryClass: 'is-category-b',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '4',
@@ -641,7 +641,7 @@ const elementList = [
   {
     atomicNumber: 32,
     elementSymbol: 'Ge',
-    categoryClass: 'tgl_category-c',
+    categoryClass: 'is-category-c',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metalloid.svg',
     period: '4',
@@ -661,7 +661,7 @@ const elementList = [
   {
     atomicNumber: 33,
     elementSymbol: 'As',
-    categoryClass: 'tgl_category-n',
+    categoryClass: 'is-category-n',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metalloid.svg',
     period: '4',
@@ -681,7 +681,7 @@ const elementList = [
   {
     atomicNumber: 34,
     elementSymbol: 'Se',
-    categoryClass: 'tgl_category-o',
+    categoryClass: 'is-category-o',
     isRadioactive: false,
     stateSrc: 'static/img/solid_non-metal.svg',
     period: '4',
@@ -701,7 +701,7 @@ const elementList = [
   {
     atomicNumber: 35,
     elementSymbol: 'Br',
-    categoryClass: 'tgl_category-f',
+    categoryClass: 'is-category-f',
     isRadioactive: false,
     stateSrc: 'static/img/liquid_non-metal.svg',
     period: '4',
@@ -721,7 +721,7 @@ const elementList = [
   {
     atomicNumber: 36,
     elementSymbol: 'Kr',
-    categoryClass: 'tgl_category-he',
+    categoryClass: 'is-category-he',
     isRadioactive: false,
     stateSrc: 'static/img/gas.svg',
     period: '4',
@@ -741,7 +741,7 @@ const elementList = [
   {
     atomicNumber: 37,
     elementSymbol: 'Rb',
-    categoryClass: 'tgl_category-li',
+    categoryClass: 'is-category-li',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '5',
@@ -761,7 +761,7 @@ const elementList = [
   {
     atomicNumber: 38,
     elementSymbol: 'Sr',
-    categoryClass: 'tgl_category-ca',
+    categoryClass: 'is-category-ca',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '5',
@@ -781,7 +781,7 @@ const elementList = [
   {
     atomicNumber: 39,
     elementSymbol: 'Y',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '5',
@@ -801,7 +801,7 @@ const elementList = [
   {
     atomicNumber: 40,
     elementSymbol: 'Zr',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '5',
@@ -821,7 +821,7 @@ const elementList = [
   {
     atomicNumber: 41,
     elementSymbol: 'Nb',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '5',
@@ -841,7 +841,7 @@ const elementList = [
   {
     atomicNumber: 42,
     elementSymbol: 'Mo',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '5',
@@ -861,7 +861,7 @@ const elementList = [
   {
     atomicNumber: 43,
     elementSymbol: 'Tc',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '5',
@@ -881,7 +881,7 @@ const elementList = [
   {
     atomicNumber: 44,
     elementSymbol: 'Ru',
-    categoryClass: 'tgl_category-pt',
+    categoryClass: 'is-category-pt',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '5',
@@ -901,7 +901,7 @@ const elementList = [
   {
     atomicNumber: 45,
     elementSymbol: 'Rh',
-    categoryClass: 'tgl_category-pt',
+    categoryClass: 'is-category-pt',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '5',
@@ -921,7 +921,7 @@ const elementList = [
   {
     atomicNumber: 46,
     elementSymbol: 'Pd',
-    categoryClass: 'tgl_category-pt',
+    categoryClass: 'is-category-pt',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '5',
@@ -941,7 +941,7 @@ const elementList = [
   {
     atomicNumber: 47,
     elementSymbol: 'Ag',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '5',
@@ -961,7 +961,7 @@ const elementList = [
   {
     atomicNumber: 48,
     elementSymbol: 'Cd',
-    categoryClass: 'tgl_category-zn',
+    categoryClass: 'is-category-zn',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '5',
@@ -981,7 +981,7 @@ const elementList = [
   {
     atomicNumber: 49,
     elementSymbol: 'In',
-    categoryClass: 'tgl_category-b',
+    categoryClass: 'is-category-b',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '5',
@@ -1001,7 +1001,7 @@ const elementList = [
   {
     atomicNumber: 50,
     elementSymbol: 'Sn',
-    categoryClass: 'tgl_category-c',
+    categoryClass: 'is-category-c',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '5',
@@ -1021,7 +1021,7 @@ const elementList = [
   {
     atomicNumber: 51,
     elementSymbol: 'Sb',
-    categoryClass: 'tgl_category-n',
+    categoryClass: 'is-category-n',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metalloid.svg',
     period: '5',
@@ -1041,7 +1041,7 @@ const elementList = [
   {
     atomicNumber: 52,
     elementSymbol: 'Te',
-    categoryClass: 'tgl_category-o',
+    categoryClass: 'is-category-o',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metalloid.svg',
     period: '5',
@@ -1061,7 +1061,7 @@ const elementList = [
   {
     atomicNumber: 53,
     elementSymbol: 'I',
-    categoryClass: 'tgl_category-f',
+    categoryClass: 'is-category-f',
     isRadioactive: false,
     stateSrc: 'static/img/solid_non-metal.svg',
     period: '5',
@@ -1081,7 +1081,7 @@ const elementList = [
   {
     atomicNumber: 54,
     elementSymbol: 'Xe',
-    categoryClass: 'tgl_category-he',
+    categoryClass: 'is-category-he',
     isRadioactive: false,
     stateSrc: 'static/img/gas.svg',
     period: '5',
@@ -1101,7 +1101,7 @@ const elementList = [
   {
     atomicNumber: 55,
     elementSymbol: 'Cs',
-    categoryClass: 'tgl_category-li',
+    categoryClass: 'is-category-li',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1121,7 +1121,7 @@ const elementList = [
   {
     atomicNumber: 56,
     elementSymbol: 'Ba',
-    categoryClass: 'tgl_category-ca',
+    categoryClass: 'is-category-ca',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1141,7 +1141,7 @@ const elementList = [
   {
     atomicNumber: 57,
     elementSymbol: 'La',
-    categoryClass: 'tgl_category-la',
+    categoryClass: 'is-category-la',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1161,7 +1161,7 @@ const elementList = [
   {
     atomicNumber: 58,
     elementSymbol: 'Ce',
-    categoryClass: 'tgl_category-la',
+    categoryClass: 'is-category-la',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1181,7 +1181,7 @@ const elementList = [
   {
     atomicNumber: 59,
     elementSymbol: 'Pr',
-    categoryClass: 'tgl_category-la',
+    categoryClass: 'is-category-la',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1201,7 +1201,7 @@ const elementList = [
   {
     atomicNumber: 60,
     elementSymbol: 'Nd',
-    categoryClass: 'tgl_category-la',
+    categoryClass: 'is-category-la',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1221,7 +1221,7 @@ const elementList = [
   {
     atomicNumber: 61,
     elementSymbol: 'Pm',
-    categoryClass: 'tgl_category-la',
+    categoryClass: 'is-category-la',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1241,7 +1241,7 @@ const elementList = [
   {
     atomicNumber: 62,
     elementSymbol: 'Sm',
-    categoryClass: 'tgl_category-la',
+    categoryClass: 'is-category-la',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1261,7 +1261,7 @@ const elementList = [
   {
     atomicNumber: 63,
     elementSymbol: 'Eu',
-    categoryClass: 'tgl_category-la',
+    categoryClass: 'is-category-la',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1281,7 +1281,7 @@ const elementList = [
   {
     atomicNumber: 64,
     elementSymbol: 'Gd',
-    categoryClass: 'tgl_category-la',
+    categoryClass: 'is-category-la',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1301,7 +1301,7 @@ const elementList = [
   {
     atomicNumber: 65,
     elementSymbol: 'Tb',
-    categoryClass: 'tgl_category-la',
+    categoryClass: 'is-category-la',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1321,7 +1321,7 @@ const elementList = [
   {
     atomicNumber: 66,
     elementSymbol: 'Dy',
-    categoryClass: 'tgl_category-la',
+    categoryClass: 'is-category-la',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1341,7 +1341,7 @@ const elementList = [
   {
     atomicNumber: 67,
     elementSymbol: 'Ho',
-    categoryClass: 'tgl_category-la',
+    categoryClass: 'is-category-la',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1361,7 +1361,7 @@ const elementList = [
   {
     atomicNumber: 68,
     elementSymbol: 'Er',
-    categoryClass: 'tgl_category-la',
+    categoryClass: 'is-category-la',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1381,7 +1381,7 @@ const elementList = [
   {
     atomicNumber: 69,
     elementSymbol: 'Tm',
-    categoryClass: 'tgl_category-la',
+    categoryClass: 'is-category-la',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1401,7 +1401,7 @@ const elementList = [
   {
     atomicNumber: 70,
     elementSymbol: 'Yb',
-    categoryClass: 'tgl_category-la',
+    categoryClass: 'is-category-la',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1421,7 +1421,7 @@ const elementList = [
   {
     atomicNumber: 71,
     elementSymbol: 'Lu',
-    categoryClass: 'tgl_category-la',
+    categoryClass: 'is-category-la',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1441,7 +1441,7 @@ const elementList = [
   {
     atomicNumber: 72,
     elementSymbol: 'Hf',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1461,7 +1461,7 @@ const elementList = [
   {
     atomicNumber: 73,
     elementSymbol: 'Ta',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1481,7 +1481,7 @@ const elementList = [
   {
     atomicNumber: 74,
     elementSymbol: 'W',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1501,7 +1501,7 @@ const elementList = [
   {
     atomicNumber: 75,
     elementSymbol: 'Re',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1521,7 +1521,7 @@ const elementList = [
   {
     atomicNumber: 76,
     elementSymbol: 'Os',
-    categoryClass: 'tgl_category-pt',
+    categoryClass: 'is-category-pt',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1541,7 +1541,7 @@ const elementList = [
   {
     atomicNumber: 77,
     elementSymbol: 'Ir',
-    categoryClass: 'tgl_category-pt',
+    categoryClass: 'is-category-pt',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1561,7 +1561,7 @@ const elementList = [
   {
     atomicNumber: 78,
     elementSymbol: 'Pt',
-    categoryClass: 'tgl_category-pt',
+    categoryClass: 'is-category-pt',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1581,7 +1581,7 @@ const elementList = [
   {
     atomicNumber: 79,
     elementSymbol: 'Au',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1601,7 +1601,7 @@ const elementList = [
   {
     atomicNumber: 80,
     elementSymbol: 'Hg',
-    categoryClass: 'tgl_category-zn',
+    categoryClass: 'is-category-zn',
     isRadioactive: false,
     stateSrc: 'static/img/liquid_metal.svg',
     period: '6',
@@ -1621,7 +1621,7 @@ const elementList = [
   {
     atomicNumber: 81,
     elementSymbol: 'Tl',
-    categoryClass: 'tgl_category-b',
+    categoryClass: 'is-category-b',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1641,7 +1641,7 @@ const elementList = [
   {
     atomicNumber: 82,
     elementSymbol: 'Pb',
-    categoryClass: 'tgl_category-c',
+    categoryClass: 'is-category-c',
     isRadioactive: false,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1661,7 +1661,7 @@ const elementList = [
   {
     atomicNumber: 83,
     elementSymbol: 'Bi',
-    categoryClass: 'tgl_category-n',
+    categoryClass: 'is-category-n',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '6',
@@ -1681,7 +1681,7 @@ const elementList = [
   {
     atomicNumber: 84,
     elementSymbol: 'Po',
-    categoryClass: 'tgl_category-o',
+    categoryClass: 'is-category-o',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metalloid.svg',
     period: '6',
@@ -1701,7 +1701,7 @@ const elementList = [
   {
     atomicNumber: 85,
     elementSymbol: 'At',
-    categoryClass: 'tgl_category-f',
+    categoryClass: 'is-category-f',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metalloid.svg',
     period: '6',
@@ -1721,7 +1721,7 @@ const elementList = [
   {
     atomicNumber: 86,
     elementSymbol: 'Rn',
-    categoryClass: 'tgl_category-he',
+    categoryClass: 'is-category-he',
     isRadioactive: true,
     stateSrc: 'static/img/gas.svg',
     period: '6',
@@ -1741,7 +1741,7 @@ const elementList = [
   {
     atomicNumber: 87,
     elementSymbol: 'Fr',
-    categoryClass: 'tgl_category-li',
+    categoryClass: 'is-category-li',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -1761,7 +1761,7 @@ const elementList = [
   {
     atomicNumber: 88,
     elementSymbol: 'Ra',
-    categoryClass: 'tgl_category-ca',
+    categoryClass: 'is-category-ca',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -1781,7 +1781,7 @@ const elementList = [
   {
     atomicNumber: 89,
     elementSymbol: 'Ac',
-    categoryClass: 'tgl_category-ac',
+    categoryClass: 'is-category-ac',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -1801,7 +1801,7 @@ const elementList = [
   {
     atomicNumber: 90,
     elementSymbol: 'Th',
-    categoryClass: 'tgl_category-ac',
+    categoryClass: 'is-category-ac',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -1821,7 +1821,7 @@ const elementList = [
   {
     atomicNumber: 91,
     elementSymbol: 'Pa',
-    categoryClass: 'tgl_category-ac',
+    categoryClass: 'is-category-ac',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -1841,7 +1841,7 @@ const elementList = [
   {
     atomicNumber: 92,
     elementSymbol: 'U',
-    categoryClass: 'tgl_category-ac',
+    categoryClass: 'is-category-ac',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -1861,7 +1861,7 @@ const elementList = [
   {
     atomicNumber: 93,
     elementSymbol: 'Np',
-    categoryClass: 'tgl_category-ac',
+    categoryClass: 'is-category-ac',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -1881,7 +1881,7 @@ const elementList = [
   {
     atomicNumber: 94,
     elementSymbol: 'Pu',
-    categoryClass: 'tgl_category-ac',
+    categoryClass: 'is-category-ac',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -1901,7 +1901,7 @@ const elementList = [
   {
     atomicNumber: 95,
     elementSymbol: 'Am',
-    categoryClass: 'tgl_category-ac',
+    categoryClass: 'is-category-ac',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -1921,7 +1921,7 @@ const elementList = [
   {
     atomicNumber: 96,
     elementSymbol: 'Cm',
-    categoryClass: 'tgl_category-ac',
+    categoryClass: 'is-category-ac',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -1941,7 +1941,7 @@ const elementList = [
   {
     atomicNumber: 97,
     elementSymbol: 'Bk',
-    categoryClass: 'tgl_category-ac',
+    categoryClass: 'is-category-ac',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -1961,7 +1961,7 @@ const elementList = [
   {
     atomicNumber: 98,
     elementSymbol: 'Cf',
-    categoryClass: 'tgl_category-ac',
+    categoryClass: 'is-category-ac',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -1981,7 +1981,7 @@ const elementList = [
   {
     atomicNumber: 99,
     elementSymbol: 'Es',
-    categoryClass: 'tgl_category-ac',
+    categoryClass: 'is-category-ac',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2001,7 +2001,7 @@ const elementList = [
   {
     atomicNumber: 100,
     elementSymbol: 'Fm',
-    categoryClass: 'tgl_category-ac',
+    categoryClass: 'is-category-ac',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2021,7 +2021,7 @@ const elementList = [
   {
     atomicNumber: 101,
     elementSymbol: 'Md',
-    categoryClass: 'tgl_category-ac',
+    categoryClass: 'is-category-ac',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2041,7 +2041,7 @@ const elementList = [
   {
     atomicNumber: 102,
     elementSymbol: 'No',
-    categoryClass: 'tgl_category-ac',
+    categoryClass: 'is-category-ac',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2061,7 +2061,7 @@ const elementList = [
   {
     atomicNumber: 103,
     elementSymbol: 'Lr',
-    categoryClass: 'tgl_category-ac',
+    categoryClass: 'is-category-ac',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2081,7 +2081,7 @@ const elementList = [
   {
     atomicNumber: 104,
     elementSymbol: 'Rf',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2101,7 +2101,7 @@ const elementList = [
   {
     atomicNumber: 105,
     elementSymbol: 'Db',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2121,7 +2121,7 @@ const elementList = [
   {
     atomicNumber: 106,
     elementSymbol: 'Sg',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2141,7 +2141,7 @@ const elementList = [
   {
     atomicNumber: 107,
     elementSymbol: 'Bh',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2161,7 +2161,7 @@ const elementList = [
   {
     atomicNumber: 108,
     elementSymbol: 'Hs',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2181,7 +2181,7 @@ const elementList = [
   {
     atomicNumber: 109,
     elementSymbol: 'Mt',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2201,7 +2201,7 @@ const elementList = [
   {
     atomicNumber: 110,
     elementSymbol: 'Ds',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2221,7 +2221,7 @@ const elementList = [
   {
     atomicNumber: 111,
     elementSymbol: 'Rg',
-    categoryClass: 'tgl_category-transition-metal',
+    categoryClass: 'is-category-transition-metal',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2241,7 +2241,7 @@ const elementList = [
   {
     atomicNumber: 112,
     elementSymbol: 'Cn',
-    categoryClass: 'tgl_category-zn',
+    categoryClass: 'is-category-zn',
     isRadioactive: true,
     stateSrc: 'static/img/liquid_metal.svg',
     period: '7',
@@ -2261,7 +2261,7 @@ const elementList = [
   {
     atomicNumber: 113,
     elementSymbol: 'Nh',
-    categoryClass: 'tgl_category-b',
+    categoryClass: 'is-category-b',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2281,7 +2281,7 @@ const elementList = [
   {
     atomicNumber: 114,
     elementSymbol: 'Fl',
-    categoryClass: 'tgl_category-c',
+    categoryClass: 'is-category-c',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2301,7 +2301,7 @@ const elementList = [
   {
     atomicNumber: 115,
     elementSymbol: 'Mc',
-    categoryClass: 'tgl_category-n',
+    categoryClass: 'is-category-n',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2321,7 +2321,7 @@ const elementList = [
   {
     atomicNumber: 116,
     elementSymbol: 'Lv',
-    categoryClass: 'tgl_category-o',
+    categoryClass: 'is-category-o',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2341,7 +2341,7 @@ const elementList = [
   {
     atomicNumber: 117,
     elementSymbol: 'Ts',
-    categoryClass: 'tgl_category-f',
+    categoryClass: 'is-category-f',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
@@ -2361,7 +2361,7 @@ const elementList = [
   {
     atomicNumber: 118,
     elementSymbol: 'Og',
-    categoryClass: 'tgl_category-he',
+    categoryClass: 'is-category-he',
     isRadioactive: true,
     stateSrc: 'static/img/solid_metal.svg',
     period: '7',
