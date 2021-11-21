@@ -1,3 +1,5 @@
+@use 'init' as *;
+
 /* v-cloak */
 [v-cloak] {
   &:not(.footer) {

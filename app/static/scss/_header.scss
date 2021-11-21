@@ -1,4 +1,6 @@
 /****** header ******/
+@use 'init' as *;
+
 $headerHeight: 80px;
 $headerHeightPhone: 60px;
 $navOpenTime: 0.5s;

@@ -1,4 +1,8 @@
 /****** control-panel ******/
+@use 'sass:math';
+@use 'init' as *;
+@use 'header' as *;
+
 $langNum: 7;
 $controlPanelWidth: 700px;
 $controlPanelHeight: 25px + 15px * 2 + 20px;

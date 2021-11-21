@@ -1,4 +1,6 @@
 /****** lang-changer ******/
+@use 'init' as *;
+@use 'control-panel' as *;
 
 .lang-changer {
   @include flexCentering();
