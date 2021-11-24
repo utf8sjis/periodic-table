@@ -16,7 +16,7 @@
   border-radius: 10px;
   transform: translateX(-150%);
   transition: transform 0.3s;
-  z-index: 14;
+  z-index: 301;
   @include mediaQuery() {
     padding: 5px 5px 5px 50px;
   }

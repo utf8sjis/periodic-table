@@ -20,7 +20,7 @@ $navOpenTime: 0.5s;
   transition-duration: $navOpenTime;
   color: $colorWhite;
   background: $colorMainA;
-  z-index: 11;
+  z-index: 201;
   &.is-active {
     opacity: 1;
     transform: translateY(0);
