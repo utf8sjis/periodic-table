@@ -1,6 +1,6 @@
 /****** control-panel ******/
 @use 'sass:math';
-@use 'init' as *;
+@use 'global/init' as *;
 @use 'header' as *;
 
 $langNum: 7;

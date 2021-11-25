@@ -1,6 +1,6 @@
 
 /****** periodic-table-scaler ******/
-@use 'init' as *;
+@use 'global/init' as *;
 
 .periodic-table-scaler {
   @include flexCentering();

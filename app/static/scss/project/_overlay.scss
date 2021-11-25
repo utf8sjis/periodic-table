@@ -1,6 +1,6 @@
 /****** overlay ******/
 $areaGap: 10px;
-@use 'init' as *;
+@use 'global/init' as *;
 
 .overlay {
   position: fixed;

@@ -1,5 +1,5 @@
 /****** footer ******/
-@use 'init' as *;
+@use 'global/init' as *;
 
 .footer {
   @include flexCentering();
