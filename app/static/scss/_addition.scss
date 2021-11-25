@@ -11,18 +11,6 @@
   }
 }
 
-/* Vue transition fade */
-.fade-enter-active {
-  transition: opacity ease 0.5s 0.3s;
-}
-.fade-leave-active {
-  transition: opacity ease 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-
 /* 埋め込みツイート */
 .twitter-tweet {
   grid-row: cont;

@@ -16,6 +16,18 @@ $areaGap: 10px;
       background: #{$categoryColor};
     }
   }
+  &--enter-active {
+    -webkit-transition: opacity ease 0.5s 0.3s;
+    transition: opacity ease 0.5s 0.3s;
+  }
+  &--leave-active {
+    -webkit-transition: opacity ease 0.5s;
+    transition: opacity ease 0.5s;
+  }
+  &--enter,
+  &--leave-to {
+    opacity: 0;
+  }
 
   &__main-wrapper {
     position: relative;
