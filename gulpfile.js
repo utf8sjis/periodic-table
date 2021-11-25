@@ -16,7 +16,7 @@ const del = require('del');
 
 // scssファイルの変更を監視しcssファイルを生成する
 const compileSass = () =>
-  gulp.watch('app/static/scss/*.scss', () =>
+  gulp.watch('app/static/scss/**/*.scss', () =>
     gulp.src('app/static/scss/style.scss')
       .pipe(sourcemaps.init())
       .pipe(sass({
