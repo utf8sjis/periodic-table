@@ -19,13 +19,13 @@
     background: rgba(255, 255, 255, 0.4);
     color: #333;
   }
-  &.mod_element-symbol {
+  &--element-symbol {
     display: grid;
     grid-template-areas: 'es-layer';
     grid-template-rows: auto;
     grid-template-columns: auto;
   }
-  &.mod_tweet {
+  &--tweet {
     background: linear-gradient(0.25turn,
       rgba(255, 255, 255, 0.2),
       transparent,
@@ -40,7 +40,7 @@
       );
     }
   }
-  &.mod_close {
+  &--close {
     transition: 0.2s;
     &:hover {
       background: rgba(255, 255, 255, 0.3);
@@ -51,7 +51,7 @@
       }
     }
   }
-  &.mod_element-changer {
+  &--element-changer {
     user-select: none;
     background: rgba(255, 255, 255, 0.8);
     @each $category in $categoryList {
@@ -95,7 +95,7 @@
     grid-row: cont;
     @include flexCentering();
     position: relative;
-    &.mod_element-symbol {
+    &--element-symbol {
       grid-area: es-layer;
       padding: 0 0 20px 0;
       font-family: $fontEN;
@@ -105,10 +105,10 @@
         font-size: 130px;
       }
     }
-    &.mod_atomic-weight,
-    &.mod_atomic-num,
-    &.mod_period,
-    &.mod_group {
+    &--atomic-weight,
+    &--atomic-num,
+    &--period,
+    &--group {
       @include flexCentering(flex-end, center);
       position: relative;
       top: -6px;
@@ -120,9 +120,9 @@
         font-size: 35px;
       }
     }
-    &.mod_cn,
-    &.mod_tw,
-    &.mod_hk {
+    &--cn,
+    &--tw,
+    &--hk {
       display: grid;
       grid-template-rows: auto auto;
       text-align: center;
@@ -131,30 +131,30 @@
         padding-bottom: 20px;
       }
     }
-    &.mod_pinyin,
-    &.mod_bopomofo {
+    &--pinyin,
+    &--bopomofo {
       padding: 4px 7px 12px;
       white-space: nowrap;
       font-family: $fontPY;
       font-size: 20px;
     }
-    &.mod_category,
-    &.mod_japanese-name,
-    &.mod_english-name {
+    &--category,
+    &--japanese-name,
+    &--english-name {
       padding: 6px 7px 10px;
       font-size: 20px;
       @include mediaQuery() {
         font-size: 18px;
       }
     }
-    &.mod_japanese-name,
-    &.mod_english-name {
+    &--japanese-name,
+    &--english-name {
       white-space: nowrap;
       @include mediaQuery($se) {
         white-space: normal;
       }
     }
-    &.mod_english-name {
+    &--english-name {
       font-family: $fontEN;
       font-size: 22px;
       font-weight: 300;
@@ -162,13 +162,13 @@
         font-size: 20px;
       }
     }
-    &.mod_close {
+    &--close {
       cursor: pointer;
       padding: 15px;
       font-family: $fontEN;
       font-size: 20px;
     }
-    &.mod_element-changer {
+    &--element-changer {
       @include flexCentering(space-between, center);
     }
   }
@@ -176,12 +176,12 @@
   &__float {
     border: none;
     background: none;
-    &.mod_state {
+    &--state {
       grid-area: es-layer;
       @include flexCentering();
       padding: 10px;
     }
-    &.mod_radioactivity {
+    &--radioactivity {
       grid-area: es-layer;
       @include flexCentering(flex-end, flex-start);
       padding: 15px 15px 0 0;
@@ -210,13 +210,13 @@
     @include mediaQuery() {
       font-size: 70px;
     }
-    &.mod_cn {
+    &--cn {
       font-family: $fontCN;
     }
-    &.mod_tw {
+    &--tw {
       font-family: $fontTW;
     }
-    &.mod_hk {
+    &--hk {
       font-family: $fontHK;
     }
   }

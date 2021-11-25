@@ -95,7 +95,7 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
     font-size: 20px;
     @each $groupNumber in $groupNumberList {
       $groupRow: nth($groupRowList, index($groupNumberList, $groupNumber));
-      &.mod_group-#{$groupNumber} {
+      &--group-#{$groupNumber} {
         grid-column: #{$groupNumber} / span 1;
         grid-row: #{$groupRow} / span 1;
       }
@@ -111,7 +111,7 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
     font-weight: 300;
     font-size: 20px;
     @each $periodNumber in $periodNumberList {
-      &.mod_period-#{$periodNumber} {
+      &--period-#{$periodNumber} {
         grid-column: 1 / span 1;
         grid-row: #{$periodNumber} / span 1;
       }
@@ -123,7 +123,7 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
     @each $cellClass in $cellSymbolList {
       $cellRow: nth($cellRowList, index($cellSymbolList, $cellClass));
       $cellColumn: nth($cellColumnList, index($cellSymbolList, $cellClass));
-      &.mod_cell-#{$cellClass} {
+      &--cell-#{$cellClass} {
         grid-column: #{$cellColumn} / span 1;
         grid-row: #{$cellRow} / span 1;
         z-index: #{$cellRow};
@@ -152,7 +152,7 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
     transition-duration: 1s;
     @each $category in $categoryList {
       $categoryColor: nth($categoryColorList, index($categoryList, $category));
-      &.mod_category-#{$category} {
+      &--category-#{$category} {
         @if $category == h {
           border: 2px solid #fff;
           color: #333;
@@ -217,44 +217,63 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
       font-weight: 300;
       font-size: 10px;
       animation: intoEN 0.8s;
-      &.mod_cell-Sg,
-      &.mod_cell-Lr {
+    }
+  }
+
+  &__cell-text {
+    &--cell-Sg,
+    &--cell-Lr {
+      &.is-english-name {
         font-size: 9.8px;
       }
-      &.mod_cell-Nd {
+    }
+    &--cell-Nd {
+      &.is-english-name {
         font-size: 9.6px;
       }
-      &.mod_cell-Pm,
-      &.mod_cell-Cn,
-      &.mod_cell-Lv {
+    }
+    &--cell-Pm,
+    &--cell-Cn,
+    &--cell-Lv {
+      &.is-english-name {
         font-size: 9.4px;
       }
-      &.mod_cell-Mo,
-      &.mod_cell-Pa {
+    }
+    &--cell-Mo,
+    &--cell-Pa {
+      &.is-english-name {
         font-size: 9px;
       }
-      &.mod_cell-Rg,
-      &.mod_cell-Md {
+    }
+    &--cell-Rg,
+    &--cell-Md {
+      &.is-english-name {
         font-size: 8.6px;
       }
-      &.mod_cell-Ds {
+    }
+    &--cell-Ds {
+      &.is-english-name {
         font-size: 8.2px;
       }
-      &.mod_cell-Rf {
+    }
+    &--cell-Rf {
+      &.is-english-name {
         font-size: 8px;
       }
-      &.mod_cell-Pr {
+    }
+    &--cell-Pr {
+      &.is-english-name {
         font-size: 7.8px;
       }
     }
   }
 
   &__la-ac-wrapper {
-    &.mod_lanthanoid {
+    &--lanthanoid {
       grid-column: 3 / span 1;
       grid-row: 6 / span 1;
     }
-    &.mod_actinoid {
+    &--actinoid {
       grid-column: 3 / span 1;
       grid-row: 7 / span 1;
     }

@@ -121,7 +121,7 @@ $navOpenTime: 0.5s;
   }
 
   &__top-button-wrapper {
-    &.mod_pc {
+    &--pc {
       position: fixed;
       right: 0;
       bottom: 0;
@@ -141,7 +141,7 @@ $navOpenTime: 0.5s;
     font-size: 30px;
     background: $colorMain3;
     transition: transform 0.2s;
-    &.mod_phone {
+    &--phone {
       display: none;
       margin: 0 10px 0 5px;
       width: 45px;
@@ -150,7 +150,7 @@ $navOpenTime: 0.5s;
         display: flex;
       }
     }
-    &.mod_pc {
+    &--pc {
       margin: 0 25px 25px 0;
       width: 50px;
       height: 50px;
@@ -193,7 +193,7 @@ $navOpenTime: 0.5s;
       height: 34px;
       font-size: 20px;
     }
-    &.mod_twitter {
+    &--twitter {
       @include mediaQuery() {
         background: $colorTwitter;
       }
@@ -201,7 +201,7 @@ $navOpenTime: 0.5s;
         background: $colorTwitter;
       }
     }
-    &.mod_facebook {
+    &--facebook {
       @include mediaQuery() {
         background: $colorFacebook;
       }
@@ -209,7 +209,7 @@ $navOpenTime: 0.5s;
         background: $colorFacebook;
       }
     }
-    &.mod_line {
+    &--line {
       @include mediaQuery() {
         background: $colorLINE;
       }

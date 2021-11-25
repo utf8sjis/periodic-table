@@ -3,11 +3,11 @@ Vue.config.ignoredElements = ['ion-icon'];
 Vue.component('data-area', {
   props: ['name', 'label', 'categoryClass'],
   template: `
-    <div :class="['data-area', 'mod_' + name, categoryClass]">
+    <div :class="['data-area', 'data-area--' + name, categoryClass]">
       <div class="data-area__label">
         <div v-html="label"></div>
       </div>
-      <div :class="['data-area__content', 'mod_' + name]">
+      <div :class="['data-area__content', 'data-area__content--' + name]">
         <slot></slot>
       </div>
     </div>`,

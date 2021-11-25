@@ -90,7 +90,7 @@ $areaGap: 10px;
   }
 
   &__container {
-    &.mod_base {
+    &--base {
       grid-area: elm;
       display: grid;
       grid-template-areas:
@@ -110,7 +110,7 @@ $areaGap: 10px;
         grid-template-columns: repeat(3, 1fr);
       }
     }
-    &.mod_kanji {
+    &--kanji {
       grid-area: knj;
       display: grid;
       grid-template-areas: 'cn tw hk';
@@ -118,7 +118,7 @@ $areaGap: 10px;
       grid-template-columns: repeat(3, 1fr);
       @include gridGap($areaGap, $areaGap);
     }
-    &.mod_reading {
+    &--reading {
       grid-area: rdn;
       display: grid;
       grid-template-areas: 'py bp';
@@ -126,7 +126,7 @@ $areaGap: 10px;
       grid-template-columns: repeat(2, 1fr);
       @include gridGap($areaGap, $areaGap);
     }
-    &.mod_name {
+    &--name {
       grid-area: nam;
       display: grid;
       grid-template-areas: 'ja en';
@@ -137,13 +137,13 @@ $areaGap: 10px;
         grid-template-columns: repeat(2, auto);
       }
     }
-    &.mod_tweet {
+    &--tweet {
       grid-area: twi;
     }
-    &.mod_close {
+    &--close {
       grid-area: cls;
     }
-    &.mod_element-changer {
+    &--element-changer {
       position: fixed;
       box-sizing: border-box;
       left: 0;
@@ -162,43 +162,43 @@ $areaGap: 10px;
   }
 
   &__area {
-    &.mod_element-symbol {
+    &--element-symbol {
       grid-area: es;
     }
-    &.mod_atomic-num {
+    &--atomic-num {
       grid-area: an;
     }
-    &.mod_period {
+    &--period {
       grid-area: pr;
     }
-    &.mod_group {
+    &--group {
       grid-area: gr;
     }
-    &.mod_category {
+    &--category {
       grid-area: ca;
     }
-    &.mod_atomic-weight {
+    &--atomic-weight {
       grid-area: aw;
     }
-    &.mod_cn {
+    &--cn {
       grid-area: cn;
     }
-    &.mod_tw {
+    &--tw {
       grid-area: tw;
     }
-    &.mod_hk {
+    &--hk {
       grid-area: hk;
     }
-    &.mod_pinyin {
+    &--pinyin {
       grid-area: py;
     }
-    &.mod_bopomofo {
+    &--bopomofo {
       grid-area: bp;
     }
-    &.mod_japanese-name {
+    &--japanese-name {
       grid-area: ja;
     }
-    &.mod_english-name {
+    &--english-name {
       grid-area: en;
     }
   }
