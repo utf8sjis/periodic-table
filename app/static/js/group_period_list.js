@@ -1,3 +1,26 @@
+const otherCellList = [
+  {
+    cellWrapperClass: 'mod_lanthanoid',
+    atomicNumber: '57-71',
+    elementSymbol: 'La-Lu',
+    japaneseName: 'ランタノイド',
+    englishName: 'lanthanoid',
+    simplifiedChinese: '镧系<br>元素',
+    taiwanTrad: '鑭系<br>元素',
+    hongkongTrad: '鑭系<br>元素',
+  },
+  {
+    cellWrapperClass: 'mod_actinoid',
+    atomicNumber: '89-103',
+    elementSymbol: 'Ac-Lr',
+    japaneseName: 'アクチノイド',
+    englishName: 'actinoid',
+    simplifiedChinese: '锕系<br>元素',
+    taiwanTrad: '錒系<br>元素',
+    hongkongTrad: '錒系<br>元素',
+  },
+]
+
 const groupClassList = [
   'mod_group-1',
   'mod_group-2',

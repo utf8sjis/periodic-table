@@ -126,13 +126,14 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
       &.mod_cell-#{$cellClass} {
         grid-column: #{$cellColumn} / span 1;
         grid-row: #{$cellRow} / span 1;
+        z-index: #{$cellRow};
       }
     }
     &.is-active {
       cursor: default;
       transform: translate3d(0, -5px, 100px) scale(2) rotateY(1turn);
       opacity: 0;
-      z-index: 1;
+      z-index: 50;
     }
   }
 

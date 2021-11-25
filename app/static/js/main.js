@@ -28,7 +28,7 @@ new Vue({
   el: '#app',
   data: {
     langList: langList,
-    cellList: cellList,
+    otherCellList: otherCellList,
     elementList: elementList,
     categoryList: categoryList,
     groupClassList: groupClassList,
@@ -39,8 +39,7 @@ new Vue({
     /** 現在の表示言語とセル */
     current: {
       langIndex: 3,
-      cellIndex: 0,
-      cell: cellList[0],
+      elementIndex: 0,
     },
     /** オーバーレイ表示しているか否か */
     isOverlayDisplayed: false,
@@ -86,13 +85,12 @@ new Vue({
     },
     /**
      * 元素のデータページをオーバーレイ表示する
-     * @param {number} cellIndex - 選択された元素のcellListでのインデクス
+     * @param {number} elementindex - 選択された元素のelementListでのインデクス
      */
-    openOverlay: function (cellIndex) {
-      this.current.cell = this.cellList[cellIndex];
-      this.current.cellIndex = cellIndex;
+    openOverlay: function (elementIndex) {
+      this.current.elementIndex = elementIndex
+      this.elementList[elementIndex].isActive = true;
       this.isOverlayDisplayed = true;
-      this.cellList[cellIndex].isActive = true;
       this.runTwitterScript();
     },
     /**
@@ -100,22 +98,22 @@ new Vue({
      */
     closeOverlay: function () {
       this.isOverlayDisplayed = false;
-      this.cellList[this.current.cellIndex].isActive = false;
+      this.elementList[this.current.elementIndex].isActive = false;
     },
     /**
      * データページを遷移する
      * @param {string} to - 'next'か'prev'
      */
     changeOverlay: function (to) {
-      let z = this.current.cell.atomicNum;
+      let z = this.elementList[this.current.elementIndex].atomicNumber;
       if (to === 'next') {
         z++;
       } else if (to === 'prev') {
         z--;
       }
       if (z >= 1 && z <= 118) {
-        const toIndex = this.atomicNumToIndex(z);
-        this.cellList[this.current.cellIndex].isActive = false;
+        const toIndex = this.atomicNumberToIndex(z);
+        this.elementList[this.current.elementIndex].isActive = false;
         this.openOverlay(toIndex);
       }
     },
@@ -155,14 +153,14 @@ new Vue({
       this.$refs.contAreaTweet.appendChild(scriptEl);
     },
     /**
-     * 原子番号からcellListのインデクスを返す
+     * 原子番号からelementListのインデクスを返す
      * 見つからなかった場合は-1を返す
-     * @param {number} atomicNum - 原子番号
-     * @returns {number} cellListのインデクスか-1
+     * @param {number} atomicNumber - 原子番号
+     * @returns {number} elementListのインデクスか-1
      */
-    atomicNumToIndex: function (atomicNum) {
-      return this.cellList.findIndex(
-        (element) => element.atomicNum === atomicNum
+    atomicNumberToIndex: function (atomicNumber) {
+      return this.elementList.findIndex(
+        (element) => element.atomicNumber === atomicNumber
       );
     },
     /**
@@ -191,7 +189,7 @@ new Vue({
     },
     /**
      * 漢字をクリップボードにコピーする
-     * @param {string} text - currentCellの元素の漢字
+     * @param {string} text - 選択された元素の漢字
      */
     copyToClipboard: function (text) {
       const successMessage = '漢字をコピーしました';
@@ -304,38 +302,42 @@ new Vue({
      * @returns {object} 表示内容の情報を含んだのオブジェクト
      */
     elementChangeButton: function () {
-      const z = this.current.cell.atomicNum;
+      const z = this.elementList[this.current.elementIndex].atomicNumber;
       const obj = {
         prev: {
-          atomicNum: 0,
+          atomicNumber: 0,
           elementSymbol: '',
         },
         next: {
-          atomicNum: 0,
+          atomicNumber: 0,
           elementSymbol: '',
         },
         isStart: true,
         isEnd: false,
       };
       if (z - 1 < 1) {
-        obj.prev.atomicNum = 0;
+        const nextIndex = this.atomicNumberToIndex(z + 1);
+        obj.prev.atomicNumber = 0;
         obj.prev.elementSymbol = 'n';
-        obj.next.atomicNum = this.elementList[z + 1].atomicNumber;
-        obj.next.elementSymbol = this.elementList[z + 1].elementSymbol;
+        obj.next.atomicNumber = this.elementList[nextIndex].atomicNumber;
+        obj.next.elementSymbol = this.elementList[nextIndex].elementSymbol;
         obj.isStart = true;
         obj.isEnd = false;
       } else if (z + 1 > 118) {
-        obj.prev.atomicNum = this.elementList[z - 1].atomicNumber;
-        obj.prev.elementSymbol = this.elementList[z - 1].elementSymbol;
-        obj.next.atomicNum = 119;
+        const prevIndex = this.atomicNumberToIndex(z - 1);
+        obj.prev.atomicNumber = this.elementList[prevIndex].atomicNumber;
+        obj.prev.elementSymbol = this.elementList[prevIndex].elementSymbol;
+        obj.next.atomicNumber = 119;
         obj.next.elementSymbol = 'Uue';
         obj.isStart = false;
         obj.isEnd = true;
       } else {
-        obj.prev.atomicNum = this.elementList[z - 1].atomicNumber;
-        obj.prev.elementSymbol = this.elementList[z - 1].elementSymbol;
-        obj.next.atomicNum = this.elementList[z + 1].atomicNumber;
-        obj.next.elementSymbol = this.elementList[z + 1].elementSymbol;
+        const nextIndex = this.atomicNumberToIndex(z + 1);
+        const prevIndex = this.atomicNumberToIndex(z - 1);
+        obj.prev.atomicNumber = this.elementList[prevIndex].atomicNumber;
+        obj.prev.elementSymbol = this.elementList[prevIndex].elementSymbol;
+        obj.next.atomicNumber = this.elementList[nextIndex].atomicNumber;
+        obj.next.elementSymbol = this.elementList[nextIndex].elementSymbol;
         obj.isStart = obj.isEnd = false;
       }
       return obj;

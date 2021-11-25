@@ -193,13 +193,26 @@
             {{ num + 1 }}
           </div>
           <div
-            v-for="(cellObj, cellIndex) in cellList"
-            :class="[cellObj.cellWrapperClass, cellObj.uniqueClass, {'is-active': cellList[cellIndex].isActive}]"
-            @click="openOverlay(cellIndex)"
+            v-for="(cell, cellIndex) in otherCellList"
+            class="periodic-table__la-ac-wrapper"
+            :class="cell.cellWrapperClass"
           >
             <div
-              :class="[cellObj.cellClass, cellObj.uniqueClass, langList[current.langIndex].langClass]"
-              v-html="cellObj.innerStr[langList[current.langIndex].langClass]"
+              class="periodic-table__la-ac"
+              :class="langList[current.langIndex].langClass"
+              v-html="cell[langList[current.langIndex].langKey]"
+            ></div>
+          </div>
+          <div
+            v-for="(element, elementIndex) in elementList"
+            class="periodic-table__cell-wrapper"
+            :class="[`mod_cell-${element.elementSymbol}`, {'is-active': elementList[elementIndex].isActive}]"
+            @click="openOverlay(elementIndex)"
+          >
+            <div
+              class="periodic-table__cell"
+              :class="[`mod_${element.categoryClass}`, `mod_cell-${element.elementSymbol}`, langList[current.langIndex].langClass]"
+              v-html="element[langList[current.langIndex].langKey]"
             ></div>
           </div>
         </div>
@@ -217,33 +230,33 @@
       <div
         v-cloak
         class="overlay"
-        :class="elementList[current.cell.atomicNum].categoryClass"
+        :class="`is-${elementList[current.elementIndex].categoryClass}`"
         v-show="isOverlayDisplayed"
       >
         <div class="overlay__main-wrapper" :class="{'is-overflow-hidden': !isBodyScrollLocked}">
           <div class="overlay__main">
             <div class="overlay__container mod_base">
               <div class="overlay__area mod_element-symbol">
-                <div class="data-area mod_element-symbol" :class="elementList[current.cell.atomicNum].categoryClass">
+                <div class="data-area mod_element-symbol" :class="`is-${elementList[current.elementIndex].categoryClass}`">
                   <div
                     class="data-area__float mod_state"
                   >
                     <img
                       class="data-area__state-image"
-                      :class="elementList[current.cell.atomicNum].categoryClass"
-                      :src="elementList[current.cell.atomicNum].stateSrc"
+                      :class="`is-${elementList[current.elementIndex].categoryClass}`"
+                      :src="elementList[current.elementIndex].stateSrc"
                     >
                   </div>
                   <div class="data-area__float mod_radioactivity">
                     <img
                       class="data-area__radioactivity-image"
                       src="static/img/radioactivity.svg"
-                      v-show="elementList[current.cell.atomicNum].isRadioactive"
+                      v-show="elementList[current.elementIndex].isRadioactive"
                     >
                   </div>
                   <div
                     class="data-area__content mod_element-symbol"
-                    v-html="current.cell.innerStr['is-element-symbol']"
+                    v-html="elementList[current.elementIndex].elementSymbol"
                   ></div>
                 </div>
               </div>
@@ -251,45 +264,45 @@
                 <data-area
                   name="atomic-num"
                   label="Z ="
-                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                  :category-class="`is-${elementList[current.elementIndex].categoryClass}`"
                 >
-                  {{elementList[current.cell.atomicNum].atomicNumber }}
+                  {{ elementList[current.elementIndex].atomicNumber }}
                 </data-area>
               </div>
               <div class="overlay__area mod_period">
                 <data-area
                   name="period"
                   label="Period"
-                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                  :category-class="`is-${elementList[current.elementIndex].categoryClass}`"
                 >
-                  {{ elementList[current.cell.atomicNum].period }}
+                  {{ elementList[current.elementIndex].period }}
                 </data-area>
               </div>
               <div class="overlay__area mod_group">
                 <data-area
                   name="group"
                   label="Group"
-                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                  :category-class="`is-${elementList[current.elementIndex].categoryClass}`"
                 >
-                  {{ elementList[current.cell.atomicNum].group }}
+                  {{ elementList[current.elementIndex].group }}
                 </data-area>
               </div>
               <div class="overlay__area mod_atomic-weight">
                 <data-area
                   name="atomic-weight"
                   label="A<sub>r</sub> ="
-                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                  :category-class="`is-${elementList[current.elementIndex].categoryClass}`"
                 >
-                  {{ elementList[current.cell.atomicNum].atomicWeight }}
+                  {{ elementList[current.elementIndex].atomicWeight }}
                 </data-area>
               </div>
               <div class="overlay__area mod_category">
                 <data-area
                   name="category"
                   label="Category"
-                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                  :category-class="`is-${elementList[current.elementIndex].categoryClass}`"
                 >
-                  {{ elementList[current.cell.atomicNum].category }}
+                  {{ elementList[current.elementIndex].category }}
                 </data-area>
               </div>
             </div>
@@ -298,14 +311,14 @@
                 <data-area
                   name="cn"
                   label="Mainland China"
-                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                  :category-class="`is-${elementList[current.elementIndex].categoryClass}`"
                 >
-                  <div class="data-area__kanji-character mod_cn">{{ current.cell.innerStr['is-simplified-chinese'] }}</div>
-                  <div class="data-area__kanji-code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointCN }}</div>
+                  <div class="data-area__kanji-character mod_cn">{{ elementList[current.elementIndex].simplifiedChinese }}</div>
+                  <div class="data-area__kanji-code-point">U+{{ elementList[current.elementIndex].UnicodeCodePointCN }}</div>
                   <div
                     class="data-area__kanji-copy-button"
-                    :class="elementList[current.cell.atomicNum].categoryClass"
-                    @click="copyToClipboard(current.cell.innerStr['is-simplified-chinese'])"
+                    :class="`is-${elementList[current.elementIndex].categoryClass}`"
+                    @click="copyToClipboard(elementList[current.elementIndex].simplifiedChinese)"
                     data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-sc"
                   ><i id="fa-clipboard-sc" class="fas fa-clipboard" data-micron="swing"></i></div>
                 </data-area>
@@ -314,14 +327,14 @@
                 <data-area
                   name="tw"
                   label="Taiwan"
-                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                  :category-class="`is-${elementList[current.elementIndex].categoryClass}`"
                 >
-                  <div class="data-area__kanji-character mod_tw">{{ current.cell.innerStr['is-taiwan-trad'] }}</div>
-                  <div class="data-area__kanji-code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointTW }}</div>
+                  <div class="data-area__kanji-character mod_tw">{{ elementList[current.elementIndex].taiwanTrad }}</div>
+                  <div class="data-area__kanji-code-point">U+{{ elementList[current.elementIndex].UnicodeCodePointTW }}</div>
                   <div
                     class="data-area__kanji-copy-button"
-                    :class="elementList[current.cell.atomicNum].categoryClass"
-                    @click="copyToClipboard(current.cell.innerStr['is-taiwan-trad'])"
+                    :class="`is-${elementList[current.elementIndex].categoryClass}`"
+                    @click="copyToClipboard(elementList[current.elementIndex].taiwanTrad)"
                     data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-tw"
                   ><i id="fa-clipboard-tw" class="fas fa-clipboard" data-micron="swing"></i></div>
                 </data-area>
@@ -330,14 +343,14 @@
                 <data-area
                   name="hk"
                   label="Hong Kong"
-                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                  :category-class="`is-${elementList[current.elementIndex].categoryClass}`"
                 >
-                  <div class="data-area__kanji-character mod_hk">{{ current.cell.innerStr['is-hongkong-trad'] }}</div>
-                  <div class="data-area__kanji-code-point">U+{{ elementList[current.cell.atomicNum].UnicodeCodePointHK }}</div>
+                  <div class="data-area__kanji-character mod_hk">{{ elementList[current.elementIndex].hongkongTrad }}</div>
+                  <div class="data-area__kanji-code-point">U+{{ elementList[current.elementIndex].UnicodeCodePointHK }}</div>
                   <div
                     class="data-area__kanji-copy-button"
-                    :class="elementList[current.cell.atomicNum].categoryClass"
-                    @click="copyToClipboard(current.cell.innerStr['is-hongkong-trad'])"
+                    :class="`is-${elementList[current.elementIndex].categoryClass}`"
+                    @click="copyToClipboard(elementList[current.elementIndex].hongkongTrad)"
                     data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-hk"
                   ><i id="fa-clipboard-hk" class="fas fa-clipboard" data-micron="swing"></i></div>
                 </data-area>
@@ -348,19 +361,19 @@
                 <data-area
                   name="pinyin"
                   label="<span>Pinyin</span><span>Mainland China</span>"
-                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                  :category-class="`is-${elementList[current.elementIndex].categoryClass}`"
                 >
-                  {{ elementList[current.cell.atomicNum].pinyin }}
+                  {{ elementList[current.elementIndex].pinyin }}
                 </data-area>
               </div>
               <div class="overlay__area mod_bopomofo">
                 <data-area
                   name="bopomofo"
                   label="<span>Bopomofo</span><span>Taiwan</span>"
-                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                  :category-class="`is-${elementList[current.elementIndex].categoryClass}`"
                 >
-                  {{ elementList[current.cell.atomicNum].bopomofo
-                    + ' (' + elementList[current.cell.atomicNum].taiwanPinyin + ')' }}
+                  {{ elementList[current.elementIndex].bopomofo
+                    + ' (' + elementList[current.elementIndex].taiwanPinyin + ')' }}
                 </data-area>
               </div>
             </div>
@@ -369,35 +382,35 @@
                 <data-area
                   name="japanese-name"
                   label="Japanese Name"
-                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                  :category-class="`is-${elementList[current.elementIndex].categoryClass}`"
                 >
-                  {{ current.cell.innerStr['is-japanese-name'] }}
+                  {{ elementList[current.elementIndex].japaneseName }}
                 </data-area>
               </div>
               <div class="overlay__area mod_english-name">
                 <data-area
                   name="english-name"
                   label="English Name"
-                  :category-class="elementList[current.cell.atomicNum].categoryClass"
+                  :category-class="`is-${elementList[current.elementIndex].categoryClass}`"
                 >
-                  {{ current.cell.innerStr['is-english-name'] }}
+                  {{ elementList[current.elementIndex].englishName }}
                 </data-area>
               </div>
             </div>
             <div class="overlay__container mod_tweet">
               <div class="overlay__area mod_tweet">
-                <div class="data-area mod_tweet" :class="elementList[current.cell.atomicNum].categoryClass">
+                <div class="data-area mod_tweet" :class="`is-${elementList[current.elementIndex].categoryClass}`">
                   <div
                     ref="contAreaTweet"
                     class="data-area__content mod_tweet"
-                    v-html="elementList[current.cell.atomicNum].twitterTweet"
+                    v-html="elementList[current.elementIndex].twitterTweet"
                   ></div>
                 </div>
               </div>
             </div>
             <div class="overlay__container mod_close">
               <div class="overlay__area mod_close">
-                <div class="data-area mod_close" :class="elementList[current.cell.atomicNum].categoryClass">
+                <div class="data-area mod_close" :class="`is-${elementList[current.elementIndex].categoryClass}`">
                   <div class="data-area__content mod_close" @click="closeOverlay">CLOSE</div>
                 </div>
               </div>
@@ -409,7 +422,7 @@
         </div>
         <div class="overlay__container mod_element-changer">
           <div class="overlay__area mod_element-changer">
-            <div class="data-area mod_element-changer" :class="elementList[current.cell.atomicNum].categoryClass">
+            <div class="data-area mod_element-changer" :class="`is-${elementList[current.elementIndex].categoryClass}`">
               <div class="data-area__content mod_element-changer">
                 <span
                   class="data-area__element-changer-button"
@@ -418,7 +431,7 @@
                 >
                   <ion-icon class="data-area__element-changer-button-icon" name="arrow-back"></ion-icon>
                   <span class="data-area__element-changer-button-text">
-                    <span class="data-area__element-changer-button-atomic-number">{{elementChangeButton.prev.atomicNum}}</span>{{elementChangeButton.prev.elementSymbol}}
+                    <span class="data-area__element-changer-button-atomic-number">{{elementChangeButton.prev.atomicNumber}}</span>{{elementChangeButton.prev.elementSymbol}}
                   </span>
                 </span>
                 <span
@@ -427,7 +440,7 @@
                   @click="changeOverlay('next')"
                 >
                   <span class="data-area__element-changer-button-text">
-                    <span class="data-area__element-changer-button-atomic-number">{{elementChangeButton.next.atomicNum}}</span>{{elementChangeButton.next.elementSymbol}}
+                    <span class="data-area__element-changer-button-atomic-number">{{elementChangeButton.next.atomicNumber}}</span>{{elementChangeButton.next.elementSymbol}}
                   </span>
                   <ion-icon class="data-area__element-changer-button-icon" name="arrow-forward"></ion-icon>
                 </span>
