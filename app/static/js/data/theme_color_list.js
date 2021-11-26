@@ -1,4 +1,4 @@
-const themeColorList = {
+export const themeColorList = {
   wakaba: {
     main1: '#3d8d69',
     main2: '#74bb83',

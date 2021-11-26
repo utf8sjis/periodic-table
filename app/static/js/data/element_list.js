@@ -1,4 +1,4 @@
-const elementList = [
+export const elementList = [
   {
     isActive: false,
     atomicNumber: 1,

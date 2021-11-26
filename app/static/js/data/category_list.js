@@ -1,4 +1,4 @@
-const categoryList = [
+export const categoryList = [
   {
     categoryClass: 'table-guide__category-icon--category-h',
     categoryName: '水素',

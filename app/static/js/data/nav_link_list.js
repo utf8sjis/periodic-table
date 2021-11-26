@@ -1,4 +1,4 @@
-const navLinkSectionList = [
+export const navLinkSectionList = [
   {
     title: '外部リンク',
     links: [

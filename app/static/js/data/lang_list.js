@@ -1,4 +1,4 @@
-const langList = [
+export const langList = [
   {
     isActive: false,
     langClass: 'is-atomic-number',

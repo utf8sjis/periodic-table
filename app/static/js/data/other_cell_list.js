@@ -1,4 +1,4 @@
-const otherCellList = [
+export const otherCellList = [
   {
     cellWrapperClass: 'periodic-table__la-ac-wrapper--lanthanoid',
     atomicNumber: '57-71',
@@ -21,7 +21,7 @@ const otherCellList = [
   },
 ]
 
-const groupClassList = [
+export const groupClassList = [
   'periodic-table__group-number--group-1',
   'periodic-table__group-number--group-2',
   'periodic-table__group-number--group-3',
@@ -42,7 +42,7 @@ const groupClassList = [
   'periodic-table__group-number--group-18',
 ];
 
-const periodClassList = [
+export const periodClassList = [
   'periodic-table__period-number--period-1',
   'periodic-table__period-number--period-2',
   'periodic-table__period-number--period-3',
