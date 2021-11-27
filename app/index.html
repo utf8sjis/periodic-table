@@ -7,6 +7,8 @@
   <title>元素の漢字周期表 - gensokanji</title>
   <meta name="description" content="元素の漢字周期表は、中国語での元素名を並べた漢字の元素周期表です。中国語圏では、化学元素の命名は漢字1字でなされ、部首で気体か金属かなどの性質を表します。そんな漢字だけでできた周期表を当サイトでお楽しみください。">
   <link rel="canonical" href="https://gensokanji.netlify.app/periodic-table">
+
+  <!-- OGP -->
   <meta property="og:url" content="https://gensokanji.netlify.app/periodic-table">
   <meta property="og:type" content="article">
   <meta property="og:title" content="元素の漢字周期表 - gensokanji">
@@ -15,15 +17,21 @@
   <meta property="og:site_name" content="gensokanji">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@gensokanji_bot">
-  <link href="https://fonts.googleapis.com/css?family=Blinker:200,300|M+PLUS+Rounded+1c:300,500|Noto+Sans+TC:100:&display=swap" rel="stylesheet">
+
+  <!-- 外部のスクリプト・スタイルシート -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script async charset="utf-8" src="https://platform.twitter.com/widgets.js"></script>
+
+  <!-- Webフォント・アイコン -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Blinker:200,300|M+PLUS+Rounded+1c:300,500|Noto+Sans+TC:100:&display=swap">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
   <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
-  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link href="https://unpkg.com/webkul-micron@1.1.6/dist/css/micron.min.css" type="text/css" rel="stylesheet">
-  <script src="https://unpkg.com/webkul-micron@1.1.6/dist/script/micron.min.js" type="text/javascript"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/webkul-micron@1.1.6/dist/css/micron.min.css">
+  <script type="text/javascript" src="https://unpkg.com/webkul-micron@1.1.6/dist/script/micron.min.js"></script>
+
+  <!-- ローカル -->
   <script defer src="static/js/lib/bodyScrollLock.js"></script>
   <script defer src="static/js/check_browser.js"></script>
   <script defer type="module" src="static/js/main.js"></script>
