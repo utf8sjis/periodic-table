@@ -42,13 +42,9 @@
 
 /* body */
 body {
-  margin: 0;
-  font-family: $fontJP;
-  font-weight: 300;
+  @include font(jp);
   font-size: 16px;
+  line-height: 1.2;
   color: $colorBlack;
   background: $colorBase;
-  @include mediaQuery() {
-    font-size: 15px;
-  }
 }
