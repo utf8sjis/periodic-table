@@ -62,3 +62,47 @@ $se: 350px;      // iPhone SE
     @content;
   }
 }
+
+// フォントファミリーとその太さ
+@mixin font($family, $weight: normal) {
+  // 英語
+  @if $family == en {
+    font-family: $fontEN;
+    @if $weight == bold {
+      font-weight: 300;
+    }
+    @else {
+      font-weight: 200;
+    }
+  }
+  // 日本語
+  @else if $family == jp {
+    font-family: $fontJP;
+    @if $weight == bold {
+      font-weight: 500;
+    }
+    @else {
+      font-weight: 300;
+    }
+  }
+  // 台湾正体の拡張
+  @else if $family == twplus {
+    font-family: $fontTWPlus;
+  }
+  // 大陸簡体
+  @else if $family == cn {
+    font-family: $fontCN;
+  }
+  // 台湾正体
+  @else if $family == tw {
+    font-family: $fontTW;
+  }
+  // 香港繁体
+  @else if $family == hk {
+    font-family: $fontHK;
+  }
+  // ピンインと注音符号
+  @else if $family == py {
+    font-family: $fontPY;
+  }
+}
