@@ -68,11 +68,11 @@ $se: 350px;      // iPhone SE
   // 英語
   @if $family == en {
     font-family: $fontEN;
-    @if $weight == bold {
-      font-weight: 300;
+    @if $weight == light {
+      font-weight: 200;
     }
     @else {
-      font-weight: 200;
+      font-weight: 300;
     }
   }
   // 日本語
