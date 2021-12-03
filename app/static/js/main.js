@@ -218,20 +218,17 @@ new Vue({
      */
     changeThemeColor: function (themeColorName) {
       const themeColor = this.themeColorList[themeColorName];
-      const mainA =
+      const mainGrad =
         'linear-gradient(0.375turn, ' +
-        themeColor.main1 +
-        'e6, ' +
-        themeColor.main2 +
-        'e6, ' +
-        themeColor.main3 +
-        'e6)';
+        themeColor.main1 + 'e6, ' +
+        themeColor.main2 + 'e6, ' +
+        themeColor.main3 + 'e6)';
       const rootElement = document.documentElement;
       rootElement.style.setProperty('--theme-color-main-1', themeColor.main1);
       rootElement.style.setProperty('--theme-color-main-2', themeColor.main2);
-      rootElement.style.setProperty('--theme-color-main-2b', themeColor.main2B);
+      rootElement.style.setProperty('--theme-color-main-2-dark', themeColor.main2dark);
       rootElement.style.setProperty('--theme-color-main-3', themeColor.main3);
-      rootElement.style.setProperty('--theme-color-main-a', mainA);
+      rootElement.style.setProperty('--theme-color-main-grad', mainGrad);
       const itemObj = JSON.parse(localStorage.getItem('itemStorage'));
       itemObj.themeColorName = themeColorName;
       localStorage.setItem('itemStorage', JSON.stringify(itemObj));

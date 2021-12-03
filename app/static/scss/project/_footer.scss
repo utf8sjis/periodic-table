@@ -5,7 +5,7 @@
   @include flexCentering();
   flex-direction: column;
   padding: 15px 0;
-  background: $colorMainA;
+  background: $colorMainGrad;
   color: $colorWhite;
   @include mediaQuery() {
     padding-bottom: 60px;

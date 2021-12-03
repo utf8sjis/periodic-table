@@ -10,35 +10,34 @@ $fontPY: 'pinyin and bopomofo', sans-serif;
 /* 色 */
 $colorMain1: var(--theme-color-main-1);
 $colorMain2: var(--theme-color-main-2);
-$colorMain2B: var(--theme-color-main-2b);
+$colorMain2dark: var(--theme-color-main-2-dark);
 $colorMain3: var(--theme-color-main-3);
-$colorMainA: var(--theme-color-main-a);
+$colorMainGrad: var(--theme-color-main-grad);
 
-$colorAccent: rgba(255, 208, 0, 0.6);
+$colorAccent: #ffe266;
 $colorBase: #faf9f6;
-$colorBaseA: rgba(247, 247, 247, 0.95);
-$colorWhite: #fff;
-$colorWhiteA: rgba(255, 255, 255, 0.7);
+$colorBaseA: #faf9f6f2;
+$colorWhite: #ffffff;
+$colorWhiteA: #ffffffb3;
 $colorBlack: #53554a;
-$colorBlackA: rgba(83, 85, 74, 0.7);
+$colorBlackA: #53554ab3;
 
 $colorTwitter: #55acee;
 $colorFacebook: #315096;
 $colorLINE: #00c300;
 
 /* カテゴリのリスト */
-$a: 0.925;
 $categoryList: 'h' 'he' 'li' 'be' 'b' 'c' 'n' 'o' 'f' 'ca' 'zn' 'fe' 'pt' 'la' 'ac' 'transition-metal';
 $categoryColorList:
-  rgb(255, 255, 255) rgb(20, 166, 219) rgb(218, 45, 111) rgb(190, 190, 190)
-  rgb(170, 141, 22) rgb(155, 94, 40) rgb(138, 35, 175) rgb(17, 141, 122)
-  rgb(184, 187, 0) rgb(206, 109, 45) rgb(218, 154, 16) rgb(192, 42, 42)
-  rgb(150, 150, 150) rgb(77, 173, 13) rgb(65, 22, 207) rgb(100, 100, 100);
+  #ffffff #14a6db #da2d6f #bebebe
+  #aa8d16 #9b5e28 #8a23af #118d7a
+  #b8bb00 #ce6d2d #da9a10 #c02a2a
+  #969696 #4dad0d #4116cf #646464;
 $categoryColorList2:
-  rgba(255, 255, 255, $a) rgba(0, 100, 137, $a) rgba(133, 1, 51, $a) rgba(150, 150, 150, $a)
-  rgba(76, 61, 0, $a) rgba(72, 33, 0, $a) rgba(69, 25, 86, $a) rgba(0, 80, 66, $a)
-  rgba(135, 137, 1, $a) rgba(138, 56, 0, $a) rgba(190, 130, 0, $a) rgba(122, 0, 0, $a)
-  rgba(89, 89, 89, $a) rgba(42, 105, 0, $a) rgba(24, 0, 98, $a) rgba(51, 51, 51, $a);
+  #ffffffec #14a6dbec #da2d6fec #bebebeec
+  #aa8d16ec #9b5e28ec #8a23afec #118d7aec
+  #b8bb00ec #ce6d2dec #da9a10ec #c02a2aec
+  #969696ec #4dad0dec #4116cfec #646464ec;
 
 /* 関数 */
 @mixin flexCentering($justify: center, $align: center) {

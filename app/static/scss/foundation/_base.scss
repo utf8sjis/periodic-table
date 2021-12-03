@@ -26,20 +26,6 @@
   src: url('../font/woff/pinyin.woff');
 }
 
-/* :root */
-:root {
-  --theme-color-main-1: #{$colorMain1};
-  --theme-color-main-2: #{$colorMain2};
-  --theme-color-main-2b: #{$colorMain2B};
-  --theme-color-main-3: #{$colorMain3};
-  --theme-color-main-a: linear-gradient(
-    0.375turn,
-    #{$colorMain1}e6,
-    #{$colorMain2}e6,
-    #{$colorMain3}e6
-  );
-}
-
 /* body */
 body {
   @include font(jp);

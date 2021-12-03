@@ -19,7 +19,7 @@ $navOpenTime: 0.5s;
   transition-property: opacity, transform;
   transition-duration: $navOpenTime;
   color: $colorWhite;
-  background: $colorMainA;
+  background: $colorMainGrad;
   z-index: 201;
   &.is-active {
     opacity: 1;
