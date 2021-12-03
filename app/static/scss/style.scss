@@ -1,22 +1,3 @@
-/* foundation */
-@use 'foundation/base';
-@use 'foundation/addition';
-
-/* project */
-@use 'project/header';
-@use 'project/nav';
-@use 'project/nav-back';
-@use 'project/control-panel';
-@use 'project/lang-changer';
-@use 'project/periodic-table-scaler';
-@use 'project/periodic-table';
-@use 'project/table-guide';
-@use 'project/overlay';
-@use 'project/state-image-legend';
-@use 'project/footer';
-@use 'project/popup-box';
-@use 'project/alert-modal';
-
-/* component */
-@use 'component/data-area';
-@use 'component/section';
+@use 'foundation';
+@use 'project';
+@use 'component';
