@@ -1,73 +1,55 @@
 /****** header ******/
 @use 'global' as *;
 
-$headerHeight: 80px;
-$headerHeightPhone: 60px;
-$navOpenTime: 0.5s;
-
 .header {
-  position: relative;
+  position: fixed;
+  width: 100%;
   height: $headerHeight;
   color: $colorWhite;
+  background: $colorMainGrad;
   z-index: 202;
   @include mediaQuery() {
     height: $headerHeightPhone;
   }
-  a,
-  a:hover {
-    color: $colorWhite;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #2e245e4d;
+    opacity: 0;
+    transition: opacity $navOpenTime;
+  }
+  &.is-active::before {
+    opacity: 1;
   }
 
   &__start {
-    position: fixed;
-    width: 100%;
-    height: $headerHeight;
-    overflow: hidden;
-    background: $colorMainGrad;
+    position: absolute;
+    top: 2px;
+    left: 30px;
+    height: 100%;
     @include mediaQuery() {
-      height: $headerHeightPhone;
-    }
-    &::before {
-      position: absolute;
-      content: '';
       top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(46, 36, 94, 0.3);
-      opacity: 0;
-      transition: opacity $navOpenTime;
-      z-index: -1;
-    }
-    &.is-active::before {
-      opacity: 1;
-    }
-  }
-
-  &__logo-wrapper {
-    padding-left: 30px;
-    @include mediaQuery() {
-      padding-left: 20px;
-      transform: translateY(-2px);
+      left: 15px;
     }
   }
 
   &__logo {
     cursor: pointer;
-    text-decoration: none;
-    font-family: $fontEN;
-    font-weight: 300;
+    @include font(en);
     font-size: 40px;
     @include mediaQuery() {
       font-size: 35px;
     }
   }
 
-  &__site-wrapper {
-    padding-left: 50px;
+  &__site {
+    padding-left: 20px;
     @include mediaQuery() {
-      padding-left: 30px;
-      transform: translateY(-7px);
+      display: none;
     }
   }
 
@@ -77,39 +59,37 @@ $navOpenTime: 0.5s;
 
   &__end {
     @include flexCentering();
-    position: fixed;
-    right: 0;
+    position: absolute;
     top: 0;
-    height: $headerHeight;
-    margin-right: 30px;
+    right: 40px;
+    height: 100%;
     @include mediaQuery() {
-      height: $headerHeightPhone;
-      margin-right: 10px;
+      right: 10px;
     }
   }
 
   &__share-container {
-    @include flexCentering(center, flex-end);
+    @include flexCentering();
     flex-direction: column;
     @include mediaQuery() {
-      position: fixed;
+      @include flexCentering(center, flex-end);
       flex-direction: row;
+      position: fixed;
       right: 0;
-      bottom: 0;
-      margin-bottom: 10px;
-      transform: translateX(100%);
+      bottom: 10px;
+      padding-right: 10px;
+      transform: translateX(150%);
       transition: transform 0.7s;
-    }
-    &.is-not-around-top {
-      @include mediaQuery() {
-        transform: translateX(0);
+      &.is-not-around-top {
+        @include mediaQuery() {
+          transform: translateX(0);
+        }
       }
     }
   }
 
   &__share-label {
-    font-family: $fontEN;
-    font-weight: 300;
+    @include font(en);
     font-size: 20px;
     @include mediaQuery() {
       display: none;
@@ -124,8 +104,9 @@ $navOpenTime: 0.5s;
     &--pc {
       position: fixed;
       right: 0;
-      bottom: 0;
-      transform: translateX(200%);
+      bottom: 25px;
+      padding-right: 25px;
+      transform: translateX(150%);
       transition: transform 0.7s;
       &.is-not-around-top {
         transform: translateX(0);
@@ -136,14 +117,14 @@ $navOpenTime: 0.5s;
   &__top-button {
     @include flexCentering();
     cursor: pointer;
-    border: solid 2px rgba(255, 255, 255, 0.7);
+    border: solid 2px $colorWhiteA;
     border-radius: 50%;
+    padding-bottom: 3px;
     font-size: 30px;
     background: $colorMain3;
-    transition: transform 0.2s;
     &--phone {
       display: none;
-      margin: 0 10px 0 5px;
+      margin-left: 5px;
       width: 45px;
       height: 45px;
       @include mediaQuery() {
@@ -151,10 +132,9 @@ $navOpenTime: 0.5s;
       }
     }
     &--pc {
-      margin: 0 25px 25px 0;
       width: 50px;
       height: 50px;
-      transition: 0.2s;
+      transition: transform 0.2s;
       @include mediaQuery() {
         display: none;
       }
@@ -164,35 +144,21 @@ $navOpenTime: 0.5s;
     }
   }
 
-  &__top-button-icon {
-    padding-bottom: 3px;
-  }
-
   &__share-button {
     margin: 0 4px;
-    text-decoration: none;
     @include mediaQuery() {
       margin: 0 2px;
-    }
-    &:hover {
-      text-decoration: none;
-      text-shadow: none;
     }
   }
 
   &__share-icon-wrapper {
     @include flexCentering();
-    width: 30px;
-    height: 30px;
-    border: 2px solid rgba(255, 255, 255, 0.7);
+    width: 35px;
+    height: 35px;
+    border: 2px solid $colorWhiteA;
     border-radius: 50%;
     font-size: 20px;
-    transition: 0.2s;
-    @include mediaQuery() {
-      width: 34px;
-      height: 34px;
-      font-size: 20px;
-    }
+    transition: background-color 0.2s;
     &--twitter {
       @include mediaQuery() {
         background: $colorTwitter;
@@ -221,38 +187,25 @@ $navOpenTime: 0.5s;
 
   &__nav-open-button {
     @include flexCentering();
-    flex-direction: column;
     cursor: pointer;
-    margin: 0 10px;
-    padding-bottom: 2px;
-    width: 80px;
-    height: 50px;
+    flex-direction: column;
+    margin-left: 10px;
+    width: 85px;
+    height: 55px;
+    border: 2px solid $colorWhiteA;
     border-radius: 5px;
-    border: 2px solid rgba(255, 255, 255, 0.7);
-    font-family: $fontEN;
-    font-weight: 300;
+    padding-bottom: 2px;
+    @include font(en);
     font-size: 20px;
     transition: background-color 0.2s;
     @include mediaQuery() {
-      width: 50px;
+      width: 52px;
       height: 40px;
       font-size: 16px;
+      line-height: 1;
     }
     &:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-  }
-
-  &__nav-open-button-more {
-    &.is-active {
-      display: none;
-    }
-  }
-
-  &__nav-open-button-close {
-    display: none;
-    &.is-active {
-      display: block;
+      background: #ffffff33;
     }
   }
 
@@ -260,7 +213,7 @@ $navOpenTime: 0.5s;
     font-size: 22px;
     transition: transform $navOpenTime;
     @include mediaQuery() {
-      font-size: 20px;
+      font-size: 16px;
     }
     &.is-active {
       transform: rotateX(0.5turn);

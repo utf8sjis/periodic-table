@@ -43,20 +43,20 @@
 
   <div id="app">
 
-    <header v-cloak class="header">
+    <header v-cloak class="header" :class="{'is-active': isNavOpened}">
 
-      <div class="header__start" :class="{'is-active': isNavOpened}">
-        <div class="header__logo-wrapper">
-          <a class="header__logo" href="https://gensokanji.netlify.app">gensokanji</a>
+      <div class="header__start">
+        <div class="header__logo">
+          <a href="https://gensokanji.netlify.app">gensokanji</a>
         </div>
-        <div class="header__site-wrapper">
+        <div class="header__site">
           <i class="header__site-icon fas fa-location-arrow"></i>元素の漢字周期表
         </div>
       </div>
 
       <div class="header__end">
         <div class="header__share-container" :class="{'is-not-around-top': !isAroundTop}">
-          <div class="header__share-label">Share!!</div>
+          <div class="header__share-label">SHARE</div>
           <div class="header__share-button-container">
             <a class="header__share-button" target="_blank" rel="noreferrer noopener" href="https://twitter.com/share?url=https://gensokanji.netlify.app/periodic-table&text=元素の漢字周期表%20-%20gensokanji%20@gensokanji_bot">
               <div class="header__share-icon-wrapper header__share-icon-wrapper--twitter">
@@ -74,22 +74,24 @@
               </div>
             </a>
           </div>
-          <div class="header__top-button header__top-button--phone" @click="goToTop">
-            <i class="header__top-button-icon fas fa-angle-up"></i>
+          <div class="header__top-button-wrapper header__top-button-wrapper--phone">
+            <button class="header__top-button header__top-button--phone" @click="goToTop">
+              <i class="fas fa-angle-up"></i>
+            </button>
           </div>
         </div>
-        <div class="header__nav-open-button" @click="openNav">
-          <span class="header__nav-open-button-more" :class="{'is-active': isNavOpened}">MORE</span>
-          <span class="header__nav-open-button-close" :class="{'is-active': isNavOpened}">CLOSE</span>
+        <button class="header__nav-open-button" @click="openNav">
+          <span v-show="!isNavOpened">MORE</span>
+          <span v-show="isNavOpened">CLOSE</span>
           <span>
             <i class="header__nav-open-button-icon fas fa-long-arrow-alt-down" :class="{'is-active': isNavOpened}"></i>
             <i class="header__nav-open-button-icon fas fa-list"></i>
           </span>
-        </div>
-        <div class="header__top-button-wrapper header__top-button-wrapper--pc" :class="{'is-not-around-top': !isAroundTop}" @click="goToTop">
-          <div class="header__top-button header__top-button--pc">
-            <i class="header__top-button-icon fas fa-angle-up"></i>
-          </div>
+        </button>
+        <div class="header__top-button-wrapper header__top-button-wrapper--pc" :class="{'is-not-around-top': !isAroundTop}">
+          <button class="header__top-button header__top-button--pc" @click="goToTop">
+            <i class="fas fa-angle-up"></i>
+          </button>
         </div>
       </div>
 
