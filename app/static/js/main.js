@@ -78,7 +78,7 @@ new Vue({
     /** 周期表の幅に対して作成したMediaQueryList */
     periodicTableMQL: null,
     /** 画面幅が周期表の幅を超過しているか否か */
-    isMainContentsOverflow: null,
+    isPeriodicTableOverflow: false,
     /** 周期表の大きさの倍率 */
     rangeValue: 1,
   },
@@ -260,19 +260,19 @@ new Vue({
     /**
      * 画面幅が周期表の幅を超過しているかを示すハンドラ
      */
-    checkMainContentsOverflow: function () {
-      this.isMainContentsOverflow = !this.periodicTableMQL.matches;
+    checkPeriodicTableOverflow: function () {
+      this.isPeriodicTableOverflow = !this.periodicTableMQL.matches;
     },
     /**
      * 周期表の幅に対するメディアクエリを作成する
      */
     createMediaQuery: function () {
       if (this.periodicTableMQL) {
-        this.periodicTableMQL.removeEventListener('change', this.checkMainContentsOverflow);
+        this.periodicTableMQL.removeEventListener('change', this.checkPeriodicTableOverflow);
       }
       this.periodicTableMQL = window.matchMedia(
         '(min-width: ' + (this.periodicTableRect.width * this.rangeValue) + 'px)');
-      this.periodicTableMQL.addEventListener('change', this.checkMainContentsOverflow);
+      this.periodicTableMQL.addEventListener('change', this.checkPeriodicTableOverflow);
     },
     /**
      * 操作パネルの操作の内容を変更する
@@ -355,7 +355,7 @@ new Vue({
      */
     rangeValue: function () {
       this.createMediaQuery();
-      this.checkMainContentsOverflow();
+      this.checkPeriodicTableOverflow();
       const itemObj = JSON.parse(localStorage.getItem('itemStorage'));
       itemObj.rangeValue = this.rangeValue;
       localStorage.setItem('itemStorage', JSON.stringify(itemObj));
@@ -382,6 +382,6 @@ new Vue({
     this.rangeValue = itemObj.rangeValue;
     // 周期表の幅に対するメディアクエリを作成
     this.createMediaQuery();
-    this.checkMainContentsOverflow();
+    this.checkPeriodicTableOverflow();
   },
 });

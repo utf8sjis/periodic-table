@@ -184,14 +184,14 @@
 
       <div
         class="periodic-table"
-        :class="{'is-overflow-scroll': isMainContentsOverflow, 'is-overflow-hidden': isBodyScrollLocked}"
+        :class="{'is-overflow-scroll': isPeriodicTableOverflow, 'is-overflow-hidden': isBodyScrollLocked}"
         :style="{'height': (periodicTableRect.height * rangeValue) + 'px'}"
       >
 
         <div
           ref="periodicTable"
           class="periodic-table__grid-container"
-          :class="{'is-overflow-scroll': isMainContentsOverflow}"
+          :class="{'is-overflow-scroll': isPeriodicTableOverflow}"
           :style="{'transform': 'scale(' + rangeValue + ')'}"
         >
           <div class="table-guide">
