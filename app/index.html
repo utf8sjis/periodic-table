@@ -75,12 +75,17 @@
             </a>
           </div>
           <div class="header__top-button-wrapper header__top-button-wrapper--phone">
-            <button class="header__top-button header__top-button--phone" @click="goToTop">
+            <button
+              type="button"
+              :disabled="!isPhone || isAroundTop"
+              class="header__top-button header__top-button--phone"
+              @click="goToTop"
+            >
               <i class="fas fa-angle-up"></i>
             </button>
           </div>
         </div>
-        <button class="header__nav-open-button" @click="openNav">
+        <button type="button" class="header__nav-open-button" @click="openNav">
           <span v-show="!isNavOpened">MORE</span>
           <span v-show="isNavOpened">CLOSE</span>
           <span>
@@ -89,7 +94,12 @@
           </span>
         </button>
         <div class="header__top-button-wrapper header__top-button-wrapper--pc" :class="{'is-not-around-top': !isAroundTop}">
-          <button class="header__top-button header__top-button--pc" @click="goToTop">
+          <button
+            type="button"
+            :disabled="isPhone || isAroundTop"
+            class="header__top-button header__top-button--pc"
+            @click="goToTop"
+          >
             <i class="fas fa-angle-up"></i>
           </button>
         </div>
