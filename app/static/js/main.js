@@ -81,6 +81,8 @@ new Vue({
     isPeriodicTableOverflow: false,
     /** 周期表の大きさの倍率 */
     rangeValue: 1,
+    /** 画面幅がスマートフォン幅か否か */
+    isPhone: false,
   },
   methods: {
     /**
@@ -383,5 +385,10 @@ new Vue({
     // 周期表の幅に対するメディアクエリを作成
     this.createMediaQuery();
     this.checkPeriodicTableOverflow();
+    // スマートフォン幅に対するメディアクエリを作成 -> _variable.scss
+    const phoneMQL = window.matchMedia('(max-width: 550px)');
+    const checkIsPhone = () => (this.isPhone = phoneMQL.matches);
+    phoneMQL.addEventListener('change', checkIsPhone);
+    checkIsPhone();
   },
 });
