@@ -2,6 +2,8 @@
 @use 'global' as *;
 @use 'control-panel' as *;
 
+$langNum: 7;
+
 .lang-changer {
   @include flexCentering();
   padding-top: 20px;
