@@ -4,10 +4,11 @@
 
 $controlPanelWidth: 700px;
 $controlPanelHeight: 80px;
+$controlPanelButtonWidth: 30px;
 
 .control-panel {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: auto $controlPanelButtonWidth;
   position: sticky;
   top: $headerHeight + 15px;
   overflow: hidden;
@@ -26,8 +27,13 @@ $controlPanelHeight: 80px;
     width: auto;
   }
 
+  &__content-container {
+    overflow-y: hidden;
+  }
+
   &__content {
-    height: $controlPanelHeight;
+    height: 100%;
+    padding-top: 22px;
     transition: transform 0.3s;
   }
 
@@ -52,7 +58,7 @@ $controlPanelHeight: 80px;
     position: absolute;
     top: 0px;
     right: 0px;
-    width: 30px;
+    width: $controlPanelButtonWidth;
     height: 100%;
   }
 
@@ -65,7 +71,7 @@ $controlPanelHeight: 80px;
     transition: background-color 0.3s;
     &.is-disable {
       cursor: default;
-      background: #d7dbdd;
+      background: $colorLightGray;
     }
   }
 }

@@ -2,12 +2,10 @@
 @use 'global' as *;
 @use 'control-panel' as *;
 
-$langNum: 7;
-
 .lang-changer {
   @include flexCentering();
-  padding-top: 20px;
   overflow-x: visible;
+  height: 100%;
   @include mediaQuery($controlPanelWidth) {
     @include flexCentering(flex-start, center);
     overflow-x: scroll;
@@ -18,76 +16,54 @@ $langNum: 7;
   }
 
   &__button-container {
-    display: grid;
-    grid-template-columns: repeat($langNum, auto auto) auto;
-    list-style: none;
-    padding: 0;
-    white-space: nowrap;
+    @include flexCentering();
+    height: 100%;
     @include mediaQuery($controlPanelWidth) {
-      padding-right: 40px;
+      padding: 0 20px;
     }
   }
 
   &__button {
-    &:nth-child(even) {
-      position: relative;
-      cursor: pointer;
-      height: 25px;
-      padding: 15px 10px;
-      color: $colorBlackA;
-      transition: 0.3s;
-      &:hover {
-        color: $colorBlack;
-        &::after {
-          left: 0;
-          width: 100%;
-          background: $colorMain2;
-          transition: 0.3s;
-        }
-      }
-      &:last-child {
-        display: none;
-      }
+    cursor: pointer;
+    position: relative;
+    height: 100%;
+    padding: 0 10px;
+    white-space: nowrap;
+    color: $colorBlackA;
+    transition: color 0.5s;
+    &:hover {
+      color: $colorBlack;
       &::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        width: 0;
-        height: 5px;
-        background: transparent;
-        transition: 0.5s;
-      }
-      &.is-active-lang {
-        color: $colorMain1;
-        transition: 1s;
-        &::after {
-          content: '';
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          width: 100%;
-          height: 5px;
-          background: $colorMain1;
-          transition: 1s;
-        }
+        left: 0;
+        width: 100%;
+        background: $colorMain2;
       }
     }
-    &:nth-child(odd) {
-      @include flexCentering();
-      position: relative;
-      width: 10px;
-      &:first-child,
-      &:last-child {
-        display: none;
-      }
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 5px;
+      background: transparent;
+      transition-property: left, width, background-color;
+      transition-duration: 0.5s;
+    }
+    &.is-active-lang {
+      color: $colorMain1;
       &::after {
-        position: absolute;
-        content: '';
-        width: 1px;
-        height: 20px;
-        background: $colorBlack;
+        left: 0;
+        width: 100%;
+        background: $colorMain1;
       }
     }
+  }
+
+  &__separator {
+    width: 1px;
+    height: 20px;
+    margin: 0 2px;
+    background: $colorLightGray;
   }
 }

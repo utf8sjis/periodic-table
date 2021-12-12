@@ -194,17 +194,18 @@
               :style="{'transform': 'translateY(' + (controlPanel.index * -controlPanel.height) + 'px)'}"
             >
               <div class="lang-changer" :class="{'is-overflow-hidden': isBodyScrollLocked}">
-                <ul class="lang-changer__button-container">
+                <div class="lang-changer__button-container">
                   <template v-for="(langObj, langIndex) in langList">
-                    <li class="lang-changer__button"></li>
-                    <li class="lang-changer__button"
+                    <button
+                      type="button"
+                      class="lang-changer__button"
                       :class="[{'is-active-lang': langList[langIndex].isActive}]"
                       @click="setCurrentLang(langIndex)"
                       v-html="langObj.langName"
-                    ></li>
+                    ></button>
+                    <div class="lang-changer__separator" v-show="langIndex !== langList.length - 1"></div>
                   </template>
-                  <li class="lang-changer__button"></li>
-                </ul>
+                </div>
               </div>
             </div>
 
