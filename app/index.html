@@ -177,7 +177,9 @@
 
     </nav>
 
-    <div v-cloak class="nav-back" :class="{'is-active': isNavOpened}" @click="openNav"></div>
+    <transition name="nav-back-">
+      <div v-cloak class="nav-back" v-show="isNavOpened" @click="openNav"></div>
+    </transition>
 
     <div v-cloak>
 
