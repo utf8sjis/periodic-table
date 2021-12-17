@@ -10,7 +10,7 @@ $controlPanelButtonWidth: 30px;
   grid-template-columns: auto $controlPanelButtonWidth;
   box-sizing: content-box;
   position: sticky;
-  top: $headerHeight + 15px;
+  top: $headerHeight;
   overflow: hidden;
   margin: 0 auto 0;
   width: $controlPanelWidth;
@@ -20,7 +20,7 @@ $controlPanelButtonWidth: 30px;
   background: $colorBaseA;
   z-index: 100;
   @include mediaQuery() {
-    top: $headerHeightPhone + 15px;
+    top: $headerHeightPhone;
   }
   @include mediaQuery($controlPanelWidth) {
     margin: 0 10px;

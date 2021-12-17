@@ -46,6 +46,8 @@ $phone: 550px;   // スマートフォン -> main.js
 $se: 350px;      // iPhone SE
 
 /* その他 */
-$headerHeight: 80px;
-$headerHeightPhone: 50px;
+$headerFixedContainerHeight: 80px;
+$headerFixedContainerHeightPhone: 50px;
+$headerHeight: $headerFixedContainerHeight + 15px;
+$headerHeightPhone: $headerFixedContainerHeightPhone + 15px;
 $navOpenTime: 0.5s;

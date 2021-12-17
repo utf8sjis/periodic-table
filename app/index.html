@@ -43,68 +43,70 @@
 
   <div id="app">
 
-    <header v-cloak class="header" :class="{'is-active': isNavOpened}">
+    <header v-cloak class="header">
+      <div class="header__fixed-container" :class="{'is-active': isNavOpened}">
 
-      <div class="header__start">
-        <div class="header__logo">
-          <a href="https://gensokanji.netlify.app">gensokanji</a>
-        </div>
-        <div class="header__site">
-          <i class="header__site-icon fas fa-location-arrow"></i>元素の漢字周期表
-        </div>
-      </div>
-
-      <div class="header__end">
-        <div class="header__share-container" :class="{'is-not-around-top': !isAroundTop}">
-          <div class="header__share-label">SHARE</div>
-          <div class="header__share-button-container">
-            <a class="header__share-button" target="_blank" rel="noreferrer noopener" href="https://twitter.com/share?url=https://gensokanji.netlify.app/periodic-table&text=元素の漢字周期表%20-%20gensokanji%20@gensokanji_bot">
-              <div class="header__share-icon-wrapper header__share-icon-wrapper--twitter">
-                <i class="fab fa-twitter"></i>
-              </div>
-            </a>
-            <a class="header__share-button" target="_blank" rel="noreferrer noopener" href="https://www.facebook.com/sharer/sharer.php?u=https://gensokanji.netlify.app/periodic-table">
-              <div class="header__share-icon-wrapper header__share-icon-wrapper--facebook">
-                <i class="fab fa-facebook"></i>
-              </div>
-            </a>
-            <a class="header__share-button" target="_blank" rel="noreferrer noopener" href="https://social-plugins.line.me/lineit/share?url=https://gensokanji.netlify.app/periodic-table">
-              <div class="header__share-icon-wrapper header__share-icon-wrapper--line">
-                <i class="fab fa-line"></i>
-              </div>
-            </a>
+        <div class="header__start">
+          <div class="header__logo">
+            <a href="https://gensokanji.netlify.app">gensokanji</a>
           </div>
-          <div class="header__top-button-wrapper header__top-button-wrapper--phone">
+          <div class="header__site">
+            <i class="header__site-icon fas fa-location-arrow"></i>元素の漢字周期表
+          </div>
+        </div>
+  
+        <div class="header__end">
+          <div class="header__share-container" :class="{'is-not-around-top': !isAroundTop}">
+            <div class="header__share-label">SHARE</div>
+            <div class="header__share-button-container">
+              <a class="header__share-button" target="_blank" rel="noreferrer noopener" href="https://twitter.com/share?url=https://gensokanji.netlify.app/periodic-table&text=元素の漢字周期表%20-%20gensokanji%20@gensokanji_bot">
+                <div class="header__share-icon-wrapper header__share-icon-wrapper--twitter">
+                  <i class="fab fa-twitter"></i>
+                </div>
+              </a>
+              <a class="header__share-button" target="_blank" rel="noreferrer noopener" href="https://www.facebook.com/sharer/sharer.php?u=https://gensokanji.netlify.app/periodic-table">
+                <div class="header__share-icon-wrapper header__share-icon-wrapper--facebook">
+                  <i class="fab fa-facebook"></i>
+                </div>
+              </a>
+              <a class="header__share-button" target="_blank" rel="noreferrer noopener" href="https://social-plugins.line.me/lineit/share?url=https://gensokanji.netlify.app/periodic-table">
+                <div class="header__share-icon-wrapper header__share-icon-wrapper--line">
+                  <i class="fab fa-line"></i>
+                </div>
+              </a>
+            </div>
+            <div class="header__top-button-wrapper header__top-button-wrapper--phone">
+              <button
+                type="button"
+                :disabled="!isPhone || isAroundTop"
+                class="header__top-button header__top-button--phone"
+                @click="goToTop"
+              >
+                <i class="fas fa-angle-up"></i>
+              </button>
+            </div>
+          </div>
+          <button type="button" class="header__nav-open-button" @click="openNav">
+            <span v-show="!isNavOpened">MORE</span>
+            <span v-show="isNavOpened">CLOSE</span>
+            <span>
+              <i class="header__nav-open-button-icon fas fa-long-arrow-alt-down" :class="{'is-active': isNavOpened}"></i>
+              <i class="header__nav-open-button-icon fas fa-list"></i>
+            </span>
+          </button>
+          <div class="header__top-button-wrapper header__top-button-wrapper--pc" :class="{'is-not-around-top': !isAroundTop}">
             <button
               type="button"
-              :disabled="!isPhone || isAroundTop"
-              class="header__top-button header__top-button--phone"
+              :disabled="isPhone || isAroundTop"
+              class="header__top-button header__top-button--pc"
               @click="goToTop"
             >
               <i class="fas fa-angle-up"></i>
             </button>
           </div>
         </div>
-        <button type="button" class="header__nav-open-button" @click="openNav">
-          <span v-show="!isNavOpened">MORE</span>
-          <span v-show="isNavOpened">CLOSE</span>
-          <span>
-            <i class="header__nav-open-button-icon fas fa-long-arrow-alt-down" :class="{'is-active': isNavOpened}"></i>
-            <i class="header__nav-open-button-icon fas fa-list"></i>
-          </span>
-        </button>
-        <div class="header__top-button-wrapper header__top-button-wrapper--pc" :class="{'is-not-around-top': !isAroundTop}">
-          <button
-            type="button"
-            :disabled="isPhone || isAroundTop"
-            class="header__top-button header__top-button--pc"
-            @click="goToTop"
-          >
-            <i class="fas fa-angle-up"></i>
-          </button>
-        </div>
-      </div>
 
+      </div>
     </header>
 
     <nav v-cloak class="nav" :class="{'is-active': isNavOpened}">

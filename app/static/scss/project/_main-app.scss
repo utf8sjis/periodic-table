@@ -1,9 +1,2 @@
-/****** lang-changer ******/
+/****** main-app ******/
 @use 'global' as *;
-
-.main-app {
-  padding-top: $headerHeight;
-  @include mediaQuery() {
-    padding-top: $headerHeightPhone;
-  }
-}
