@@ -261,10 +261,18 @@
                 </div>
               </div>
             </div>
-            <div v-for="(groupClass, num) in groupClassList" class="periodic-table__group-number" :class="groupClass">
+            <div
+              v-for="(groupClass, num) in groupClassList"
+              class="periodic-table__group-number"
+              :class="groupClass"
+            >
               {{ num + 1 }}
             </div>
-            <div v-for="(periodClass, num) in periodClassList" class="periodic-table__period-number" :class="periodClass">
+            <div
+              v-for="(periodClass, num) in periodClassList"
+              class="periodic-table__period-number"
+              :class="periodClass"
+            >
               {{ num + 1 }}
             </div>
             <div
@@ -282,16 +290,25 @@
             <div
               v-for="(element, elementIndex) in elementList"
               class="periodic-table__cell-wrapper"
-              :class="[`periodic-table__cell-wrapper--cell-${element.elementSymbol}`, {'is-active': elementList[elementIndex].isActive}]"
+              :class="[
+                `periodic-table__cell-wrapper--cell-${element.elementSymbol}`,
+                {'is-active': elementList[elementIndex].isActive}
+              ]"
               @click="openOverlay(elementIndex)"
             >
               <div
                 class="periodic-table__cell"
-                :class="[`periodic-table__cell--${element.categoryClass}`, langList[current.langIndex].langClass]"
+                :class="[
+                  `periodic-table__cell--${element.categoryClass}`,
+                  langList[current.langIndex].langClass
+                ]"
               >
                 <span
                   class="periodic-table__cell-text"
-                  :class="[`periodic-table__cell-text--cell-${element.elementSymbol}`, langList[current.langIndex].langClass]"
+                  :class="[
+                    `periodic-table__cell-text--cell-${element.elementSymbol}`,
+                    langList[current.langIndex].langClass
+                  ]"
                   v-html="element[langList[current.langIndex].langKey]"></span>
               </div>
             </div>

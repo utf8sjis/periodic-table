@@ -27,18 +27,20 @@ $colorTwitter: #55acee;
 $colorFacebook: #315096;
 $colorLINE: #00c300;
 
-/* カテゴリのリスト */
+
+/* カテゴリのテーマカラー */
+$colorHydrogenBlack: #5a5a5aff;
 $categoryList: 'h' 'he' 'li' 'be' 'b' 'c' 'n' 'o' 'f' 'ca' 'zn' 'fe' 'pt' 'la' 'ac' 'transition-metal';
 $categoryColorList:
-  #ffffff #14a6db #da2d6f #bebebe
-  #aa8d16 #9b5e28 #8a23af #118d7a
-  #b8bb00 #ce6d2d #da9a10 #c02a2a
-  #969696 #4dad0d #4116cf #646464;
+  #fdfdfdff #61caffff #e273abff #c4c4c4ff
+  #d39d56ff #d47663ff #bd75bdff #34ada5ff
+  #c0d96aff #eea24cff #f2d35cff #ff6262ff
+  #a8a8a8ff #82c76dff #64a0ddff #858585ff;
 $categoryColorList2:
-  #ffffffec #14a6dbec #da2d6fec #bebebeec
-  #aa8d16ec #9b5e28ec #8a23afec #118d7aec
-  #b8bb00ec #ce6d2dec #da9a10ec #c02a2aec
-  #969696ec #4dad0dec #4116cfec #646464ec;
+  #fdfdfdec #61caffec #e273abec #c4c4c4ec
+  #d39d56ec #d47663ec #bd75bdec #34ada5ec
+  #c0d96aec #eea24cec #f2d35cec #ff6262ec
+  #a8a8a8ec #82c76dec #64a0ddec #858585ec;
 
 /* ブレークポイント */
 $tablet: 1000px; // タブレット
