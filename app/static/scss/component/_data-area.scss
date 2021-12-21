@@ -1,193 +1,205 @@
 /****** data-area ******/
 @use 'global' as *;
 
+$borderColor: #ffffff99;
+$borderColorHydrogen: #00000033;
+$changeDuration: 0.5s;
+
 .data-area {
-  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
   width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-rows:
-    [label] auto
-    [cont] auto;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 5px;
-  line-height: 1;
+  border-radius: 7px;
+  border: 2px solid $borderColor;
   color: $colorWhite;
-  background: rgba(0, 0, 0, 0.2);
+  background: #00000022;
   transition-property: border-color, background-color, color;
-  transition-duration: 0.5s;
+  transition-duration: $changeDuration;
   &.is-category-h {
-    border: 2px solid rgba(0, 0, 0, 0.3);
-    background: rgba(255, 255, 255, 0.4);
-    color: #333;
+    border-color: $borderColorHydrogen;
+    color: $colorHydrogenBlack;
+    background: #ffffff66;
   }
-  &--element-symbol {
-    display: grid;
-    grid-template-areas: 'es-layer';
-    grid-template-rows: auto;
-    grid-template-columns: auto;
-  }
-  &--tweet {
-    background: linear-gradient(0.25turn,
-      rgba(255, 255, 255, 0.2),
-      transparent,
-      rgba(255, 255, 255, 0.2)
-    );
-    &.is-category-h {
-      background: linear-gradient(
-        0.25turn,
-        rgba(0, 0, 0, 0.2),
-        transparent,
-        rgba(0, 0, 0, 0.2)
-      );
+
+  &__item-element-symbol {
+    @include flexCentering();
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+    @include font(en);
+    font-size: 165px;
+    @include mediaQuery() {
+      font-size: 130px;
     }
   }
-  &--close {
-    transition: 0.2s;
+
+  &__item-state {
+    @include flexCentering();
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__item-radioactivity {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 16px;
+  }
+
+  &__item-tweet {
+    @include flexCentering();
+  }
+
+  &__item-close-button {
+    cursor: pointer;
+    @include flexCentering();
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    @include font(en);
+    font-size: 20px;
+    transition: background-color 0.2s;
     &:hover {
-      background: rgba(255, 255, 255, 0.3);
+      background: #ffffff33;
     }
     &.is-category-h {
       &:hover {
-        background: #fff;
+        background: #ffffffff;
       }
     }
   }
-  &--element-changer {
+
+  &__item-element-changer {
     user-select: none;
-    background: rgba(255, 255, 255, 0.8);
+    @include flexCentering(space-between, center);
+    transition-property: background-color, color;
+    transition-duration: $changeDuration;
     @each $category in $categoryList {
       $categoryColor: nth($categoryColorList2, index($categoryList, $category));
       @if $category == h {
         &.is-category-#{$category} {
-          background: rgba(255, 255, 255, 0.8);
+          background: #ffffffee;
         }
       } @else {
         &.is-category-#{$category} {
           color: #{$categoryColor};
+          background: #ffffffee;
         }
       }
     }
   }
 
+  &__item-kanji-copy-button {
+    cursor: pointer;
+    @include flexCentering();
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-radius: 15px 0 3px 0;
+    border: 16px solid $borderColor;
+    font-size: 20px;
+    color: $colorWhite;
+    transition-property: border-color;
+    transition-duration: $changeDuration;
+    @include mediaQuery() {
+      border: 14px solid $borderColor;
+      border-radius: 12px 0 3px 0;
+      font-size: 15px;
+    }
+    &.is-category-h {
+      border: 16px solid $borderColorHydrogen;
+      @include mediaQuery() {
+        border: 14px solid $borderColorHydrogen;
+      }
+    }
+  }
+
+  &__item-common-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 6px 9px;
+  }
+
   &__label {
-    grid-row: label;
-    @include flexCentering(flex-start, flex-start);
-    opacity: 0.7;
-    padding: 6px 9px 0;
-    font-family: $fontEN;
-    font-weight: 200;
+    @include font(en, light);
+    line-height: 1;
     font-size: 23px;
+    opacity: 0.7;
     @include mediaQuery() {
       font-size: 20px;
     }
 
-    span:first-child {
-      padding-right: 6px;
-    }
-
-    span:last-child {
-      display: inline-block;
-      font-size: 17px;
-      opacity: 0.7;
+    span {
+      &:first-child {
+        padding-right: 6px;
+      }
+      &:last-child {
+        display: inline-block;
+        font-size: 17px;
+        opacity: 0.7;
+      }
     }
   }
 
   &__content {
-    grid-row: cont;
-    @include flexCentering();
-    position: relative;
-    &--element-symbol {
-      grid-area: es-layer;
-      padding: 0 0 20px 0;
-      font-family: $fontEN;
-      font-weight: 300;
-      font-size: 165px;
-      @include mediaQuery() {
-        font-size: 130px;
-      }
-    }
-    &--atomic-weight,
-    &--atomic-number,
-    &--period,
-    &--group {
-      @include flexCentering(flex-end, center);
-      position: relative;
-      top: -6px;
-      padding: 0 10px;
-      font-family: $fontEN;
-      font-weight: 300;
+    flex: 1;
+    flex-direction: column;
+    &--num {
+      @include flexCentering(center, flex-end);
+      @include font(en);
       font-size: 45px;
       @include mediaQuery() {
         font-size: 35px;
       }
     }
-    &--cn,
-    &--tw,
-    &--hk {
-      display: grid;
-      grid-template-rows: auto auto;
-      text-align: center;
-      padding: 0 5px 25px;
+    &--kanji {
+      @include flexCentering(flex-end, center);
+      padding-bottom: 25px;
       @include mediaQuery() {
-        padding-bottom: 20px;
+        padding-bottom: 23px;
       }
     }
-    &--pinyin,
-    &--bopomofo {
-      padding: 4px 7px 12px;
+    &--pinyin {
+      @include flexCentering(flex-end, center);
+      padding: 5px 0;
       white-space: nowrap;
-      font-family: $fontPY;
+      @include font(py);
       font-size: 20px;
     }
-    &--category,
-    &--japanese-name,
-    &--english-name {
-      padding: 6px 7px 10px;
+    &--category {
+      @include flexCentering();
+      padding: 5px 0;
       font-size: 20px;
       @include mediaQuery() {
         font-size: 18px;
       }
     }
-    &--japanese-name,
-    &--english-name {
+    &--japanese-name {
+      @include flexCentering();
+      padding: 5px 0;
       white-space: nowrap;
+      font-size: 20px;
+      @include mediaQuery() {
+        font-size: 18px;
+      }
       @include mediaQuery($se) {
         white-space: normal;
       }
     }
     &--english-name {
-      font-family: $fontEN;
+      @include flexCentering();
+      padding: 5px 0;
+      @include font(en);
       font-size: 22px;
-      font-weight: 300;
       @include mediaQuery() {
         font-size: 20px;
       }
-    }
-    &--close {
-      cursor: pointer;
-      padding: 15px;
-      font-family: $fontEN;
-      font-size: 20px;
-    }
-    &--element-changer {
-      @include flexCentering(space-between, center);
-    }
-  }
-
-  &__float {
-    border: none;
-    background: none;
-    &--state {
-      grid-area: es-layer;
-      @include flexCentering();
-      padding: 10px;
-    }
-    &--radioactivity {
-      grid-area: es-layer;
-      @include flexCentering(flex-end, flex-start);
-      padding: 15px 15px 0 0;
-      font-size: 16px;
     }
   }
 
@@ -207,78 +219,49 @@
     width: 45px;
   }
 
+  &__category-text {
+    text-align: center;
+
+    > span {
+      display: inline-block;
+    }
+  }
+
   &__kanji-character {
     font-size: 125px;
     @include mediaQuery() {
       font-size: 70px;
     }
     &--cn {
-      font-family: $fontCN;
+      @include font(cn);
     }
     &--tw {
-      font-family: $fontTW;
+      @include font(tw);
     }
     &--hk {
-      font-family: $fontHK;
+      @include font(hk);
     }
   }
 
   &__kanji-code-point {
-    padding-top: 10px;
-    font-family: $fontEN;
-    font-weight: 200;
+    @include font(en, light);
     font-size: 20px;
     opacity: 0.7;
     @include mediaQuery() {
-      padding-top: 5px;
       font-size: 16px;
     }
   }
 
-  &__kanji-copy-button {
-    position: absolute;
-    cursor: pointer;
-    @include flexCentering();
-    bottom: 0px;
-    right: 0px;
-    width: 0;
-    height: 0;
-    border-radius: 15px 0 3px 0;
-    border: 16px solid rgba(255, 255, 255, 0.5);
-    color: $colorWhite;
-    font-size: 20px;
-    transition: 0.5s;
-    @include mediaQuery() {
-      border-radius: 12px 0 3px 0;
-      border: 12px solid rgba(255, 255, 255, 0.5);
-      font-size: 14px;
-    }
-    &.is-category-h {
-      border: 16px solid rgba(0, 0, 0, 0.3);
-      color: $colorWhite;
-      @include mediaQuery() {
-        border-radius: 12px 0 3px 0;
-        border: 12px solid rgba(0, 0, 0, 0.3);
-        font-size: 14px;
-      }
-    }
-  }
-
   &__element-changer-button {
-    @include flexCentering(flex-start, center);
-    border: 0px solid #fff;
-    border-radius: 3px; // border-radius(5px) - border(2px)
     cursor: pointer;
+    @include flexCentering(flex-start, center);
+    transition: transform 0.05s;
     &:active {
-      > * {
-        transform: translateY(2px);
-      }
+      transform: translateY(2px);
     }
     &.is-disabled {
       pointer-events: none;
-      > * {
-        opacity: 0.4;
-      }
+      opacity: 0.4;
     }
   }
 
@@ -287,7 +270,7 @@
   }
 
   &__element-changer-button-text {
-    font-family: $fontEN;
+    @include font(en);
     font-size: 50px;
     @include mediaQuery() {
       font-size: 35px;

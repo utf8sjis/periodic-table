@@ -14,7 +14,7 @@ export const elementList = [
     period: '1',
     group: '1',
     atomicWeight: '1.008',
-    category: '典型元素',
+    category: '<span>典型元素</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426141276932644866?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'qīng',
@@ -40,7 +40,7 @@ export const elementList = [
     period: '1',
     group: '18',
     atomicWeight: '4.003',
-    category: '典型元素／貴ガス',
+    category: '<span>典型元素／</span><span>貴ガス</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426133508796387328?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'hài',
@@ -66,7 +66,7 @@ export const elementList = [
     period: '2',
     group: '1',
     atomicWeight: '6.941',
-    category: '典型元素／アルカリ金属',
+    category: '<span>典型元素／</span><span>アルカリ金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426156434618822659?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lǐ',
@@ -92,7 +92,7 @@ export const elementList = [
     period: '2',
     group: '2',
     atomicWeight: '9.012',
-    category: '典型元素',
+    category: '<span>典型元素</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425854211443597312?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'pí',
@@ -118,7 +118,7 @@ export const elementList = [
     period: '2',
     group: '13',
     atomicWeight: '10.81',
-    category: '典型元素／ホウ素族',
+    category: '<span>典型元素／</span><span>ホウ素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424764736646885379?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'péng',
@@ -144,7 +144,7 @@ export const elementList = [
     period: '2',
     group: '14',
     atomicWeight: '12.01',
-    category: '典型元素／炭素族',
+    category: '<span>典型元素／</span><span>炭素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424681504563679234?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tàn',
@@ -170,7 +170,7 @@ export const elementList = [
     period: '2',
     group: '15',
     atomicWeight: '14.01',
-    category: '典型元素／窒素族',
+    category: '<span>典型元素／</span><span>窒素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422656832699609090?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'dàn',
@@ -196,7 +196,7 @@ export const elementList = [
     period: '2',
     group: '16',
     atomicWeight: '16.00',
-    category: '典型元素／酸素族',
+    category: '<span>典型元素／</span><span>酸素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424789658605703170?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yǎng',
@@ -222,7 +222,7 @@ export const elementList = [
     period: '2',
     group: '17',
     atomicWeight: '19.00',
-    category: '典型元素／ハロゲン',
+    category: '<span>典型元素／</span><span>ハロゲン</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424724770256531462?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'fú',
@@ -248,7 +248,7 @@ export const elementList = [
     period: '2',
     group: '18',
     atomicWeight: '20.18',
-    category: '典型元素／貴ガス',
+    category: '<span>典型元素／</span><span>貴ガス</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423725103800537094?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'nǎi',
@@ -274,7 +274,7 @@ export const elementList = [
     period: '3',
     group: '1',
     atomicWeight: '22.99',
-    category: '典型元素／アルカリ金属',
+    category: '<span>典型元素／</span><span>アルカリ金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424482659489701893?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'nà',
@@ -300,7 +300,7 @@ export const elementList = [
     period: '3',
     group: '2',
     atomicWeight: '24.31',
-    category: '典型元素',
+    category: '<span>典型元素</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423627235618172929?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'měi',
@@ -326,7 +326,7 @@ export const elementList = [
     period: '3',
     group: '13',
     atomicWeight: '26.98',
-    category: '典型元素／ホウ素族',
+    category: '<span>典型元素／</span><span>ホウ素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423712832827371521?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lǚ',
@@ -352,7 +352,7 @@ export const elementList = [
     period: '3',
     group: '14',
     atomicWeight: '28.09',
-    category: '典型元素／炭素族',
+    category: '<span>典型元素／</span><span>炭素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424444890696519684?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'guī',
@@ -378,7 +378,7 @@ export const elementList = [
     period: '3',
     group: '15',
     atomicWeight: '30.97',
-    category: '典型元素／窒素族',
+    category: '<span>典型元素／</span><span>窒素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1375796823072374791?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lín',
@@ -404,7 +404,7 @@ export const elementList = [
     period: '3',
     group: '16',
     atomicWeight: '32.07',
-    category: '典型元素／酸素族',
+    category: '<span>典型元素／</span><span>酸素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423443285050265600?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'liú',
@@ -430,7 +430,7 @@ export const elementList = [
     period: '3',
     group: '17',
     atomicWeight: '35.45',
-    category: '典型元素／ハロゲン',
+    category: '<span>典型元素／</span><span>ハロゲン</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422791472072597504?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lǜ',
@@ -456,7 +456,7 @@ export const elementList = [
     period: '3',
     group: '18',
     atomicWeight: '39.95',
-    category: '典型元素／貴ガス',
+    category: '<span>典型元素／</span><span>貴ガス</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423468514204073985?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yà',
@@ -482,7 +482,7 @@ export const elementList = [
     period: '4',
     group: '1',
     atomicWeight: '39.10',
-    category: '典型元素／アルカリ金属',
+    category: '<span>典型元素／</span><span>アルカリ金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425713544289562629?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'jiǎ',
@@ -508,7 +508,7 @@ export const elementList = [
     period: '4',
     group: '2',
     atomicWeight: '40.08',
-    category: '典型元素／アルカリ土類金属',
+    category: '<span>典型元素／</span><span>アルカリ土類金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425235312129753095?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'gài',
@@ -534,7 +534,7 @@ export const elementList = [
     period: '4',
     group: '3',
     atomicWeight: '44.96',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424908438673444867?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'kàng',
@@ -560,7 +560,7 @@ export const elementList = [
     period: '4',
     group: '4',
     atomicWeight: '47.87',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426010152206020610?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tài',
@@ -586,7 +586,7 @@ export const elementList = [
     period: '4',
     group: '5',
     atomicWeight: '50.94',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425604984570327040?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'fán',
@@ -612,7 +612,7 @@ export const elementList = [
     period: '4',
     group: '6',
     atomicWeight: '52.00',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423023166876798990?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'gè',
@@ -638,7 +638,7 @@ export const elementList = [
     period: '4',
     group: '7',
     atomicWeight: '54.94',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423788345797251080?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'měng',
@@ -664,7 +664,7 @@ export const elementList = [
     period: '4',
     group: '8',
     atomicWeight: '55.85',
-    category: '遷移金属／鉄族',
+    category: '<span>遷移金属／</span><span>鉄族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424261557131878403?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tiě',
@@ -690,7 +690,7 @@ export const elementList = [
     period: '4',
     group: '9',
     atomicWeight: '58.93',
-    category: '遷移金属／鉄族',
+    category: '<span>遷移金属／</span><span>鉄族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424389610176720900?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'gǔ',
@@ -716,7 +716,7 @@ export const elementList = [
     period: '4',
     group: '10',
     atomicWeight: '58.69',
-    category: '遷移金属／鉄族',
+    category: '<span>遷移金属／</span><span>鉄族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425169647721226244?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'niè',
@@ -742,7 +742,7 @@ export const elementList = [
     period: '4',
     group: '11',
     atomicWeight: '63.55',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425829307721474052?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tóng',
@@ -768,7 +768,7 @@ export const elementList = [
     period: '4',
     group: '12',
     atomicWeight: '65.38',
-    category: '典型元素／亜鉛族',
+    category: '<span>典型元素／</span><span>亜鉛族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424860121998495744?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'xīn',
@@ -794,7 +794,7 @@ export const elementList = [
     period: '4',
     group: '13',
     atomicWeight: '69.72',
-    category: '典型元素／ホウ素族',
+    category: '<span>典型元素／</span><span>ホウ素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422747443070898176?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'jiā',
@@ -820,7 +820,7 @@ export const elementList = [
     period: '4',
     group: '14',
     atomicWeight: '72.63',
-    category: '典型元素／炭素族',
+    category: '<span>典型元素／</span><span>炭素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425393766429601792?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'zhě',
@@ -846,7 +846,7 @@ export const elementList = [
     period: '4',
     group: '15',
     atomicWeight: '74.92',
-    category: '典型元素／窒素族',
+    category: '<span>典型元素／</span><span>窒素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425647795625672705?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'shēn',
@@ -872,7 +872,7 @@ export const elementList = [
     period: '4',
     group: '16',
     atomicWeight: '78.97',
-    category: '典型元素／酸素族',
+    category: '<span>典型元素／</span><span>酸素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423891419983458307?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'xī',
@@ -898,7 +898,7 @@ export const elementList = [
     period: '4',
     group: '17',
     atomicWeight: '79.90',
-    category: '典型元素／ハロゲン',
+    category: '<span>典型元素／</span><span>ハロゲン</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423592017783894017?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'xiù',
@@ -924,7 +924,7 @@ export const elementList = [
     period: '4',
     group: '18',
     atomicWeight: '83.80',
-    category: '典型元素／貴ガス',
+    category: '<span>典型元素／</span><span>貴ガス</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425519839876194304?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'kè',
@@ -950,7 +950,7 @@ export const elementList = [
     period: '5',
     group: '1',
     atomicWeight: '85.47',
-    category: '典型元素／アルカリ金属',
+    category: '<span>典型元素／</span><span>アルカリ金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424097827588825097?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'rú',
@@ -976,7 +976,7 @@ export const elementList = [
     period: '5',
     group: '2',
     atomicWeight: '87.62',
-    category: '典型元素／アルカリ土類金属',
+    category: '<span>典型元素／</span><span>アルカリ土類金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425225483629875200?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'sī',
@@ -1002,7 +1002,7 @@ export const elementList = [
     period: '5',
     group: '3',
     atomicWeight: '88.91',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423674954961367041?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yǐ',
@@ -1028,7 +1028,7 @@ export const elementList = [
     period: '5',
     group: '4',
     atomicWeight: '91.22',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424993577243971586?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'gào',
@@ -1054,7 +1054,7 @@ export const elementList = [
     period: '5',
     group: '5',
     atomicWeight: '92.91',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426065927624347649?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'ní',
@@ -1080,7 +1080,7 @@ export const elementList = [
     period: '5',
     group: '6',
     atomicWeight: '95.95',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423682540897030145?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'mù',
@@ -1106,7 +1106,7 @@ export const elementList = [
     period: '5',
     group: '7',
     atomicWeight: '(99)',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422900015190712326?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'dé',
@@ -1132,7 +1132,7 @@ export const elementList = [
     period: '5',
     group: '8',
     atomicWeight: '101.1',
-    category: '遷移金属／白金族',
+    category: '<span>遷移金属／</span><span>白金族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423408424797212672?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'liǎo',
@@ -1158,7 +1158,7 @@ export const elementList = [
     period: '5',
     group: '9',
     atomicWeight: '102.9',
-    category: '遷移金属／白金族',
+    category: '<span>遷移金属／</span><span>白金族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422757535556177920?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lǎo',
@@ -1184,7 +1184,7 @@ export const elementList = [
     period: '5',
     group: '10',
     atomicWeight: '106.4',
-    category: '遷移金属／白金族',
+    category: '<span>遷移金属／</span><span>白金族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425929787105742863?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'bǎ',
@@ -1210,7 +1210,7 @@ export const elementList = [
     period: '5',
     group: '11',
     atomicWeight: '107.9',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425258056514998274?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yín',
@@ -1236,7 +1236,7 @@ export const elementList = [
     period: '5',
     group: '12',
     atomicWeight: '112.4',
-    category: '典型元素／亜鉛族',
+    category: '<span>典型元素／</span><span>亜鉛族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425660821212905476?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'gé',
@@ -1262,7 +1262,7 @@ export const elementList = [
     period: '5',
     group: '13',
     atomicWeight: '114.8',
-    category: '典型元素／ホウ素族',
+    category: '<span>典型元素／</span><span>ホウ素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423992236887396353?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yīn',
@@ -1288,7 +1288,7 @@ export const elementList = [
     period: '5',
     group: '14',
     atomicWeight: '118.7',
-    category: '典型元素／炭素族',
+    category: '<span>典型元素／</span><span>炭素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424452536480632836?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'xī',
@@ -1314,7 +1314,7 @@ export const elementList = [
     period: '5',
     group: '15',
     atomicWeight: '121.8',
-    category: '典型元素／窒素族',
+    category: '<span>典型元素／</span><span>窒素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423382961764831237?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tī',
@@ -1340,7 +1340,7 @@ export const elementList = [
     period: '5',
     group: '16',
     atomicWeight: '127.6',
-    category: '典型元素／酸素族',
+    category: '<span>典型元素／</span><span>酸素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424024674275627016?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'dì',
@@ -1366,7 +1366,7 @@ export const elementList = [
     period: '5',
     group: '17',
     atomicWeight: '126.9',
-    category: '典型元素／ハロゲン',
+    category: '<span>典型元素／</span><span>ハロゲン</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423816293715677185?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'diǎn',
@@ -1392,7 +1392,7 @@ export const elementList = [
     period: '5',
     group: '18',
     atomicWeight: '131.3',
-    category: '典型元素／貴ガス',
+    category: '<span>典型元素／</span><span>貴ガス</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423453438302695427?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'xiān',
@@ -1418,7 +1418,7 @@ export const elementList = [
     period: '6',
     group: '1',
     atomicWeight: '132.9',
-    category: '典型元素／アルカリ金属',
+    category: '<span>典型元素／</span><span>アルカリ金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425587619749142534?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'sè',
@@ -1444,7 +1444,7 @@ export const elementList = [
     period: '6',
     group: '2',
     atomicWeight: '137.3',
-    category: '典型元素／アルカリ土類金属',
+    category: '<span>典型元素／</span><span>アルカリ土類金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423612294555176964?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'bèi',
@@ -1470,7 +1470,7 @@ export const elementList = [
     period: '6',
     group: '3',
     atomicWeight: '138.9',
-    category: '遷移金属／ランタノイド',
+    category: '<span>遷移金属／</span><span>ランタノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423259689811386373?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lán',
@@ -1496,7 +1496,7 @@ export const elementList = [
     period: '6',
     group: '3',
     atomicWeight: '140.1',
-    category: '遷移金属／ランタノイド',
+    category: '<span>遷移金属／</span><span>ランタノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422669448192856064?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'shì',
@@ -1522,7 +1522,7 @@ export const elementList = [
     period: '6',
     group: '3',
     atomicWeight: '140.9',
-    category: '遷移金属／ランタノイド',
+    category: '<span>遷移金属／</span><span>ランタノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423068513665789952?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'pǔ',
@@ -1548,7 +1548,7 @@ export const elementList = [
     period: '6',
     group: '3',
     atomicWeight: '144.2',
-    category: '遷移金属／ランタノイド',
+    category: '<span>遷移金属／</span><span>ランタノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425099516873674753?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'nǚ',
@@ -1574,7 +1574,7 @@ export const elementList = [
     period: '6',
     group: '3',
     atomicWeight: '(145)',
-    category: '遷移金属／ランタノイド',
+    category: '<span>遷移金属／</span><span>ランタノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425914601787568131?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'pǒ',
@@ -1600,7 +1600,7 @@ export const elementList = [
     period: '6',
     group: '3',
     atomicWeight: '150.4',
-    category: '遷移金属／ランタノイド',
+    category: '<span>遷移金属／</span><span>ランタノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423269783940866055?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'shān',
@@ -1626,7 +1626,7 @@ export const elementList = [
     period: '6',
     group: '3',
     atomicWeight: '152.0',
-    category: '遷移金属／ランタノイド',
+    category: '<span>遷移金属／</span><span>ランタノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423365410460684300?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yǒu',
@@ -1652,7 +1652,7 @@ export const elementList = [
     period: '6',
     group: '3',
     atomicWeight: '157.3',
-    category: '遷移金属／ランタノイド',
+    category: '<span>遷移金属／</span><span>ランタノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423297730554834947?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'gá',
@@ -1678,7 +1678,7 @@ export const elementList = [
     period: '6',
     group: '3',
     atomicWeight: '158.9',
-    category: '遷移金属／ランタノイド',
+    category: '<span>遷移金属／</span><span>ランタノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424200997833003010?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tè',
@@ -1704,7 +1704,7 @@ export const elementList = [
     period: '6',
     group: '3',
     atomicWeight: '162.5',
-    category: '遷移金属／ランタノイド',
+    category: '<span>遷移金属／</span><span>ランタノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423838436142747650?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'dī',
@@ -1730,7 +1730,7 @@ export const elementList = [
     period: '6',
     group: '3',
     atomicWeight: '164.9',
-    category: '遷移金属／ランタノイド',
+    category: '<span>遷移金属／</span><span>ランタノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425715932845027329?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'huǒ',
@@ -1756,7 +1756,7 @@ export const elementList = [
     period: '6',
     group: '3',
     atomicWeight: '167.3',
-    category: '遷移金属／ランタノイド',
+    category: '<span>遷移金属／</span><span>ランタノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424799799677698058?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'ěr',
@@ -1782,7 +1782,7 @@ export const elementList = [
     period: '6',
     group: '3',
     atomicWeight: '168.9',
-    category: '遷移金属／ランタノイド',
+    category: '<span>遷移金属／</span><span>ランタノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422702132533342214?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'diū',
@@ -1808,7 +1808,7 @@ export const elementList = [
     period: '6',
     group: '3',
     atomicWeight: '173.0',
-    category: '遷移金属／ランタノイド',
+    category: '<span>遷移金属／</span><span>ランタノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424533107923881989?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yì',
@@ -1834,7 +1834,7 @@ export const elementList = [
     period: '6',
     group: '3',
     atomicWeight: '175.0',
-    category: '遷移金属／ランタノイド',
+    category: '<span>遷移金属／</span><span>ランタノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423863784490287108?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lǔ',
@@ -1860,7 +1860,7 @@ export const elementList = [
     period: '6',
     group: '4',
     atomicWeight: '178.5',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425844234888830980?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'hā',
@@ -1886,7 +1886,7 @@ export const elementList = [
     period: '6',
     group: '5',
     atomicWeight: '180.9',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423652116808314885?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tǎn',
@@ -1912,7 +1912,7 @@ export const elementList = [
     period: '6',
     group: '6',
     atomicWeight: '183.8',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424052488014020617?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'wū',
@@ -1938,7 +1938,7 @@ export const elementList = [
     period: '6',
     group: '7',
     atomicWeight: '186.2',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425330860513955842?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lái',
@@ -1964,7 +1964,7 @@ export const elementList = [
     period: '6',
     group: '8',
     atomicWeight: '190.2',
-    category: '遷移金属／白金族',
+    category: '<span>遷移金属／</span><span>白金族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424646627877441538?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'é',
@@ -1990,7 +1990,7 @@ export const elementList = [
     period: '6',
     group: '9',
     atomicWeight: '192.2',
-    category: '遷移金属／白金族',
+    category: '<span>遷移金属／</span><span>白金族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422805328912166914?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yī',
@@ -2016,7 +2016,7 @@ export const elementList = [
     period: '6',
     group: '10',
     atomicWeight: '195.1',
-    category: '遷移金属／白金族',
+    category: '<span>遷移金属／</span><span>白金族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423232062950084608?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'bó',
@@ -2042,7 +2042,7 @@ export const elementList = [
     period: '6',
     group: '11',
     atomicWeight: '197.0',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424216097692295170?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'jīn',
@@ -2068,7 +2068,7 @@ export const elementList = [
     period: '6',
     group: '12',
     atomicWeight: '200.6',
-    category: '典型元素／亜鉛族',
+    category: '<span>典型元素／</span><span>亜鉛族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425794131733909504?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'gǒng',
@@ -2094,7 +2094,7 @@ export const elementList = [
     period: '6',
     group: '13',
     atomicWeight: '204.4',
-    category: '典型元素／ホウ素族',
+    category: '<span>典型元素／</span><span>ホウ素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425992808733753347?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tā',
@@ -2120,7 +2120,7 @@ export const elementList = [
     period: '6',
     group: '14',
     atomicWeight: '207.2',
-    category: '典型元素／炭素族',
+    category: '<span>典型元素／</span><span>炭素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423959247818272776?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'qiān',
@@ -2146,7 +2146,7 @@ export const elementList = [
     period: '6',
     group: '15',
     atomicWeight: '209.0',
-    category: '典型元素／窒素族',
+    category: '<span>典型元素／</span><span>窒素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424160922453614600?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'bì',
@@ -2172,7 +2172,7 @@ export const elementList = [
     period: '6',
     group: '16',
     atomicWeight: '(210)',
-    category: '典型元素／酸素族',
+    category: '<span>典型元素／</span><span>酸素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423700106575073282?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'pō',
@@ -2198,7 +2198,7 @@ export const elementList = [
     period: '6',
     group: '17',
     atomicWeight: '(210)',
-    category: '典型元素／ハロゲン',
+    category: '<span>典型元素／</span><span>ハロゲン</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426106270986158082?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'ài',
@@ -2224,7 +2224,7 @@ export const elementList = [
     period: '6',
     group: '18',
     atomicWeight: '(222)',
-    category: '典型元素／貴ガス',
+    category: '<span>典型元素／</span><span>貴ガス</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422772669930479616?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'dōng',
@@ -2250,7 +2250,7 @@ export const elementList = [
     period: '7',
     group: '1',
     atomicWeight: '(223)',
-    category: '典型元素／アルカリ金属',
+    category: '<span>典型元素／</span><span>アルカリ金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426171495731056644?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'fāng',
@@ -2276,7 +2276,7 @@ export const elementList = [
     period: '7',
     group: '2',
     atomicWeight: '(226)',
-    category: '典型元素／アルカリ土類金属',
+    category: '<span>典型元素／</span><span>アルカリ土類金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423003053003845643?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'léi',
@@ -2302,7 +2302,7 @@ export const elementList = [
     period: '7',
     group: '3',
     atomicWeight: '(227)',
-    category: '遷移金属／アクチノイド',
+    category: '<span>遷移金属／</span><span>アクチノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426206448913158146?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'ā',
@@ -2328,7 +2328,7 @@ export const elementList = [
     period: '7',
     group: '3',
     atomicWeight: '232.0',
-    category: '遷移金属／アクチノイド',
+    category: '<span>遷移金属／</span><span>アクチノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422884811761405954?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tǔ',
@@ -2354,7 +2354,7 @@ export const elementList = [
     period: '7',
     group: '3',
     atomicWeight: '231.0',
-    category: '遷移金属／アクチノイド',
+    category: '<span>遷移金属／</span><span>アクチノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425562729830621204?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'pú',
@@ -2380,7 +2380,7 @@ export const elementList = [
     period: '7',
     group: '3',
     atomicWeight: '238.0',
-    category: '遷移金属／アクチノイド',
+    category: '<span>遷移金属／</span><span>アクチノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424422333616467969?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'yóu',
@@ -2406,7 +2406,7 @@ export const elementList = [
     period: '7',
     group: '3',
     atomicWeight: '(237)',
-    category: '遷移金属／アクチノイド',
+    category: '<span>遷移金属／</span><span>アクチノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426080851985637376?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'ná',
@@ -2432,7 +2432,7 @@ export const elementList = [
     period: '7',
     group: '3',
     atomicWeight: '(239)',
-    category: '遷移金属／アクチノイド',
+    category: '<span>遷移金属／</span><span>アクチノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422955159529967617?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'bù',
@@ -2458,7 +2458,7 @@ export const elementList = [
     period: '7',
     group: '3',
     atomicWeight: '(243)',
-    category: '遷移金属／アクチノイド',
+    category: '<span>遷移金属／</span><span>アクチノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425670571405230080?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'méi',
@@ -2484,7 +2484,7 @@ export const elementList = [
     period: '7',
     group: '3',
     atomicWeight: '(247)',
-    category: '遷移金属／アクチノイド',
+    category: '<span>遷移金属／</span><span>アクチノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425315875079561217?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'jú',
@@ -2510,7 +2510,7 @@ export const elementList = [
     period: '7',
     group: '3',
     atomicWeight: '(247)',
-    category: '遷移金属／アクチノイド',
+    category: '<span>遷移金属／</span><span>アクチノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425471658526191620?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'péi',
@@ -2536,7 +2536,7 @@ export const elementList = [
     period: '7',
     group: '3',
     atomicWeight: '(252)',
-    category: '遷移金属／アクチノイド',
+    category: '<span>遷移金属／</span><span>アクチノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424598763809693703?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'kāi',
@@ -2562,7 +2562,7 @@ export const elementList = [
     period: '7',
     group: '3',
     atomicWeight: '(252)',
-    category: '遷移金属／アクチノイド',
+    category: '<span>遷移金属／</span><span>アクチノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426020410206736386?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'āi',
@@ -2588,7 +2588,7 @@ export const elementList = [
     period: '7',
     group: '3',
     atomicWeight: '(257)',
-    category: '遷移金属／アクチノイド',
+    category: '<span>遷移金属／</span><span>アクチノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425202516560646148?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'fèi',
@@ -2614,7 +2614,7 @@ export const elementList = [
     period: '7',
     group: '3',
     atomicWeight: '(258)',
-    category: '遷移金属／アクチノイド',
+    category: '<span>遷移金属／</span><span>アクチノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425876904452763651?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'mén',
@@ -2640,7 +2640,7 @@ export const elementList = [
     period: '7',
     group: '3',
     atomicWeight: '(259)',
-    category: '遷移金属／アクチノイド',
+    category: '<span>遷移金属／</span><span>アクチノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424832505220378628?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'nuò',
@@ -2666,7 +2666,7 @@ export const elementList = [
     period: '7',
     group: '3',
     atomicWeight: '(262)',
-    category: '遷移金属／アクチノイド',
+    category: '<span>遷移金属／</span><span>アクチノイド</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424331672670060547?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'láo',
@@ -2692,7 +2692,7 @@ export const elementList = [
     period: '7',
     group: '4',
     atomicWeight: '(267)',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425688318344376322?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lú',
@@ -2718,7 +2718,7 @@ export const elementList = [
     period: '7',
     group: '5',
     atomicWeight: '(268)',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425273440878088194?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'dù',
@@ -2744,7 +2744,7 @@ export const elementList = [
     period: '7',
     group: '6',
     atomicWeight: '(271)',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424988588039680000?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'xǐ',
@@ -2770,7 +2770,7 @@ export const elementList = [
     period: '7',
     group: '7',
     atomicWeight: '(272)',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424814872206925832?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'bō',
@@ -2796,7 +2796,7 @@ export const elementList = [
     period: '7',
     group: '8',
     atomicWeight: '(277)',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1426186326940991491?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'hēi',
@@ -2822,7 +2822,7 @@ export const elementList = [
     period: '7',
     group: '9',
     atomicWeight: '(276)',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424009474554146818?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'mài',
@@ -2848,7 +2848,7 @@ export const elementList = [
     period: '7',
     group: '10',
     atomicWeight: '(281)',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1422841956326121472?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'dá',
@@ -2874,7 +2874,7 @@ export const elementList = [
     period: '7',
     group: '11',
     atomicWeight: '(280)',
-    category: '遷移金属',
+    category: '<span>遷移金属</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425139544324808708?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lún',
@@ -2900,7 +2900,7 @@ export const elementList = [
     period: '7',
     group: '12',
     atomicWeight: '(285)',
-    category: '典型元素／亜鉛族',
+    category: '<span>典型元素／</span><span>亜鉛族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425179954367668225?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'gē',
@@ -2926,7 +2926,7 @@ export const elementList = [
     period: '7',
     group: '13',
     atomicWeight: '(278)',
-    category: '典型元素／ホウ素族',
+    category: '<span>典型元素／</span><span>ホウ素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425411380367269892?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'nǐ',
@@ -2952,7 +2952,7 @@ export const elementList = [
     period: '7',
     group: '14',
     atomicWeight: '(289)',
-    category: '典型元素／炭素族',
+    category: '<span>典型元素／</span><span>炭素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425967804335939585?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'fū',
@@ -2978,7 +2978,7 @@ export const elementList = [
     period: '7',
     group: '15',
     atomicWeight: '(289)',
-    category: '典型元素／窒素族',
+    category: '<span>典型元素／</span><span>窒素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1425491788668747789?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'mò',
@@ -3004,7 +3004,7 @@ export const elementList = [
     period: '7',
     group: '16',
     atomicWeight: '(293)',
-    category: '典型元素／酸素族',
+    category: '<span>典型元素／</span><span>酸素族</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1423312426179702790?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'lì',
@@ -3030,7 +3030,7 @@ export const elementList = [
     period: '7',
     group: '17',
     atomicWeight: '(293)',
-    category: '典型元素／ハロゲン',
+    category: '<span>典型元素／</span><span>ハロゲン</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424344462776586241?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'tián',
@@ -3056,7 +3056,7 @@ export const elementList = [
     period: '7',
     group: '18',
     atomicWeight: '(294)',
-    category: '典型元素／貴ガス',
+    category: '<span>典型元素／</span><span>貴ガス</span>',
     twitterTweet:
       '<blockquote class="twitter-tweet"><a href="https://twitter.com/gensokanji_bot/status/1424893075932028932?ref_src=twsrc%5Etfw"></a></blockquote>',
     pinyin: 'ào',

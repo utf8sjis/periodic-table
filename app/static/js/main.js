@@ -10,15 +10,16 @@ import {themeColorList} from './data/theme_color_list.js';
 Vue.config.ignoredElements = ['ion-icon'];
 
 Vue.component('data-area', {
-  props: ['name', 'label', 'categoryClass'],
+  props: ['type', 'label', 'categoryClass'],
   template: `
-    <div :class="['data-area', 'data-area--' + name, categoryClass]">
-      <div class="data-area__label">
-        <div v-html="label"></div>
+    <div class="data-area" :class="categoryClass">
+      <div class="data-area__item-common-container">
+        <div class="data-area__label" v-html="label"></div>
+        <div class="data-area__content" :class="'data-area__content--' + type">
+          <slot name="content"></slot>
+        </div>
       </div>
-      <div :class="['data-area__content', 'data-area__content--' + name]">
-        <slot></slot>
-      </div>
+      <slot name="absolute"></slot>
     </div>`,
 });
 
