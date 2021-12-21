@@ -11,6 +11,8 @@
     [cont] auto;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 5px;
+  line-height: 1;
+  color: $colorWhite;
   background: rgba(0, 0, 0, 0.2);
   transition-property: border-color, background-color, color;
   transition-duration: 0.5s;
