@@ -352,45 +352,35 @@
                     <data-area
                       type="num" label="Z ="
                       :category-class="'is-' + elementList[current.elementIndex].categoryClass"
-                    >
-                      <template v-slot:content>{{ elementList[current.elementIndex].atomicNumber }}</template>
-                    </data-area>
+                    >{{ elementList[current.elementIndex].atomicNumber }}</data-area>
                   </div>
                   <div class="overlay__area overlay__area--period">
                     <data-area
                       type="num" label="Period"
                       :category-class="'is-' + elementList[current.elementIndex].categoryClass"
-                    >
-                      <template v-slot:content>{{ elementList[current.elementIndex].period }}</template>
-                    </data-area>
+                    >{{ elementList[current.elementIndex].period }}</data-area>
                   </div>
                   <div class="overlay__area overlay__area--group">
                     <data-area
                       type="num" label="Group"
                       :category-class="'is-' + elementList[current.elementIndex].categoryClass"
-                    >
-                      <template v-slot:content>{{ elementList[current.elementIndex].group }}</template>
-                    </data-area>
+                    >{{ elementList[current.elementIndex].group }}</data-area>
                   </div>
                   <div class="overlay__area overlay__area--atomic-weight">
                     <data-area
                       type="num" label="Weight"
                       :category-class="'is-' + elementList[current.elementIndex].categoryClass"
-                    >
-                      <template v-slot:content>{{ elementList[current.elementIndex].atomicWeight }}</template>
-                    </data-area>
+                    >{{ elementList[current.elementIndex].atomicWeight }}</data-area>
                   </div>
                   <div class="overlay__area overlay__area--category">
                     <data-area
                       type="category" label="Category"
                       :category-class="'is-' + elementList[current.elementIndex].categoryClass"
                     >
-                      <template v-slot:content>
-                        <div
-                          class="data-area__category-text"
-                          v-html="elementList[current.elementIndex].category"
-                        ></div>
-                      </template>
+                      <div
+                        class="data-area__category-text"
+                        v-html="elementList[current.elementIndex].category"
+                      ></div>
                     </data-area>
                   </div>
                 </div>
@@ -400,15 +390,13 @@
                       type="kanji" label="Mainland China"
                       :category-class="'is-' + elementList[current.elementIndex].categoryClass"
                     >
-                      <template v-slot:content>
-                        <div class="data-area__kanji-character data-area__kanji-character--cn">
-                          {{ elementList[current.elementIndex].simplifiedChinese }}
-                        </div>
-                        <div class="data-area__kanji-code-point">
-                          U+{{ elementList[current.elementIndex].unicodeCodePointCN }}
-                        </div>
-                      </template>
-                      <template v-slot:absolute>
+                      <div
+                        class="data-area__kanji-character data-area__kanji-character--cn"
+                      >{{ elementList[current.elementIndex].simplifiedChinese }}</div>
+                      <div
+                        class="data-area__kanji-code-point"
+                      >U+{{ elementList[current.elementIndex].unicodeCodePointCN }}</div>
+                      <template #absolute>
                         <button
                           type="button"
                           class="data-area__item-kanji-copy-button"
@@ -424,15 +412,13 @@
                       type="kanji" label="Taiwan"
                       :category-class="'is-' + elementList[current.elementIndex].categoryClass"
                     >
-                      <template v-slot:content>
-                        <div class="data-area__kanji-character data-area__kanji-character--tw">
-                          {{ elementList[current.elementIndex].taiwanTrad }}
-                        </div>
-                        <div class="data-area__kanji-code-point">
-                          U+{{ elementList[current.elementIndex].unicodeCodePointTW }}
-                        </div>
-                      </template>
-                      <template v-slot:absolute>
+                      <div
+                        class="data-area__kanji-character data-area__kanji-character--tw"
+                      >{{ elementList[current.elementIndex].taiwanTrad }}</div>
+                      <div
+                        class="data-area__kanji-code-point"
+                      >U+{{ elementList[current.elementIndex].unicodeCodePointTW }}</div>
+                      <template #absolute>
                         <button
                           type="button"
                           class="data-area__item-kanji-copy-button"
@@ -448,15 +434,13 @@
                       type="kanji" label="Hong Kong"
                       :category-class="'is-' + elementList[current.elementIndex].categoryClass"
                     >
-                      <template v-slot:content>
-                        <div class="data-area__kanji-character data-area__kanji-character--hk">
-                          {{ elementList[current.elementIndex].hongkongTrad }}
-                        </div>
-                        <div class="data-area__kanji-code-point">
-                          U+{{ elementList[current.elementIndex].unicodeCodePointHK }}
-                        </div>
-                      </template>
-                      <template v-slot:absolute>
+                      <div
+                        class="data-area__kanji-character data-area__kanji-character--hk"
+                      >{{ elementList[current.elementIndex].hongkongTrad }}</div>
+                      <div
+                        class="data-area__kanji-code-point"
+                      >U+{{ elementList[current.elementIndex].unicodeCodePointHK }}</div>
+                      <template #absolute>
                         <button
                           type="button"
                           class="data-area__item-kanji-copy-button"
@@ -473,17 +457,13 @@
                     <data-area
                       type="pinyin" label="<span>Pinyin</span><span>Mainland China</span>"
                       :category-class="'is-' + elementList[current.elementIndex].categoryClass"
-                    >
-                      <template v-slot:content>{{ elementList[current.elementIndex].pinyin }}</template>
-                    </data-area>
+                    >{{ elementList[current.elementIndex].pinyin }}</data-area>
                   </div>
                   <div class="overlay__area overlay__area--bopomofo">
                     <data-area
                       type="pinyin" label="<span>Bopomofo</span><span>Taiwan</span>"
                       :category-class="'is-' + elementList[current.elementIndex].categoryClass"
-                    >
-                      <template v-slot:content>{{ elementList[current.elementIndex].bopomofo }} ({{ elementList[current.elementIndex].taiwanPinyin }})</template>
-                    </data-area>
+                    >{{ elementList[current.elementIndex].bopomofo }} ({{ elementList[current.elementIndex].taiwanPinyin }})</data-area>
                   </div>
                 </div>
                 <div class="overlay__container-name">
@@ -491,17 +471,13 @@
                     <data-area
                       type="japanese-name" label="Japanese Name"
                       :category-class="'is-' + elementList[current.elementIndex].categoryClass"
-                    >
-                      <template v-slot:content>{{ elementList[current.elementIndex].japaneseName }}</template>
-                    </data-area>
+                    >{{ elementList[current.elementIndex].japaneseName }}</data-area>
                   </div>
                   <div class="overlay__area overlay__area--english-name">
                     <data-area
                       type="english-name" label="English Name"
                       :category-class="'is-' + elementList[current.elementIndex].categoryClass"
-                    >
-                      <template v-slot:content>{{ elementList[current.elementIndex].englishName }}</template>
-                    </data-area>
+                    >{{ elementList[current.elementIndex].englishName }}</data-area>
                   </div>
                 </div>
                 <div class="overlay__container-tweet">
@@ -549,7 +525,9 @@
                     >
                       <ion-icon class="data-area__element-changer-button-icon" name="arrow-back"></ion-icon>
                       <span class="data-area__element-changer-button-text">
-                        <span class="data-area__element-changer-button-atomic-number">{{elementChangeButton.prev.atomicNumber}}</span>{{elementChangeButton.prev.elementSymbol}}
+                        <span
+                          class="data-area__element-changer-button-atomic-number"
+                        >{{elementChangeButton.prev.atomicNumber}}</span>{{elementChangeButton.prev.elementSymbol}}
                       </span>
                     </button>
                     <button
@@ -560,7 +538,9 @@
                       @click="changeOverlay('next')"
                     >
                       <span class="data-area__element-changer-button-text">
-                        <span class="data-area__element-changer-button-atomic-number">{{elementChangeButton.next.atomicNumber}}</span>{{elementChangeButton.next.elementSymbol}}
+                        <span
+                          class="data-area__element-changer-button-atomic-number"
+                        >{{elementChangeButton.next.atomicNumber}}</span>{{elementChangeButton.next.elementSymbol}}
                       </span>
                       <ion-icon class="data-area__element-changer-button-icon" name="arrow-forward"></ion-icon>
                     </button>

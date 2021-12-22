@@ -16,7 +16,7 @@ Vue.component('data-area', {
       <div class="data-area__item-common-container">
         <div class="data-area__label" v-html="label"></div>
         <div class="data-area__content" :class="'data-area__content--' + type">
-          <slot name="content"></slot>
+          <slot></slot>
         </div>
       </div>
       <slot name="absolute"></slot>
