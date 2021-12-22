@@ -262,19 +262,15 @@
               </div>
             </div>
             <div
-              v-for="(groupClass, num) in groupClassList"
+              v-for="number in 18"
               class="periodic-table__group-number"
-              :class="groupClass"
-            >
-              {{ num + 1 }}
-            </div>
+              :class="'periodic-table__group-number--group-' + number"
+            >{{ number }}</div>
             <div
-              v-for="(periodClass, num) in periodClassList"
+              v-for="number in 7"
               class="periodic-table__period-number"
-              :class="periodClass"
-            >
-              {{ num + 1 }}
-            </div>
+              :class="'periodic-table__period-number--period-' + number"
+            >{{ number }}</div>
             <div
               v-for="(cell, cellIndex) in otherCellList"
               class="periodic-table__la-ac-wrapper"

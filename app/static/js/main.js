@@ -3,7 +3,7 @@ import {controlPanelTitleList} from './data/control_panel_title_list.js';
 import {elementList} from './data/element_list.js';
 import {langList} from './data/lang_list.js';
 import {navLinkSectionList} from './data/nav_link_list.js';
-import {otherCellList, groupClassList, periodClassList} from './data/other_cell_list.js';
+import {otherCellList} from './data/other_cell_list.js';
 import {themeColorList} from './data/theme_color_list.js';
 
 
@@ -41,8 +41,6 @@ new Vue({
     otherCellList: otherCellList,
     elementList: elementList,
     categoryList: categoryList,
-    groupClassList: groupClassList,
-    periodClassList: periodClassList,
     navLinkSectionList: navLinkSectionList,
     themeColorList: themeColorList,
     controlPanelTitleList: controlPanelTitleList,

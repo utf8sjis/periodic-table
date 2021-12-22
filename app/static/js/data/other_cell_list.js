@@ -20,34 +20,3 @@ export const otherCellList = [
     hongkongTrad: '錒系<br>元素',
   },
 ]
-
-export const groupClassList = [
-  'periodic-table__group-number--group-1',
-  'periodic-table__group-number--group-2',
-  'periodic-table__group-number--group-3',
-  'periodic-table__group-number--group-4',
-  'periodic-table__group-number--group-5',
-  'periodic-table__group-number--group-6',
-  'periodic-table__group-number--group-7',
-  'periodic-table__group-number--group-8',
-  'periodic-table__group-number--group-9',
-  'periodic-table__group-number--group-10',
-  'periodic-table__group-number--group-11',
-  'periodic-table__group-number--group-12',
-  'periodic-table__group-number--group-13',
-  'periodic-table__group-number--group-14',
-  'periodic-table__group-number--group-15',
-  'periodic-table__group-number--group-16',
-  'periodic-table__group-number--group-17',
-  'periodic-table__group-number--group-18',
-];
-
-export const periodClassList = [
-  'periodic-table__period-number--period-1',
-  'periodic-table__period-number--period-2',
-  'periodic-table__period-number--period-3',
-  'periodic-table__period-number--period-4',
-  'periodic-table__period-number--period-5',
-  'periodic-table__period-number--period-6',
-  'periodic-table__period-number--period-7',
-];
