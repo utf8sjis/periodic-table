@@ -10,7 +10,11 @@ import {themeColorList} from './data/theme_color_list.js';
 Vue.config.ignoredElements = ['ion-icon'];
 
 Vue.component('data-area', {
-  props: ['type', 'label', 'categoryClass'],
+  props: {
+    type: String,
+    label: String,
+    categoryClass: String,
+  },
   template: `
     <div class="data-area" :class="categoryClass">
       <div class="data-area__item-common-container">
@@ -24,7 +28,9 @@ Vue.component('data-area', {
 });
 
 Vue.component('common-section', {
-  props: ['headline'],
+  props: {
+    headline: String,
+  },
   template: `
     <section class="section">
       <h1 class="section__headline">{{ headline }}</h1>
