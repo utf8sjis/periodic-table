@@ -3,23 +3,28 @@
 
 .footer {
   @include flexCentering();
-  flex-direction: column;
-  padding: 15px 0;
-  background: $colorMainGrad;
+  padding: 40px 5px;
   color: $colorWhite;
+  background: $colorMainGrad;
   @include mediaQuery() {
-    padding-bottom: 60px;
+    padding-bottom: 70px;
   }
 
-  &__twitter-follow-button {
-    color: $colorWhite;
-    &:hover {
-        color: $colorWhiteA;
-    }
+  &__container {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
   }
 
   &__content {
-    padding: 5px 0;
-    text-align: center;
+    @include flexCentering();
+  }
+
+  &__twitter-follow-button {
+    /* iframeを取得できなかった場合 */
+    color: $colorWhite;
+    &:hover {
+      color: $colorWhiteA;
+    }
   }
 }

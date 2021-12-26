@@ -747,17 +747,19 @@
     </main>
 
     <footer v-cloak class="footer">
-      <div class="footer__content">
-        <a
-          href="https://twitter.com/gensokanji_bot?ref_src=twsrc%5Etfw"
-          class="footer__twitter-follow-button twitter-follow-button"
-          data-lang="en"
-          data-size="large"
-          data-show-count="true"
-        >Follow @gensokanji_bot</a>
+      <div class="footer__container">
+        <div class="footer__content">
+          <a
+            href="https://twitter.com/gensokanji_bot?ref_src=twsrc%5Etfw"
+            class="footer__twitter-follow-button twitter-follow-button"
+            data-lang="en"
+            data-size="large"
+            data-show-count="true"
+          >Follow @gensokanji_bot</a>
+        </div>
+        <div class="footer__content">元素の漢字周期表 v2.0.6</div>
+        <div class="footer__content">© 2019-2021 gensokanji</div>
       </div>
-      <div class="footer__content">元素の漢字周期表 v2.0.6</div>
-      <div class="footer__content">© 2019 gensokanji</div>
     </footer>
 
     <div v-cloak class="popup-box" :class="{'is-active': popup.isDisplayed}" @click="clearPopup">
