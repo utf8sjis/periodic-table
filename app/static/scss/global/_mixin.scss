@@ -60,4 +60,12 @@
   @else if $family == py {
     font-family: $fontPinyin;
   }
+  // ユーザの環境のシステムフォント
+  @else if $family == user {
+    font-family: $fontUser;
+  }
+  // AA
+  @else if $family == aa {
+    font-family: $fontAA;
+  }
 }

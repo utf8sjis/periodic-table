@@ -25,6 +25,11 @@
   font-family: 'pinyin and bopomofo';
   src: url('../font/woff/pinyin.woff');
 }
+@font-face {
+  font-family: 'saitamaar_light';
+  src: url('../font/woff/saitamaar_light.woff');
+  font-display: swap;
+}
 
 /* body */
 body {
