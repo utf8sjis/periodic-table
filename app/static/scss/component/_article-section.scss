@@ -12,7 +12,7 @@
     margin: 0 30px 0 -8px;
     border-radius: 3px 0 0 0;
     padding: 10px 20px;
-    @include font(jp, bold);
+    @include font(ja, bold);
     font-size: 25px;
     color: $colorWhite;
     background: $colorMain2;
@@ -72,7 +72,7 @@
 
   &__headline-2 {
     border-bottom: 2px dashed $colorMain2;
-    @include font(jp, bold);
+    @include font(ja, bold);
     font-size: 20px;
     @include mediaQuery() {
       font-size: 18px;
@@ -110,7 +110,7 @@
     th {
       padding: 7px 20px;
       text-align: center;
-      @include font(jp, bold);
+      @include font(ja, bold);
       color: $colorWhite;
       background: $colorMain2;
       @include mediaQuery() {
@@ -146,11 +146,7 @@
   }
 
   &__bold {
-    @include font(jp, bold);
-  }
-
-  &__kanji {
-    @include font(twplus);
+    @include font(ja, bold);
   }
 
   &__kanji-cn {
@@ -163,9 +159,5 @@
 
   &__kanji-hk {
     @include font(hk);
-  }
-
-  &__system-font {
-    font-family: sans-serif;
   }
 }

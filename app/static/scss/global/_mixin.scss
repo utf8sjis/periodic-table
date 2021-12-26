@@ -26,7 +26,7 @@
 @mixin font($family, $weight: normal) {
   // 英語
   @if $family == en {
-    font-family: $fontEN;
+    font-family: $fontEnglish;
     @if $weight == light {
       font-weight: 200;
     }
@@ -35,8 +35,8 @@
     }
   }
   // 日本語
-  @else if $family == jp {
-    font-family: $fontJP;
+  @else if $family == ja {
+    font-family: $fontJapanese;
     @if $weight == bold {
       font-weight: 500;
     }
@@ -44,24 +44,20 @@
       font-weight: 300;
     }
   }
-  // 台湾正体の拡張
-  @else if $family == twplus {
-    font-family: $fontTWPlus;
-  }
   // 大陸簡体
   @else if $family == cn {
-    font-family: $fontCN;
+    font-family: $fontKanjiCN;
   }
   // 台湾正体
   @else if $family == tw {
-    font-family: $fontTW;
+    font-family: $fontKanjiTW;
   }
   // 香港繁体
   @else if $family == hk {
-    font-family: $fontHK;
+    font-family: $fontKanjiHK;
   }
   // ピンインと注音符号
   @else if $family == py {
-    font-family: $fontPY;
+    font-family: $fontPinyin;
   }
 }

@@ -1,11 +1,10 @@
 /* フォントファミリー */
-$fontEN: 'Blinker', sans-serif;
-$fontJP: 'M PLUS 1p', sans-serif;
-$fontTWPlus: 'Source Han Sans TW', 'make up for TW and HK', 'Source Han Sans CN', 'Noto Sans TC', sans-serif;
-$fontCN: 'Source Han Sans CN', 'make up for CN', sans-serif;
-$fontTW: 'Source Han Sans TW', 'make up for TW and HK', 'Source Han Sans CN', sans-serif;
-$fontHK: 'Source Han Sans HK', 'make up for TW and HK', 'Source Han Sans CN', sans-serif;
-$fontPY: 'pinyin and bopomofo', sans-serif;
+$fontEnglish: 'Blinker', sans-serif;
+$fontJapanese: 'M PLUS 1p', sans-serif;
+$fontKanjiTW: 'Source Han Sans TW', 'make up for TW and HK', 'Source Han Sans CN', 'Noto Sans TC', sans-serif;
+$fontKanjiCN: 'Source Han Sans CN', 'make up for CN', sans-serif;
+$fontKanjiHK: 'Source Han Sans HK', 'make up for TW and HK', 'Source Han Sans CN', sans-serif;
+$fontPinyin: 'pinyin and bopomofo', sans-serif;
 
 /* 色 */
 $colorMain1: var(--theme-color-main-1);
