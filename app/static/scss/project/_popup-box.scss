@@ -3,32 +3,32 @@
 
 .popup-box {
   cursor: pointer;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 40px;
-  max-width: 400px;
-  padding: 10px 10px 10px 50px;
-  margin: 10px;
   @include flexCentering();
-  background: $colorWhite;
-  border: solid 2px $colorMain3;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  max-width: 300px;
   border-radius: 10px;
-  transform: translateX(-150%);
-  transition: transform 0.3s;
+  border: 2px solid $colorMain3;
+  padding: 15px 20px;
+  background: $colorWhite;
   z-index: 301;
   @include mediaQuery() {
-    padding: 5px 5px 5px 50px;
+    padding: 12px 17px;
   }
-  &.is-active {
-    transform: translateX(0);
+  &--enter-active,
+  &--leave-active {
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  &--enter,
+  &--leave-to {
+    opacity: 0;
+    transform: translateX(-10px);
   }
 
   &__icon {
-    position: absolute;
-    left: 0;
-    padding: 10px;
+    padding-right: 10px;
+    font-size: 25px;
     color: $colorMain3;
-    font-size: 30px;
   }
 }
