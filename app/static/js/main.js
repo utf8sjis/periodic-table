@@ -27,17 +27,38 @@ Vue.component('data-area', {
     </div>`,
 });
 
-Vue.component('common-section', {
+Vue.component('article-section', {
   props: {
     headline: String,
+    isLevelOne: Boolean,
   },
   template: `
-    <section class="section">
-      <h1 class="section__headline">{{ headline }}</h1>
-      <div class="section__contents">
+    <section class="article-section">
+      <h1 v-if="isLevelOne" class="article-section__headline">{{ headline }}</h1>
+      <h2 v-else class="article-section__headline">{{ headline }}</h2>
+      <div class="article-section__contents">
         <slot></slot>
       </div>
     </section>`,
+});
+
+Vue.component('article-subsection', {
+  props: {
+    isNoHeadline: Boolean,
+    headline: String,
+  },
+  template: `
+    <section class="article-section__subsection">
+      <h3 v-if="!isNoHeadline" class="article-section__headline-2">{{ headline }}</h3>
+      <slot></slot>
+    </section>`,
+});
+
+Vue.component('article-p', {
+  template: `
+    <p class="article-section__paragraph">
+      <slot></slot>
+    </p>`,
 });
 
 new Vue({
