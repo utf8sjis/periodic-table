@@ -7,14 +7,6 @@
   align-items: $align;
 }
 
-/* gap */
-@mixin gridGap($row, $col) {
-  grid-row-gap: $row;
-  row-gap: $row;
-  grid-column-gap: $col;
-  column-gap: $col;
-}
-
 /* メディアクエリ */
 @mixin mediaQuery($breakpoint: $phone) {
   @media (max-width: ($breakpoint)) {
