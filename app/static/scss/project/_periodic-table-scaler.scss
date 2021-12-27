@@ -51,7 +51,7 @@ $thumbSize: 25px;
 
   &__value-display {
     cursor: pointer;
-    flex-shrink: 0;
+    flex: none;
     @include flexCentering();
     margin-left: 20px;
     width: 60px;
