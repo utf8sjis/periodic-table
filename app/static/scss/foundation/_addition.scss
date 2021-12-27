@@ -13,15 +13,10 @@
 
 /* 埋め込みツイート */
 .twitter-tweet {
-  grid-row: cont;
-  max-width: 500px !important;
   margin: 0 !important;
-  width: 100% !important;
 }
 
 /* 埋め込みツイートの読み込み前 */
 blockquote.twitter-tweet {
-  @include flexCentering(flex-start, center);
   height: 500px;
-  opacity: 0.7;
 }
