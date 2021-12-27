@@ -50,9 +50,6 @@ $areaGap: 10px;
     grid-template-columns: 5fr 6fr;
     gap: $areaGap;
     padding: 80px 10% 90px;
-    @include mediaQuery(1150px) {
-      padding: 80px 50px 90px;
-    }
     @include mediaQuery($tablet) {
       grid-template-areas:
         'base'
@@ -67,6 +64,9 @@ $areaGap: 10px;
     }
     @include mediaQuery() {
       padding: 80px 15px 90px;
+    }
+    @include mediaQuery($se) {
+      padding: 80px 8px 90px;
     }
   }
 
