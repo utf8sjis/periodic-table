@@ -2,12 +2,12 @@
 
 /* v-cloak */
 [v-cloak] {
+  @include font(user);
   &:not(.footer) {
     display: none;
   }
   &.footer {
-    font-family: sans-serif;
-    background: #888;
+    background: #aaa;
   }
 }
 
