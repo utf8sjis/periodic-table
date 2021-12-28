@@ -1,8 +1,8 @@
 /****** data-area ******/
 @use 'global' as *;
 
-$borderColor: #ffffff99;
-$borderColorHydrogen: #00000033;
+$borderColor: #fff9;
+$borderColorHydrogen: #0003;
 $changeDuration: 0.5s;
 
 .data-area {
@@ -13,13 +13,13 @@ $changeDuration: 0.5s;
   border-radius: 7px;
   border: 2px solid $borderColor;
   color: $colorWhite;
-  background: #00000022;
+  background: #0002;
   transition-property: border-color, background-color, color;
   transition-duration: $changeDuration;
   &.is-category-h {
     border-color: $borderColorHydrogen;
     color: $colorHydrogenBlack;
-    background: #ffffff66;
+    background: #fff6;
   }
 
   &__item-element-symbol {
@@ -62,11 +62,11 @@ $changeDuration: 0.5s;
     font-size: 20px;
     transition: background-color 0.2s;
     &:hover {
-      background: #ffffff33;
+      background: #fff3;
     }
     &.is-category-h {
       &:hover {
-        background: #ffffffff;
+        background: #ffff;
       }
     }
   }
@@ -80,12 +80,12 @@ $changeDuration: 0.5s;
       $categoryColor: nth($categoryColorList2, index($categoryList, $category));
       @if $category == h {
         &.is-category-#{$category} {
-          background: #ffffffee;
+          background: #fffe;
         }
       } @else {
         &.is-category-#{$category} {
           color: #{$categoryColor};
-          background: #ffffffee;
+          background: #fffe;
         }
       }
     }
