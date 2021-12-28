@@ -79,87 +79,22 @@
     @include flexCentering();
     flex-direction: column;
     @include mediaQuery() {
-      @include flexCentering(center, flex-end);
-      flex-direction: row;
-      position: fixed;
-      right: 0;
-      bottom: 10px;
-      padding-right: 10px;
-      transform: translateX(150%);
-      transition: transform 0.7s;
-      &.is-not-around-top {
-        @include mediaQuery() {
-          transform: translateX(0);
-        }
-      }
+      display: none;
     }
   }
 
   &__share-label {
     @include font(en);
     font-size: 20px;
-    @include mediaQuery() {
-      display: none;
-    }
   }
 
   &__share-button-container {
     @include flexCentering();
   }
 
-  &__top-button-wrapper {
-    &--pc {
-      position: fixed;
-      right: 0;
-      bottom: 25px;
-      padding-right: 25px;
-      transform: translateX(150%);
-      transition: transform 0.7s;
-      &.is-not-around-top {
-        transform: translateX(0);
-      }
-    }
-  }
-
-  &__top-button {
-    @include flexCentering();
-    cursor: pointer;
-    border: solid 2px $colorWhiteA;
-    border-radius: 50%;
-    padding-bottom: 3px;
-    font-size: 30px;
-    background: $colorMain3;
-    &--phone {
-      display: none;
-      margin-left: 5px;
-      width: 45px;
-      height: 45px;
-      @include mediaQuery() {
-        display: flex;
-      }
-    }
-    &--pc {
-      width: 50px;
-      height: 50px;
-      transition: transform 0.2s;
-      @include mediaQuery() {
-        display: none;
-      }
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-  }
-
   &__share-button {
-    margin: 0 4px;
-    @include mediaQuery() {
-      margin: 0 2px;
-    }
-  }
-
-  &__share-icon-wrapper {
     @include flexCentering();
+    margin: 0 4px;
     width: 35px;
     height: 35px;
     border: 2px solid $colorWhiteA;
@@ -167,25 +102,16 @@
     font-size: 20px;
     transition: background-color 0.2s;
     &--twitter {
-      @include mediaQuery() {
-        background: $colorTwitter;
-      }
       &:hover {
         background: $colorTwitter;
       }
     }
     &--facebook {
-      @include mediaQuery() {
-        background: $colorFacebook;
-      }
       &:hover {
         background: $colorFacebook;
       }
     }
     &--line {
-      @include mediaQuery() {
-        background: $colorLINE;
-      }
       &:hover {
         background: $colorLINE;
       }
@@ -193,8 +119,8 @@
   }
 
   &__nav-open-button {
-    @include flexCentering();
     cursor: pointer;
+    @include flexCentering();
     flex-direction: column;
     margin-left: 10px;
     width: 85px;
@@ -216,12 +142,15 @@
     }
   }
 
-  &__nav-open-button-icon {
+  &__nav-open-button-icon-wrapper {
     font-size: 22px;
-    transition: transform $navOpenTime;
     @include mediaQuery() {
       font-size: 16px;
     }
+  }
+
+  &__nav-open-button-arrow-icon {
+    transition: transform $navOpenTime;
     &.is-active {
       transform: rotateX(0.5turn);
     }

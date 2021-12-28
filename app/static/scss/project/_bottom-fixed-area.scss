@@ -1,0 +1,70 @@
+/****** periodic-table ******/
+@use 'global' as *;
+
+.bottom-fixed-area {
+  @include flexCentering(center, flex-end);
+  position: fixed;
+  right: 0;
+  bottom: 20px;
+  padding-right: 20px;
+  color: $colorWhite;
+  transform: translateX(150%);
+  transition: transform 0.7s;
+  z-index: 100;
+  @include mediaQuery() {
+    bottom: 10px;
+    padding-right: 10px;
+  }
+  &.is-not-around-top {
+    transform: translateX(0);
+  }
+
+  &__share-button-container {
+    display: none;
+    @include mediaQuery() {
+      @include flexCentering();
+    }
+  }
+
+  &__share-button {
+    @include flexCentering();
+    margin-right: 4px;
+    width: 35px;
+    height: 35px;
+    border: 2px solid $colorWhiteA;
+    border-radius: 50%;
+    font-size: 20px;
+    &--twitter {
+      background: $colorTwitter;
+    }
+    &--facebook {
+      background: $colorFacebook;
+    }
+    &--line {
+      background: $colorLINE;
+    }
+  }
+
+  &__top-button {
+    cursor: pointer;
+    @include flexCentering();
+    width: 50px;
+    height: 50px;
+    border: 2px solid $colorWhiteA;
+    border-radius: 50%;
+    padding-bottom: 3px;
+    font-size: 30px;
+    background: $colorMain3;
+    transition: transform 0.2s;
+    @include mediaQuery() {
+      width: 45px;
+      height: 45px;
+    }
+    &:hover {
+      transform: scale(1.1);
+      @include mediaQuery() {
+        transform: none;
+      }
+    }
+  }
+}
