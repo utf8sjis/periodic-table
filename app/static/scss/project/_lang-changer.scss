@@ -1,6 +1,5 @@
 /****** lang-changer ******/
 @use 'global' as *;
-@use 'control-panel' as *;
 
 .lang-changer {
   @include flexCentering();
