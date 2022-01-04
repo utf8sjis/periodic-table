@@ -1,5 +1,8 @@
 /****** periodic-table ******/
+@use 'sass:math';
 @use 'global' as *;
+
+$expandTime: 0.2s;
 
 .bottom-fixed-area {
   @include flexCentering(center, flex-end);
@@ -21,27 +24,70 @@
 
   &__share-button-container {
     display: none;
+    position: relative;
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
     @include mediaQuery() {
       @include flexCentering();
     }
   }
 
+  &__share-button-wrapper {
+    @include flexCentering();
+    position: absolute;
+    inset: 0;
+  }
+
+  &__share-expand-button {
+    @include flexCentering();
+    width: 40px;
+    height: 40px;
+    border: 2px solid $colorMain3;
+    border-radius: 50%;
+    padding-right: 3px;
+    font-size: 20px;
+    color: $colorMain3;
+    background: $colorWhite;
+    transition-property: border-color, color, background-color;
+    transition-duration: $expandTime;
+    &.is-expanded {
+      border-color: $colorWhiteA;
+      color: $colorWhite;
+      background: $colorMain3;
+    }
+  }
+
   &__share-button {
     @include flexCentering();
-    margin-right: 4px;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border: 2px solid $colorWhiteA;
     border-radius: 50%;
     font-size: 20px;
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: $expandTime;
     &--twitter {
       background: $colorTwitter;
+      &.is-expanded {
+        opacity: 1;
+        transform: scale(1) translate(-60px * math.cos(0deg), -60px * math.sin(0deg));
+      }
     }
     &--facebook {
       background: $colorFacebook;
+      &.is-expanded {
+        opacity: 1;
+        transform: scale(1) translate(-60px * math.cos(45deg), -60px * math.sin(45deg));
+      }
     }
     &--line {
       background: $colorLINE;
+      &.is-expanded {
+        opacity: 1;
+        transform: scale(1) translate(-60px * math.cos(90deg), -60px * math.sin(90deg));
+      }
     }
   }
 

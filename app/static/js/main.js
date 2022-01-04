@@ -109,6 +109,8 @@ new Vue({
     rangeValue: 1,
     /** 画面幅がスマートフォン幅か否か */
     isPhone: false,
+    /** シェアボタンが展開されているか否か */
+    isShareButtonExpanded: false,
   },
   methods: {
     /**
@@ -214,6 +216,7 @@ new Vue({
         this.isAroundTop = false;
       } else {
         this.isAroundTop = true;
+        this.isShareButtonExpanded = false;
       }
     },
     /**
@@ -328,6 +331,12 @@ new Vue({
      */
     defaultRange: function () {
       this.rangeValue = 1;
+    },
+    /**
+     * シェアボタンを展開、格納する
+     */
+    expandShareButton: function () {
+      this.isShareButtonExpanded = !this.isShareButtonExpanded;
     },
   },
   computed: {

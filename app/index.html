@@ -26,6 +26,7 @@
 
   <!-- Webフォント・アイコン -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Blinker:200,300|M+PLUS+1p:300,500|Noto+Sans+TC:100&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
   <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
@@ -155,10 +156,38 @@
     </transition>
 
     <div class="bottom-fixed-area" :class="{'is-not-around-top': !isAroundTop}">
-      <div class="bottom-fixed-area__share-button-container">
-        <a class="bottom-fixed-area__share-button bottom-fixed-area__share-button--twitter" target="_blank" rel="noreferrer noopener" href="https://twitter.com/share?url=https://gensokanji.netlify.app/periodic-table&text=元素の漢字周期表%20-%20gensokanji%20@gensokanji_bot"><i class="fab fa-twitter"></i></a>
-        <a class="bottom-fixed-area__share-button bottom-fixed-area__share-button--facebook" target="_blank" rel="noreferrer noopener" href="https://www.facebook.com/sharer/sharer.php?u=https://gensokanji.netlify.app/periodic-table"><i class="fab fa-facebook"></i></a>
-        <a class="bottom-fixed-area__share-button bottom-fixed-area__share-button--line" target="_blank" rel="noreferrer noopener" href="https://social-plugins.line.me/lineit/share?url=https://gensokanji.netlify.app/periodic-table"><i class="fab fa-line"></i></a>
+      <div>
+        <div class="bottom-fixed-area__share-button-container">
+          <div class="bottom-fixed-area__share-button-wrapper">
+            <a
+              class="bottom-fixed-area__share-button bottom-fixed-area__share-button--twitter"
+              :class="{'is-expanded': isShareButtonExpanded}"
+              target="_blank" rel="noreferrer noopener" href="https://twitter.com/share?url=https://gensokanji.netlify.app/periodic-table&text=元素の漢字周期表%20-%20gensokanji%20@gensokanji_bot"
+            ><i class="fab fa-twitter"></i></a>
+          </div>
+          <div class="bottom-fixed-area__share-button-wrapper">
+            <a
+              class="bottom-fixed-area__share-button bottom-fixed-area__share-button--facebook"
+              :class="{'is-expanded': isShareButtonExpanded}"
+              target="_blank" rel="noreferrer noopener" href="https://www.facebook.com/sharer/sharer.php?u=https://gensokanji.netlify.app/periodic-table"
+            ><i class="fab fa-facebook"></i></a>
+          </div>
+          <div class="bottom-fixed-area__share-button-wrapper">
+            <a
+              class="bottom-fixed-area__share-button bottom-fixed-area__share-button--line"
+              :class="{'is-expanded': isShareButtonExpanded}"
+              target="_blank" rel="noreferrer noopener" href="https://social-plugins.line.me/lineit/share?url=https://gensokanji.netlify.app/periodic-table"
+            ><i class="fab fa-line"></i></a>
+          </div>
+          <div class="bottom-fixed-area__share-button-wrapper">
+            <button
+              type="button"
+              class="bottom-fixed-area__share-expand-button"
+              :class="{'is-expanded': isShareButtonExpanded}"
+              @click="expandShareButton"
+            ><span class="material-icons">share</span></button>
+          </div>
+        </div>
       </div>
       <button
         type="button"
