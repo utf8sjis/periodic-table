@@ -81,75 +81,73 @@
       </div>
     </header>
 
-    <nav v-cloak class="nav" :class="{'is-active': isNavOpened}">
+    <transition name="nav-">
+      <nav v-cloak class="nav" v-show="isNavOpened">
 
-      <div class="nav__content">
-        <section class="nav__section">
-          <div class="nav__section-title">テーマカラー</div>
-          <div class="nav__theme-color-changer">
-            <div class="nav__theme-color-changer-button-wrapper">
-              <button
-                type="button"
-                class="nav__theme-color-changer-button nav__theme-color-changer-button--wakaba"
-                :disabled="!isNavOpened"
-                @click="changeThemeColor('wakaba')"
-              >
-                わかば
-              </button>
-              <button
-                type="button"
-                class="nav__theme-color-changer-button nav__theme-color-changer-button--ramune"
-                :disabled="!isNavOpened"
-                @click="changeThemeColor('ramune')"
-              >
-                ラムネ
-              </button>
-              <button
-                type="button"
-                class="nav__theme-color-changer-button nav__theme-color-changer-button--momiji"
-                :disabled="!isNavOpened"
-                @click="changeThemeColor('momiji')"
-              >
-                もみじ
-              </button>
-            </div>
-          </div>
-        </section>
-        <template v-for="navLinkSection in navLinkSectionList">
+        <div class="nav__content">
           <section class="nav__section">
-            <div class="nav__section-title">
-              {{ navLinkSection.title }}
-            </div>
-            <div class="nav__link-container">
-              <a
-                v-for="navLink in navLinkSection.links"
-                class="nav__link"
-                :href="navLink.href"
-                target="_blank" rel="noreferrer noopener"
-                :tabindex="isNavOpened ? 0 : -1"
-              >
-                <div class="nav__link-image-container">
-                  <img class="nav__link-image" :src="navLink.src" :alt="navLink.alt">
-                  <div class="nav__image-inset-shadow"></div>
-                  <i
-                    class="nav__image-external-link-icon fas fa-external-link-alt"
-                    v-show="navLinkSection.title === '外部リンク'"
-                  ></i>
-                </div>
-                <div class="nav__link-content">
-                  <div class="nav__link-title">{{ navLink.title }}</div>
-                  <div class="nav__link-desc">{{ navLink.desc }}</div>
-                </div>
-              </a>
+            <div class="nav__section-title">テーマカラー</div>
+            <div class="nav__theme-color-changer">
+              <div class="nav__theme-color-changer-button-wrapper">
+                <button
+                  type="button"
+                  class="nav__theme-color-changer-button nav__theme-color-changer-button--wakaba"
+                  @click="changeThemeColor('wakaba')"
+                >
+                  わかば
+                </button>
+                <button
+                  type="button"
+                  class="nav__theme-color-changer-button nav__theme-color-changer-button--ramune"
+                  @click="changeThemeColor('ramune')"
+                >
+                  ラムネ
+                </button>
+                <button
+                  type="button"
+                  class="nav__theme-color-changer-button nav__theme-color-changer-button--momiji"
+                  @click="changeThemeColor('momiji')"
+                >
+                  もみじ
+                </button>
+              </div>
             </div>
           </section>
-        </template>
-        <div class="nav__illustration">
-          <img class="nav__illustration-image" src="static/img/demon_core.png" alt="デーモンコアのイラスト">
+          <template v-for="navLinkSection in navLinkSectionList">
+            <section class="nav__section">
+              <div class="nav__section-title">
+                {{ navLinkSection.title }}
+              </div>
+              <div class="nav__link-container">
+                <a
+                  v-for="navLink in navLinkSection.links"
+                  class="nav__link"
+                  target="_blank" rel="noreferrer noopener"
+                  :href="navLink.href"
+                >
+                  <div class="nav__link-image-container">
+                    <img class="nav__link-image" :src="navLink.src" :alt="navLink.alt">
+                    <div class="nav__image-inset-shadow"></div>
+                    <i
+                      class="nav__image-external-link-icon fas fa-external-link-alt"
+                      v-show="navLinkSection.title === '外部リンク'"
+                    ></i>
+                  </div>
+                  <div class="nav__link-content">
+                    <div class="nav__link-title">{{ navLink.title }}</div>
+                    <div class="nav__link-desc">{{ navLink.desc }}</div>
+                  </div>
+                </a>
+              </div>
+            </section>
+          </template>
+          <div class="nav__illustration">
+            <img class="nav__illustration-image" src="static/img/demon_core.png" alt="デーモンコアのイラスト">
+          </div>
         </div>
-      </div>
 
-    </nav>
+      </nav>
+    </transition>
 
     <transition name="nav-back-">
       <div v-cloak class="nav-back" v-show="isNavOpened" @click="openNav"></div>

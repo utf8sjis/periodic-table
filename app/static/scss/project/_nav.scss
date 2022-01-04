@@ -10,17 +10,20 @@
   height: 80vh;
   padding: $headerFixedContainerHeight + 30px 100px 30px;
   color: $colorWhite;
-  opacity: 0;
-  transform: translateY(-80vh);
-  transition: opacity $navOpenTime, transform $navOpenTime;
   background: $colorMainGrad;
   z-index: 201;
   @include mediaQuery() {
     padding: $headerFixedContainerHeightPhone + 30px 15px 30px;
   }
-  &.is-active {
-    opacity: 1;
-    transform: translateY(0);
+  &--enter-active,
+  &--leave-active {
+    transition-property: opacity, transform;
+    transition-duration: $navOpenTime;
+  }
+  &--enter,
+  &--leave-to {
+    opacity: 0;
+    transform: translateY(-80vh);
   }
 
   &__content {
