@@ -315,7 +315,8 @@
                 <span v-html="cell[langList[current.langIndex].langKey]"></span>
               </div>
             </div>
-            <div
+            <button
+              type="button"
               v-for="(element, elementIndex) in elementList"
               class="periodic-table__cell-wrapper"
               :class="[
@@ -339,7 +340,7 @@
                   ]"
                   v-html="element[langList[current.langIndex].langKey]"></span>
               </div>
-            </div>
+            </button>
           </div>
 
         </section>
