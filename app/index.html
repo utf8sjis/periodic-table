@@ -213,6 +213,7 @@
                   <template v-for="(langObj, langIndex) in langList">
                     <button
                       type="button"
+                      :disabled="controlPanel.index !== 0"
                       class="lang-changer__button"
                       :class="[{'is-active-lang': langList[langIndex].isActive}]"
                       @click="setCurrentLang(langIndex)"
@@ -231,23 +232,41 @@
               <div class="periodic-table-scaler">
                 <input
                   type="range"
+                  :disabled="controlPanel.index !== 1"
                   class="periodic-table-scaler__input-range"
                   min="0.5" max="2" step="0.05"
                   v-model="rangeValue"
                 >
-                <div class="periodic-table-scaler__value-display" @click="defaultRange">{{ rangeValue + 'x' }}</div>
+                <button
+                  type="button"
+                  :disabled="controlPanel.index !== 1"
+                  class="periodic-table-scaler__value-display"
+                  @click="defaultRange"
+                >{{ rangeValue + 'x' }}</button>
               </div>
             </div>
 
           </div>
 
           <div class="control-panel__button-container">
-            <div class="control-panel__button" :class="{'is-disable': controlPanel.isStart}" @click="changeContents('prev')">
+            <button
+              type="button"
+              :disabled="controlPanel.isStart"
+              class="control-panel__button"
+              :class="{'is-disable': controlPanel.isStart}"
+              @click="changeContents('prev')"
+            >
               <i class="fas fa-angle-up"></i>
-            </div>
-            <div class="control-panel__button" :class="{'is-disable': controlPanel.isEnd}" @click="changeContents('next')">
+            </button>
+            <button
+              type="button"
+              :disabled="controlPanel.isEnd"
+              class="control-panel__button"
+              :class="{'is-disable': controlPanel.isEnd}"
+              @click="changeContents('next')"
+            >
               <i class="fas fa-angle-down"></i>
-            </div>
+            </button>
           </div>
 
           <div class="control-panel__title-wrapper" v-html="controlPanelTitleList[controlPanel.index]"></div>
