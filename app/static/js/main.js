@@ -115,20 +115,20 @@ new Vue({
   methods: {
     /**
      * 周期表の表示言語を変更する
-     * @param {number} langIndex - 選択された言語のlangListでのインデクス
+     * @param {number} nextLangIndex - 選択された言語のlangListでのインデクス
      */
-    setCurrentLang: function (langIndex) {
-      this.langList[this.current.langIndex].isActive = false;
-      this.current.langIndex = langIndex;
-      this.langList[langIndex].isActive = true;
+    setCurrentLang: function (nextLangIndex) {
+      this.currentLang.isActive = false;
+      this.current.langIndex = nextLangIndex;
+      this.currentLang.isActive = true;
     },
     /**
      * 元素のデータページをオーバーレイ表示する
-     * @param {number} elementindex - 選択された元素のelementListでのインデクス
+     * @param {number} nextElementIndex - 選択された元素のelementListでのインデクス
      */
-    openOverlay: function (elementIndex) {
-      this.current.elementIndex = elementIndex
-      this.elementList[elementIndex].isActive = true;
+    openOverlay: function (nextElementIndex) {
+      this.current.elementIndex = nextElementIndex
+      this.currentElement.isActive = true;
       this.isOverlayDisplayed = true;
       this.runTwitterScript();
     },
@@ -137,14 +137,14 @@ new Vue({
      */
     closeOverlay: function () {
       this.isOverlayDisplayed = false;
-      this.elementList[this.current.elementIndex].isActive = false;
+      this.currentElement.isActive = false;
     },
     /**
      * データページを遷移する
      * @param {string} to - 'next'か'prev'
      */
     changeOverlay: function (to) {
-      let z = this.elementList[this.current.elementIndex].atomicNumber;
+      let z = this.currentElement.atomicNumber;
       if (to === 'next') {
         z++;
       } else if (to === 'prev') {
@@ -152,7 +152,7 @@ new Vue({
       }
       if (z >= 1 && z <= 118) {
         const toIndex = this.atomicNumberToIndex(z);
-        this.elementList[this.current.elementIndex].isActive = false;
+        this.currentElement.isActive = false;
         this.openOverlay(toIndex);
       }
     },
@@ -341,11 +341,28 @@ new Vue({
   },
   computed: {
     /**
-     * データページを遷移するボタンの表示を作成する
-     * @returns {object} 表示内容の情報を含んだのオブジェクト
+     * リスト中の現在選択されている言語のデータ
+     * current.langIndexに依存
+     * @returns {object} リスト中の言語のオブジェクト
+     */
+    currentLang: function () {
+      return this.langList[this.current.langIndex]
+    },
+    /**
+     * リスト中の現在選択されている元素のデータ
+     * current.elementIndexに依存
+     * @returns {object} リスト中の元素のオブジェクト
+     */
+    currentElement: function () {
+      return this.elementList[this.current.elementIndex]
+    },
+    /**
+     * 現在のデータページのページ遷移ボタンの表示内容
+     * current.elementIndexに依存
+     * @returns {object} 表示内容の情報を含んだオブジェクト
      */
     elementChangeButton: function () {
-      const z = this.elementList[this.current.elementIndex].atomicNumber;
+      const z = this.currentElement.atomicNumber;
       const obj = {
         prev: {
           atomicNumber: 0,

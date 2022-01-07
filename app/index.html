@@ -312,9 +312,9 @@
             >
               <div
                 class="periodic-table__la-ac"
-                :class="langList[current.langIndex].langClass"
+                :class="currentLang.langClass"
               >
-                <span v-html="cell[langList[current.langIndex].langKey]"></span>
+                <span v-html="cell[currentLang.langKey]"></span>
               </div>
             </div>
             <button
@@ -331,16 +331,17 @@
                 class="periodic-table__cell"
                 :class="[
                   'periodic-table__cell--' + element.categoryClass,
-                  langList[current.langIndex].langClass
+                  currentLang.langClass
                 ]"
               >
                 <span
                   class="periodic-table__cell-text"
                   :class="[
                     'periodic-table__cell-text--cell-' + element.elementSymbol,
-                    langList[current.langIndex].langClass
+                    currentLang.langClass
                   ]"
-                  v-html="element[langList[current.langIndex].langKey]"></span>
+                  v-html="element[currentLang.langKey]"
+                ></span>
               </div>
             </button>
           </div>
@@ -355,66 +356,66 @@
         >
           <section
             class="overlay"
-            :class="'is-' + elementList[current.elementIndex].categoryClass"
+            :class="'is-' + currentElement.categoryClass"
             v-show="isOverlayDisplayed"
           >
             <div class="overlay__main-wrapper" :class="{'is-overflow-hidden': !isBodyScrollLocked}">
               <div class="overlay__main">
                 <div class="overlay__container-base">
                   <div class="overlay__area overlay__area--element-symbol">
-                    <div class="data-area" :class="'is-' + elementList[current.elementIndex].categoryClass">
+                    <div class="data-area" :class="'is-' + currentElement.categoryClass">
                       <div class="data-area__item-state">
                         <img
                           class="data-area__state-image"
-                          :class="'is-' + elementList[current.elementIndex].categoryClass"
-                          :src="elementList[current.elementIndex].stateSrc"
+                          :class="'is-' + currentElement.categoryClass"
+                          :src="currentElement.stateSrc"
                         >
                       </div>
                       <div class="data-area__item-radioactivity">
                         <img
                           class="data-area__radioactivity-image"
                           src="static/img/radioactivity.svg"
-                          v-show="elementList[current.elementIndex].isRadioactive"
+                          v-show="currentElement.isRadioactive"
                         >
                       </div>
                       <div
                         class="data-area__item-element-symbol"
-                        v-html="elementList[current.elementIndex].elementSymbol"
+                        v-html="currentElement.elementSymbol"
                       ></div>
                     </div>
                   </div>
                   <div class="overlay__area overlay__area--atomic-number">
                     <data-area
                       type="num" label="Z ="
-                      :category-class="'is-' + elementList[current.elementIndex].categoryClass"
-                    >{{ elementList[current.elementIndex].atomicNumber }}</data-area>
+                      :category-class="'is-' + currentElement.categoryClass"
+                    >{{ currentElement.atomicNumber }}</data-area>
                   </div>
                   <div class="overlay__area overlay__area--period">
                     <data-area
                       type="num" label="Period"
-                      :category-class="'is-' + elementList[current.elementIndex].categoryClass"
-                    >{{ elementList[current.elementIndex].period }}</data-area>
+                      :category-class="'is-' + currentElement.categoryClass"
+                    >{{ currentElement.period }}</data-area>
                   </div>
                   <div class="overlay__area overlay__area--group">
                     <data-area
                       type="num" label="Group"
-                      :category-class="'is-' + elementList[current.elementIndex].categoryClass"
-                    >{{ elementList[current.elementIndex].group }}</data-area>
+                      :category-class="'is-' + currentElement.categoryClass"
+                    >{{ currentElement.group }}</data-area>
                   </div>
                   <div class="overlay__area overlay__area--atomic-weight">
                     <data-area
                       type="num" label="Weight"
-                      :category-class="'is-' + elementList[current.elementIndex].categoryClass"
-                    >{{ elementList[current.elementIndex].atomicWeight }}</data-area>
+                      :category-class="'is-' + currentElement.categoryClass"
+                    >{{ currentElement.atomicWeight }}</data-area>
                   </div>
                   <div class="overlay__area overlay__area--category">
                     <data-area
                       type="category" label="Category"
-                      :category-class="'is-' + elementList[current.elementIndex].categoryClass"
+                      :category-class="'is-' + currentElement.categoryClass"
                     >
                       <div
                         class="data-area__category-text"
-                        v-html="elementList[current.elementIndex].category"
+                        v-html="currentElement.category"
                       ></div>
                     </data-area>
                   </div>
@@ -423,20 +424,20 @@
                   <div class="overlay__area overlay__area--cn">
                     <data-area
                       type="kanji" label="Mainland China"
-                      :category-class="'is-' + elementList[current.elementIndex].categoryClass"
+                      :category-class="'is-' + currentElement.categoryClass"
                     >
                       <div
                         class="data-area__kanji-character data-area__kanji-character--cn"
-                      >{{ elementList[current.elementIndex].simplifiedChinese }}</div>
+                      >{{ currentElement.simplifiedChinese }}</div>
                       <div
                         class="data-area__kanji-code-point"
-                      >U+{{ elementList[current.elementIndex].unicodeCodePointCN }}</div>
+                      >U+{{ currentElement.unicodeCodePointCN }}</div>
                       <template #absolute>
                         <button
                           type="button"
                           class="data-area__item-kanji-copy-button"
-                          :class="'is-' + elementList[current.elementIndex].categoryClass"
-                          @click="copyToClipboard(elementList[current.elementIndex].simplifiedChinese)"
+                          :class="'is-' + currentElement.categoryClass"
+                          @click="copyToClipboard(currentElement.simplifiedChinese)"
                           data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-sc"
                         ><i id="fa-clipboard-sc" class="fas fa-clipboard" data-micron="swing"></i></button>
                       </template>
@@ -445,20 +446,20 @@
                   <div class="overlay__area overlay__area--tw">
                     <data-area
                       type="kanji" label="Taiwan"
-                      :category-class="'is-' + elementList[current.elementIndex].categoryClass"
+                      :category-class="'is-' + currentElement.categoryClass"
                     >
                       <div
                         class="data-area__kanji-character data-area__kanji-character--tw"
-                      >{{ elementList[current.elementIndex].taiwanTrad }}</div>
+                      >{{ currentElement.taiwanTrad }}</div>
                       <div
                         class="data-area__kanji-code-point"
-                      >U+{{ elementList[current.elementIndex].unicodeCodePointTW }}</div>
+                      >U+{{ currentElement.unicodeCodePointTW }}</div>
                       <template #absolute>
                         <button
                           type="button"
                           class="data-area__item-kanji-copy-button"
-                          :class="'is-' + elementList[current.elementIndex].categoryClass"
-                          @click="copyToClipboard(elementList[current.elementIndex].taiwanTrad)"
+                          :class="'is-' + currentElement.categoryClass"
+                          @click="copyToClipboard(currentElement.taiwanTrad)"
                           data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-tw"
                         ><i id="fa-clipboard-tw" class="fas fa-clipboard" data-micron="swing"></i></button>
                       </template>
@@ -467,20 +468,20 @@
                   <div class="overlay__area overlay__area--hk">
                     <data-area
                       type="kanji" label="Hong Kong"
-                      :category-class="'is-' + elementList[current.elementIndex].categoryClass"
+                      :category-class="'is-' + currentElement.categoryClass"
                     >
                       <div
                         class="data-area__kanji-character data-area__kanji-character--hk"
-                      >{{ elementList[current.elementIndex].hongkongTrad }}</div>
+                      >{{ currentElement.hongkongTrad }}</div>
                       <div
                         class="data-area__kanji-code-point"
-                      >U+{{ elementList[current.elementIndex].unicodeCodePointHK }}</div>
+                      >U+{{ currentElement.unicodeCodePointHK }}</div>
                       <template #absolute>
                         <button
                           type="button"
                           class="data-area__item-kanji-copy-button"
-                          :class="'is-' + elementList[current.elementIndex].categoryClass"
-                          @click="copyToClipboard(elementList[current.elementIndex].hongkongTrad)"
+                          :class="'is-' + currentElement.categoryClass"
+                          @click="copyToClipboard(currentElement.hongkongTrad)"
                           data-micron="swing" data-micron-bind="true" data-micron-id="fa-clipboard-hk"
                         ><i id="fa-clipboard-hk" class="fas fa-clipboard" data-micron="swing"></i></button>
                       </template>
@@ -491,48 +492,48 @@
                   <div class="overlay__area overlay__area--pinyin">
                     <data-area
                       type="pinyin" label="<span>Pinyin</span><span>Mainland China</span>"
-                      :category-class="'is-' + elementList[current.elementIndex].categoryClass"
-                    >{{ elementList[current.elementIndex].pinyin }}</data-area>
+                      :category-class="'is-' + currentElement.categoryClass"
+                    >{{ currentElement.pinyin }}</data-area>
                   </div>
                   <div class="overlay__area overlay__area--bopomofo">
                     <data-area
                       type="pinyin" label="<span>Bopomofo</span><span>Taiwan</span>"
-                      :category-class="'is-' + elementList[current.elementIndex].categoryClass"
-                    >{{ elementList[current.elementIndex].bopomofo }} ({{ elementList[current.elementIndex].taiwanPinyin }})</data-area>
+                      :category-class="'is-' + currentElement.categoryClass"
+                    >{{ currentElement.bopomofo }} ({{ currentElement.taiwanPinyin }})</data-area>
                   </div>
                 </div>
                 <div class="overlay__container-name">
                   <div class="overlay__area overlay__area--japanese-name">
                     <data-area
                       type="japanese-name" label="Japanese Name"
-                      :category-class="'is-' + elementList[current.elementIndex].categoryClass"
-                    >{{ elementList[current.elementIndex].japaneseName }}</data-area>
+                      :category-class="'is-' + currentElement.categoryClass"
+                    >{{ currentElement.japaneseName }}</data-area>
                   </div>
                   <div class="overlay__area overlay__area--english-name">
                     <data-area
                       type="english-name" label="English Name"
-                      :category-class="'is-' + elementList[current.elementIndex].categoryClass"
-                    >{{ elementList[current.elementIndex].englishName }}</data-area>
+                      :category-class="'is-' + currentElement.categoryClass"
+                    >{{ currentElement.englishName }}</data-area>
                   </div>
                 </div>
                 <div class="overlay__container-tweet">
                   <div class="overlay__area overlay__area--tweet">
-                    <div class="data-area" :class="'is-' + elementList[current.elementIndex].categoryClass">
+                    <div class="data-area" :class="'is-' + currentElement.categoryClass">
                       <div
                         ref="contAreaTweet"
                         class="data-area__item-tweet"
-                        v-html="elementList[current.elementIndex].twitterTweet"
+                        v-html="currentElement.twitterTweet"
                       ></div>
                     </div>
                   </div>
                 </div>
                 <div class="overlay__container-close">
                   <div class="overlay__area overlay__area--close">
-                    <div class="data-area" :class="'is-' + elementList[current.elementIndex].categoryClass">
+                    <div class="data-area" :class="'is-' + currentElement.categoryClass">
                       <button
                         type="button"
                         class="data-area__item-close-button"
-                        :class="'is-' + elementList[current.elementIndex].categoryClass"
+                        :class="'is-' + currentElement.categoryClass"
                         @click="closeOverlay"
                       >CLOSE</button>
                     </div>
@@ -549,8 +550,8 @@
             </button>
             <div class="overlay__container-element-changer">
               <div class="overlay__area overlay__area--element-changer">
-                <div class="data-area" :class="'is-' + elementList[current.elementIndex].categoryClass">
-                  <div class="data-area__item-element-changer" :class="'is-' + elementList[current.elementIndex].categoryClass">
+                <div class="data-area" :class="'is-' + currentElement.categoryClass">
+                  <div class="data-area__item-element-changer" :class="'is-' + currentElement.categoryClass">
                     <button
                       type="button"
                       :disabled="elementChangeButton.isStart"
