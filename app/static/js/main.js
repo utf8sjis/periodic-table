@@ -248,7 +248,12 @@ new Vue({
      * @param {string} themeColorName - テーマカラーの名前
      */
     changeThemeColor: function (themeColorName) {
-      const themeColor = this.themeColorList[themeColorName];
+      let themeColor = this.themeColorList.find(
+        (themeColor) => themeColor.name === themeColorName
+      );
+      if (typeof themeColor === 'undefined') {
+        themeColor = this.themeColorList[0]
+      }
       const mainGrad =
         'linear-gradient(0.375turn, ' +
         themeColor.main1 + 'e6, ' +

@@ -91,26 +91,12 @@
               <div class="nav__theme-color-changer">
                 <div class="nav__theme-color-changer-button-wrapper">
                   <button
+                    v-for="themeColor in themeColorList"
                     type="button"
-                    class="nav__theme-color-changer-button nav__theme-color-changer-button--wakaba"
-                    @click="changeThemeColor('wakaba')"
-                  >
-                    わかば
-                  </button>
-                  <button
-                    type="button"
-                    class="nav__theme-color-changer-button nav__theme-color-changer-button--ramune"
-                    @click="changeThemeColor('ramune')"
-                  >
-                    ラムネ
-                  </button>
-                  <button
-                    type="button"
-                    class="nav__theme-color-changer-button nav__theme-color-changer-button--momiji"
-                    @click="changeThemeColor('momiji')"
-                  >
-                    もみじ
-                  </button>
+                    class="nav__theme-color-changer-button"
+                    :style="{'background': themeColor.main2}"
+                    @click="changeThemeColor(themeColor.name)"
+                  >{{ themeColor.displayName }}</button>
                 </div>
               </div>
             </section>
