@@ -3,10 +3,11 @@
 @use 'sass:math';
 @use 'global' as *;
 
-$trackColor: $colorLightGray;
-$trackHeight: 6px;
+$trackHeight: 8px;
 $trackBorderRadius: 3px;
-$thumbSize: 25px;
+$trackColor: $colorLightGray;
+$thumbSize: 20px;
+$thumbColor: $colorMain1;
 
 .periodic-table-scaler {
   @include flexCentering();
@@ -37,7 +38,7 @@ $thumbSize: 25px;
       width: $thumbSize;
       border: none;
       border-radius: 50%;
-      background: $colorMain2;
+      background: $thumbColor;
       transform: translateY(math.div($trackHeight - $thumbSize, 2));
     }
     &::-moz-range-thumb {
@@ -45,7 +46,7 @@ $thumbSize: 25px;
       width: $thumbSize;
       border: none;
       border-radius: 50%;
-      background: $colorMain2;
+      background: $thumbColor;
     }
   }
 
