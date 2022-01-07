@@ -61,12 +61,14 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
 }
 
 .periodic-table {
-  @include flexCentering();
-  overflow: hidden;
+  @include flexCentering(center, flex-start);
+  overflow: visible;
   -webkit-overflow-scrolling: touch;
+  transition: height 0.3s;
   &.is-overflow-scroll {
     @include flexCentering(flex-start, flex-start);
     overflow-x: scroll;
+    overflow-y: hidden;
   }
   &.is-overflow-hidden {
     overflow: hidden;
@@ -79,7 +81,8 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
     grid-template: repeat(9, $cellSize) / repeat(18, $cellSize);
     row-gap: $cellGap;
     column-gap: $cellGap;
-    transform-origin: top 50%;
+    transform-origin: top center;
+    transition: transform 0.3s;
     &.is-overflow-scroll {
       transform-origin: top left;
     }
