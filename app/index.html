@@ -109,7 +109,10 @@
                   <a
                     v-for="navLink in navLinkSection.links"
                     class="nav__link"
-                    target="_blank" rel="noreferrer noopener"
+                    v-bind="navLink.isTargetBlank ? {
+                      target: '_blank',
+                      rel: 'noreferrer noopener',
+                    } : false"
                     :href="navLink.href"
                   >
                     <div class="nav__link-image-container">
@@ -117,7 +120,7 @@
                       <div class="nav__image-inset-shadow"></div>
                       <i
                         class="nav__image-external-link-icon fas fa-external-link-alt"
-                        v-show="navLinkSection.title === '外部リンク'"
+                        v-show="navLink.isTargetBlank"
                       ></i>
                     </div>
                     <div class="nav__link-content">
