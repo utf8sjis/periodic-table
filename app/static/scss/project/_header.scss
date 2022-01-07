@@ -41,6 +41,7 @@
     @include mediaQuery() {
       top: 0;
       left: 15px;
+      line-height: 1.1;
     }
   }
 
@@ -55,8 +56,10 @@
 
   &__site {
     padding-left: 20px;
+    font-size: 16px;
     @include mediaQuery() {
-      display: none;
+      padding-left: 12px;
+      font-size: 14px;
     }
   }
 
@@ -133,7 +136,7 @@
     transition: background-color 0.2s;
     @include mediaQuery() {
       width: 52px;
-      height: 40px;
+      height: 46px;
       font-size: 16px;
       line-height: 1;
     }
@@ -145,7 +148,7 @@
   &__nav-open-button-icon-wrapper {
     font-size: 22px;
     @include mediaQuery() {
-      font-size: 16px;
+      font-size: 18px;
     }
   }
 
