@@ -149,6 +149,14 @@
     @include font(ja, bold);
   }
 
+  &__traditional-chinese {
+    @include font(zhtw);
+  }
+
+  &__simplified-chinese {
+    @include font(zhcn);
+  }
+
   &__kanji-cn {
     @include font(cn);
   }

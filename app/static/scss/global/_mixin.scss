@@ -18,7 +18,7 @@
 @mixin font($family, $weight: normal) {
   // 英語
   @if $family == en {
-    font-family: $fontEnglish;
+    font-family: $fontWebEnglish;
     @if $weight == light {
       font-weight: 200;
     }
@@ -28,7 +28,7 @@
   }
   // 日本語
   @else if $family == ja {
-    font-family: $fontJapanese;
+    font-family: $fontWebJapanese;
     @if $weight == bold {
       font-weight: 500;
     }
@@ -39,22 +39,42 @@
   // 大陸簡体
   @else if $family == cn {
     font-family: $fontKanjiCN;
+    font-weight: 100;
   }
   // 台湾正体
   @else if $family == tw {
     font-family: $fontKanjiTW;
+    font-weight: 100;
   }
   // 香港繁体
   @else if $family == hk {
     font-family: $fontKanjiHK;
+    font-weight: 100;
   }
   // ピンインと注音符号
   @else if $family == py {
     font-family: $fontPinyin;
+    font-weight: 100;
   }
   // ユーザの環境のシステムフォント
   @else if $family == user {
     font-family: $fontUser;
+    @if $weight == bold {
+      font-weight: bold;
+    }
+    @else {
+      font-weight: 400;
+    }
+  }
+  // ユーザの環境の繁体字中国語
+  @else if $family == zhtw {
+    font-family: $fontUserTC;
+    font-weight: 400;
+  }
+  // ユーザの環境の簡体字中国語
+  @else if $family == zhcn {
+    font-family: $fontUserSC;
+    font-weight: 400;
   }
   // AA
   @else if $family == aa {
