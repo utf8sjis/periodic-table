@@ -7,6 +7,11 @@ import {otherCellList} from './data/other_cell_list.js';
 import {themeColorList} from './data/theme_color_list.js';
 
 
+window.onload = () => {
+  const body = document.querySelector('body');
+  body.classList.remove('body-preload');
+};
+
 Vue.config.ignoredElements = ['ion-icon'];
 
 Vue.component('data-area', {

@@ -1,5 +1,10 @@
 @use 'global' as *;
 
+/* 読み込み完了前 */
+.body-preload * {
+  transition: none !important;
+}
+
 /* v-cloak */
 [v-cloak] {
   @include font(user);
