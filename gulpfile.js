@@ -5,8 +5,6 @@ const sourcemaps = require('gulp-sourcemaps');
 const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const replace = require('gulp-replace');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
 const htmlmin = require('gulp-htmlmin');
 const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
@@ -28,7 +26,7 @@ const compileSass = () =>
 
 
 // dist以下のファイルを削除する
-const clean = () => del('dist/*');
+const clean = () => del('dist/**');
 
 
 // cssファイルを圧縮する
@@ -41,36 +39,18 @@ const minifyCSS = () =>
     .pipe(gulp.dest('dist/static/css/'));
 
 
-// jsファイルを結合、圧縮する
-const minifyJS = () =>
-  gulp.src([
-    'app/static/js/bodyScrollLock.js',
-    'app/static/js/check_browser.js',
-    'app/static/js/lang_list.js',
-    'app/static/js/cell_list.js',
-    'app/static/js/element_list.js',
-    'app/static/js/category_list.js',
-    'app/static/js/group_period_list.js',
-    'app/static/js/nav_link_list.js',
-    'app/static/js/theme_color_list.js',
-    'app/static/js/changer_title_list.js',
-    'app/static/js/main.js',
-  ])
-    .pipe(concat('main.min.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('dist/static/js/'));
-
-
 // htmlファイル内のパスを置換し圧縮する
 const minifyHTML = () =>
   gulp.src('app/*.html')
-    .pipe(replace('static/css/style.css', 'static/css/style.min.css'))
     .pipe(replace(
-      '<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>',
-      '<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>'))
+      'https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js',
+      'https://cdn.jsdelivr.net/npm/vue@2.6.14'))
     .pipe(replace(
-      /<script src=\"static\/js\/bodyScrollLock\.js\"><\/script>.+<script src=\"static\/js\/main\.js\"><\/script>/s,
-      '<script src="static/js/main.min.js"></script>'))
+      'static/js/main.js',
+      'static/js/main.min.js'))
+    .pipe(replace(
+      'static/css/style.css',
+      'static/css/style.min.css'))
     .pipe(htmlmin({
       collapseWhitespace: true,
       removeComments: true,
@@ -108,4 +88,4 @@ const copyToDist = () =>
 
 exports.default = compileSass;
 exports.build = gulp.series(
-  clean, minifyCSS, minifyJS, minifyHTML, minifyImage, copyToDist);
+  clean, minifyCSS, minifyHTML, minifyImage, copyToDist);
