@@ -208,10 +208,16 @@ new Vue({
       );
     },
     /**
-     * ナビゲーションメニューを開く
+     * ナビゲーションメニューを展開、格納する
      */
-    openNav: function () {
+    toggleNavOpen: function () {
       this.isNavOpened = !this.isNavOpened;
+    },
+    /**
+     * ナビゲーションメニューを格納する
+     */
+    closeNav: function () {
+      this.isNavOpened = false;
     },
     /**
      * スクロール量がページのトップあたりかを示すハンドラ
@@ -345,7 +351,7 @@ new Vue({
     /**
      * シェアボタンを展開、格納する
      */
-    expandShareButton: function () {
+    toggleShareExpandButton: function () {
       this.isShareButtonExpanded = !this.isShareButtonExpanded;
     },
   },

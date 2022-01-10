@@ -76,7 +76,7 @@
               <a class="header__share-button header__share-button--line" target="_blank" rel="noreferrer noopener" href="https://social-plugins.line.me/lineit/share?url=https://gensokanji.netlify.app/periodic-table"><i class="fab fa-line"></i></a>
             </div>
           </div>
-          <button type="button" class="header__nav-open-button" @click="openNav">
+          <button type="button" class="header__nav-open-button" @click="toggleNavOpen">
             <span v-show="!isNavOpened">MORE</span>
             <span v-show="isNavOpened">CLOSE</span>
             <span class="header__nav-open-button-icon-wrapper">
@@ -152,7 +152,7 @@
     </transition>
 
     <transition name="nav-back-">
-      <div v-cloak class="nav-back" v-show="isNavOpened" @click="openNav"></div>
+      <div v-cloak class="nav-back" v-show="isNavOpened" @click="closeNav"></div>
     </transition>
 
     <transition name="bottom-fixed-area-">
@@ -185,7 +185,7 @@
                 type="button"
                 class="bottom-fixed-area__share-expand-button"
                 :class="{'is-expanded': isShareButtonExpanded}"
-                @click="expandShareButton"
+                @click="toggleShareExpandButton"
               ><span class="material-icons">share</span></button>
             </div>
           </div>
