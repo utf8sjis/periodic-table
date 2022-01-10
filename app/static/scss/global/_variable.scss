@@ -1,14 +1,10 @@
 /* フォントファミリー */
 $fontWebEnglish: 'Blinker', 'Helvetica Neue', Arial, sans-serif;
 $fontWebJapanese: 'M PLUS 1p', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-$fontKanjiTW: 'Source Han Sans TW', 'make up for TW and HK', 'Source Han Sans CN',
-  'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-$fontKanjiCN: 'Source Han Sans CN', 'make up for CN',
-  'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-$fontKanjiHK: 'Source Han Sans HK', 'make up for TW and HK', 'Source Han Sans CN',
-  'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-$fontPinyin: 'pinyin and bopomofo',
-  'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+$fontKanjiTW: 'Source Han Sans TW', 'Source Han Sans CN', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+$fontKanjiCN: 'Source Han Sans CN', 'Source Han Sans SC Subset Lv', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+$fontKanjiHK: 'Source Han Sans HK', 'Source Han Sans CN', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+$fontPinyin: 'Source Han Sans TW', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
 $fontUser: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
 $fontUserTC: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
 $fontUserSC: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;

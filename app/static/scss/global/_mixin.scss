@@ -39,12 +39,22 @@
   // 大陸簡体
   @else if $family == cn {
     font-family: $fontKanjiCN;
-    font-weight: 100;
+    @if $weight == bold {
+      font-weight: 300;
+    }
+    @else {
+      font-weight: 100;
+    }
   }
   // 台湾正体
   @else if $family == tw {
     font-family: $fontKanjiTW;
-    font-weight: 100;
+    @if $weight == bold {
+      font-weight: 300;
+    }
+    @else {
+      font-weight: 100;
+    }
   }
   // 香港繁体
   @else if $family == hk {
@@ -63,18 +73,18 @@
       font-weight: bold;
     }
     @else {
-      font-weight: 400;
+      font-weight: 300;
     }
   }
   // ユーザの環境の繁体字中国語
   @else if $family == zhtw {
     font-family: $fontUserTC;
-    font-weight: 400;
+    font-weight: 300;
   }
   // ユーザの環境の簡体字中国語
   @else if $family == zhcn {
     font-family: $fontUserSC;
-    font-weight: 400;
+    font-weight: 300;
   }
   // AA
   @else if $family == aa {

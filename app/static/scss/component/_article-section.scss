@@ -158,14 +158,10 @@
   }
 
   &__kanji-cn {
-    @include font(cn);
+    @include font(cn, bold);
   }
 
   &__kanji-tw {
-    @include font(tw);
-  }
-
-  &__kanji-hk {
-    @include font(hk);
+    @include font(tw, bold);
   }
 }
