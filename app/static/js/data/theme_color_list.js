@@ -1,5 +1,13 @@
 export const themeColorList = [
   {
+    name: 'default',
+    displayName: 'デフォルト',
+    main1: '#424c66',
+    main2: '#758ba3',
+    main2dark: '#667f99',
+    main3: '#a6bbca',
+  },
+  {
     name: 'wakaba',
     displayName: 'わかば',
     main1: '#3d8d69',

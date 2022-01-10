@@ -75,26 +75,39 @@
 
   &__theme-color-changer {
     @include flexCentering();
-    height: 45px;
   }
 
   &__theme-color-changer-button-wrapper {
     display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 20px;
+    grid-template-rows: repeat(2, 40px);
+    grid-template-columns: repeat(3, 70px);
+    gap: 15px 20px;
   }
 
   &__theme-color-changer-button {
     cursor: pointer;
     @include flexCentering();
-    width: 70px;
-    height: 40px;
     border: 1px solid $colorWhite;
     border-radius: 3px;
-    transition: 0.2s;
+    transition: filter 0.2s;
     &:hover {
       filter: brightness(1.1);
+    }
+    &--default {
+      grid-row: 1 / span 1;
+      grid-column: 1 / -1;
+    }
+    &--wakaba {
+      grid-row: 2 / span 1;
+      grid-column: 1 / span 1;
+    }
+    &--ramune {
+      grid-row: 2 / span 1;
+      grid-column: 2 / span 1;
+    }
+    &--momiji {
+      grid-row: 2 / span 1;
+      grid-column: 3 / span 1;
     }
   }
 

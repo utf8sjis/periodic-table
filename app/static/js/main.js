@@ -443,7 +443,7 @@ new Vue({
     let itemObj = JSON.parse(localStorage.getItem('itemStorage'));
     if (!(itemObj && itemObj.themeColorName && itemObj.rangeValue)) {
       itemObj = {
-        themeColorName: 'wakaba',
+        themeColorName: 'default',
         rangeValue: 1,
       };
       localStorage.setItem('itemStorage', JSON.stringify(itemObj));
