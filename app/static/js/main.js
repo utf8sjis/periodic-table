@@ -20,7 +20,7 @@ Vue.component('data-area', {
     label: String,
     categoryClass: String,
   },
-  template: `
+  template: String.raw`
     <div class="data-area" :class="categoryClass">
       <div class="data-area__item-common-container">
         <div class="data-area__label" v-html="label"></div>
@@ -37,7 +37,7 @@ Vue.component('article-section', {
     headline: String,
     isLevelOne: Boolean,
   },
-  template: `
+  template: String.raw`
     <section class="article-section">
       <h1 v-if="isLevelOne" class="article-section__headline">{{ headline }}</h1>
       <h2 v-else class="article-section__headline">{{ headline }}</h2>
@@ -52,7 +52,7 @@ Vue.component('article-subsection', {
     isNoHeadline: Boolean,
     headline: String,
   },
-  template: `
+  template: String.raw`
     <section class="article-section__subsection">
       <h3 v-if="!isNoHeadline" class="article-section__headline-2">{{ headline }}</h3>
       <slot></slot>
@@ -60,7 +60,7 @@ Vue.component('article-subsection', {
 });
 
 Vue.component('article-p', {
-  template: `
+  template: String.raw`
     <p class="article-section__paragraph">
       <slot></slot>
     </p>`,
