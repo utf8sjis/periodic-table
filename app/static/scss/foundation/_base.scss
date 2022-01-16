@@ -71,3 +71,9 @@ body {
   color: $colorBlack;
   background: $colorBase;
 }
+
+/* テキスト選択時 */
+::selection {
+  background: $colorMain3;
+  color: $colorWhite;
+}
