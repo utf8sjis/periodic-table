@@ -314,12 +314,15 @@ new Vue({
      * 周期表の幅に対するメディアクエリを作成する
      */
     createMediaQuery: function () {
-      if (this.periodicTableMQL) {
-        this.periodicTableMQL.removeEventListener('change', this.checkPeriodicTableOverflow);
-      }
       this.periodicTableMQL = window.matchMedia(
-        '(min-width: ' + (this.periodicTableRect.width * this.rangeValue) + 'px)');
-      this.periodicTableMQL.addEventListener('change', this.checkPeriodicTableOverflow);
+        `(min-width: ${this.periodicTableRect.width * this.rangeValue}px)`
+      );
+      const handler = this.checkPeriodicTableOverflow;
+      try {
+        this.periodicTableMQL.addEventListener('change', handler);
+      } catch (e) {
+        this.periodicTableMQL.addListener(handler); // for Safari 14 and earlier
+      }
     },
     /**
      * 操作パネルの操作の内容を変更する
@@ -456,7 +459,11 @@ new Vue({
     // スマートフォン幅に対するメディアクエリを作成 -> _variable.scss
     const phoneMQL = window.matchMedia('(max-width: 550px)');
     const checkIsPhone = () => (this.isPhone = phoneMQL.matches);
-    phoneMQL.addEventListener('change', checkIsPhone);
+    try {
+      phoneMQL.addEventListener('change', checkIsPhone);
+    } catch (e) {
+      phoneMQL.addListener(checkIsPhone); // for Safari 14 and earlier
+    }
     checkIsPhone();
   },
 });
