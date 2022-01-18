@@ -1,0 +1,161 @@
+/****** header ******/
+@use 'global' as *;
+
+.header {
+  height: $headerHeight;
+  @include mediaQuery() {
+    height: $headerHeightPhone;
+  }
+
+  &__fixed-container {
+    position: fixed;
+    width: 100%;
+    height: $headerFixedContainerHeight;
+    color: $colorWhite;
+    background: $colorMainGrad;
+    z-index: 202;
+    @include mediaQuery() {
+      height: $headerFixedContainerHeightPhone;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #2e245e4d;
+      opacity: 0;
+      transition: opacity $navOpenTime;
+    }
+    &.is-active::before {
+      opacity: 1;
+    }
+  }
+
+  &__start {
+    position: absolute;
+    top: 2px;
+    left: 30px;
+    height: 100%;
+    @include mediaQuery() {
+      top: 0;
+      left: 15px;
+      line-height: 1.1;
+    }
+  }
+
+  &__logo {
+    cursor: pointer;
+    @include font(en);
+    font-size: 40px;
+    @include mediaQuery() {
+      font-size: 35px;
+    }
+  }
+
+  &__site {
+    padding-left: 20px;
+    font-size: 16px;
+    @include mediaQuery() {
+      padding-left: 12px;
+      font-size: 14px;
+    }
+  }
+
+  &__site-icon {
+    padding-right: 5px;
+  }
+
+  &__end {
+    @include flexCentering();
+    position: absolute;
+    top: 0;
+    right: 40px;
+    height: 100%;
+    @include mediaQuery() {
+      right: 10px;
+    }
+  }
+
+  &__share-container {
+    @include flexCentering();
+    flex-direction: column;
+    @include mediaQuery() {
+      display: none;
+    }
+  }
+
+  &__share-label {
+    @include font(en);
+    font-size: 20px;
+  }
+
+  &__share-button-container {
+    @include flexCentering();
+  }
+
+  &__share-button {
+    @include flexCentering();
+    margin: 0 4px;
+    width: 35px;
+    height: 35px;
+    border: 2px solid $colorWhiteA;
+    border-radius: 50%;
+    font-size: 20px;
+    transition: background-color 0.2s;
+    &--twitter {
+      &:hover {
+        background: $colorTwitter;
+      }
+    }
+    &--facebook {
+      &:hover {
+        background: $colorFacebook;
+      }
+    }
+    &--line {
+      &:hover {
+        background: $colorLINE;
+      }
+    }
+  }
+
+  &__nav-open-button {
+    cursor: pointer;
+    @include flexCentering();
+    flex-direction: column;
+    margin-left: 10px;
+    width: 85px;
+    height: 55px;
+    border: 2px solid $colorWhiteA;
+    border-radius: 5px;
+    padding-bottom: 2px;
+    @include font(en);
+    font-size: 20px;
+    transition: background-color 0.2s;
+    @include mediaQuery() {
+      width: 52px;
+      height: 46px;
+      font-size: 16px;
+      line-height: 1;
+    }
+    &:hover {
+      background: #fff3;
+    }
+  }
+
+  &__nav-open-button-icon-wrapper {
+    font-size: 22px;
+    @include mediaQuery() {
+      font-size: 18px;
+    }
+  }
+
+  &__nav-open-button-arrow-icon {
+    transition: transform $navOpenTime;
+    &.is-active {
+      transform: rotateX(0.5turn);
+    }
+  }
+}

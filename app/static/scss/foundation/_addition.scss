@@ -1,0 +1,27 @@
+@use 'global' as *;
+
+/* 読み込み完了前 */
+.body-preload * {
+  transition: none !important;
+}
+
+/* v-cloak */
+[v-cloak] {
+  @include font(user);
+  &:not(.footer) {
+    display: none;
+  }
+  &.footer {
+    background: #aaa;
+  }
+}
+
+/* 埋め込みツイート */
+.twitter-tweet {
+  margin: 0 !important;
+}
+
+/* 埋め込みツイートの読み込み前 */
+blockquote.twitter-tweet {
+  height: 500px;
+}

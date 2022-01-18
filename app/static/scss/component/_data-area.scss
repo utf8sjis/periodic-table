@@ -1,0 +1,287 @@
+/****** data-area ******/
+@use 'global' as *;
+
+$borderColor: #fff9;
+$borderColorHydrogen: #0003;
+$changeDuration: 0.5s;
+
+.data-area {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+  border: 2px solid $borderColor;
+  color: $colorWhite;
+  background: #0002;
+  transition-property: border-color, background-color, color;
+  transition-duration: $changeDuration;
+  &.is-category-h {
+    border-color: $borderColorHydrogen;
+    color: $colorHydrogenBlack;
+    background: #fff6;
+  }
+
+  &__item-element-symbol {
+    @include flexCentering();
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+    @include font(en);
+    font-size: 165px;
+    @include mediaQuery() {
+      font-size: 130px;
+    }
+  }
+
+  &__item-state {
+    @include flexCentering();
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__item-radioactivity {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 16px;
+  }
+
+  &__item-tweet {
+    @include flexCentering();
+  }
+
+  &__item-close-button {
+    cursor: pointer;
+    @include flexCentering();
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    @include font(en);
+    font-size: 20px;
+    transition: background-color 0.2s;
+    &:hover {
+      background: #fff3;
+    }
+    &.is-category-h {
+      &:hover {
+        background: #ffff;
+      }
+    }
+  }
+
+  &__item-element-changer {
+    user-select: none;
+    @include flexCentering(space-between, center);
+    transition-property: background-color, color;
+    transition-duration: $changeDuration;
+    @each $category in $categoryList {
+      $categoryColor: nth($categoryColorList2, index($categoryList, $category));
+      @if $category == h {
+        &.is-category-#{$category} {
+          background: #fffe;
+        }
+      } @else {
+        &.is-category-#{$category} {
+          color: #{$categoryColor};
+          background: #fffe;
+        }
+      }
+    }
+  }
+
+  &__item-kanji-copy-button {
+    cursor: pointer;
+    @include flexCentering();
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-radius: 15px 0 3px 0;
+    border: 16px solid $borderColor;
+    font-size: 20px;
+    color: $colorWhite;
+    transition-property: border-color;
+    transition-duration: $changeDuration;
+    @include mediaQuery() {
+      border: 14px solid $borderColor;
+      border-radius: 12px 0 3px 0;
+      font-size: 15px;
+    }
+    &.is-category-h {
+      border: 16px solid $borderColorHydrogen;
+      @include mediaQuery() {
+        border: 14px solid $borderColorHydrogen;
+      }
+    }
+  }
+
+  &__item-common-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 6px 9px;
+  }
+
+  &__label {
+    @include font(en, light);
+    line-height: 1;
+    font-size: 23px;
+    opacity: 0.7;
+    @include mediaQuery() {
+      font-size: 20px;
+    }
+
+    span {
+      &:first-child {
+        padding-right: 6px;
+      }
+      &:last-child {
+        display: inline-block;
+        font-size: 17px;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__content {
+    flex: 1;
+    flex-direction: column;
+    &--num {
+      @include flexCentering(center, flex-end);
+      @include font(en);
+      font-size: 45px;
+      @include mediaQuery() {
+        font-size: 35px;
+      }
+    }
+    &--kanji {
+      @include flexCentering(flex-end, center);
+      padding-bottom: 25px;
+      @include mediaQuery() {
+        padding-bottom: 23px;
+      }
+    }
+    &--pinyin {
+      @include flexCentering(flex-end, center);
+      padding: 5px 0;
+      white-space: nowrap;
+      @include font(py);
+      font-size: 20px;
+    }
+    &--category {
+      @include flexCentering();
+      padding: 5px 0;
+      font-size: 20px;
+      @include mediaQuery() {
+        font-size: 18px;
+      }
+    }
+    &--japanese-name {
+      @include flexCentering();
+      padding: 5px 0;
+      white-space: nowrap;
+      font-size: 20px;
+      @include mediaQuery() {
+        font-size: 18px;
+      }
+      @include mediaQuery($se) {
+        white-space: normal;
+      }
+    }
+    &--english-name {
+      @include flexCentering();
+      padding: 5px 0;
+      @include font(en);
+      font-size: 22px;
+      @include mediaQuery() {
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__state-image {
+    width: 100%;
+    max-width: 320px;
+    opacity: 0.15;
+    @include mediaQuery() {
+      height: 150px;
+    }
+    &.is-category-h {
+      opacity: 0.1;
+    }
+  }
+
+  &__radioactivity-image {
+    width: 45px;
+  }
+
+  &__category-text {
+    text-align: center;
+
+    > span {
+      display: inline-block;
+    }
+  }
+
+  &__kanji-character {
+    font-size: 125px;
+    @include mediaQuery() {
+      font-size: 70px;
+    }
+    &--cn {
+      @include font(cn);
+    }
+    &--tw {
+      @include font(tw);
+    }
+    &--hk {
+      @include font(hk);
+    }
+  }
+
+  &__kanji-code-point {
+    @include font(en, light);
+    font-size: 20px;
+    opacity: 0.7;
+    @include mediaQuery() {
+      font-size: 16px;
+    }
+  }
+
+  &__element-changer-button {
+    cursor: pointer;
+    @include flexCentering(flex-start, center);
+    transition: transform 0.05s;
+    &:active {
+      transform: translateY(2px);
+    }
+    &.is-disabled {
+      pointer-events: none;
+      opacity: 0.4;
+    }
+  }
+
+  &__element-changer-button-icon {
+    font-size: 70px;
+  }
+
+  &__element-changer-button-text {
+    @include font(en);
+    font-size: 50px;
+    @include mediaQuery() {
+      font-size: 35px;
+    }
+  }
+
+  &__element-changer-button-atomic-number {
+    font-size: 30px;
+    @include mediaQuery() {
+      font-size: 20px;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+/* フォントファミリー */
+$fontWebEnglish: 'Blinker', 'Helvetica Neue', Arial, sans-serif;
+$fontWebJapanese: 'M PLUS 1p', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+$fontKanjiTW: 'Source Han Sans TW', 'Source Han Sans CN', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+$fontKanjiCN: 'Source Han Sans CN', 'Source Han Sans SC Subset Lv', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+$fontKanjiHK: 'Source Han Sans HK', 'Source Han Sans CN', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+$fontPinyin: 'Source Han Sans TW', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+$fontUser: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+$fontUserTC: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+$fontUserSC: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+$fontAA: 'saitamaar_light', sans-serif;
+
+/* 色 */
+$colorMain1: var(--theme-color-main-1);
+$colorMain2: var(--theme-color-main-2);
+$colorMain2dark: var(--theme-color-main-2-dark);
+$colorMain3: var(--theme-color-main-3);
+$colorMainGrad: var(--theme-color-main-grad);
+
+$colorAccent: #ffe266;
+$colorBase: #faf9f6;
+$colorBaseA: #faf9f6f2;
+$colorWhite: #ffffff;
+$colorWhiteA: #ffffffb3;
+$colorBlack: #4a5155;
+$colorBlackA: #4a5155b3;
+$colorLightGray: #d6dadc;
+
+$colorTwitter: #55acee;
+$colorFacebook: #315096;
+$colorLINE: #00c300;
+
+
+/* カテゴリのテーマカラー */
+$colorHydrogenBlack: #5a5a5aff;
+$categoryList: 'h' 'he' 'li' 'be' 'b' 'c' 'n' 'o' 'f' 'ca' 'zn' 'fe' 'pt' 'la' 'ac' 'transition-metal';
+$categoryColorList:
+  #fdfdfdff #61caffff #e273abff #c4c4c4ff
+  #d39d56ff #d47663ff #bd75bdff #34ada5ff
+  #c0d96aff #eea24cff #f2d35cff #ff6262ff
+  #a8a8a8ff #82c76dff #64a0ddff #858585ff;
+$categoryColorList2:
+  #fdfdfdec #61caffec #e273abec #c4c4c4ec
+  #d39d56ec #d47663ec #bd75bdec #34ada5ec
+  #c0d96aec #eea24cec #f2d35cec #ff6262ec
+  #a8a8a8ec #82c76dec #64a0ddec #858585ec;
+
+/* ブレークポイント */
+$tablet: 1000px; // タブレット
+$phone: 550px;   // スマートフォン -> main.js
+$se: 350px;      // iPhone SE
+
+/* その他 */
+$headerFixedContainerHeight: 80px;
+$headerFixedContainerHeightPhone: 60px;
+$headerHeight: $headerFixedContainerHeight + 15px;
+$headerHeightPhone: $headerFixedContainerHeightPhone + 15px;
+$navOpenTime: 0.5s;
+$controlPanelWidth: 700px;

@@ -1,0 +1,30 @@
+/****** footer ******/
+@use 'global' as *;
+
+.footer {
+  @include flexCentering();
+  padding: 40px 5px;
+  color: $colorWhite;
+  background: $colorMainGrad;
+  @include mediaQuery() {
+    padding-bottom: 70px;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+  }
+
+  &__content {
+    @include flexCentering();
+  }
+
+  &__twitter-follow-button {
+    /* iframeを取得できなかった場合 */
+    color: $colorWhite;
+    &:hover {
+      color: $colorWhiteA;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+/****** lang-changer ******/
+@use 'global' as *;
+
+.lang-changer {
+  @include flexCentering();
+  overflow-x: visible;
+  height: 100%;
+  @include mediaQuery($controlPanelWidth) {
+    @include flexCentering(flex-start, center);
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  &.is-overflow-hidden {
+    overflow: hidden;
+  }
+
+  &__button-container {
+    @include flexCentering();
+    height: 100%;
+    padding: 0 20px;
+  }
+
+  &__button {
+    cursor: pointer;
+    position: relative;
+    height: 100%;
+    padding: 0 10px;
+    white-space: nowrap;
+    color: $colorBlackA;
+    transition: color 0.5s;
+    &:hover {
+      color: $colorBlack;
+      &::after {
+        left: 0;
+        width: 100%;
+        background: $colorMain2;
+      }
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 5px;
+      background: transparent;
+      transition-property: left, width, background-color;
+      transition-duration: 0.5s;
+    }
+    &.is-active-lang {
+      color: $colorMain1;
+      &::after {
+        left: 0;
+        width: 100%;
+        background: $colorMain1;
+      }
+    }
+  }
+
+  &__separator {
+    width: 1px;
+    height: 20px;
+    margin: 0 2px;
+    background: $colorLightGray;
+  }
+}

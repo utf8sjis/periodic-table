@@ -1,0 +1,323 @@
+/****** periodic-table ******/
+@use 'global' as *;
+
+$cellSize: 52px;
+$cellGap: 8px;
+
+// 族と周期のグリッド位置情報
+$groupNumberList: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18;
+$groupRowList:    1 2 4 4 4 4 4 4 4 4  4  4  2  2  2  2  2  1;
+$periodNumberList: 1 2 3 4 5 6 7;
+
+// 各元素のグリッド位置情報
+$cellSymbolList:
+  'H'  'He' 'Li' 'Be' 'B'  'C'  'N'  'O'  'F'  'Ne' 'Na' 'Mg' 'Al' 'Si' 'P'  'S'  'Cl' 'Ar'
+  'K'  'Ca' 'Sc' 'Ti' 'V'  'Cr' 'Mn' 'Fe' 'Co' 'Ni' 'Cu' 'Zn' 'Ga' 'Ge' 'As' 'Se' 'Br' 'Kr'
+  'Rb' 'Sr' 'Y'  'Zr' 'Nb' 'Mo' 'Tc' 'Ru' 'Rh' 'Pd' 'Ag' 'Cd' 'In' 'Sn' 'Sb' 'Te' 'I'  'Xe'
+  'Cs' 'Ba' 'Hf' 'Ta' 'W'  'Re' 'Os' 'Ir' 'Pt' 'Au' 'Hg' 'Tl' 'Pb' 'Bi' 'Po' 'At' 'Rn'
+  'Fr' 'Ra' 'Rf' 'Db' 'Sg' 'Bh' 'Hs' 'Mt' 'Ds' 'Rg' 'Cn' 'Nh' 'Fl' 'Mc' 'Lv' 'Ts' 'Og'
+  'La' 'Ce' 'Pr' 'Nd' 'Pm' 'Sm' 'Eu' 'Gd' 'Tb' 'Dy' 'Ho' 'Er' 'Tm' 'Yb' 'Lu'
+  'Ac' 'Th' 'Pa' 'U'  'Np' 'Pu' 'Am' 'Cm' 'Bk' 'Cf' 'Es' 'Fm' 'Md' 'No' 'Lr';
+$cellRowList:
+  1  1  2  2  2  2  2  2  2  2  3  3  3  3  3  3  3  3
+  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4
+  5  5  5  5  5  5  5  5  5  5  5  5  5  5  5  5  5  5
+  6  6  6  6  6  6  6  6  6  6  6  6  6  6  6  6  6
+  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7
+  8  8  8  8  8  8  8  8  8  8  8  8  8  8  8
+  9  9  9  9  9  9  9  9  9  9  9  9  9  9  9;
+$cellColumnList:
+  1  18 1  2  13 14 15 16 17 18 1  2  13 14 15 16 17 18
+  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18
+  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18
+  1  2  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18
+  1  2  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18
+  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17
+  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17;
+
+// 見た目変更時のアニメーション
+$animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
+@each $animeName in $animeNameList {
+  @keyframes #{$animeName} {
+    0% {
+      transform-origin: center top;
+      color: transparent;
+      transform: rotateZ(12deg);
+    }
+    25% {
+      transform: rotateZ(-8deg);
+    }
+    50% {
+      transform: rotateZ(3deg);
+    }
+    75% {
+      transform: rotateZ(-1deg);
+    }
+    100% {
+      transform-origin: center top;
+      transform: rotateZ(0deg);
+    }
+  }
+}
+
+.periodic-table {
+  @include flexCentering(center, flex-start);
+  overflow: visible;
+  -webkit-overflow-scrolling: touch;
+  transition: height 0.3s;
+  &.is-overflow-scroll {
+    @include flexCentering(flex-start, flex-start);
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  &.is-overflow-hidden {
+    overflow: hidden;
+  }
+
+  &__grid-container {
+    user-select: none;
+    display: grid;
+    padding: 40px 60px;
+    grid-template: repeat(9, $cellSize) / repeat(18, $cellSize);
+    row-gap: $cellGap;
+    column-gap: $cellGap;
+    transform-origin: top center;
+    transition: transform 0.3s;
+    &.is-overflow-scroll {
+      transform-origin: top left;
+    }
+  }
+
+  &__group-number {
+    @include flexCentering();
+    height: 0;
+    @include font(en);
+    font-size: 20px;
+    transform: translateY(-15px);
+    @each $groupNumber in $groupNumberList {
+      $groupRow: nth($groupRowList, index($groupNumberList, $groupNumber));
+      &--group-#{$groupNumber} {
+        grid-column: #{$groupNumber} / span 1;
+        grid-row: #{$groupRow} / span 1;
+      }
+    }
+  }
+
+  &__period-number {
+    @include flexCentering();
+    width: 0;
+    @include font(en);
+    font-size: 20px;
+    transform: translateX(-15px);
+    @each $periodNumber in $periodNumberList {
+      &--period-#{$periodNumber} {
+        grid-column: 1 / span 1;
+        grid-row: #{$periodNumber} / span 1;
+      }
+    }
+  }
+
+  &__cell-wrapper {
+    cursor: pointer;
+    transition: transform 1s, opacity, 1s;
+    @each $cellClass in $cellSymbolList {
+      $cellRow: nth($cellRowList, index($cellSymbolList, $cellClass));
+      $cellColumn: nth($cellColumnList, index($cellSymbolList, $cellClass));
+      &--cell-#{$cellClass} {
+        grid-column: #{$cellColumn} / span 1;
+        grid-row: #{$cellRow} / span 1;
+        z-index: #{$cellRow};
+      }
+    }
+    &.is-active {
+      cursor: default;
+      transform: translate3d(0, -5px, 100px) scale(2) rotateY(1turn);
+      opacity: 0;
+      z-index: 50;
+    }
+  }
+
+  &__cell {
+    @include flexCentering();
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    color: $colorWhite;
+    text-align: center;
+    box-shadow: 0 3px 2px #0003, 0 0 3px #fff0;
+    transform: translate3d(0, 0, 0) scale(1) rotateY(0);
+    transition-property: transform, background-color, color, border-color, box-shadow;
+    transition-duration: 1s;
+    @each $category in $categoryList {
+      $categoryColor: nth($categoryColorList, index($categoryList, $category));
+      &--category-#{$category} {
+        @if $category == h {
+          color: $colorHydrogenBlack;
+        }
+        border: 2.5px solid $categoryColor;
+        background: $categoryColor;
+        &:hover {
+          @if $category == h {
+            border-color: $colorHydrogenBlack;
+            color: $colorHydrogenBlack;
+          } @else {
+            color: $categoryColor;
+          }
+          transform: translate3d(0, -5px, 10px) scale(1.2) rotateY(0);
+          box-shadow: 0 3px 4px #0003, 0 0 3px #fff0;
+          background: $colorWhite;
+          transition-property: transform, background-color, color, border-color, box-shadow;
+          transition-duration: 0.2s;
+        }
+      }
+    }
+    &.is-atomic-number {
+      padding-bottom: 4px;
+      @include font(en, light);
+      font-size: 30px;
+      animation: intoAN 0.8s;
+    }
+    &.is-element-symbol {
+      padding-bottom: 4px;
+      @include font(en, light);
+      font-size: 30px;
+      animation: intoES 0.8s;
+    }
+    &.is-simplified-chinese {
+      padding-bottom: 5px;
+      font-size: 32px;
+      @include font(cn);
+      animation: intoSC 0.8s;
+    }
+    &.is-taiwan-trad {
+      padding-bottom: 5px;
+      font-size: 32px;
+      @include font(tw);
+      animation: intoTW 0.8s;
+    }
+    &.is-hongkong-trad {
+      padding-bottom: 5px;
+      font-size: 32px;
+      @include font(hk);
+      animation: intoHK 0.8s;
+    }
+    &.is-japanese-name {
+      padding-bottom: 1px;
+      font-size: 11px;
+      animation: intoJA 0.8s;
+    }
+    &.is-english-name {
+      padding-bottom: 3px;
+      @include font(en);
+      font-size: 10px;
+      animation: intoEN 0.8s;
+    }
+  }
+
+  &__cell-text {
+    &--cell-Mg,
+    &--cell-Ge,
+    &--cell-Mn,
+    &--cell-Tc,
+    &--cell-La,
+    &--cell-Dy,
+    &--cell-Cf,
+    &--cell-Es {
+      &.is-english-name {
+        transform: scale(0.95);
+      }
+    }
+    &--cell-P,
+    &--cell-Sg,
+    &--cell-Cn,
+    &--cell-Nd,
+    &--cell-Pm,
+    &--cell-Lr {
+      &.is-english-name {
+        transform: scale(0.9);
+      }
+    }
+    &--cell-Mo,
+    &--cell-Lv,
+    &--cell-Pa,
+    &--cell-Md {
+      &.is-english-name {
+        transform: scale(0.85);
+      }
+    }
+    &--cell-Rg {
+      &.is-english-name {
+        transform: scale(0.8);
+      }
+    }
+    &--cell-Rf,
+    &--cell-Ds,
+    &--cell-Pr {
+      &.is-english-name {
+        transform: scale(0.75);
+      }
+    }
+  }
+
+  &__la-ac-wrapper {
+    &--lanthanoid {
+      grid-column: 3 / span 1;
+      grid-row: 6 / span 1;
+    }
+    &--actinoid {
+      grid-column: 3 / span 1;
+      grid-row: 7 / span 1;
+    }
+  }
+
+  &__la-ac {
+    @include flexCentering();
+    width: 100%;
+    height: 100%;
+    color: $colorBlack;
+    text-align: center;
+    line-height: 1;
+    white-space: nowrap;
+    &.is-atomic-number {
+      padding-bottom: 4px;
+      @include font(en);
+      font-size: 20px;
+      animation: intoAN 0.8s;
+    }
+    &.is-element-symbol {
+      padding-bottom: 4px;
+      @include font(en);
+      font-size: 20px;
+      animation: intoES 0.8s;
+    }
+    &.is-simplified-chinese {
+      padding-bottom: 3px;
+      font-size: 20px;
+      @include font(cn);
+      animation: intoSC 0.8s;
+    }
+    &.is-taiwan-trad {
+      padding-bottom: 3px;
+      font-size: 20px;
+      @include font(tw);
+      animation: intoTW 0.8s;
+    }
+    &.is-hongkong-trad {
+      padding-bottom: 3px;
+      font-size: 20px;
+      @include font(hk);
+      animation: intoHK 0.8s;
+    }
+    &.is-japanese-name {
+      padding-bottom: 2px;
+      font-size: 10px;
+      animation: intoJA 0.8s;
+    }
+    &.is-english-name {
+      padding-bottom: 3px;
+      @include font(en);
+      font-size: 10px;
+      animation: intoEN 0.8s;
+    }
+  }
+}

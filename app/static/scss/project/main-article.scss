@@ -1,0 +1,16 @@
+/****** main-article ******/
+@use 'global' as *;
+
+.main-article {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 70px 0;
+  padding: 70px 15%;
+  @include mediaQuery($tablet) {
+    gap: 40px 0;
+    padding: 40px 10%;
+  }
+  @include mediaQuery() {
+    padding: 40px 10px;
+  }
+}
