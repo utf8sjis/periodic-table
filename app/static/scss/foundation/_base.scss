@@ -70,6 +70,9 @@ body {
   line-height: 1.2;
   color: $colorBlack;
   background: $colorBase;
+  @include mediaQuery() {
+    font-size: 15px;
+  }
 }
 
 /* テキスト選択時 */
