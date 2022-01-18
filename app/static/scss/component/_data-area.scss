@@ -24,6 +24,7 @@ $changeDuration: 0.5s;
 
   &__item-element-symbol {
     @include flexCentering();
+    position: relative;
     width: 100%;
     height: 100%;
     padding-bottom: 20px;
