@@ -245,13 +245,24 @@ new Vue({
     copyToClipboard: function (text) {
       const successMessage = '漢字をコピーしました';
       const failureMessage = '漢字のコピーに失敗しました';
-      if (!navigator.clipboard) {
+      try {
+        if (!navigator.clipboard) {
+          const handler = (e) => {
+            e.clipboardData.setData('text/plain', text);
+            e.preventDefault();
+            document.removeEventListener('copy', handler);
+          };
+          document.addEventListener('copy', handler);
+          document.execCommand('copy');
+          this.activePopup(successMessage);
+        } else {
+          navigator.clipboard.writeText(text).then(
+            () => this.activePopup(successMessage),
+            () => this.activePopup(failureMessage)
+          );
+        }
+      } catch (e) {
         this.activePopup(failureMessage);
-      } else {
-        navigator.clipboard.writeText(text).then(
-          () => this.activePopup(successMessage),
-          () => this.activePopup(failureMessage)
-        );
       }
     },
     /**
