@@ -38,8 +38,8 @@ $changeDuration: 0.5s;
   &__item-state {
     @include flexCentering();
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0;
+    padding: 10px;
   }
 
   &__item-radioactivity {
@@ -205,12 +205,11 @@ $changeDuration: 0.5s;
   }
 
   &__state-image {
+    object-fit: contain;
     width: 100%;
+    height: 100%;
     max-width: 320px;
     opacity: 0.15;
-    @include mediaQuery() {
-      height: 150px;
-    }
     &.is-category-h {
       opacity: 0.1;
     }
