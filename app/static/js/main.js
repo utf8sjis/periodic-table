@@ -1,5 +1,5 @@
 import {categoryList} from './data/category_list.js';
-import {controlPanelTitleList} from './data/control_panel_title_list.js';
+import {controlList} from './data/control_panel_content_list.js';
 import {elementList} from './data/element_list.js';
 import {langList} from './data/lang_list.js';
 import {navLinkSectionList} from './data/nav_link_list.js';
@@ -75,11 +75,12 @@ new Vue({
     categoryList: categoryList,
     navLinkSectionList: navLinkSectionList,
     themeColorList: themeColorList,
-    controlPanelTitleList: controlPanelTitleList,
+    controlList: controlList,
     /** 現在の表示言語とセル */
     current: {
       langIndex: 3,
       elementIndex: 0,
+      controlIndex: 0,
     },
     /** オーバーレイ表示しているか否か */
     isOverlayDisplayed: false,
@@ -94,13 +95,6 @@ new Vue({
       message: '',
       isDisplayed: false,
       timeoutID: 0,
-    },
-    /** 操作パネルの高さ、内容のインデクス、内容が最初（最後）のものか否か */
-    controlPanel: {
-      height: 0,
-      index: 0,
-      isStart: true,
-      isEnd: false,
     },
     periodicTableRect: {
       width: 0,
@@ -337,24 +331,12 @@ new Vue({
     },
     /**
      * 操作パネルの操作の内容を変更する
-     * @param {string} to - 'next'か'prev'
+     * @param {number} nextControlIndex - 選択された操作のcontrolListでのインデクス
      */
-    changeContents: function (to) {
-      if (to === 'next' && !this.controlPanel.isEnd) {
-        this.controlPanel.index++;
-      } else if (to === 'prev' && !this.controlPanel.isStart) {
-        this.controlPanel.index--;
-      }
-      if (this.controlPanel.index === 0) {
-        this.controlPanel.isStart = true;
-      } else {
-        this.controlPanel.isStart = false;
-      }
-      if (this.controlPanel.index === this.controlPanelTitleList.length - 1) {
-        this.controlPanel.isEnd = true;
-      } else {
-        this.controlPanel.isEnd = false;
-      }
+     setCurrentControl: function (nextControlIndex) {
+      this.currentControl.isActive = false;
+      this.current.controlIndex = nextControlIndex;
+      this.currentControl.isActive = true;
     },
     /**
      * 周期表の大きさの倍率を1にする
@@ -385,6 +367,14 @@ new Vue({
      */
     currentElement: function () {
       return this.elementList[this.current.elementIndex]
+    },
+    /**
+     * リスト中の現在選択されている操作のデータ
+     * current.controlIndexに依存
+     * @returns {object} リスト中の操作のオブジェクト
+     */
+    currentControl: function () {
+      return this.controlList[this.current.controlIndex]
     },
     /**
      * 現在のデータページのページ遷移ボタンの表示内容
@@ -448,9 +438,6 @@ new Vue({
   mounted: function () {
     // 周期表の幅と高さの初期値をセット
     this.periodicTableRect = this.$refs.periodicTable.getBoundingClientRect();
-    // 操作パネルの高さの初期値をセット
-    const compStyles = window.getComputedStyle(this.$refs.controlPanel);
-    this.controlPanel.height = parseInt(compStyles.getPropertyValue('height'));
     // スクロールのイベントリスナを追加
     window.addEventListener('scroll', this.handleScroll);
     // localStorageの初期化と読み出し

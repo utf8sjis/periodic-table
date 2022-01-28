@@ -203,76 +203,73 @@
 
       <section class="main-app">
 
-        <section ref="controlPanel" class="control-panel">
+        <section class="control-panel">
+
+          <div class="control-panel__tab-container">
+            <div class="control-panel__tab control-panel__tab--info">
+              <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="control-panel__tab-button-container">
+              <template v-for="control, controlIndex in controlList">
+                <button
+                  type="button"
+                  class="control-panel__tab"
+                  :class="{'is-active': control.isActive}"
+                  @click="setCurrentControl(controlIndex)"
+                >
+                  <div>
+                    <i
+                      class="control-panel__tab-icon"
+                      :class="control.iconClass"
+                    ></i><span>{{ control.name }}</span>
+                  </div>
+                </button>
+                <div class="control-panel__tab-separator"></div>
+              </template>
+              <div class="control-panel__tab-spacer"></div>
+            </div>
+          </div>
 
           <div class="control-panel__content-container">
 
-            <div
-              class="control-panel__content"
-              :style="{'transform': 'translateY(' + (controlPanel.index * -controlPanel.height) + 'px)'}"
-            >
-              <div class="lang-changer" :class="{'is-overflow-hidden': isBodyScrollLocked}">
-                <div class="lang-changer__button-container">
-                  <template v-for="(langObj, langIndex) in langList">
-                    <button
-                      type="button"
-                      :disabled="controlPanel.index !== 0"
-                      class="lang-changer__button"
-                      :class="[{'is-active-lang': langList[langIndex].isActive}]"
-                      @click="setCurrentLang(langIndex)"
-                      v-html="langObj.langName"
-                    ></button>
-                    <div class="lang-changer__separator" v-show="langIndex !== langList.length - 1"></div>
-                  </template>
+            <transition name="control-panel__content-">
+              <div v-show="current.controlIndex === 0" class="control-panel__content">
+                <div class="lang-changer" :class="{'is-overflow-hidden': isBodyScrollLocked}">
+                  <div class="lang-changer__button-container">
+                    <template v-for="(langObj, langIndex) in langList">
+                      <button
+                        type="button"
+                        class="lang-changer__button"
+                        :class="[{'is-active-lang': langList[langIndex].isActive}]"
+                        @click="setCurrentLang(langIndex)"
+                        v-html="langObj.langName"
+                      ></button>
+                      <div class="lang-changer__separator" v-show="langIndex !== langList.length - 1"></div>
+                    </template>
+                  </div>
                 </div>
               </div>
-            </div>
+            </transition>
 
-            <div
-              class="control-panel__content"
-              :style="{'transform': 'translateY(' + (controlPanel.index * -controlPanel.height) + 'px)'}"
-            >
-              <div class="periodic-table-scaler">
-                <input
-                  type="range"
-                  :disabled="controlPanel.index !== 1"
-                  class="periodic-table-scaler__input-range"
-                  min="0.5" max="2" step="0.05"
-                  v-model="rangeValue"
-                >
-                <button
-                  type="button"
-                  :disabled="controlPanel.index !== 1"
-                  class="periodic-table-scaler__value-display"
-                  @click="defaultRange"
-                >{{ rangeValue + 'x' }}</button>
+            <transition name="control-panel__content-">
+              <div v-show="current.controlIndex === 1" class="control-panel__content">
+                <div class="periodic-table-scaler">
+                  <input
+                    type="range"
+                    class="periodic-table-scaler__input-range"
+                    min="0.5" max="2" step="0.05"
+                    v-model="rangeValue"
+                  >
+                  <button
+                    type="button"
+                    class="periodic-table-scaler__value-display"
+                    @click="defaultRange"
+                  >{{ rangeValue + 'x' }}</button>
+                </div>
               </div>
-            </div>
+            </transition>
 
           </div>
-
-          <div class="control-panel__button-container">
-            <button
-              type="button"
-              :disabled="controlPanel.isStart"
-              class="control-panel__button"
-              :class="{'is-disable': controlPanel.isStart}"
-              @click="changeContents('prev')"
-            >
-              <i class="fas fa-angle-up"></i>
-            </button>
-            <button
-              type="button"
-              :disabled="controlPanel.isEnd"
-              class="control-panel__button"
-              :class="{'is-disable': controlPanel.isEnd}"
-              @click="changeContents('next')"
-            >
-              <i class="fas fa-angle-down"></i>
-            </button>
-          </div>
-
-          <div class="control-panel__title-wrapper" v-html="controlPanelTitleList[controlPanel.index]"></div>
 
         </section>
 
