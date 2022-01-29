@@ -206,9 +206,7 @@
         <section class="control-panel">
 
           <div class="control-panel__tab-container">
-            <div class="control-panel__tab control-panel__tab--info">
-              <i class="fas fa-info-circle"></i>
-            </div>
+            <div class="control-panel__tab control-panel__tab--left-end"></div>
             <div class="control-panel__tab-button-container">
               <template v-for="control, controlIndex in controlList">
                 <button
@@ -224,9 +222,23 @@
                     ></i><span>{{ control.name }}</span>
                   </div>
                 </button>
-                <div class="control-panel__tab-separator"></div>
+                <div
+                  v-show="controlIndex !== controlList.length - 1"
+                  class="control-panel__tab-separator"
+                ></div>
               </template>
               <div class="control-panel__tab-spacer"></div>
+            </div>
+            <div class="control-panel__tab control-panel__tab--right-end">
+              <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="control-panel__balloon-tip">
+              <balloon-tip
+                :title="currentControl.name"
+                :title-icon-class="currentControl.iconClass"
+                :paragraphs="currentControl.paragraphs"
+                :beak-position="['right', '8px']"
+              ></balloon-tip>
             </div>
           </div>
 

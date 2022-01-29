@@ -2,16 +2,18 @@
 @use 'global' as *;
 
 $controlPanelHeight: 90px;
+$controlPanelTabHeight: 28px;
+$controlPanelBorderRadius: 8px;
 
 .control-panel {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 28px auto;
+  grid-template-rows: $controlPanelTabHeight auto;
   position: sticky;
   top: $headerHeight;
   margin: 0 auto;
   border: 2px solid $colorMain2;
-  border-radius: 10px;
+  border-radius: $controlPanelBorderRadius;
   width: $controlPanelWidth;
   height: $controlPanelHeight;
   z-index: 100;
@@ -26,12 +28,15 @@ $controlPanelHeight: 90px;
   &__tab-container {
     display: flex;
     overflow: hidden;
-    border-radius: 10px - 2px 10px - 2px 0 0;
+    border-radius:
+      $controlPanelBorderRadius - 2px $controlPanelBorderRadius - 2px 0 0;
+    z-index: 101;
   }
 
   &__tab-button-container {
     flex: 1;
     display: flex;
+    position: relative;
     overflow: auto hidden;
   }
 
@@ -42,22 +47,47 @@ $controlPanelHeight: 90px;
     white-space: nowrap;
     font-size: 14px;
     color: $colorWhite;
-    background: $colorMain2;
+    background: $colormain2Light;
     transition-property: color, background-color;
     transition-duration: 0.2s;
     &.is-active {
       color: $colorMain2;
       background: $colorBaseA;
     }
-    &--info {
+    &--left-end {
+      width: 10px;
+      padding: 0;
+      background: $colorMain2;
+    }
+    &--right-end {
+      width: 35px;
+      padding: 0;
       font-size: 15px;
       background: $colorMain1;
+      &:hover + .control-panel__balloon-tip {
+        display: block;
+      }
+    }
+  }
+
+  &__balloon-tip {
+    display: none;
+    position: absolute;
+    top: $controlPanelTabHeight;
+    right: 3px;
+    width: 80%;
+    max-width: 400px;
+    &:hover {
+      display: block;
+    }
+    &:active {
+      display: none;
     }
   }
 
   &__tab-separator {
     width: 2px;
-    background: $colorMain2dark;
+    background: $colorMain2;
   }
 
   &__tab-spacer {
@@ -72,7 +102,8 @@ $controlPanelHeight: 90px;
   &__content-container {
     position: relative;
     overflow: hidden visible;
-    border-radius: 0 0 10px - 2px 10px - 2px;
+    border-radius:
+      0 0 $controlPanelBorderRadius - 2px $controlPanelBorderRadius - 2px;
     background: $colorBaseA;
   }
 

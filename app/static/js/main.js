@@ -66,6 +66,57 @@ Vue.component('article-p', {
     </p>`,
 });
 
+Vue.component('balloon-tip', {
+  props: {
+    title: String,
+    titleIconClass: String,
+    paragraphs: Array,
+    beakPosition: Array,
+  },
+  computed: {
+    positions: function () {
+      let obj = {};
+      if (this.beakPosition[0] === 'right') {
+        obj = {
+          'left': 'auto',
+          'right': this.beakPosition[1],
+        };
+      } else {
+        obj = {
+          'left': this.beakPosition[1],
+          'right': 'auto',
+        };
+      }
+      return obj;
+    },
+  },
+  template: String.raw`
+    <div class="balloon-tip">
+      <div
+        class="balloon-tip__beak"
+        :style="{
+          'left': positions['left'],
+          'right': positions['right'],
+        }"
+      ></div>
+      <div class="balloon-tip__content">
+        <div class="balloon-tip__title">
+          <i
+            class="balloon-tip__title-icon"
+            :class="titleIconClass"
+          ></i><span>{{ title }}</span>
+        </div>
+        <template v-for="paragraph in paragraphs">
+          <p
+            class="balloon-tip__paragraph"
+            v-html="paragraph"
+          ></p>
+        </template>
+      </div>
+    </div>
+  `,
+});
+
 new Vue({
   el: '#app',
   data: {
@@ -278,7 +329,8 @@ new Vue({
       const rootElement = document.documentElement;
       rootElement.style.setProperty('--theme-color-main-1', themeColor.main1);
       rootElement.style.setProperty('--theme-color-main-2', themeColor.main2);
-      rootElement.style.setProperty('--theme-color-main-2-dark', themeColor.main2dark);
+      rootElement.style.setProperty('--theme-color-main-2-light', themeColor.main2Light);
+      rootElement.style.setProperty('--theme-color-main-2-dark', themeColor.main2Dark);
       rootElement.style.setProperty('--theme-color-main-3', themeColor.main3);
       rootElement.style.setProperty('--theme-color-main-grad', mainGrad);
       const itemObj = JSON.parse(localStorage.getItem('itemStorage'));
