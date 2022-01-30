@@ -71,7 +71,7 @@ Vue.component('balloon-tip', {
   props: {
     title: String,
     titleIconClass: String,
-    paragraphs: Array,
+    content: String,
     beakPosition: Array,
   },
   computed: {
@@ -100,29 +100,17 @@ Vue.component('balloon-tip', {
           'right': positions['right'],
         }"
       ></div>
-      <div class="balloon-tip__content">
+      <div class="balloon-tip__container">
         <div class="balloon-tip__title">
           <i
             class="balloon-tip__title-icon"
             :class="titleIconClass"
           ></i><span>{{ title }}</span>
         </div>
-        <template v-for="paragraph in paragraphs">
-          <p
-            v-show="paragraph.type === 'p'"
-            class="balloon-tip__paragraph"
-            v-html="paragraph.html"
-          ></p>
-          <div
-            v-show="paragraph.type === 'figure'"
-            class="balloon-tip__insert"
-          >
-            <figure
-              class="baloon-tip__figure"
-              v-html="paragraph.html"
-            ></figure>
-          </div>
-        </template>
+        <div
+          class="balloon-tip__content"
+          v-html="content"
+        ></div>
       </div>
     </div>
   `,

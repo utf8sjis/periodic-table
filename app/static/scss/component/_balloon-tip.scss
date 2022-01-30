@@ -16,7 +16,7 @@
     border-left: 7px solid transparent;
   }
 
-  &__content {
+  &__container {
     display: grid;
     grid-template-columns: auto;
     gap: 10px 0;
@@ -34,6 +34,12 @@
 
   &__title-icon {
     padding-right: 5px;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px 0;
   }
 
   &__paragraph-bold {
