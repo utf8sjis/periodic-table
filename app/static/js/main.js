@@ -5,7 +5,7 @@ import {langList} from './data/lang_list.js';
 import {navLinkSectionList} from './data/nav_link_list.js';
 import {otherCellList} from './data/other_cell_list.js';
 import {themeColorList} from './data/theme_color_list.js';
-import {balloonTips} from './data/balloon_tips.js';
+import {popupBalloons} from './data/popup_balloon_contents.js';
 
 
 window.onload = () => {
@@ -67,7 +67,7 @@ Vue.component('article-p', {
     </p>`,
 });
 
-Vue.component('balloon-tip', {
+Vue.component('popup-balloon', {
   props: {
     title: String,
     titleIconClass: String,
@@ -81,7 +81,7 @@ Vue.component('balloon-tip', {
   },
   template: String.raw`
     <div
-      class="balloon-tip"
+      class="popup-balloon"
       :style="{
         'width': width,
         'top': top ? top : 'auto',
@@ -89,23 +89,23 @@ Vue.component('balloon-tip', {
         'left': left ? left : 'auto',
       }"
     >
-      <div class="balloon-tip__balloon">
+      <div class="popup-balloon__balloon">
         <div
-          class="balloon-tip__beak"
+          class="popup-balloon__beak"
           :style="{
             'right': beakRight ? beakRight : 'auto',
             'left': beakLeft ? beakLeft : 'auto',
           }"
         ></div>
-        <div class="balloon-tip__container">
-          <div class="balloon-tip__title">
+        <div class="popup-balloon__container">
+          <div class="popup-balloon__title">
             <i
               class="u-pr5"
               :class="titleIconClass"
             ></i><span>{{ title }}</span>
           </div>
           <div
-            class="balloon-tip__content"
+            class="popup-balloon__content"
             v-html="content"
           ></div>
         </div>
@@ -124,7 +124,7 @@ new Vue({
     navLinkSectionList: navLinkSectionList,
     themeColorList: themeColorList,
     controlList: controlList,
-    balloonTips: balloonTips,
+    popupBalloons: popupBalloons,
     /** 現在の表示言語とセル */
     current: {
       langIndex: 3,

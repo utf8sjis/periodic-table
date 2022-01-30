@@ -1,6 +1,6 @@
 import {controlList} from './control_list.js';
 
-export const balloonTips = {
+export const popupBalloons = {
   controlPanel: [
     {
       title: controlList[0].name,

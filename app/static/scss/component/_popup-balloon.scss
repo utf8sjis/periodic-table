@@ -1,7 +1,7 @@
-/****** balloon-tip ******/
+/****** popup-balloon ******/
 @use 'global' as *;
 
-.balloon-tip {
+.popup-balloon {
   display: none;
   position: absolute;
   max-width: 400px;

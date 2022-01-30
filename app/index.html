@@ -232,15 +232,15 @@
             <div class="control-panel__tab control-panel__tab--right-end">
               <i class="fas fa-info-circle"></i>
             </div>
-            <balloon-tip
-              :title="balloonTips.controlPanel[current.controlIndex].title"
-              :title-icon-class="balloonTips.controlPanel[current.controlIndex].titleIconClass"
-              :content="balloonTips.controlPanel[current.controlIndex].content"
+            <popup-balloon
+              :title="popupBalloons.controlPanel[current.controlIndex].title"
+              :title-icon-class="popupBalloons.controlPanel[current.controlIndex].titleIconClass"
+              :content="popupBalloons.controlPanel[current.controlIndex].content"
               width="90%"
               top="28px"
               right="3px"
               beak-right="8px"
-            ></balloon-tip>
+            ></popup-balloon>
           </div>
 
           <div class="control-panel__content-container">
@@ -552,15 +552,15 @@
                 <div class="overlay__main-info-icon">
                   <i class="fas fa-info-circle"></i>
                 </div>
-                <balloon-tip
-                  :title="balloonTips.overlayMain.title"
-                  :title-icon-class="balloonTips.overlayMain.titleIconClass"
-                  :content="balloonTips.overlayMain.content"
+                <popup-balloon
+                  :title="popupBalloons.overlayMain.title"
+                  :title-icon-class="popupBalloons.overlayMain.titleIconClass"
+                  :content="popupBalloons.overlayMain.content"
                   width="90%"
                   top="-10px"
                   left="4px"
                   beak-left="6px"
-                ></balloon-tip>
+                ></popup-balloon>
               </div>
             </div>
             <button

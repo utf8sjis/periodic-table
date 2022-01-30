@@ -86,7 +86,7 @@ $areaGap: 10px;
     font-size: 20px;
     color: $colorWhite;
     filter: drop-shadow(0 0 5px #0005);
-    &:hover + .balloon-tip {
+    &:hover + .popup-balloon {
       display: block;
     }
   }
