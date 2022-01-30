@@ -63,10 +63,6 @@
     }
   }
 
-  &__site-icon {
-    padding-right: 5px;
-  }
-
   &__end {
     @include flexCentering();
     position: absolute;

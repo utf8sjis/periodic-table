@@ -32,18 +32,10 @@
     color: $colorMain1;
   }
 
-  &__title-icon {
-    padding-right: 5px;
-  }
-
   &__content {
     display: grid;
     grid-template-columns: auto;
     gap: 10px 0;
-  }
-
-  &__paragraph-bold {
-    @include font(ja, bold);
   }
 
   &__insert {

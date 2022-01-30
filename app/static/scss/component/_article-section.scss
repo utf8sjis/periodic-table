@@ -136,32 +136,4 @@
       color: $colorBlackA;
     }
   }
-
-  &__external-link-icon {
-    padding-left: 5px;
-  }
-
-  &__marker {
-    background: linear-gradient(transparent 70%, $colorAccent 70%);
-  }
-
-  &__bold {
-    @include font(ja, bold);
-  }
-
-  &__traditional-chinese {
-    @include font(zhtw);
-  }
-
-  &__simplified-chinese {
-    @include font(zhcn);
-  }
-
-  &__kanji-cn {
-    @include font(cn, bold);
-  }
-
-  &__kanji-tw {
-    @include font(tw, bold);
-  }
 }

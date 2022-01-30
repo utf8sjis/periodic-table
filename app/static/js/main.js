@@ -103,7 +103,7 @@ Vue.component('balloon-tip', {
       <div class="balloon-tip__container">
         <div class="balloon-tip__title">
           <i
-            class="balloon-tip__title-icon"
+            class="u-pr5"
             :class="titleIconClass"
           ></i><span>{{ title }}</span>
         </div>
