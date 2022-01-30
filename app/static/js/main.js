@@ -5,6 +5,7 @@ import {langList} from './data/lang_list.js';
 import {navLinkSectionList} from './data/nav_link_list.js';
 import {otherCellList} from './data/other_cell_list.js';
 import {themeColorList} from './data/theme_color_list.js';
+import {balloonTips} from './data/balloon_tips.js';
 
 
 window.onload = () => {
@@ -108,9 +109,19 @@ Vue.component('balloon-tip', {
         </div>
         <template v-for="paragraph in paragraphs">
           <p
+            v-show="paragraph.type === 'p'"
             class="balloon-tip__paragraph"
-            v-html="paragraph"
+            v-html="paragraph.html"
           ></p>
+          <div
+            v-show="paragraph.type === 'figure'"
+            class="balloon-tip__insert"
+          >
+            <figure
+              class="baloon-tip__figure"
+              v-html="paragraph.html"
+            ></figure>
+          </div>
         </template>
       </div>
     </div>
@@ -127,6 +138,7 @@ new Vue({
     navLinkSectionList: navLinkSectionList,
     themeColorList: themeColorList,
     controlList: controlList,
+    balloonTips: balloonTips,
     /** 現在の表示言語とセル */
     current: {
       langIndex: 3,

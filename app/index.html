@@ -234,9 +234,9 @@
             </div>
             <div class="control-panel__balloon-tip">
               <balloon-tip
-                :title="currentControl.name"
-                :title-icon-class="currentControl.iconClass"
-                :paragraphs="currentControl.paragraphs"
+                :title="balloonTips.controlPanel[current.controlIndex].title"
+                :title-icon-class="balloonTips.controlPanel[current.controlIndex].titleIconClass"
+                :paragraphs="balloonTips.controlPanel[current.controlIndex].paragraphs"
                 :beak-position="['right', '8px']"
               ></balloon-tip>
             </div>
@@ -371,180 +371,193 @@
           >
             <div class="overlay__main-wrapper" :class="{'is-overflow-hidden': !isBodyScrollLocked}">
               <div class="overlay__main">
-                <div class="overlay__container-base">
-                  <div class="overlay__area overlay__area--element-symbol">
-                    <div class="data-area" :class="'is-' + currentElement.categoryClass">
-                      <div class="data-area__item-state">
-                        <img
-                          class="data-area__state-image"
-                          :class="'is-' + currentElement.categoryClass"
-                          :src="currentElement.stateSrc"
-                        >
+                <div class="overlay__containers-wrapper">
+                  <div class="overlay__container-base">
+                    <div class="overlay__area overlay__area--element-symbol">
+                      <div class="data-area" :class="'is-' + currentElement.categoryClass">
+                        <div class="data-area__item-state">
+                          <img
+                            class="data-area__state-image"
+                            :class="'is-' + currentElement.categoryClass"
+                            :src="currentElement.stateSrc"
+                          >
+                        </div>
+                        <div class="data-area__item-radioactivity">
+                          <img
+                            class="data-area__radioactivity-image"
+                            src="static/img/state/radioactivity.svg"
+                            v-show="currentElement.isRadioactive"
+                          >
+                        </div>
+                        <div
+                          class="data-area__item-element-symbol"
+                          v-html="currentElement.elementSymbol"
+                        ></div>
                       </div>
-                      <div class="data-area__item-radioactivity">
-                        <img
-                          class="data-area__radioactivity-image"
-                          src="static/img/state/radioactivity.svg"
-                          v-show="currentElement.isRadioactive"
-                        >
+                    </div>
+                    <div class="overlay__area overlay__area--atomic-number">
+                      <data-area
+                        type="num" label="Z ="
+                        :category-class="'is-' + currentElement.categoryClass"
+                      >{{ currentElement.atomicNumber }}</data-area>
+                    </div>
+                    <div class="overlay__area overlay__area--period">
+                      <data-area
+                        type="num" label="Period"
+                        :category-class="'is-' + currentElement.categoryClass"
+                      >{{ currentElement.period }}</data-area>
+                    </div>
+                    <div class="overlay__area overlay__area--group">
+                      <data-area
+                        type="num" label="Group"
+                        :category-class="'is-' + currentElement.categoryClass"
+                      >{{ currentElement.group }}</data-area>
+                    </div>
+                    <div class="overlay__area overlay__area--atomic-weight">
+                      <data-area
+                        type="num" label="Weight"
+                        :category-class="'is-' + currentElement.categoryClass"
+                      >{{ currentElement.atomicWeight }}</data-area>
+                    </div>
+                    <div class="overlay__area overlay__area--category">
+                      <data-area
+                        type="category" label="Category"
+                        :category-class="'is-' + currentElement.categoryClass"
+                      >
+                        <div
+                          class="data-area__category-text"
+                          v-html="currentElement.category"
+                        ></div>
+                      </data-area>
+                    </div>
+                  </div>
+                  <div class="overlay__container-kanji">
+                    <div class="overlay__area overlay__area--cn">
+                      <data-area
+                        type="kanji" label="Mainland China"
+                        :category-class="'is-' + currentElement.categoryClass"
+                      >
+                        <div
+                          class="data-area__kanji-character data-area__kanji-character--cn"
+                        >{{ currentElement.simplifiedChinese }}</div>
+                        <div
+                          class="data-area__kanji-code-point"
+                        >U+{{ currentElement.unicodeCodePointCN }}</div>
+                        <template #absolute>
+                          <button
+                            type="button"
+                            class="data-area__item-kanji-copy-button"
+                            :class="'is-' + currentElement.categoryClass"
+                            @click="copyToClipboard(currentElement.simplifiedChinese)"
+                          ><i class="fas fa-clipboard" data-micron="swing"></i></button>
+                        </template>
+                      </data-area>
+                    </div>
+                    <div class="overlay__area overlay__area--tw">
+                      <data-area
+                        type="kanji" label="Taiwan"
+                        :category-class="'is-' + currentElement.categoryClass"
+                      >
+                        <div
+                          class="data-area__kanji-character data-area__kanji-character--tw"
+                        >{{ currentElement.taiwanTrad }}</div>
+                        <div
+                          class="data-area__kanji-code-point"
+                        >U+{{ currentElement.unicodeCodePointTW }}</div>
+                        <template #absolute>
+                          <button
+                            type="button"
+                            class="data-area__item-kanji-copy-button"
+                            :class="'is-' + currentElement.categoryClass"
+                            @click="copyToClipboard(currentElement.taiwanTrad)"
+                          ><i class="fas fa-clipboard" data-micron="swing"></i></button>
+                        </template>
+                      </data-area>
+                    </div>
+                    <div class="overlay__area overlay__area--hk">
+                      <data-area
+                        type="kanji" label="Hong Kong"
+                        :category-class="'is-' + currentElement.categoryClass"
+                      >
+                        <div
+                          class="data-area__kanji-character data-area__kanji-character--hk"
+                        >{{ currentElement.hongkongTrad }}</div>
+                        <div
+                          class="data-area__kanji-code-point"
+                        >U+{{ currentElement.unicodeCodePointHK }}</div>
+                        <template #absolute>
+                          <button
+                            type="button"
+                            class="data-area__item-kanji-copy-button"
+                            :class="'is-' + currentElement.categoryClass"
+                            @click="copyToClipboard(currentElement.hongkongTrad)"
+                          ><i class="fas fa-clipboard" data-micron="swing"></i></button>
+                        </template>
+                      </data-area>
+                    </div>
+                  </div>
+                  <div class="overlay__container-reading">
+                    <div class="overlay__area overlay__area--pinyin">
+                      <data-area
+                        type="pinyin" label="<span>Pinyin</span><span>Mainland China</span>"
+                        :category-class="'is-' + currentElement.categoryClass"
+                      >{{ currentElement.pinyin }}</data-area>
+                    </div>
+                    <div class="overlay__area overlay__area--bopomofo">
+                      <data-area
+                        type="pinyin" label="<span>Bopomofo</span><span>Taiwan</span>"
+                        :category-class="'is-' + currentElement.categoryClass"
+                      >{{ currentElement.bopomofo }} ({{ currentElement.taiwanPinyin }})</data-area>
+                    </div>
+                  </div>
+                  <div class="overlay__container-name">
+                    <div class="overlay__area overlay__area--japanese-name">
+                      <data-area
+                        type="japanese-name" label="Japanese Name"
+                        :category-class="'is-' + currentElement.categoryClass"
+                      >{{ currentElement.japaneseName }}</data-area>
+                    </div>
+                    <div class="overlay__area overlay__area--english-name">
+                      <data-area
+                        type="english-name" label="English Name"
+                        :category-class="'is-' + currentElement.categoryClass"
+                      >{{ currentElement.englishName }}</data-area>
+                    </div>
+                  </div>
+                  <div class="overlay__container-tweet">
+                    <div class="overlay__area overlay__area--tweet">
+                      <div class="data-area" :class="'is-' + currentElement.categoryClass">
+                        <div
+                          ref="contAreaTweet"
+                          class="data-area__item-tweet"
+                          v-html="currentElement.twitterTweet"
+                        ></div>
                       </div>
-                      <div
-                        class="data-area__item-element-symbol"
-                        v-html="currentElement.elementSymbol"
-                      ></div>
                     </div>
                   </div>
-                  <div class="overlay__area overlay__area--atomic-number">
-                    <data-area
-                      type="num" label="Z ="
-                      :category-class="'is-' + currentElement.categoryClass"
-                    >{{ currentElement.atomicNumber }}</data-area>
-                  </div>
-                  <div class="overlay__area overlay__area--period">
-                    <data-area
-                      type="num" label="Period"
-                      :category-class="'is-' + currentElement.categoryClass"
-                    >{{ currentElement.period }}</data-area>
-                  </div>
-                  <div class="overlay__area overlay__area--group">
-                    <data-area
-                      type="num" label="Group"
-                      :category-class="'is-' + currentElement.categoryClass"
-                    >{{ currentElement.group }}</data-area>
-                  </div>
-                  <div class="overlay__area overlay__area--atomic-weight">
-                    <data-area
-                      type="num" label="Weight"
-                      :category-class="'is-' + currentElement.categoryClass"
-                    >{{ currentElement.atomicWeight }}</data-area>
-                  </div>
-                  <div class="overlay__area overlay__area--category">
-                    <data-area
-                      type="category" label="Category"
-                      :category-class="'is-' + currentElement.categoryClass"
-                    >
-                      <div
-                        class="data-area__category-text"
-                        v-html="currentElement.category"
-                      ></div>
-                    </data-area>
-                  </div>
-                </div>
-                <div class="overlay__container-kanji">
-                  <div class="overlay__area overlay__area--cn">
-                    <data-area
-                      type="kanji" label="Mainland China"
-                      :category-class="'is-' + currentElement.categoryClass"
-                    >
-                      <div
-                        class="data-area__kanji-character data-area__kanji-character--cn"
-                      >{{ currentElement.simplifiedChinese }}</div>
-                      <div
-                        class="data-area__kanji-code-point"
-                      >U+{{ currentElement.unicodeCodePointCN }}</div>
-                      <template #absolute>
+                  <div class="overlay__container-close">
+                    <div class="overlay__area overlay__area--close">
+                      <div class="data-area" :class="'is-' + currentElement.categoryClass">
                         <button
                           type="button"
-                          class="data-area__item-kanji-copy-button"
+                          class="data-area__item-close-button"
                           :class="'is-' + currentElement.categoryClass"
-                          @click="copyToClipboard(currentElement.simplifiedChinese)"
-                        ><i class="fas fa-clipboard" data-micron="swing"></i></button>
-                      </template>
-                    </data-area>
-                  </div>
-                  <div class="overlay__area overlay__area--tw">
-                    <data-area
-                      type="kanji" label="Taiwan"
-                      :category-class="'is-' + currentElement.categoryClass"
-                    >
-                      <div
-                        class="data-area__kanji-character data-area__kanji-character--tw"
-                      >{{ currentElement.taiwanTrad }}</div>
-                      <div
-                        class="data-area__kanji-code-point"
-                      >U+{{ currentElement.unicodeCodePointTW }}</div>
-                      <template #absolute>
-                        <button
-                          type="button"
-                          class="data-area__item-kanji-copy-button"
-                          :class="'is-' + currentElement.categoryClass"
-                          @click="copyToClipboard(currentElement.taiwanTrad)"
-                        ><i class="fas fa-clipboard" data-micron="swing"></i></button>
-                      </template>
-                    </data-area>
-                  </div>
-                  <div class="overlay__area overlay__area--hk">
-                    <data-area
-                      type="kanji" label="Hong Kong"
-                      :category-class="'is-' + currentElement.categoryClass"
-                    >
-                      <div
-                        class="data-area__kanji-character data-area__kanji-character--hk"
-                      >{{ currentElement.hongkongTrad }}</div>
-                      <div
-                        class="data-area__kanji-code-point"
-                      >U+{{ currentElement.unicodeCodePointHK }}</div>
-                      <template #absolute>
-                        <button
-                          type="button"
-                          class="data-area__item-kanji-copy-button"
-                          :class="'is-' + currentElement.categoryClass"
-                          @click="copyToClipboard(currentElement.hongkongTrad)"
-                        ><i class="fas fa-clipboard" data-micron="swing"></i></button>
-                      </template>
-                    </data-area>
-                  </div>
-                </div>
-                <div class="overlay__container-reading">
-                  <div class="overlay__area overlay__area--pinyin">
-                    <data-area
-                      type="pinyin" label="<span>Pinyin</span><span>Mainland China</span>"
-                      :category-class="'is-' + currentElement.categoryClass"
-                    >{{ currentElement.pinyin }}</data-area>
-                  </div>
-                  <div class="overlay__area overlay__area--bopomofo">
-                    <data-area
-                      type="pinyin" label="<span>Bopomofo</span><span>Taiwan</span>"
-                      :category-class="'is-' + currentElement.categoryClass"
-                    >{{ currentElement.bopomofo }} ({{ currentElement.taiwanPinyin }})</data-area>
-                  </div>
-                </div>
-                <div class="overlay__container-name">
-                  <div class="overlay__area overlay__area--japanese-name">
-                    <data-area
-                      type="japanese-name" label="Japanese Name"
-                      :category-class="'is-' + currentElement.categoryClass"
-                    >{{ currentElement.japaneseName }}</data-area>
-                  </div>
-                  <div class="overlay__area overlay__area--english-name">
-                    <data-area
-                      type="english-name" label="English Name"
-                      :category-class="'is-' + currentElement.categoryClass"
-                    >{{ currentElement.englishName }}</data-area>
-                  </div>
-                </div>
-                <div class="overlay__container-tweet">
-                  <div class="overlay__area overlay__area--tweet">
-                    <div class="data-area" :class="'is-' + currentElement.categoryClass">
-                      <div
-                        ref="contAreaTweet"
-                        class="data-area__item-tweet"
-                        v-html="currentElement.twitterTweet"
-                      ></div>
+                          @click="closeOverlay"
+                        >CLOSE</button>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="overlay__container-close">
-                  <div class="overlay__area overlay__area--close">
-                    <div class="data-area" :class="'is-' + currentElement.categoryClass">
-                      <button
-                        type="button"
-                        class="data-area__item-close-button"
-                        :class="'is-' + currentElement.categoryClass"
-                        @click="closeOverlay"
-                      >CLOSE</button>
-                    </div>
-                  </div>
+                <div class="overlay__main-info-icon">
+                  <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="overlay__balloon-tip">
+                  <balloon-tip
+                    :title="balloonTips.overlayMain.title"
+                    :title-icon-class="balloonTips.overlayMain.titleIconClass"
+                    :paragraphs="balloonTips.overlayMain.paragraphs"
+                    :beak-position="['left', '6px']"
+                  ></balloon-tip>
                 </div>
               </div>
             </div>

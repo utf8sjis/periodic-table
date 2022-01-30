@@ -4,6 +4,7 @@
 .balloon-tip {
   user-select: none;
   position: relative;
+  font-size: 15px;
 
   &__beak {
     position: absolute;
@@ -23,7 +24,6 @@
     border: 2px solid $colorMain2;
     border-radius: 8px;
     padding: 12px 15px;
-    font-size: 15px;
     background: $colorBaseA;
   }
 
@@ -35,9 +35,16 @@
   &__title-icon {
     padding-right: 5px;
   }
-  
+
   &__paragraph-bold {
     @include font(ja, bold);
+  }
+
+  &__insert {
+    padding: 0 20px;
+    @include mediaQuery() {
+      padding: 0;
+    }
   }
 }
 
