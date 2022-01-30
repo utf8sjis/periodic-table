@@ -64,24 +64,9 @@ $controlPanelBorderRadius: 8px;
       padding: 0;
       font-size: 15px;
       background: $colorMain1;
-      &:hover + .control-panel__balloon-tip {
+      &:hover + .balloon-tip {
         display: block;
       }
-    }
-  }
-
-  &__balloon-tip {
-    display: none;
-    position: absolute;
-    top: $controlPanelTabHeight;
-    right: 3px;
-    width: 90%;
-    max-width: 400px;
-    &:hover {
-      display: block;
-    }
-    &:active {
-      display: none;
     }
   }
 

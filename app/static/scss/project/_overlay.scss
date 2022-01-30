@@ -86,23 +86,8 @@ $areaGap: 10px;
     font-size: 20px;
     color: $colorWhite;
     filter: drop-shadow(0 0 5px #0005);
-    &:hover + .overlay__balloon-tip {
+    &:hover + .balloon-tip {
       display: block;
-    }
-  }
-
-  &__balloon-tip {
-    display: none;
-    position: absolute;
-    top: -10px;
-    left: 4px;
-    width: 90%;
-    max-width: 400px;
-    &:hover {
-      display: block;
-    }
-    &:active {
-      display: none;
     }
   }
 

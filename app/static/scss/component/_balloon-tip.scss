@@ -2,9 +2,17 @@
 @use 'global' as *;
 
 .balloon-tip {
-  user-select: none;
-  position: relative;
-  font-size: 15px;
+  display: none;
+  position: absolute;
+  max-width: 400px;
+  &:hover {
+    display: block;
+  }
+
+  &__balloon {
+    position: relative;
+    font-size: 15px;
+  }
 
   &__beak {
     position: absolute;

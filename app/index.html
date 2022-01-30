@@ -232,14 +232,15 @@
             <div class="control-panel__tab control-panel__tab--right-end">
               <i class="fas fa-info-circle"></i>
             </div>
-            <div class="control-panel__balloon-tip">
-              <balloon-tip
-                :title="balloonTips.controlPanel[current.controlIndex].title"
-                :title-icon-class="balloonTips.controlPanel[current.controlIndex].titleIconClass"
-                :content="balloonTips.controlPanel[current.controlIndex].content"
-                :beak-position="['right', '8px']"
-              ></balloon-tip>
-            </div>
+            <balloon-tip
+              :title="balloonTips.controlPanel[current.controlIndex].title"
+              :title-icon-class="balloonTips.controlPanel[current.controlIndex].titleIconClass"
+              :content="balloonTips.controlPanel[current.controlIndex].content"
+              width="90%"
+              top="28px"
+              right="3px"
+              beak-right="8px"
+            ></balloon-tip>
           </div>
 
           <div class="control-panel__content-container">
@@ -551,14 +552,15 @@
                 <div class="overlay__main-info-icon">
                   <i class="fas fa-info-circle"></i>
                 </div>
-                <div class="overlay__balloon-tip">
-                  <balloon-tip
-                    :title="balloonTips.overlayMain.title"
-                    :title-icon-class="balloonTips.overlayMain.titleIconClass"
-                    :content="balloonTips.overlayMain.content"
-                    :beak-position="['left', '6px']"
-                  ></balloon-tip>
-                </div>
+                <balloon-tip
+                  :title="balloonTips.overlayMain.title"
+                  :title-icon-class="balloonTips.overlayMain.titleIconClass"
+                  :content="balloonTips.overlayMain.content"
+                  width="90%"
+                  top="-10px"
+                  left="4px"
+                  beak-left="6px"
+                ></balloon-tip>
               </div>
             </div>
             <button

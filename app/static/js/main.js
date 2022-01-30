@@ -72,45 +72,43 @@ Vue.component('balloon-tip', {
     title: String,
     titleIconClass: String,
     content: String,
-    beakPosition: Array,
-  },
-  computed: {
-    positions: function () {
-      let obj = {};
-      if (this.beakPosition[0] === 'right') {
-        obj = {
-          'left': 'auto',
-          'right': this.beakPosition[1],
-        };
-      } else {
-        obj = {
-          'left': this.beakPosition[1],
-          'right': 'auto',
-        };
-      }
-      return obj;
-    },
+    width: String,
+    top: String,
+    left: String,
+    right: String,
+    beakLeft: String,
+    beakRight: String,
   },
   template: String.raw`
-    <div class="balloon-tip">
-      <div
-        class="balloon-tip__beak"
-        :style="{
-          'left': positions['left'],
-          'right': positions['right'],
-        }"
-      ></div>
-      <div class="balloon-tip__container">
-        <div class="balloon-tip__title">
-          <i
-            class="u-pr5"
-            :class="titleIconClass"
-          ></i><span>{{ title }}</span>
-        </div>
+    <div
+      class="balloon-tip"
+      :style="{
+        'width': width,
+        'top': top ? top : 'auto',
+        'right': right ? right : 'auto',
+        'left': left ? left : 'auto',
+      }"
+    >
+      <div class="balloon-tip__balloon">
         <div
-          class="balloon-tip__content"
-          v-html="content"
+          class="balloon-tip__beak"
+          :style="{
+            'right': beakRight ? beakRight : 'auto',
+            'left': beakLeft ? beakLeft : 'auto',
+          }"
         ></div>
+        <div class="balloon-tip__container">
+          <div class="balloon-tip__title">
+            <i
+              class="u-pr5"
+              :class="titleIconClass"
+            ></i><span>{{ title }}</span>
+          </div>
+          <div
+            class="balloon-tip__content"
+            v-html="content"
+          ></div>
+        </div>
       </div>
     </div>
   `,
