@@ -2,11 +2,18 @@
 @use 'global' as *;
 
 .popup-balloon {
-  display: none;
   position: absolute;
   max-width: 400px;
   &:hover {
     display: block;
+  }
+  &--enter-active,
+  &--leave-active {
+    transition: opacity 0.2s;
+  }
+  &--enter,
+  &--leave-to {
+    opacity: 0;
   }
 
   &__balloon {
@@ -51,6 +58,17 @@
     @include mediaQuery() {
       padding: 0;
     }
+  }
+
+  &__close-button {
+    @include flexCentering();
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    color: $colorMain2;
   }
 }
 

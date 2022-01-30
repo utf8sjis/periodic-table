@@ -64,9 +64,6 @@ $controlPanelBorderRadius: 8px;
       padding: 0;
       font-size: 15px;
       background: $colorMain1;
-      &:hover + .popup-balloon {
-        display: block;
-      }
     }
   }
 

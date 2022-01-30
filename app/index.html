@@ -229,17 +229,23 @@
               </template>
               <div class="control-panel__tab-spacer"></div>
             </div>
-            <div class="control-panel__tab control-panel__tab--right-end">
+            <button
+              type="button"
+              class="control-panel__tab control-panel__tab--right-end"
+              @click="togglePopupBalloon('controlPanel')"
+            >
               <i class="fas fa-info-circle"></i>
-            </div>
+            </button>
             <popup-balloon
-              :title="popupBalloons.controlPanel[current.controlIndex].title"
-              :title-icon-class="popupBalloons.controlPanel[current.controlIndex].titleIconClass"
-              :content="popupBalloons.controlPanel[current.controlIndex].content"
+              :is-active="popupBalloons['controlPanel'].isActive"
+              :title="popupBalloons['controlPanel'].contents[current.controlIndex].title"
+              :title-icon-class="popupBalloons['controlPanel'].contents[current.controlIndex].titleIconClass"
+              :content="popupBalloons['controlPanel'].contents[current.controlIndex].content"
               width="90%"
               top="28px"
               right="3px"
               beak-right="8px"
+              @toggle-popup-balloon="togglePopupBalloon('controlPanel')"
             ></popup-balloon>
           </div>
 
@@ -549,17 +555,23 @@
                     </div>
                   </div>
                 </div>
-                <div class="overlay__main-info-icon">
+                <button
+                  type="button"
+                  class="overlay__main-info-icon"
+                  @click="togglePopupBalloon('overlayMain')"
+                >
                   <i class="fas fa-info-circle"></i>
-                </div>
+                </button>
                 <popup-balloon
-                  :title="popupBalloons.overlayMain.title"
-                  :title-icon-class="popupBalloons.overlayMain.titleIconClass"
-                  :content="popupBalloons.overlayMain.content"
+                  :is-active="popupBalloons['overlayMain'].isActive"
+                  :title="popupBalloons['overlayMain'].contents.title"
+                  :title-icon-class="popupBalloons['overlayMain'].contents.titleIconClass"
+                  :content="popupBalloons['overlayMain'].contents.content"
                   width="90%"
                   top="-10px"
                   left="4px"
                   beak-left="6px"
+                  @toggle-popup-balloon="togglePopupBalloon('overlayMain')"
                 ></popup-balloon>
               </div>
             </div>

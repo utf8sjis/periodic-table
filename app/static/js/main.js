@@ -69,6 +69,7 @@ Vue.component('article-p', {
 
 Vue.component('popup-balloon', {
   props: {
+    isActive: Boolean,
     title: String,
     titleIconClass: String,
     content: String,
@@ -79,38 +80,51 @@ Vue.component('popup-balloon', {
     beakLeft: String,
     beakRight: String,
   },
+  methods: {
+    close: function () {
+      this.$emit('toggle-popup-balloon');
+    }
+  },
   template: String.raw`
-    <div
-      class="popup-balloon"
-      :style="{
-        'width': width,
-        'top': top ? top : 'auto',
-        'right': right ? right : 'auto',
-        'left': left ? left : 'auto',
-      }"
-    >
-      <div class="popup-balloon__balloon">
-        <div
-          class="popup-balloon__beak"
-          :style="{
-            'right': beakRight ? beakRight : 'auto',
-            'left': beakLeft ? beakLeft : 'auto',
-          }"
-        ></div>
-        <div class="popup-balloon__container">
-          <div class="popup-balloon__title">
-            <i
-              class="u-pr5"
-              :class="titleIconClass"
-            ></i><span>{{ title }}</span>
-          </div>
+    <transition name="popup-balloon-">
+      <div
+        v-show="isActive"
+        class="popup-balloon"
+        :style="{
+          'width': width,
+          'top': top ? top : 'auto',
+          'right': right ? right : 'auto',
+          'left': left ? left : 'auto',
+        }"
+      >
+        <div class="popup-balloon__balloon">
           <div
-            class="popup-balloon__content"
-            v-html="content"
+            class="popup-balloon__beak"
+            :style="{
+              'right': beakRight ? beakRight : 'auto',
+              'left': beakLeft ? beakLeft : 'auto',
+            }"
           ></div>
+          <div class="popup-balloon__container">
+            <div class="popup-balloon__title">
+              <i
+                class="u-pr5"
+                :class="titleIconClass"
+              ></i><span>{{ title }}</span>
+            </div>
+            <div
+              class="popup-balloon__content"
+              v-html="content"
+            ></div>
+          </div>
+          <button
+            type="button"
+            class="popup-balloon__close-button"
+            @click="close"
+          ><i class="fas fa-times"></i></button>
         </div>
       </div>
-    </div>
+    </transition>
   `,
 });
 
@@ -400,6 +414,13 @@ new Vue({
     toggleShareExpandButton: function () {
       this.isShareButtonExpanded = !this.isShareButtonExpanded;
     },
+    /**
+     * 吹き出しポップアップを表示、非表示する
+     * @param {string} name - 対象の吹き出しの名前のキー
+     */
+    togglePopupBalloon: function (name) {
+      this.popupBalloons[name].isActive = !this.popupBalloons[name].isActive;
+    }
   },
   computed: {
     /**
