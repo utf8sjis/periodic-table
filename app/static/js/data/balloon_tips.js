@@ -1,4 +1,4 @@
-import {controlList} from './control_panel_content_list.js';
+import {controlList} from './control_list.js';
 
 export const balloonTips = {
   controlPanel: [

@@ -1,5 +1,5 @@
 import {categoryList} from './data/category_list.js';
-import {controlList} from './data/control_panel_content_list.js';
+import {controlList} from './data/control_list.js';
 import {elementList} from './data/element_list.js';
 import {langList} from './data/lang_list.js';
 import {navLinkSectionList} from './data/nav_link_list.js';
