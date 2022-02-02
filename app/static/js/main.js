@@ -173,6 +173,12 @@ new Vue({
     isPhone: false,
     /** シェアボタンが展開されているか否か */
     isShareButtonExpanded: false,
+    /** 元素の検索結果のリスト */
+    elementSearchResultList: [],
+    /** 元素の検索結果のリストが表示されているか否か */
+    displayElementSearchResultList: false,
+    /** 元素の検索対象の種類 */
+    elementSearchType: 'all',
   },
   methods: {
     /**
@@ -420,7 +426,88 @@ new Vue({
      */
     togglePopupBalloon: function (name) {
       this.popupBalloons[name].isActive = !this.popupBalloons[name].isActive;
-    }
+    },
+    /**
+     * 検索対象をもとに元素を検索し結果をリストに格納する
+     * @param {object} e - InputEvent
+     */
+    seachElements: function (e) {
+      this.elementSearchResultList = [];
+      const value = e.target.value.toLowerCase();
+
+      if (value) {
+
+        this.displayElementSearchResultList = true;
+
+        const sortedElementList = this.elementList.slice();
+        if (this.elementSearchType === 'symbol') {
+          // 元素記号は完全一致likeな表示にした方がわかりやすい
+          sortedElementList.sort(
+            (a, b) => a.elementSymbol.length - b.elementSymbol.length
+          );
+        }
+
+        sortedElementList.forEach((element) => {
+          let typeList = [];
+          typeList.push({
+            type: { type: 'number' ,className: 'atomic-number', tagName: '番号' },
+            isMatch: element.atomicNumber == value,
+          });
+          typeList.push({
+            type: { type: 'symbol' ,className: 'element-symbol', tagName: '記号' },
+            isMatch: element.elementSymbol.toLowerCase().includes(value),
+          });
+          typeList.push({
+            type: { type: 'en' ,className: 'english-name', tagName: '英' },
+            isMatch: element.englishName.toLowerCase().includes(value),
+          });
+          typeList.push({
+            type: { type: 'ja' ,className: 'japanese-name', tagName: '日' },
+            isMatch:
+              element.japaneseName.includes(value) ||
+              element.japaneseReading.includes(value),
+          });
+          typeList.push({
+            type: { type: 'zh' ,className: 'simplified-chinese', tagName: '大陸' },
+            isMatch: element.simplifiedChinese.includes(value)
+          });
+          typeList.push({
+            type: { type: 'zh' ,className: 'taiwan-trad', tagName: '台湾' },
+            isMatch: element.taiwanTrad.includes(value)
+          });
+          typeList.push({
+            type: { type: 'zh' ,className: 'hongkong-trad', tagName: '香港' },
+            isMatch: element.hongkongTrad.includes(value)
+          });
+
+          if (typeList.some(
+              (item) =>
+                item.isMatch &&
+                (this.elementSearchType === 'all' ||
+                  item.type.type === this.elementSearchType)
+            )) {
+            const matchTypeList = [];
+            typeList.forEach((item) => {
+              if (item.isMatch) {
+                matchTypeList.push(item.type);
+              }
+            });
+            this.elementSearchResultList.push({
+              element: element,
+              matchTypeList: matchTypeList,
+            });
+          }
+
+        });
+      }
+    },
+    /**
+     * 元素の検索結果と入力をリセットする
+     */
+    resetElementSearchInput: function () {
+      this.elementSearchResultList = [];
+      this.$refs.elementSearchInput.value = '';
+    },
   },
   computed: {
     /**
@@ -504,6 +591,13 @@ new Vue({
       const itemObj = JSON.parse(localStorage.getItem('itemStorage'));
       itemObj.rangeValue = this.rangeValue;
       localStorage.setItem('itemStorage', JSON.stringify(itemObj));
+    },
+    /**
+     * 元素の検索対象の変更を監視し、inputイベントを発生させる
+     */
+    elementSearchType: function () {
+      const e = new Event('input');
+      this.$refs.elementSearchInput.dispatchEvent(e);
     },
   },
   mounted: function () {

@@ -272,6 +272,89 @@
 
             <transition name="control-panel__content-">
               <div v-show="current.controlIndex === 1" class="control-panel__content">
+                <div class="element-search">
+                  <div class="element-search__container">
+                    <div class="element-search__select-wrapper">
+                      <select
+                        class="element-search__select"
+                        v-model="elementSearchType"
+                      >
+                        <option value="all">すべて</option>
+                        <option value="number">原子番号</option>
+                        <option value="symbol">元素記号</option>
+                        <option value="ja">日本語名</option>
+                        <option value="en">英語名</option>
+                        <option value="zh">中国語名</option>
+                      </select>
+                      <i class="element-search__select-icon fas fa-chevron-down"></i>
+                    </div>
+                    <div class="element-search__input-wrapper">
+                      <input
+                        type="text"
+                        ref="elementSearchInput"
+                        class="element-search__input"
+                        @input="seachElements"
+                      >
+                      <button
+                        type="button"
+                        v-show="$refs.elementSearchInput?.value"
+                        class="element-search__input-reset-button"
+                        @click="resetElementSearchInput"
+                      ><i class="fas fa-times"></i></button>
+                    </div>
+                    <div
+                      v-show="!isPhone || $refs.elementSearchInput?.value"
+                      class="element-search__result-container"
+                    >
+                      <div class="element-search__result-bar">
+                        <div>検索結果：{{ elementSearchResultList.length }} 元素</div>
+                        <div class="u-spacer"></div>
+                        <button
+                          type="button"
+                          @click="displayElementSearchResultList = !displayElementSearchResultList"
+                        >
+                          <i
+                            v-show="elementSearchResultList.length && displayElementSearchResultList"
+                            class="element-search__result-bar-icon fas fa-chevron-circle-up"
+                          ></i><i
+                            v-show="elementSearchResultList.length && !displayElementSearchResultList"
+                            class="element-search__result-bar-icon fas fa-chevron-circle-down"
+                          ></i>
+                        </button>
+                      </div>
+                      <ul
+                        v-show="elementSearchResultList.length && displayElementSearchResultList"
+                        class="element-search__result-list"
+                      >
+                        <template v-for="(result, resultIndex) in elementSearchResultList">
+                          <li :key="result.element.atomicNumber">
+                            <button
+                              type="button"
+                              class="element-search__result-item-button"
+                              @click="openOverlay(atomicNumberToIndex(result.element.atomicNumber))"
+                            >
+                              <span>{{ result.element.atomicNumber }} {{ result.element.elementSymbol }} {{ result.element.japaneseName }}</span>
+                              <span
+                                v-for="type in result.matchTypeList"
+                                class="element-search__result-type-tag"
+                                :class="'element-search__result-type-tag--' + type.className"
+                              >{{ type.tagName }}</span>
+                            </button>
+                          </li>
+                          <li
+                            v-show="resultIndex !== elementSearchResultList.length - 1"
+                            class="element-search__result-separator"
+                          ></li>
+                        </template>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </transition>
+
+            <transition name="control-panel__content-">
+              <div v-show="current.controlIndex === 2" class="control-panel__content">
                 <div class="periodic-table-scaler">
                   <input
                     type="range"

@@ -79,7 +79,7 @@ $controlPanelBorderRadius: 8px;
 
   &__content-container {
     position: relative;
-    overflow: hidden visible;
+    overflow: visible;
     border-radius:
       0 0 $controlPanelBorderRadius - 2px $controlPanelBorderRadius - 2px;
     background: $colorBaseA;
@@ -102,6 +102,16 @@ $controlPanelBorderRadius: 8px;
     &--leave-to {
       opacity: 0;
       transform: translateY(-3px);
+    }
+
+    > div {
+      /*
+        overflowの扱いはcontrol-panelに依存する直下の個々のコンテンツに任せているため、
+        その輪郭を指定するborderは親であるcontrol-panelに依存して指定したほうが
+        構造の把握が容易。
+      */
+      border-radius:
+        0 0 $controlPanelBorderRadius - 2px $controlPanelBorderRadius - 2px;
     }
   }
 }
