@@ -297,13 +297,13 @@
                       >
                       <button
                         type="button"
-                        v-show="$refs.elementSearchInput?.value"
+                        v-show="$refs.elementSearchInput && $refs.elementSearchInput.value"
                         class="element-search__input-reset-button"
                         @click="resetElementSearchInput"
                       ><i class="fas fa-times"></i></button>
                     </div>
                     <div
-                      v-show="!isPhone || $refs.elementSearchInput?.value"
+                      v-show="!isPhone || $refs.elementSearchInput && $refs.elementSearchInput.value"
                       class="element-search__result-container"
                     >
                       <div class="element-search__result-bar">
