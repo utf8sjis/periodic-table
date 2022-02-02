@@ -37,7 +37,8 @@ $controlPanelBorderRadius: 8px;
     flex: 1;
     display: flex;
     position: relative;
-    overflow: auto hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   &__tab {
