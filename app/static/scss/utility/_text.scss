@@ -1,0 +1,31 @@
+/****** text ******/
+@use 'global' as *;
+
+.u-bold {
+  @include font(ja, bold);
+}
+
+.u-marker {
+  background: linear-gradient(transparent 70%, $colorAccent 70%);
+}
+
+.u-marker-bold {
+  @include font(ja, bold);
+  background: linear-gradient(transparent 70%, $colorAccent 70%);
+}
+
+.u-zhtw {
+  @include font(zhtw);
+}
+
+.u-zhcn {
+  @include font(zhcn);
+}
+
+.u-tw {
+  @include font(tw, bold);
+}
+
+.u-cn {
+  @include font(cn, bold);
+}

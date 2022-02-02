@@ -33,12 +33,22 @@ $areaGap: 10px;
     -webkit-overflow-scrolling: touch;
     width: 100%;
     height: 100%;
+    padding: 80px 10% 90px;
+    @include mediaQuery($tablet) {
+      padding: 80px 50px 90px;
+    }
+    @include mediaQuery() {
+      padding: 80px 15px 90px;
+    }
+    @include mediaQuery($se) {
+      padding: 80px 8px 90px;
+    }
     &.is-overflow-hidden {
       overflow: hidden;
     }
   }
 
-  &__main {
+  &__containers-wrapper {
     display: grid;
     grid-template-areas:
       'base  kanji'
@@ -49,7 +59,6 @@ $areaGap: 10px;
     grid-template-rows: repeat(6, auto);
     grid-template-columns: 5fr 6fr;
     gap: $areaGap;
-    padding: 80px 10% 90px;
     @include mediaQuery($tablet) {
       grid-template-areas:
         'base'
@@ -58,16 +67,25 @@ $areaGap: 10px;
         'reading'
         'tweet'
         'close';
-      grid-template-rows: repeat(8, auto);
+      grid-template-rows: repeat(7, auto);
       grid-template-columns: auto;
-      padding: 80px 50px 90px;
     }
-    @include mediaQuery() {
-      padding: 80px 15px 90px;
-    }
-    @include mediaQuery($se) {
-      padding: 80px 8px 90px;
-    }
+  }
+
+  &__main {
+    position: relative;
+  }
+
+  &__main-info-icon {
+    @include flexCentering();
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 2px;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    color: $colorWhite;
+    filter: drop-shadow(0 0 5px #0005);
   }
 
   &__container-base {
@@ -208,6 +226,6 @@ $areaGap: 10px;
   &__close-button-icon {
     font-size: 50px;
     color: #fffc;
-    filter: drop-shadow(0 0 10px #000a);
+    filter: drop-shadow(0 0 5px #0005);
   }
 }

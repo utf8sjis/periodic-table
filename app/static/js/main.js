@@ -1,10 +1,11 @@
 import {categoryList} from './data/category_list.js';
-import {controlPanelTitleList} from './data/control_panel_title_list.js';
+import {controlList} from './data/control_list.js';
 import {elementList} from './data/element_list.js';
 import {langList} from './data/lang_list.js';
 import {navLinkSectionList} from './data/nav_link_list.js';
 import {otherCellList} from './data/other_cell_list.js';
 import {themeColorList} from './data/theme_color_list.js';
+import {popupBalloons} from './data/popup_balloon_contents.js';
 
 
 window.onload = () => {
@@ -66,6 +67,67 @@ Vue.component('article-p', {
     </p>`,
 });
 
+Vue.component('popup-balloon', {
+  props: {
+    isActive: Boolean,
+    title: String,
+    titleIconClass: String,
+    content: String,
+    width: String,
+    top: String,
+    left: String,
+    right: String,
+    beakLeft: String,
+    beakRight: String,
+  },
+  methods: {
+    close: function () {
+      this.$emit('toggle-popup-balloon');
+    }
+  },
+  template: String.raw`
+    <transition name="popup-balloon-">
+      <div
+        v-show="isActive"
+        class="popup-balloon"
+        :style="{
+          'width': width,
+          'top': top ? top : 'auto',
+          'right': right ? right : 'auto',
+          'left': left ? left : 'auto',
+        }"
+      >
+        <div class="popup-balloon__balloon">
+          <div
+            class="popup-balloon__beak"
+            :style="{
+              'right': beakRight ? beakRight : 'auto',
+              'left': beakLeft ? beakLeft : 'auto',
+            }"
+          ></div>
+          <div class="popup-balloon__container">
+            <div class="popup-balloon__title">
+              <i
+                class="u-pr5"
+                :class="titleIconClass"
+              ></i><span>{{ title }}</span>
+            </div>
+            <div
+              class="popup-balloon__content"
+              v-html="content"
+            ></div>
+          </div>
+          <button
+            type="button"
+            class="popup-balloon__close-button"
+            @click="close"
+          ><i class="fas fa-times"></i></button>
+        </div>
+      </div>
+    </transition>
+  `,
+});
+
 new Vue({
   el: '#app',
   data: {
@@ -75,11 +137,13 @@ new Vue({
     categoryList: categoryList,
     navLinkSectionList: navLinkSectionList,
     themeColorList: themeColorList,
-    controlPanelTitleList: controlPanelTitleList,
+    controlList: controlList,
+    popupBalloons: popupBalloons,
     /** 現在の表示言語とセル */
     current: {
       langIndex: 3,
       elementIndex: 0,
+      controlIndex: 0,
     },
     /** オーバーレイ表示しているか否か */
     isOverlayDisplayed: false,
@@ -95,13 +159,6 @@ new Vue({
       isDisplayed: false,
       timeoutID: 0,
     },
-    /** 操作パネルの高さ、内容のインデクス、内容が最初（最後）のものか否か */
-    controlPanel: {
-      height: 0,
-      index: 0,
-      isStart: true,
-      isEnd: false,
-    },
     periodicTableRect: {
       width: 0,
       height: 0,
@@ -116,6 +173,12 @@ new Vue({
     isPhone: false,
     /** シェアボタンが展開されているか否か */
     isShareButtonExpanded: false,
+    /** 元素の検索結果のリスト */
+    elementSearchResultList: [],
+    /** 元素の検索結果のリストが表示されているか否か */
+    displayElementSearchResultList: false,
+    /** 元素の検索対象の種類 */
+    elementSearchType: 'all',
   },
   methods: {
     /**
@@ -284,7 +347,8 @@ new Vue({
       const rootElement = document.documentElement;
       rootElement.style.setProperty('--theme-color-main-1', themeColor.main1);
       rootElement.style.setProperty('--theme-color-main-2', themeColor.main2);
-      rootElement.style.setProperty('--theme-color-main-2-dark', themeColor.main2dark);
+      rootElement.style.setProperty('--theme-color-main-2-light', themeColor.main2Light);
+      rootElement.style.setProperty('--theme-color-main-2-dark', themeColor.main2Dark);
       rootElement.style.setProperty('--theme-color-main-3', themeColor.main3);
       rootElement.style.setProperty('--theme-color-main-grad', mainGrad);
       const itemObj = JSON.parse(localStorage.getItem('itemStorage'));
@@ -337,24 +401,12 @@ new Vue({
     },
     /**
      * 操作パネルの操作の内容を変更する
-     * @param {string} to - 'next'か'prev'
+     * @param {number} nextControlIndex - 選択された操作のcontrolListでのインデクス
      */
-    changeContents: function (to) {
-      if (to === 'next' && !this.controlPanel.isEnd) {
-        this.controlPanel.index++;
-      } else if (to === 'prev' && !this.controlPanel.isStart) {
-        this.controlPanel.index--;
-      }
-      if (this.controlPanel.index === 0) {
-        this.controlPanel.isStart = true;
-      } else {
-        this.controlPanel.isStart = false;
-      }
-      if (this.controlPanel.index === this.controlPanelTitleList.length - 1) {
-        this.controlPanel.isEnd = true;
-      } else {
-        this.controlPanel.isEnd = false;
-      }
+     setCurrentControl: function (nextControlIndex) {
+      this.currentControl.isActive = false;
+      this.current.controlIndex = nextControlIndex;
+      this.currentControl.isActive = true;
     },
     /**
      * 周期表の大きさの倍率を1にする
@@ -367,6 +419,94 @@ new Vue({
      */
     toggleShareExpandButton: function () {
       this.isShareButtonExpanded = !this.isShareButtonExpanded;
+    },
+    /**
+     * 吹き出しポップアップを表示、非表示する
+     * @param {string} name - 対象の吹き出しの名前のキー
+     */
+    togglePopupBalloon: function (name) {
+      this.popupBalloons[name].isActive = !this.popupBalloons[name].isActive;
+    },
+    /**
+     * 検索対象をもとに元素を検索し結果をリストに格納する
+     * @param {object} e - InputEvent
+     */
+    seachElements: function (e) {
+      this.elementSearchResultList = [];
+      const value = e.target.value.toLowerCase();
+
+      if (value) {
+
+        this.displayElementSearchResultList = true;
+
+        const sortedElementList = this.elementList.slice();
+        if (this.elementSearchType === 'symbol') {
+          // 元素記号は完全一致likeな表示にした方がわかりやすい
+          sortedElementList.sort(
+            (a, b) => a.elementSymbol.length - b.elementSymbol.length
+          );
+        }
+
+        sortedElementList.forEach((element) => {
+          let typeList = [];
+          typeList.push({
+            type: { type: 'number' ,className: 'atomic-number', tagName: '番号' },
+            isMatch: element.atomicNumber == value,
+          });
+          typeList.push({
+            type: { type: 'symbol' ,className: 'element-symbol', tagName: '記号' },
+            isMatch: element.elementSymbol.toLowerCase().includes(value),
+          });
+          typeList.push({
+            type: { type: 'en' ,className: 'english-name', tagName: '英' },
+            isMatch: element.englishName.toLowerCase().includes(value),
+          });
+          typeList.push({
+            type: { type: 'ja' ,className: 'japanese-name', tagName: '日' },
+            isMatch:
+              element.japaneseName.includes(value) ||
+              element.japaneseReading.includes(value),
+          });
+          typeList.push({
+            type: { type: 'zh' ,className: 'simplified-chinese', tagName: '大陸' },
+            isMatch: element.simplifiedChinese.includes(value)
+          });
+          typeList.push({
+            type: { type: 'zh' ,className: 'taiwan-trad', tagName: '台湾' },
+            isMatch: element.taiwanTrad.includes(value)
+          });
+          typeList.push({
+            type: { type: 'zh' ,className: 'hongkong-trad', tagName: '香港' },
+            isMatch: element.hongkongTrad.includes(value)
+          });
+
+          if (typeList.some(
+              (item) =>
+                item.isMatch &&
+                (this.elementSearchType === 'all' ||
+                  item.type.type === this.elementSearchType)
+            )) {
+            const matchTypeList = [];
+            typeList.forEach((item) => {
+              if (item.isMatch) {
+                matchTypeList.push(item.type);
+              }
+            });
+            this.elementSearchResultList.push({
+              element: element,
+              matchTypeList: matchTypeList,
+            });
+          }
+
+        });
+      }
+    },
+    /**
+     * 元素の検索結果と入力をリセットする
+     */
+    resetElementSearchInput: function () {
+      this.elementSearchResultList = [];
+      this.$refs.elementSearchInput.value = '';
     },
   },
   computed: {
@@ -385,6 +525,14 @@ new Vue({
      */
     currentElement: function () {
       return this.elementList[this.current.elementIndex]
+    },
+    /**
+     * リスト中の現在選択されている操作のデータ
+     * current.controlIndexに依存
+     * @returns {object} リスト中の操作のオブジェクト
+     */
+    currentControl: function () {
+      return this.controlList[this.current.controlIndex]
     },
     /**
      * 現在のデータページのページ遷移ボタンの表示内容
@@ -444,13 +592,17 @@ new Vue({
       itemObj.rangeValue = this.rangeValue;
       localStorage.setItem('itemStorage', JSON.stringify(itemObj));
     },
+    /**
+     * 元素の検索対象の変更を監視し、inputイベントを発生させる
+     */
+    elementSearchType: function () {
+      const e = new Event('input');
+      this.$refs.elementSearchInput.dispatchEvent(e);
+    },
   },
   mounted: function () {
     // 周期表の幅と高さの初期値をセット
     this.periodicTableRect = this.$refs.periodicTable.getBoundingClientRect();
-    // 操作パネルの高さの初期値をセット
-    const compStyles = window.getComputedStyle(this.$refs.controlPanel);
-    this.controlPanel.height = parseInt(compStyles.getPropertyValue('height'));
     // スクロールのイベントリスナを追加
     window.addEventListener('scroll', this.handleScroll);
     // localStorageの初期化と読み出し

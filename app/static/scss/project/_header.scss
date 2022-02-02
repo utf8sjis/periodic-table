@@ -35,11 +35,10 @@
 
   &__start {
     position: absolute;
-    top: 2px;
+    top: 0;
     left: 30px;
     height: 100%;
     @include mediaQuery() {
-      top: 0;
       left: 15px;
       line-height: 1.1;
     }
@@ -48,7 +47,7 @@
   &__logo {
     cursor: pointer;
     @include font(en);
-    font-size: 40px;
+    font-size: 38px;
     @include mediaQuery() {
       font-size: 35px;
     }
@@ -56,15 +55,10 @@
 
   &__site {
     padding-left: 20px;
-    font-size: 16px;
+    font-size: 14px;
     @include mediaQuery() {
       padding-left: 12px;
-      font-size: 14px;
     }
-  }
-
-  &__site-icon {
-    padding-right: 5px;
   }
 
   &__end {
@@ -98,8 +92,8 @@
   &__share-button {
     @include flexCentering();
     margin: 0 4px;
-    width: 35px;
-    height: 35px;
+    width: 33px;
+    height: 33px;
     border: 2px solid $colorWhiteA;
     border-radius: 50%;
     font-size: 20px;
@@ -127,7 +121,7 @@
     flex-direction: column;
     margin-left: 10px;
     width: 85px;
-    height: 55px;
+    height: 53px;
     border: 2px solid $colorWhiteA;
     border-radius: 5px;
     padding-bottom: 2px;

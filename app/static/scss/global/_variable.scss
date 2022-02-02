@@ -13,7 +13,8 @@ $fontAA: 'saitamaar_light', sans-serif;
 /* 色 */
 $colorMain1: var(--theme-color-main-1);
 $colorMain2: var(--theme-color-main-2);
-$colorMain2dark: var(--theme-color-main-2-dark);
+$colormain2Light: var(--theme-color-main-2-light);
+$colorMain2Dark: var(--theme-color-main-2-dark);
 $colorMain3: var(--theme-color-main-3);
 $colorMainGrad: var(--theme-color-main-grad);
 
@@ -51,7 +52,7 @@ $phone: 550px;   // スマートフォン -> main.js
 $se: 350px;      // iPhone SE
 
 /* その他 */
-$headerFixedContainerHeight: 80px;
+$headerFixedContainerHeight: 70px;
 $headerFixedContainerHeightPhone: 60px;
 $headerHeight: $headerFixedContainerHeight + 15px;
 $headerHeightPhone: $headerFixedContainerHeightPhone + 15px;

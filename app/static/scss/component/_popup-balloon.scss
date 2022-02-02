@@ -1,0 +1,74 @@
+/****** popup-balloon ******/
+@use 'global' as *;
+
+.popup-balloon {
+  position: absolute;
+  max-width: 400px;
+  &:hover {
+    display: block;
+  }
+  &--enter-active,
+  &--leave-active {
+    transition: opacity 0.2s;
+  }
+  &--enter,
+  &--leave-to {
+    opacity: 0;
+  }
+
+  &__balloon {
+    position: relative;
+    font-size: 15px;
+  }
+
+  &__beak {
+    position: absolute;
+    top: -5px;
+    width: 0;
+    height: 0;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid $colorMain2;
+    border-left: 7px solid transparent;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px 0;
+    margin-top: 5px;
+    border: 2px solid $colorMain2;
+    border-radius: 8px;
+    padding: 12px 15px;
+    background: $colorBaseA;
+  }
+
+  &__title {
+    @include font(ja, bold);
+    color: $colorMain1;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px 0;
+  }
+
+  &__insert {
+    padding: 0 20px;
+    @include mediaQuery() {
+      padding: 0;
+    }
+  }
+
+  &__close-button {
+    @include flexCentering();
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    color: $colorMain2;
+  }
+}
+
