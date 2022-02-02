@@ -229,9 +229,12 @@
               </template>
               <div class="control-panel__tab-spacer"></div>
             </div>
+          </div>
+
+          <div class="control-panel__info-button-wrapper">
             <button
               type="button"
-              class="control-panel__tab control-panel__tab--right-end"
+              class="control-panel__info-button"
               @click="togglePopupBalloon('controlPanel')"
             >
               <i class="fas fa-info-circle"></i>
@@ -311,14 +314,15 @@
                         <div class="u-spacer"></div>
                         <button
                           type="button"
+                          class="element-search__result-bar-button"
                           @click="displayElementSearchResultList = !displayElementSearchResultList"
                         >
                           <i
                             v-show="elementSearchResultList.length && displayElementSearchResultList"
-                            class="element-search__result-bar-icon fas fa-chevron-circle-up"
+                            class="fas fa-chevron-circle-up"
                           ></i><i
                             v-show="elementSearchResultList.length && !displayElementSearchResultList"
-                            class="element-search__result-bar-icon fas fa-chevron-circle-down"
+                            class="fas fa-chevron-circle-down"
                           ></i>
                         </button>
                       </div>

@@ -94,12 +94,14 @@ $inputHeight: 28px;
     @include flexCentering(flex-start, center);
     height: 100%;
     @include mediaQuery() {
-      height: $inputHeight;
+      height: 30px;
       padding: 0 10px;
     }
   }
 
-  &__result-bar-icon {
+  &__result-bar-button {
+    @include flexCentering();
+    height: 100%;
     padding-left: 5px;
     font-size: 20px;
     color: $colorMain2;
