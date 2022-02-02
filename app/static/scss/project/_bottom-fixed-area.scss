@@ -42,7 +42,10 @@ $expandTime: 0.2s;
   &__share-button-wrapper {
     @include flexCentering();
     position: absolute;
-    inset: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
   &__share-expand-button {
