@@ -4,6 +4,9 @@ This repository is for [元素の漢字周期表 - gensokanji](https://gensokanj
 
 # Change Log
 
+## v3.1.2
+* Changed the color of some cells in the periodic table.
+
 ## v3.1.1
 * Updated README and added changelog.
 
