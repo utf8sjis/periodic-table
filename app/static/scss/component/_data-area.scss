@@ -21,6 +21,12 @@ $changeDuration: 0.5s;
     color: $colorHydrogenBlack;
     background: #fff6;
   }
+  &--tweet {
+    @include mediaQuery() {
+      border: none;
+      background: none;
+    }
+  }
 
   &__item-element-symbol {
     @include flexCentering();
