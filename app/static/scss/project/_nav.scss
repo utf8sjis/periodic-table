@@ -1,18 +1,18 @@
 /****** nav ******/
-@use 'global' as *;
+@use 'global' as g;
 
 .nav {
   position: fixed;
   top: 0;
   width: 100%;
   height: 80vh;
-  color: $colorWhite;
-  background: $colorMainGrad;
+  color: g.$colorWhite;
+  background: g.$colorMainGrad;
   z-index: 201;
   &--enter-active,
   &--leave-active {
     transition-property: opacity, transform;
-    transition-duration: $navOpenTime;
+    transition-duration: g.$navOpenTime;
   }
   &--enter,
   &--leave-to {
@@ -41,9 +41,9 @@
     -webkit-overflow-scrolling: touch;
     width: 100%;
     height: 100%;
-    padding: $headerFixedContainerHeight + 30px 100px 30px;
-    @include mediaQuery() {
-      padding: $headerFixedContainerHeightPhone + 30px 15px 30px;
+    padding: g.$headerFixedContainerHeight + 30px 100px 30px;
+    @include g.mediaQuery() {
+      padding: g.$headerFixedContainerHeightPhone + 30px 15px 30px;
     }
   }
 
@@ -69,12 +69,12 @@
       bottom: 0;
       width: 100%;
       height: 1px;
-      background: $colorWhite;
+      background: g.$colorWhite;
     }
   }
 
   &__theme-color-changer {
-    @include flexCentering();
+    @include g.flexCentering();
   }
 
   &__theme-color-changer-button-wrapper {
@@ -86,8 +86,8 @@
 
   &__theme-color-changer-button {
     cursor: pointer;
-    @include flexCentering();
-    border: 1px solid $colorWhite;
+    @include g.flexCentering();
+    border: 1px solid g.$colorWhite;
     border-radius: 3px;
     transition: filter 0.2s;
     &:hover {
@@ -116,7 +116,7 @@
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     row-gap: 20px;
     column-gap: 20px;
-    @include mediaQuery() {
+    @include g.mediaQuery() {
       padding: 0 15px;
     }
   }
@@ -124,10 +124,10 @@
   &__link {
     overflow: hidden;
     border-radius: 5px;
-    border: 2.5px solid $colorWhite;
+    border: 2.5px solid g.$colorWhite;
     box-shadow: 0 0 5px #0003;
-    color: $colorBlack;
-    background: $colorWhite;
+    color: g.$colorBlack;
+    background: g.$colorWhite;
   }
 
   &__link-image-container {
@@ -153,7 +153,7 @@
     right: 5px;
     filter: drop-shadow(0 0 2px #0005);
     font-size: 16px;
-    color: $colorWhite;
+    color: g.$colorWhite;
   }
 
   &__link-content {
@@ -172,13 +172,13 @@
   }
 
   &__illustration {
-    @include flexCentering();
+    @include g.flexCentering();
   }
 
   &__illustration-image {
     height: 100px;
     opacity: 0.5;
-    @include mediaQuery() {
+    @include g.mediaQuery() {
       height: 80px;
     }
   }

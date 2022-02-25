@@ -1,5 +1,5 @@
 /****** table-guide ******/
-@use 'global' as *;
+@use 'global' as g;
 
 .table-guide {
   grid-row: 1 / span 1;
@@ -27,8 +27,8 @@
     height: 20px;
     border-radius: 3px;
     box-shadow: 0 2px 2px #0003;
-    @each $category in $categoryList {
-      $categoryColor: nth($categoryColorList, index($categoryList, $category));
+    @each $category in g.$categoryList {
+      $categoryColor: nth(g.$categoryColorList, index(g.$categoryList, $category));
       &--category-#{$category} {
         background: $categoryColor;
       }

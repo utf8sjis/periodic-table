@@ -1,5 +1,5 @@
 /****** control-panel ******/
-@use 'global' as *;
+@use 'global' as g;
 
 $controlPanelHeight: 90px;
 $controlPanelTabHeight: 28px;
@@ -10,19 +10,19 @@ $controlPanelBorderRadius: 8px;
   grid-template-columns: auto 35px;
   grid-template-rows: $controlPanelTabHeight auto;
   position: sticky;
-  top: $headerHeight;
+  top: g.$headerHeight;
   margin: 0 auto;
-  border: 2px solid $colorMain2;
+  border: 2px solid g.$colorMain2;
   border-radius: $controlPanelBorderRadius;
-  width: $controlPanelWidth;
+  width: g.$controlPanelWidth;
   height: $controlPanelHeight;
   z-index: 100;
-  @include mediaQuery($controlPanelWidth) {
+  @include g.mediaQuery(g.$controlPanelWidth) {
     margin: 0 10px;
     width: auto;
   }
-  @include mediaQuery() {
-    top: $headerHeightPhone;
+  @include g.mediaQuery() {
+    top: g.$headerHeightPhone;
   }
 
   &__tab-container {
@@ -42,35 +42,35 @@ $controlPanelBorderRadius: 8px;
   }
 
   &__tab {
-    @include flexCentering();
+    @include g.flexCentering();
     height: 100%;
     padding: 0 10px;
     white-space: nowrap;
     font-size: 14px;
-    color: $colorWhite;
-    background: $colormain2Light;
+    color: g.$colorWhite;
+    background: g.$colormain2Light;
     transition-property: color, background-color;
     transition-duration: 0.2s;
     &.is-active {
-      color: $colorMain2;
-      background: $colorBaseA;
+      color: g.$colorMain2;
+      background: g.$colorBaseA;
     }
     &--left-end {
       width: 10px;
       padding: 0;
-      background: $colorMain2;
+      background: g.$colorMain2;
     }
   }
 
   &__tab-separator {
     flex: none;
     width: 2px;
-    background: $colorMain2;
+    background: g.$colorMain2;
   }
 
   &__tab-spacer {
     flex-grow: 1;
-    background: $colorMain2;
+    background: g.$colorMain2;
   }
 
   &__info-button-wrapper {
@@ -80,14 +80,14 @@ $controlPanelBorderRadius: 8px;
   }
 
   &__info-button {
-    @include flexCentering();
+    @include g.flexCentering();
     width: 100%;
     height: 100%;
     border-radius:
       0 $controlPanelBorderRadius - 2px 0 0;
     font-size: 15px;
-    color: $colorWhite;
-    background: $colorMain1;
+    color: g.$colorWhite;
+    background: g.$colorMain1;
   }
 
   &__content-container {
@@ -96,7 +96,7 @@ $controlPanelBorderRadius: 8px;
     overflow: visible;
     border-radius:
       0 0 $controlPanelBorderRadius - 2px $controlPanelBorderRadius - 2px;
-    background: $colorBaseA;
+    background: g.$colorBaseA;
   }
 
   &__content {

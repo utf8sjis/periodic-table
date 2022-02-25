@@ -1,5 +1,5 @@
 /****** popup-balloon ******/
-@use 'global' as *;
+@use 'global' as g;
 
 .popup-balloon {
   position: absolute;
@@ -27,7 +27,7 @@
     width: 0;
     height: 0;
     border-right: 7px solid transparent;
-    border-bottom: 7px solid $colorMain2;
+    border-bottom: 7px solid g.$colorMain2;
     border-left: 7px solid transparent;
   }
 
@@ -36,15 +36,15 @@
     grid-template-columns: auto;
     gap: 10px 0;
     margin-top: 5px;
-    border: 2px solid $colorMain2;
+    border: 2px solid g.$colorMain2;
     border-radius: 8px;
     padding: 12px 15px;
-    background: $colorBaseA;
+    background: g.$colorBaseA;
   }
 
   &__title {
-    @include font(ja, bold);
-    color: $colorMain1;
+    @include g.font(ja, bold);
+    color: g.$colorMain1;
   }
 
   &__content {
@@ -55,20 +55,20 @@
 
   &__insert {
     padding: 0 20px;
-    @include mediaQuery() {
+    @include g.mediaQuery() {
       padding: 0;
     }
   }
 
   &__close-button {
-    @include flexCentering();
+    @include g.flexCentering();
     position: absolute;
     top: 7px;
     right: 7px;
     width: 30px;
     height: 30px;
     font-size: 20px;
-    color: $colorMain2;
+    color: g.$colorMain2;
   }
 }
 

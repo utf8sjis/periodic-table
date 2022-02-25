@@ -1,5 +1,5 @@
 /****** periodic-table ******/
-@use 'global' as *;
+@use 'global' as g;
 
 $cellSize: 52px;
 $cellGap: 8px;
@@ -61,12 +61,12 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
 }
 
 .periodic-table {
-  @include flexCentering(center, flex-start);
+  @include g.flexCentering(center, flex-start);
   overflow: visible;
   -webkit-overflow-scrolling: touch;
   transition: height 0.3s;
   &.is-overflow-scroll {
-    @include flexCentering(flex-start, flex-start);
+    @include g.flexCentering(flex-start, flex-start);
     overflow-x: scroll;
     overflow-y: hidden;
   }
@@ -89,9 +89,9 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
   }
 
   &__group-number {
-    @include flexCentering();
+    @include g.flexCentering();
     height: 0;
-    @include font(en);
+    @include g.font(en);
     font-size: 20px;
     transform: translateY(-15px);
     @each $groupNumber in $groupNumberList {
@@ -104,9 +104,9 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
   }
 
   &__period-number {
-    @include flexCentering();
+    @include g.flexCentering();
     width: 0;
-    @include font(en);
+    @include g.font(en);
     font-size: 20px;
     transform: translateX(-15px);
     @each $periodNumber in $periodNumberList {
@@ -138,34 +138,34 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
   }
 
   &__cell {
-    @include flexCentering();
+    @include g.flexCentering();
     width: 100%;
     height: 100%;
     border-radius: 5px;
-    color: $colorWhite;
+    color: g.$colorWhite;
     text-align: center;
     box-shadow: 0 3px 2px #0003, 0 0 3px #fff0;
     transform: translate3d(0, 0, 0) scale(1) rotateY(0);
     transition-property: transform, background-color, color, border-color, box-shadow;
     transition-duration: 1s;
-    @each $category in $categoryList {
-      $categoryColor: nth($categoryColorList, index($categoryList, $category));
+    @each $category in g.$categoryList {
+      $categoryColor: nth(g.$categoryColorList, index(g.$categoryList, $category));
       &--category-#{$category} {
         @if $category == h {
-          color: $colorHydrogenBlack;
+          color: g.$colorHydrogenBlack;
         }
         border: 2.5px solid $categoryColor;
         background: $categoryColor;
         &:hover {
           @if $category == h {
-            border-color: $colorHydrogenBlack;
-            color: $colorHydrogenBlack;
+            border-color: g.$colorHydrogenBlack;
+            color: g.$colorHydrogenBlack;
           } @else {
             color: $categoryColor;
           }
           transform: translate3d(0, -5px, 10px) scale(1.2) rotateY(0);
           box-shadow: 0 3px 4px #0003, 0 0 3px #fff0;
-          background: $colorWhite;
+          background: g.$colorWhite;
           transition-property: transform, background-color, color, border-color, box-shadow;
           transition-duration: 0.2s;
         }
@@ -173,32 +173,32 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
     }
     &.is-atomic-number {
       padding-bottom: 4px;
-      @include font(en, light);
+      @include g.font(en, light);
       font-size: 30px;
       animation: intoAN 0.8s;
     }
     &.is-element-symbol {
       padding-bottom: 4px;
-      @include font(en, light);
+      @include g.font(en, light);
       font-size: 30px;
       animation: intoES 0.8s;
     }
     &.is-simplified-chinese {
       padding-bottom: 5px;
       font-size: 32px;
-      @include font(cn);
+      @include g.font(cn);
       animation: intoSC 0.8s;
     }
     &.is-taiwan-trad {
       padding-bottom: 5px;
       font-size: 32px;
-      @include font(tw);
+      @include g.font(tw);
       animation: intoTW 0.8s;
     }
     &.is-hongkong-trad {
       padding-bottom: 5px;
       font-size: 32px;
-      @include font(hk);
+      @include g.font(hk);
       animation: intoHK 0.8s;
     }
     &.is-japanese-name {
@@ -208,7 +208,7 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
     }
     &.is-english-name {
       padding-bottom: 3px;
-      @include font(en);
+      @include g.font(en);
       font-size: 10px;
       animation: intoEN 0.8s;
     }
@@ -271,41 +271,41 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
   }
 
   &__la-ac {
-    @include flexCentering();
+    @include g.flexCentering();
     width: 100%;
     height: 100%;
-    color: $colorBlack;
+    color: g.$colorBlack;
     text-align: center;
     line-height: 1;
     white-space: nowrap;
     &.is-atomic-number {
       padding-bottom: 4px;
-      @include font(en);
+      @include g.font(en);
       font-size: 20px;
       animation: intoAN 0.8s;
     }
     &.is-element-symbol {
       padding-bottom: 4px;
-      @include font(en);
+      @include g.font(en);
       font-size: 20px;
       animation: intoES 0.8s;
     }
     &.is-simplified-chinese {
       padding-bottom: 3px;
       font-size: 20px;
-      @include font(cn);
+      @include g.font(cn);
       animation: intoSC 0.8s;
     }
     &.is-taiwan-trad {
       padding-bottom: 3px;
       font-size: 20px;
-      @include font(tw);
+      @include g.font(tw);
       animation: intoTW 0.8s;
     }
     &.is-hongkong-trad {
       padding-bottom: 3px;
       font-size: 20px;
-      @include font(hk);
+      @include g.font(hk);
       animation: intoHK 0.8s;
     }
     &.is-japanese-name {
@@ -315,7 +315,7 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
     }
     &.is-english-name {
       padding-bottom: 3px;
-      @include font(en);
+      @include g.font(en);
       font-size: 10px;
       animation: intoEN 0.8s;
     }

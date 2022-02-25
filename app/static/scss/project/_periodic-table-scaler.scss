@@ -1,16 +1,16 @@
 
 /****** periodic-table-scaler ******/
 @use 'sass:math';
-@use 'global' as *;
+@use 'global' as g;
 
 $trackHeight: 8px;
 $trackBorderRadius: 3px;
-$trackColor: $colorLightGray;
+$trackColor: g.$colorLightGray;
 $thumbSize: 20px;
-$thumbColor: $colorMain1;
+$thumbColor: g.$colorMain1;
 
 .periodic-table-scaler {
-  @include flexCentering();
+  @include g.flexCentering();
   height: 100%;
   padding: 0 20px;
 
@@ -53,11 +53,11 @@ $thumbColor: $colorMain1;
   &__value-display {
     cursor: pointer;
     flex: none;
-    @include flexCentering();
+    @include g.flexCentering();
     margin-left: 20px;
     width: 60px;
     height: 35px;
-    border: solid 2px $colorMain2;
+    border: solid 2px g.$colorMain2;
     border-radius: 5px;
   }
 }

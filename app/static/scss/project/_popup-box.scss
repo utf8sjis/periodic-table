@@ -1,19 +1,19 @@
 /****** popup-box ******/
-@use 'global' as *;
+@use 'global' as g;
 
 .popup-box {
   cursor: pointer;
-  @include flexCentering();
+  @include g.flexCentering();
   position: fixed;
   top: 10px;
   left: 10px;
   max-width: 300px;
   border-radius: 10px;
-  border: 2px solid $colorMain3;
+  border: 2px solid g.$colorMain3;
   padding: 15px 20px;
-  background: $colorWhite;
+  background: g.$colorWhite;
   z-index: 301;
-  @include mediaQuery() {
+  @include g.mediaQuery() {
     padding: 12px 17px;
   }
   &--enter-active,
@@ -29,6 +29,6 @@
   &__icon {
     padding-right: 10px;
     font-size: 25px;
-    color: $colorMain3;
+    color: g.$colorMain3;
   }
 }

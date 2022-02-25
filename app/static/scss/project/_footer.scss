@@ -1,12 +1,12 @@
 /****** footer ******/
-@use 'global' as *;
+@use 'global' as g;
 
 .footer {
-  @include flexCentering();
+  @include g.flexCentering();
   padding: 40px 5px;
-  color: $colorWhite;
-  background: $colorMainGrad;
-  @include mediaQuery() {
+  color: g.$colorWhite;
+  background: g.$colorMainGrad;
+  @include g.mediaQuery() {
     padding-bottom: 70px;
   }
 
@@ -17,14 +17,14 @@
   }
 
   &__content {
-    @include flexCentering();
+    @include g.flexCentering();
   }
 
   &__twitter-follow-button {
     /* iframeを取得できなかった場合 */
-    color: $colorWhite;
+    color: g.$colorWhite;
     &:hover {
-      color: $colorWhiteA;
+      color: g.$colorWhiteA;
     }
   }
 }
