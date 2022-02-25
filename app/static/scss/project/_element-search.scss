@@ -137,6 +137,10 @@ $inputHeight: 28px;
   &__result-item-button {
     width: 100%;
     min-height: 25px;
+    transition: background 0.2s;
+    &:active {
+      background: #0001;
+    }
   }
 
   &__result-type-tag {
