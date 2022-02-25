@@ -3,7 +3,6 @@
 
 $borderColor: #fff9;
 $borderColorHydrogen: #0003;
-$changeDuration: 0.5s;
 
 .data-area {
   position: relative;
@@ -15,7 +14,7 @@ $changeDuration: 0.5s;
   color: g.$colorWhite;
   background: #0002;
   transition-property: border-color, background-color, color;
-  transition-duration: $changeDuration;
+  transition-duration: g.$overlayChangeDuration;
   &.is-category-h {
     border-color: $borderColorHydrogen;
     color: g.$colorHydrogenBlack;
@@ -85,7 +84,7 @@ $changeDuration: 0.5s;
     user-select: none;
     @include g.flexCentering(space-between, center);
     transition-property: background-color, color;
-    transition-duration: $changeDuration;
+    transition-duration: g.$overlayChangeDuration;
     @each $category in g.$categoryList {
       $categoryColor: nth(g.$categoryColorList2, index(g.$categoryList, $category));
       @if $category == h {
@@ -114,7 +113,7 @@ $changeDuration: 0.5s;
     font-size: 20px;
     color: g.$colorWhite;
     transition-property: border-color;
-    transition-duration: $changeDuration;
+    transition-duration: g.$overlayChangeDuration;
     @include g.mediaQuery() {
       border: 14px solid $borderColor;
       border-radius: 12px 0 3px 0;

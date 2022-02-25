@@ -645,6 +645,7 @@
                 <button
                   type="button"
                   class="overlay__main-info-icon"
+                  :class="'is-' + currentElement.categoryClass"
                   @click="togglePopupBalloon('overlayMain')"
                 >
                   <i class="fas fa-info-circle"></i>
@@ -665,6 +666,7 @@
             <button
               type="button"
               class="overlay__close-button"
+              :class="'is-' + currentElement.categoryClass"
               @click="closeOverlay"
             >
               <ion-icon class="overlay__close-button-icon" name="close-circle"></ion-icon>
