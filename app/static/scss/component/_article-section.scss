@@ -4,7 +4,7 @@
 .article-section {
   padding-top: 20px;
   border-radius: 5px;
-  box-shadow: 0 0 3px #0002;
+  @include g.boxShadow(2);
   background: g.$colorWhite;
 
   &__headline {

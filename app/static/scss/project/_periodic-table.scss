@@ -144,7 +144,7 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
     border-radius: 5px;
     color: g.$colorWhite;
     text-align: center;
-    box-shadow: 0 3px 2px #0002, 0 0 3px #fff0;
+    @include g.boxShadow(2);
     transform: translate3d(0, 0, 0) scale(1) rotateY(0);
     transition-property: transform, background-color, color, border-color, box-shadow;
     transition-duration: 1s;
@@ -164,7 +164,7 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
             color: $categoryColor;
           }
           transform: translate3d(0, -5px, 10px) scale(1.2) rotateY(0);
-          box-shadow: 0 3px 4px #0002, 0 0 3px #fff0;
+          @include g.boxShadow(4);
           background: g.$colorWhite;
           transition-property: transform, background-color, color, border-color, box-shadow;
           transition-duration: 0.2s;

@@ -26,7 +26,7 @@
     width: 20px;
     height: 20px;
     border-radius: 3px;
-    box-shadow: 0 2px 2px #0002;
+    @include g.boxShadow(2);
     @each $category in g.$categoryList {
       $categoryColor: nth(g.$categoryColorList, index(g.$categoryList, $category));
       &--category-#{$category} {
