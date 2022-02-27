@@ -1,12 +1,12 @@
 /****** lang-changer ******/
-@use 'global' as *;
+@use 'global' as g;
 
 .lang-changer {
-  @include flexCentering();
+  @include g.flexCentering();
   overflow-x: visible;
   height: 100%;
-  @include mediaQuery($controlPanelWidth) {
-    @include flexCentering(flex-start, center);
+  @include g.mediaQuery(g.$controlPanelWidth) {
+    @include g.flexCentering(flex-start, center);
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
   }
@@ -15,7 +15,7 @@
   }
 
   &__button-container {
-    @include flexCentering();
+    @include g.flexCentering();
     height: 100%;
     padding: 0 20px;
   }
@@ -26,14 +26,14 @@
     height: 100%;
     padding: 0 10px;
     white-space: nowrap;
-    color: $colorBlackA;
+    color: g.$colorBlackA;
     transition: color 0.5s;
     &:hover {
-      color: $colorBlack;
+      color: g.$colorBlack;
       &::after {
         left: 0;
         width: 100%;
-        background: $colorMain2;
+        background: g.$colorMain2;
       }
     }
     &::after {
@@ -48,11 +48,11 @@
       transition-duration: 0.5s;
     }
     &.is-active-lang {
-      color: $colorMain1;
+      color: g.$colorMain1;
       &::after {
         left: 0;
         width: 100%;
-        background: $colorMain1;
+        background: g.$colorMain1;
       }
     }
   }
@@ -61,6 +61,6 @@
     width: 1px;
     height: 20px;
     margin: 0 2px;
-    background: $colorLightGray;
+    background: g.$colorLightGray;
   }
 }

@@ -1,4 +1,4 @@
-@use 'variable' as *;
+@use 'variable' as v;
 
 /* flexによる中央寄せ */
 @mixin flexCentering($justify: center, $align: center) {
@@ -8,7 +8,7 @@
 }
 
 /* メディアクエリ */
-@mixin mediaQuery($breakpoint: $phone) {
+@mixin mediaQuery($breakpoint: v.$phone) {
   @media (max-width: ($breakpoint)) {
     @content;
   }
@@ -16,6 +16,17 @@
 
 /* フォントファミリーとその太さ */
 @mixin font($family, $weight: normal) {
+  $fontWebEnglish: 'Blinker', 'Helvetica Neue', Arial, sans-serif;
+  $fontWebJapanese: 'M PLUS 1p', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  $fontKanjiTW: 'Source Han Sans TW', 'Source Han Sans CN', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  $fontKanjiCN: 'Source Han Sans CN', 'Source Han Sans SC Subset Lv', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  $fontKanjiHK: 'Source Han Sans HK', 'Source Han Sans CN', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  $fontPinyin: 'Source Han Sans TW', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  $fontUser: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  $fontUserTC: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  $fontUserSC: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  $fontAA: 'saitamaar_light', sans-serif;
+
   // 英語
   @if $family == en {
     font-family: $fontWebEnglish;
@@ -89,5 +100,46 @@
   // AA
   @else if $family == aa {
     font-family: $fontAA;
+  }
+  @else {
+    @error 'invalid argument for $family: ' + $family;
+  }
+}
+
+/* box-shadow */
+// 参考: https://gist.github.com/serglo/f9f0be9a66fd6755a0bda85f9c64e85f
+@mixin boxShadow($depth) {
+  @if ($depth == 0) {
+    box-shadow: none;
+  }
+  @else if ($depth == 1) {
+    box-shadow: 0 1px 1px 0 #00000012, 0 2px 1px -1px #0000000f, 0 1px 3px 0 #0000001a;
+  }
+  @else if ($depth == 2) {
+    box-shadow: 0 2px 2px 0 #00000012, 0 3px 1px -2px #0000000f, 0 1px 5px 0 #0000001a;
+  }
+  @else if ($depth == 3) {
+    box-shadow: 0 3px 4px 0 #00000012, 0 3px 3px -2px #0000000f, 0 1px 8px 0 #0000001a;
+  }
+  @else if ($depth == 4) {
+    box-shadow: 0 4px 5px 0 #00000012, 0 1px 10px 0 #0000000f, 0 2px 4px -1px #0000001a;
+  }
+  @else if ($depth == 6) {
+    box-shadow: 0 6px 10px 0 #00000012, 0 1px 18px 0 #0000000f, 0 3px 5px -1px #0000001a;
+  }
+  @else if ($depth == 8) {
+    box-shadow: 0 8px 10px 1px #00000012, 0 3px 14px 2px #0000000f, 0 5px 5px -3px #0000001a;
+  }
+  @else if ($depth == 12) {
+    box-shadow: 0 12px 17px 2px #00000012, 0 5px 22px 4px #0000000f, 0 7px 8px -4px #0000001a;
+  }
+  @else if ($depth == 16) {
+    box-shadow: 0 16px 24px 2px #00000012, 0 6px 30px 5px #0000000f, 0 8px 10px -5px #0000001a;
+  }
+  @else if ($depth == 24) {
+    box-shadow: 0 24px 38px 3px #00000012, 0 9px 46px 8px #0000000f, 0 11px 15px -7px #0000001a;
+  }
+  @else {
+    @error 'invalid argument for $depth: ' + $depth;
   }
 }

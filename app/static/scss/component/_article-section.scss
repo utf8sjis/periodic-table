@@ -1,21 +1,21 @@
 /****** article-section ******/
-@use 'global' as *;
+@use 'global' as g;
 
 .article-section {
   padding-top: 20px;
   border-radius: 5px;
-  box-shadow: 0 0 3px #0003;
-  background: $colorWhite;
+  @include g.boxShadow(2);
+  background: g.$colorWhite;
 
   &__headline {
     position: relative;
     margin: 0 30px 0 -8px;
     border-radius: 3px 0 0 0;
     padding: 10px 20px;
-    @include font(ja, bold);
+    @include g.font(ja, bold);
     font-size: 25px;
-    color: $colorWhite;
-    background: $colorMain2;
+    color: g.$colorWhite;
+    background: g.$colorMain2;
     &::before {
       content: '';
       position: absolute;
@@ -24,7 +24,7 @@
       width: 0;
       height: 0;
       border: 8px solid;
-      border-color: $colorMain2Dark $colorWhite $colorWhite $colorMain2Dark;
+      border-color: g.$colorMain2Dark g.$colorWhite g.$colorWhite g.$colorMain2Dark;
     }
     &::after {
       content: '';
@@ -34,9 +34,9 @@
       width: 0;
       height: 0;
       border: 4px solid;
-      border-color: $colorMain2Dark $colorMain2Dark transparent transparent;
+      border-color: g.$colorMain2Dark g.$colorMain2Dark transparent transparent;
     }
-    @include mediaQuery() {
+    @include g.mediaQuery() {
       margin: 0 10px 0 -6px;
       border-radius: 2px 0 0 0;
       padding: 10px 15px;
@@ -56,7 +56,7 @@
     grid-template-columns: auto;
     gap: 30px 0;
     padding: 30px 20px;
-    @include mediaQuery() {
+    @include g.mediaQuery() {
       padding: 30px 10px;
     }
   }
@@ -65,16 +65,16 @@
     display: grid;
     grid-template-columns: auto;
     gap: 20px 0;
-    @include mediaQuery() {
+    @include g.mediaQuery() {
       gap: 16px 0;
     }
   }
 
   &__headline-2 {
-    border-bottom: 2px dashed $colorMain2;
-    @include font(ja, bold);
+    border-bottom: 2px dashed g.$colorMain2;
+    @include g.font(ja, bold);
     font-size: 20px;
-    @include mediaQuery() {
+    @include g.mediaQuery() {
       font-size: 18px;
     }
   }
@@ -84,9 +84,9 @@
   }
 
   &__insert {
-    @include flexCentering();
+    @include g.flexCentering();
     padding: 40px 20px;
-    @include mediaQuery() {
+    @include g.mediaQuery() {
       padding: 30px 20px;
     }
   }
@@ -100,7 +100,7 @@
 
   &__caption {
     text-align: center;
-    color: $colorBlackA;
+    color: g.$colorBlackA;
   }
 
   &__table {
@@ -110,19 +110,19 @@
     th {
       padding: 7px 20px;
       text-align: center;
-      @include font(ja, bold);
-      color: $colorWhite;
-      background: $colorMain2;
-      @include mediaQuery() {
+      @include g.font(ja, bold);
+      color: g.$colorWhite;
+      background: g.$colorMain2;
+      @include g.mediaQuery() {
         padding: 5px;
       }
     }
 
     td {
       padding: 7px 20px;
-      border-bottom: 1px solid $colorBlackA;
+      border-bottom: 1px solid g.$colorBlackA;
       text-align: center;
-      @include mediaQuery() {
+      @include g.mediaQuery() {
         padding: 5px;
       }
     }
@@ -133,7 +133,7 @@
     text-decoration: underline;
     transition: color 0.2s;
     &:hover {
-      color: $colorBlackA;
+      color: g.$colorBlackA;
     }
   }
 }

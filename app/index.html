@@ -620,7 +620,7 @@
                   </div>
                   <div class="overlay__container-tweet">
                     <div class="overlay__area overlay__area--tweet">
-                      <div class="data-area" :class="'is-' + currentElement.categoryClass">
+                      <div class="data-area data-area--tweet" :class="'is-' + currentElement.categoryClass">
                         <div
                           ref="contAreaTweet"
                           class="data-area__item-tweet"
@@ -645,6 +645,7 @@
                 <button
                   type="button"
                   class="overlay__main-info-icon"
+                  :class="'is-' + currentElement.categoryClass"
                   @click="togglePopupBalloon('overlayMain')"
                 >
                   <i class="fas fa-info-circle"></i>
@@ -665,6 +666,7 @@
             <button
               type="button"
               class="overlay__close-button"
+              :class="'is-' + currentElement.categoryClass"
               @click="closeOverlay"
             >
               <ion-icon class="overlay__close-button-icon" name="close-circle"></ion-icon>
@@ -869,7 +871,7 @@
             data-show-count="true"
           >Follow @gensokanji_bot</a>
         </div>
-        <div class="footer__content">元素の漢字周期表 v3.1.2</div>
+        <div class="footer__content">元素の漢字周期表 v3.1.3</div>
         <div class="footer__content">© 2019-2022 gensokanji</div>
       </div>
     </footer>

@@ -204,6 +204,7 @@ new Vue({
      * 元素のデータページを閉じる
      */
     closeOverlay: function () {
+      this.popupBalloons['overlayMain'].isActive = false;
       this.isOverlayDisplayed = false;
       this.currentElement.isActive = false;
     },

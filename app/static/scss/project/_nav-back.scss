@@ -1,5 +1,5 @@
 /****** nav-back ******/
-@use 'global' as *;
+@use 'global' as g;
 
 .nav-back {
   cursor: pointer;
@@ -11,7 +11,7 @@
   z-index: 200;
   &--enter-active,
   &--leave-active {
-    transition: opacity $navOpenTime;
+    transition: opacity g.$navOpenTime;
   }
   &--enter,
   &--leave-to {
