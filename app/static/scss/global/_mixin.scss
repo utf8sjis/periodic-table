@@ -101,6 +101,9 @@
   @else if $family == aa {
     font-family: $fontAA;
   }
+  @else {
+    @error 'invalid argument for $family: ' + $family;
+  }
 }
 
 /* box-shadow */
