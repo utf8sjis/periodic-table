@@ -159,6 +159,7 @@ new Vue({
       isDisplayed: false,
       timeoutID: 0,
     },
+    /** 周期表の幅と高さ */
     periodicTableRect: {
       width: 0,
       height: 0,
