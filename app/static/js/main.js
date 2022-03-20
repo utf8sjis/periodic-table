@@ -19,12 +19,19 @@ Vue.component('data-area', {
   props: {
     type: String,
     label: String,
+    subLabel: String,
     categoryClass: String,
   },
   template: String.raw`
     <div class="data-area" :class="categoryClass">
       <div class="data-area__item-common-container">
-        <div class="data-area__label" v-html="label"></div>
+        <div class="data-area__label">
+          {{ label }}
+          <span
+            v-show="subLabel"
+            class="data-area__label-sub"
+          >{{ subLabel }}</span>
+        </div>
         <div class="data-area__content" :class="'data-area__content--' + type">
           <slot></slot>
         </div>

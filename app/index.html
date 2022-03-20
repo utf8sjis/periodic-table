@@ -264,8 +264,7 @@
                         class="lang-changer__button"
                         :class="[{'is-active-lang': langList[langIndex].isActive}]"
                         @click="setCurrentLang(langIndex)"
-                        v-html="langObj.langName"
-                      ></button>
+                      >{{ langObj.langName }}</button>
                       <div class="lang-changer__separator" v-show="langIndex !== langList.length - 1"></div>
                     </template>
                   </div>
@@ -418,7 +417,7 @@
                 class="periodic-table__la-ac"
                 :class="currentLang.langClass"
               >
-                <span v-html="cell[currentLang.langKey]"></span>
+                <span>{{ cell[currentLang.langKey] }}</span>
               </div>
             </div>
             <button
@@ -444,8 +443,7 @@
                     'periodic-table__cell-text--cell-' + element.elementSymbol,
                     currentLang.langClass
                   ]"
-                  v-html="element[currentLang.langKey]"
-                ></span>
+                >{{ element[currentLang.langKey] }}</span>
               </div>
             </button>
           </div>
@@ -485,8 +483,7 @@
                         </div>
                         <div
                           class="data-area__item-element-symbol"
-                          v-html="currentElement.elementSymbol"
-                        ></div>
+                        >{{ currentElement.elementSymbol }}</div>
                       </div>
                     </div>
                     <div class="overlay__area overlay__area--atomic-number">
@@ -518,10 +515,17 @@
                         type="category" label="Category"
                         :category-class="'is-' + currentElement.categoryClass"
                       >
-                        <div
-                          class="data-area__category-text"
-                          v-html="currentElement.category"
-                        ></div>
+                        <div class="data-area__category-text">
+                          <template
+                            v-for="(category, categoryIndex) in currentElement.categoryList"
+                          >
+                            <span
+                              class="data-area__category-text-item"
+                            >{{ category }}<span
+                              v-show="categoryIndex !== currentElement.categoryList.length - 1"
+                            >／</span></span>
+                          </template> 
+                        </div>
                       </data-area>
                     </div>
                   </div>
@@ -593,13 +597,13 @@
                   <div class="overlay__container-reading">
                     <div class="overlay__area overlay__area--pinyin">
                       <data-area
-                        type="pinyin" label="<span>Pinyin</span><span>Mainland China</span>"
+                        type="pinyin" label="Pinyin" sub-label="Mainland China"
                         :category-class="'is-' + currentElement.categoryClass"
                       >{{ currentElement.pinyin }}</data-area>
                     </div>
                     <div class="overlay__area overlay__area--bopomofo">
                       <data-area
-                        type="pinyin" label="<span>Bopomofo</span><span>Taiwan</span>"
+                        type="pinyin" label="Bopomofo" sub-label="Taiwan"
                         :category-class="'is-' + currentElement.categoryClass"
                       >{{ currentElement.bopomofo }} ({{ currentElement.taiwanPinyin }})</data-area>
                     </div>
