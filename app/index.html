@@ -876,16 +876,25 @@
       </div>
     </footer>
 
-    <transition name="popup-box-">
+    <transition-group
+      v-cloak
+      name="popup-box-"
+      tag="div"
+      class="popup-box"
+    >
       <div
-        v-cloak
-        class="popup-box"
-        v-show="popup.isDisplayed"
-        @click="clearPopup"
+        v-for="popupBox in popupBoxList"
+        :key="popupBox.timeoutID"
+        class="popup-box__item-wrapper"
       >
-        <i class="popup-box__icon fas fa-info-circle"></i>{{ popup.message }}
+        <div
+          class="popup-box__item"
+          @click="clearPopupBox(popupBox.timeoutID)"
+        >
+          <i class="popup-box__icon fas fa-info-circle"></i>{{ popupBox.message }}
+        </div>
       </div>
-    </transition>
+    </transition-group>
 
   </div>
 

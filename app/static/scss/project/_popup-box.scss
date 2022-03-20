@@ -2,28 +2,39 @@
 @use 'global' as g;
 
 .popup-box {
-  cursor: pointer;
-  @include g.flexCentering();
   position: fixed;
   top: 10px;
   left: 10px;
-  max-width: 300px;
-  border-radius: 10px;
-  border: 2px solid g.$colorMain3;
-  padding: 15px 20px;
-  background: g.$colorWhite;
+  pointer-events: none;
   z-index: 301;
-  @include g.mediaQuery() {
-    padding: 12px 17px;
-  }
-  &--enter-active,
   &--leave-active {
-    transition: opacity 0.3s, transform 0.3s;
+    position: absolute;
   }
   &--enter,
   &--leave-to {
     opacity: 0;
     transform: translateX(-10px);
+  }
+
+  &__item-wrapper {
+    display: flex;
+    width: 300px;
+    transition-property: opacity, transform;
+    transition-duration: 0.3s;
+  }
+
+  &__item {
+    @include g.flexCentering();
+    pointer-events: auto;
+    cursor: pointer;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    border: 2px solid g.$colorMain3;
+    padding: 15px 20px;
+    background: g.$colorWhite;
+    @include g.mediaQuery() {
+      padding: 12px 17px;
+    }
   }
 
   &__icon {

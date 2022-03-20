@@ -153,12 +153,8 @@ new Vue({
     isNavOpened: false,
     /** スクロール量がページのトップあたりか否か */
     isAroundTop: true,
-    /** ポップアップのメッセージ、表示されているか否か、タイムアウトID */
-    popup: {
-      message: '',
-      isDisplayed: false,
-      timeoutID: 0,
-    },
+    /** 表示中のポップアップのリスト */
+    popupBoxList: [],
     /** 周期表の幅と高さ */
     periodicTableRect: {
       width: 0,
@@ -319,15 +315,15 @@ new Vue({
           };
           document.addEventListener('copy', handler);
           document.execCommand('copy');
-          this.activePopup(successMessage);
+          this.showPopupBox(successMessage);
         } else {
           navigator.clipboard.writeText(text).then(
-            () => this.activePopup(successMessage),
-            () => this.activePopup(failureMessage)
+            () => this.showPopupBox(successMessage),
+            () => this.showPopupBox(failureMessage)
           );
         }
       } catch (e) {
-        this.activePopup(failureMessage);
+        this.showPopupBox(failureMessage);
       }
     },
     /**
@@ -358,28 +354,30 @@ new Vue({
       localStorage.setItem('itemStorage', JSON.stringify(itemObj));
     },
     /**
-     * ポップアップを表示する
+     * 新たなポップアップを表示する
      * @param {string} message - ポップアップに表示するメッセージ
      */
-    activePopup: function (message) {
-      if (this.popup.timeoutID != null) {
-        clearTimeout(this.popup.timeoutID);
+    showPopupBox: function (message) {
+      const delay = 3000;
+      const maxLength = 8;
+      this.popupBoxList.unshift({
+        message: message,
+        timeoutID: setTimeout(() => (this.popupBoxList.pop()), delay),
+      });
+      if (this.popupBoxList.length > maxLength) {
+        clearTimeout(this.popupBoxList.pop().timeoutID);
       }
-      this.popup.message = message;
-      this.popup.isDisplayed = true;
-      this.popup.timeoutID = setTimeout(
-        () => (this.popup.isDisplayed = false),
-        3000
-      );
     },
     /**
-     * ポップアップを閉じる
+     * 特定のポップアップを閉じる
+     * @param {number} timeoutID - 閉じるポップアップのtimeoutID
      */
-    clearPopup: function () {
-      if (this.popup.timeoutID != null) {
-        clearTimeout(this.popup.timeoutID);
-      }
-      this.popup.isDisplayed = false;
+    clearPopupBox: function (timeoutID) {
+      clearTimeout(timeoutID);
+      this.popupBoxList.splice(
+        this.popupBoxList.findIndex((item) => item.timeoutID === timeoutID),
+        1
+      );
     },
     /**
      * 画面幅が周期表の幅を超過しているかを示すハンドラ
