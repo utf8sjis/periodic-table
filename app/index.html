@@ -878,20 +878,20 @@
 
     <transition-group
       v-cloak
-      name="popup-box-"
+      name="toast-"
       tag="div"
-      class="popup-box"
+      class="toast"
     >
       <div
-        v-for="popupBox in popupBoxList"
-        :key="popupBox.timeoutID"
-        class="popup-box__item-wrapper"
+        v-for="toast in toastList"
+        :key="toast.timeoutID"
+        class="toast__item-wrapper"
       >
         <div
-          class="popup-box__item"
-          @click="clearPopupBox(popupBox.timeoutID)"
+          class="toast__item"
+          @click="clearPopupBox(toast.timeoutID)"
         >
-          <i class="popup-box__icon fas fa-info-circle"></i>{{ popupBox.message }}
+          <i class="toast__icon fas fa-info-circle"></i>{{ toast.message }}
         </div>
       </div>
     </transition-group>

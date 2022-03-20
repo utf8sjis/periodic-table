@@ -153,8 +153,8 @@ new Vue({
     isNavOpened: false,
     /** スクロール量がページのトップあたりか否か */
     isAroundTop: true,
-    /** 表示中のポップアップのリスト */
-    popupBoxList: [],
+    /** 表示中のトースト通知のリスト */
+    toastList: [],
     /** 周期表の幅と高さ */
     periodicTableRect: {
       width: 0,
@@ -354,28 +354,28 @@ new Vue({
       localStorage.setItem('itemStorage', JSON.stringify(itemObj));
     },
     /**
-     * 新たなポップアップを表示する
-     * @param {string} message - ポップアップに表示するメッセージ
+     * 新たなトースト通知を表示する
+     * @param {string} message - トースト通知に表示するメッセージ
      */
     showPopupBox: function (message) {
       const delay = 3000;
       const maxLength = 8;
-      this.popupBoxList.unshift({
+      this.toastList.unshift({
         message: message,
-        timeoutID: setTimeout(() => (this.popupBoxList.pop()), delay),
+        timeoutID: setTimeout(() => (this.toastList.pop()), delay),
       });
-      if (this.popupBoxList.length > maxLength) {
-        clearTimeout(this.popupBoxList.pop().timeoutID);
+      if (this.toastList.length > maxLength) {
+        clearTimeout(this.toastList.pop().timeoutID);
       }
     },
     /**
-     * 特定のポップアップを閉じる
-     * @param {number} timeoutID - 閉じるポップアップのtimeoutID
+     * 特定のトースト通知を閉じる
+     * @param {number} timeoutID - 閉じるトースト通知のtimeoutID
      */
     clearPopupBox: function (timeoutID) {
       clearTimeout(timeoutID);
-      this.popupBoxList.splice(
-        this.popupBoxList.findIndex((item) => item.timeoutID === timeoutID),
+      this.toastList.splice(
+        this.toastList.findIndex((item) => item.timeoutID === timeoutID),
         1
       );
     },
