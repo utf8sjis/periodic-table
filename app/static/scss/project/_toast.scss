@@ -28,18 +28,13 @@
     pointer-events: auto;
     cursor: pointer;
     margin-bottom: 5px;
-    border-radius: 10px;
-    border: 2px solid g.$colorMain3;
+    border-radius: 5px;
     padding: 15px 20px;
-    background: g.$colorWhite;
+    color: g.$colorWhite;
+    @include g.boxShadow(2);
+    background: g.$colorBlackADark;
     @include g.mediaQuery() {
       padding: 12px 17px;
     }
-  }
-
-  &__icon {
-    padding-right: 10px;
-    font-size: 25px;
-    color: g.$colorMain3;
   }
 }
