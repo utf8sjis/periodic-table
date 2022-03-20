@@ -302,8 +302,9 @@ new Vue({
      * ページトップまでスクロールする
      */
     goToTop: function () {
-      jQuery(function () {
-        $('body, html').animate({scrollTop: 0}, 500);
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
       });
     },
     /**
