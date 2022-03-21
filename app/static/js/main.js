@@ -19,12 +19,19 @@ Vue.component('data-area', {
   props: {
     type: String,
     label: String,
+    subLabel: String,
     categoryClass: String,
   },
   template: String.raw`
     <div class="data-area" :class="categoryClass">
       <div class="data-area__item-common-container">
-        <div class="data-area__label" v-html="label"></div>
+        <div class="data-area__label">
+          {{ label }}
+          <span
+            v-show="subLabel"
+            class="data-area__label-sub"
+          >{{ subLabel }}</span>
+        </div>
         <div class="data-area__content" :class="'data-area__content--' + type">
           <slot></slot>
         </div>
@@ -153,12 +160,9 @@ new Vue({
     isNavOpened: false,
     /** スクロール量がページのトップあたりか否か */
     isAroundTop: true,
-    /** ポップアップのメッセージ、表示されているか否か、タイムアウトID */
-    popup: {
-      message: '',
-      isDisplayed: false,
-      timeoutID: 0,
-    },
+    /** 表示中のトースト通知のリスト */
+    toastList: [],
+    /** 周期表の幅と高さ */
     periodicTableRect: {
       width: 0,
       height: 0,
@@ -298,8 +302,9 @@ new Vue({
      * ページトップまでスクロールする
      */
     goToTop: function () {
-      jQuery(function () {
-        $('body, html').animate({scrollTop: 0}, 500);
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
       });
     },
     /**
@@ -318,15 +323,15 @@ new Vue({
           };
           document.addEventListener('copy', handler);
           document.execCommand('copy');
-          this.activePopup(successMessage);
+          this.showPopupBox(successMessage);
         } else {
           navigator.clipboard.writeText(text).then(
-            () => this.activePopup(successMessage),
-            () => this.activePopup(failureMessage)
+            () => this.showPopupBox(successMessage),
+            () => this.showPopupBox(failureMessage)
           );
         }
       } catch (e) {
-        this.activePopup(failureMessage);
+        this.showPopupBox(failureMessage);
       }
     },
     /**
@@ -357,28 +362,30 @@ new Vue({
       localStorage.setItem('itemStorage', JSON.stringify(itemObj));
     },
     /**
-     * ポップアップを表示する
-     * @param {string} message - ポップアップに表示するメッセージ
+     * 新たなトースト通知を表示する
+     * @param {string} message - トースト通知に表示するメッセージ
      */
-    activePopup: function (message) {
-      if (this.popup.timeoutID != null) {
-        clearTimeout(this.popup.timeoutID);
+    showPopupBox: function (message) {
+      const delay = 3000;
+      const maxLength = 8;
+      this.toastList.unshift({
+        message: message,
+        timeoutID: setTimeout(() => (this.toastList.pop()), delay),
+      });
+      if (this.toastList.length > maxLength) {
+        clearTimeout(this.toastList.pop().timeoutID);
       }
-      this.popup.message = message;
-      this.popup.isDisplayed = true;
-      this.popup.timeoutID = setTimeout(
-        () => (this.popup.isDisplayed = false),
-        3000
-      );
     },
     /**
-     * ポップアップを閉じる
+     * 特定のトースト通知を閉じる
+     * @param {number} timeoutID - 閉じるトースト通知のtimeoutID
      */
-    clearPopup: function () {
-      if (this.popup.timeoutID != null) {
-        clearTimeout(this.popup.timeoutID);
-      }
-      this.popup.isDisplayed = false;
+    clearPopupBox: function (timeoutID) {
+      clearTimeout(timeoutID);
+      this.toastList.splice(
+        this.toastList.findIndex((item) => item.timeoutID === timeoutID),
+        1
+      );
     },
     /**
      * 画面幅が周期表の幅を超過しているかを示すハンドラ

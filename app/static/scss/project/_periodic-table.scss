@@ -277,7 +277,7 @@ $animeNameList: 'intoAN' 'intoES' 'intoJA' 'intoEN' 'intoSC' 'intoTW' 'intoHK';
     color: g.$colorBlack;
     text-align: center;
     line-height: 1;
-    white-space: nowrap;
+    white-space: pre;
     &.is-atomic-number {
       padding-bottom: 4px;
       @include g.font(en);
