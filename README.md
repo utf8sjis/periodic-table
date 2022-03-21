@@ -4,6 +4,11 @@ This repository is for [元素の漢字周期表 - gensokanji](https://gensokanj
 
 # Change Log
 
+## v3.1.4
+* Improved design and behavior of pop-up notifications.
+* Updated the embedded tweets.
+* Some code improvements.
+
 ## v3.1.3
 * Updated the embedded tweets.
 * Some code and UI improvements.
