@@ -1,1 +1,0 @@
-function closeAlertIEModal(){document.getElementById("alertIE").style.display="none"}const userAgent=window.navigator.userAgent.toLowerCase();-1==userAgent.indexOf("msie")&&-1==userAgent.indexOf("trident")||(document.getElementById("alertIE").style.display="block");
