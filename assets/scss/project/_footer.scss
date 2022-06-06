@@ -1,0 +1,30 @@
+/****** footer ******/
+@use '@/assets/scss/global' as g;
+
+.footer {
+  @include g.flexCentering();
+  padding: 40px 5px;
+  color: g.$colorWhite;
+  background: g.$colorMainGrad;
+  @include g.mediaQuery() {
+    padding-bottom: 70px;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+  }
+
+  &__content {
+    @include g.flexCentering();
+  }
+
+  &__twitter-follow-button {
+    /* iframeを取得できなかった場合 */
+    color: g.$colorWhite;
+    &:hover {
+      color: g.$colorWhiteA;
+    }
+  }
+}

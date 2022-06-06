@@ -1,0 +1,37 @@
+/****** table-guide ******/
+@use '@/assets/scss/global' as g;
+
+.table-guide {
+  grid-row: 1 / span 1;
+  grid-column: 4 / span 8;
+
+  &__category-container {
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+    grid-auto-flow: column;
+    padding: 7px 13px;
+    background: #e8e8e8;
+    border-radius: 5px;
+  }
+
+  &__category {
+    display: grid;
+    grid-template-columns: 22px auto;
+    column-gap: 4px;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  &__category-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    @include g.boxShadow(2);
+    @each $category in g.$categoryList {
+      $categoryColor: nth(g.$categoryColorList, index(g.$categoryList, $category));
+      &--category-#{$category} {
+        background: $categoryColor;
+      }
+    }
+  }
+}

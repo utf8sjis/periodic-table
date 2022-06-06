@@ -1,0 +1,16 @@
+/****** main-article ******/
+@use '@/assets/scss/global' as g;
+
+.main-article {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 70px 0;
+  padding: 70px 15%;
+  @include g.mediaQuery(g.$tablet) {
+    gap: 40px 0;
+    padding: 40px 10%;
+  }
+  @include g.mediaQuery() {
+    padding: 40px 10px;
+  }
+}

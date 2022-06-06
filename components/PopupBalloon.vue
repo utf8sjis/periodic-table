@@ -61,4 +61,78 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@use '@/assets/scss/global' as g;
+
+.popup-balloon {
+  position: absolute;
+  max-width: 400px;
+  filter: drop-shadow(0 0 2px #0002);
+  &:hover {
+    display: block;
+  }
+  &--enter-active,
+  &--leave-active {
+    transition: opacity 0.2s;
+  }
+  &--enter,
+  &--leave-to {
+    opacity: 0;
+  }
+
+  &__balloon {
+    position: relative;
+    font-size: 15px;
+  }
+
+  &__beak {
+    position: absolute;
+    top: -5px;
+    width: 0;
+    height: 0;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid g.$colorMain2;
+    border-left: 7px solid transparent;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px 0;
+    margin-top: 5px;
+    border: 2px solid g.$colorMain2;
+    border-radius: 8px;
+    padding: 12px 15px;
+    background: g.$colorBaseA;
+  }
+
+  &__title {
+    @include g.font(ja, bold);
+    color: g.$colorMain1;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px 0;
+  }
+
+  &__insert {
+    padding: 0 20px;
+    @include g.mediaQuery() {
+      padding: 0;
+    }
+  }
+
+  &__close-button {
+    @include g.flexCentering();
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    color: g.$colorMain2;
+  }
+}
+</style>
