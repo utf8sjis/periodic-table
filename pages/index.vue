@@ -246,19 +246,9 @@
                 <i class="fas fa-info-circle"></i>
               </button>
               <popup-balloon
-                :is-active="popupBalloons['controlPanel'].isActive"
-                :title="
-                  popupBalloons['controlPanel'].contents[current.controlIndex]
-                    .title
-                "
-                :title-icon-class="
-                  popupBalloons['controlPanel'].contents[current.controlIndex]
-                    .titleIconClass
-                "
-                :content="
-                  popupBalloons['controlPanel'].contents[current.controlIndex]
-                    .content
-                "
+                :popup-balloons="popupBalloons"
+                name="controlPanel"
+                :index="current.controlIndex"
                 width="90%"
                 top="28px"
                 right="3px"
@@ -835,12 +825,8 @@
                     <i class="fas fa-info-circle"></i>
                   </button>
                   <popup-balloon
-                    :is-active="popupBalloons['overlayMain'].isActive"
-                    :title="popupBalloons['overlayMain'].contents.title"
-                    :title-icon-class="
-                      popupBalloons['overlayMain'].contents.titleIconClass
-                    "
-                    :content="popupBalloons['overlayMain'].contents.content"
+                    :popup-balloons="popupBalloons"
+                    name="overlayMain"
                     width="90%"
                     top="-10px"
                     left="4px"

@@ -1,7 +1,7 @@
 <template>
   <transition name="popup-balloon-">
     <div
-      v-show="isActive"
+      v-show="popupBalloons[name].isActive"
       class="popup-balloon"
       :style="{
         width: width,
@@ -20,10 +20,15 @@
         ></div>
         <div class="popup-balloon__container">
           <div class="popup-balloon__title">
-            <i class="u-pr5" :class="titleIconClass"></i
-            ><span>{{ title }}</span>
+            <i
+              class="u-pr5"
+              :class="popupBalloons[name].contents[index].titleIconClass"
+            ></i
+            ><span>{{ popupBalloons[name].contents[index].title }}</span>
           </div>
-          <div class="popup-balloon__content" v-html="content"></div>
+          <div class="popup-balloon__content">
+            <component :is="contentComponent"></component>
+          </div>
         </div>
         <button
           type="button"
@@ -42,16 +47,30 @@ export default {
   name: 'PopupBalloon',
 
   props: {
-    isActive: { type: Boolean, required: true },
-    title: { type: String, required: true },
-    titleIconClass: { type: String, required: true },
-    content: { type: String, required: true },
+    popupBalloons: { type: Object, required: true },
+    name: { type: String, required: true },
+    index: { type: Number, default: 0 },
     width: { type: String, required: true },
     top: { type: String, default: '' },
     left: { type: String, default: '' },
     right: { type: String, default: '' },
     beakLeft: { type: String, default: '' },
     beakRight: { type: String, default: '' },
+  },
+  computed: {
+    contentComponent() {
+      const camelToKebab = (str) =>
+        str
+          .split(/(?=[A-Z])/)
+          .join('-')
+          .toLowerCase()
+
+      return (
+        'popup-balloon-' +
+        camelToKebab(this.name) +
+        (this.index ? '-' + this.index : '')
+      )
+    },
   },
   methods: {
     close() {
