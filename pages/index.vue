@@ -132,7 +132,7 @@
               <div class="nav__illustration">
                 <img
                   class="nav__illustration-image"
-                  src="static/img/demon_core.png"
+                  src="@/assets/img/demon_core.png"
                   alt="デーモンコアのイラスト"
                 />
               </div>
@@ -578,7 +578,7 @@
                             <img
                               v-show="currentElement.isRadioactive"
                               class="data-area__radioactivity-image"
-                              src="static/img/state/radioactivity.svg"
+                              src="@/assets/img/state/radioactivity.svg"
                             />
                           </div>
                           <div class="data-area__item-element-symbol">

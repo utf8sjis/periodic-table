@@ -32,7 +32,7 @@ export default {
       {
         property: 'og:image',
         content:
-          'https://gensokanji.netlify.app/periodic-table/static/img/periodic_table.png',
+          'https://gensokanji.netlify.app/periodic-table/assets/img/periodic_table.png',
       },
       { property: 'og:site_name', content: 'gensokanji' },
       { name: 'twitter:card', content: 'summary_large_image' },
