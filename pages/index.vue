@@ -1257,14 +1257,14 @@
 <script>
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
-import { categoryList } from './data/category_list.js'
-import { controlList } from './data/control_list.js'
-import { elementList } from './data/element_list.js'
-import { langList } from './data/lang_list.js'
-import { navLinkSectionList } from './data/nav_link_list.js'
-import { otherCellList } from './data/other_cell_list.js'
-import { themeColorList } from './data/theme_color_list.js'
-import { popupBalloons } from './data/popup_balloon_contents.js'
+import { categoryList } from '@/assets/js/category_list.js'
+import { controlList } from '@/assets/js/control_list.js'
+import { elementList } from '@/assets/js/element_list.js'
+import { langList } from '@/assets/js/lang_list.js'
+import { navLinkSectionList } from '@/assets/js/nav_link_list.js'
+import { otherCellList } from '@/assets/js/other_cell_list.js'
+import { themeColorList } from '@/assets/js/theme_color_list.js'
+import { popupBalloons } from '@/assets/js/popup_balloon_contents.js'
 
 if (process.client) {
   window.onload = () => {
