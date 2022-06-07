@@ -992,53 +992,57 @@
               <div class="article-section__insert">
                 <figure class="article-section__figure">
                   <table class="article-section__table">
-                    <tr>
-                      <th>部首</th>
-                      <th>性質</th>
-                      <th>例</th>
-                    </tr>
-                    <tr>
-                      <td>气部</td>
-                      <td>気体</td>
-                      <td>
-                        <span class="u-tw">氫</span>、<span class="u-tw"
-                          >氧</span
-                        >、<span class="u-tw">氯</span>、<span class="u-tw"
-                          >氬</span
-                        >など
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>水部</td>
-                      <td>液体</td>
-                      <td>
-                        <span class="u-tw">溴</span>、<span class="u-tw"
-                          >汞</span
-                        >のみ
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>石部</td>
-                      <td>固体非金属</td>
-                      <td>
-                        <span class="u-tw">硼</span>、<span class="u-tw"
-                          >碳</span
-                        >、<span class="u-tw">硫</span>、<span class="u-tw"
-                          >砷</span
-                        >など
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>金部</td>
-                      <td>固体金属</td>
-                      <td>
-                        <span class="u-tw">鐵</span>、<span class="u-tw"
-                          >鉛</span
-                        >、<span class="u-tw">鋰</span>、<span class="u-tw"
-                          >鉨</span
-                        >など
-                      </td>
-                    </tr>
+                    <thead>
+                      <tr>
+                        <th>部首</th>
+                        <th>性質</th>
+                        <th>例</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>气部</td>
+                        <td>気体</td>
+                        <td>
+                          <span class="u-tw">氫</span>、<span class="u-tw"
+                            >氧</span
+                          >、<span class="u-tw">氯</span>、<span class="u-tw"
+                            >氬</span
+                          >など
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>水部</td>
+                        <td>液体</td>
+                        <td>
+                          <span class="u-tw">溴</span>、<span class="u-tw"
+                            >汞</span
+                          >のみ
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>石部</td>
+                        <td>固体非金属</td>
+                        <td>
+                          <span class="u-tw">硼</span>、<span class="u-tw"
+                            >碳</span
+                          >、<span class="u-tw">硫</span>、<span class="u-tw"
+                            >砷</span
+                          >など
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>金部</td>
+                        <td>固体金属</td>
+                        <td>
+                          <span class="u-tw">鐵</span>、<span class="u-tw"
+                            >鉛</span
+                          >、<span class="u-tw">鋰</span>、<span class="u-tw"
+                            >鉨</span
+                          >など
+                        </td>
+                      </tr>
+                    </tbody>
                   </table>
                   <figcaption class="article-section__caption">
                     元素の漢字の部首
@@ -1080,66 +1084,70 @@
               <div class="article-section__insert">
                 <figure class="article-section__figure">
                   <table class="article-section__table">
-                    <tr>
-                      <th>元素名</th>
-                      <th>大陸</th>
-                      <th>台湾</th>
-                    </tr>
-                    <tr>
-                      <td>ケイ素</td>
-                      <td><span class="u-cn">硅</span></td>
-                      <td><span class="u-tw">矽</span></td>
-                    </tr>
-                    <tr>
-                      <td>テクネチウム</td>
-                      <td><span class="u-cn">锝</span></td>
-                      <td><span class="u-tw">鎝</span></td>
-                    </tr>
-                    <tr>
-                      <td>ルテチウム</td>
-                      <td><span class="u-cn">镥</span></td>
-                      <td><span class="u-tw">鎦</span></td>
-                    </tr>
-                    <tr>
-                      <td>アスタチン</td>
-                      <td><span class="u-cn">砹</span></td>
-                      <td><span class="u-tw">砈</span></td>
-                    </tr>
-                    <tr>
-                      <td>フランシウム</td>
-                      <td><span class="u-cn">钫</span></td>
-                      <td><span class="u-tw">鍅</span></td>
-                    </tr>
-                    <tr>
-                      <td>ネプツニウム</td>
-                      <td><span class="u-cn">镎</span></td>
-                      <td><span class="u-tw">錼</span></td>
-                    </tr>
-                    <tr>
-                      <td>プルトニウム</td>
-                      <td><span class="u-cn">钚</span></td>
-                      <td><span class="u-tw">鈽</span></td>
-                    </tr>
-                    <tr>
-                      <td>アメリシウム</td>
-                      <td><span class="u-cn">镅</span></td>
-                      <td><span class="u-tw">鋂</span></td>
-                    </tr>
-                    <tr>
-                      <td>バークリウム</td>
-                      <td><span class="u-cn">锫</span></td>
-                      <td><span class="u-tw">鉳</span></td>
-                    </tr>
-                    <tr>
-                      <td>カリホルニウム</td>
-                      <td><span class="u-cn">锎</span></td>
-                      <td><span class="u-tw">鉲</span></td>
-                    </tr>
-                    <tr>
-                      <td>アインスタイニウム</td>
-                      <td><span class="u-cn">锿</span></td>
-                      <td><span class="u-tw">鑀</span></td>
-                    </tr>
+                    <thead>
+                      <tr>
+                        <th>元素名</th>
+                        <th>大陸</th>
+                        <th>台湾</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>ケイ素</td>
+                        <td><span class="u-cn">硅</span></td>
+                        <td><span class="u-tw">矽</span></td>
+                      </tr>
+                      <tr>
+                        <td>テクネチウム</td>
+                        <td><span class="u-cn">锝</span></td>
+                        <td><span class="u-tw">鎝</span></td>
+                      </tr>
+                      <tr>
+                        <td>ルテチウム</td>
+                        <td><span class="u-cn">镥</span></td>
+                        <td><span class="u-tw">鎦</span></td>
+                      </tr>
+                      <tr>
+                        <td>アスタチン</td>
+                        <td><span class="u-cn">砹</span></td>
+                        <td><span class="u-tw">砈</span></td>
+                      </tr>
+                      <tr>
+                        <td>フランシウム</td>
+                        <td><span class="u-cn">钫</span></td>
+                        <td><span class="u-tw">鍅</span></td>
+                      </tr>
+                      <tr>
+                        <td>ネプツニウム</td>
+                        <td><span class="u-cn">镎</span></td>
+                        <td><span class="u-tw">錼</span></td>
+                      </tr>
+                      <tr>
+                        <td>プルトニウム</td>
+                        <td><span class="u-cn">钚</span></td>
+                        <td><span class="u-tw">鈽</span></td>
+                      </tr>
+                      <tr>
+                        <td>アメリシウム</td>
+                        <td><span class="u-cn">镅</span></td>
+                        <td><span class="u-tw">鋂</span></td>
+                      </tr>
+                      <tr>
+                        <td>バークリウム</td>
+                        <td><span class="u-cn">锫</span></td>
+                        <td><span class="u-tw">鉳</span></td>
+                      </tr>
+                      <tr>
+                        <td>カリホルニウム</td>
+                        <td><span class="u-cn">锎</span></td>
+                        <td><span class="u-tw">鉲</span></td>
+                      </tr>
+                      <tr>
+                        <td>アインスタイニウム</td>
+                        <td><span class="u-cn">锿</span></td>
+                        <td><span class="u-tw">鑀</span></td>
+                      </tr>
+                    </tbody>
                   </table>
                   <figcaption class="article-section__caption">
                     中国大陸と台湾の元素の漢字の差異
