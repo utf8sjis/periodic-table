@@ -93,7 +93,19 @@ export default {
         nomodule: true,
         src: 'https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js',
       },
+      // <!-- Global site tag (gtag.js) - Google Analytics -->
+      {
+        async: true,
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-GBVV8SS85F',
+      },
+      {
+        hid: 'gtagScript',
+        innerHTML: "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-GBVV8SS85F');",
+      },
     ],
+    __dangerouslyDisableSanitizersByTagID: {
+      gtagScript: ['innerHTML'],
+    },
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
