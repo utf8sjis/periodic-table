@@ -6,7 +6,6 @@ export default {
   head: {
     title: '元素の漢字周期表 - gensokanji',
     htmlAttrs: { lang: 'ja', prefix: 'og: http://ogp.me/ns#' },
-    bodyAttrs: { class: 'body-preload' },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

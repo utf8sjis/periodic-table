@@ -1325,6 +1325,9 @@ export default {
       elementSearchType: 'all',
     }
   },
+  head: {
+    bodyAttrs: { class: 'body-preload' },
+  },
   computed: {
     /**
      * リスト中の現在選択されている言語のデータ
