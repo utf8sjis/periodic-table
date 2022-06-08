@@ -216,7 +216,7 @@
               <div class="control-panel__tab-button-container">
                 <template v-for="(control, controlIndex) in controlList">
                   <button
-                    :key="controlIndex"
+                    :key="'tab-' + controlIndex"
                     type="button"
                     class="control-panel__tab"
                     :class="{ 'is-active': control.isActive }"
@@ -229,7 +229,7 @@
                   </button>
                   <div
                     v-show="controlIndex !== controlList.length - 1"
-                    :key="controlIndex"
+                    :key="'separator-' + controlIndex"
                     class="control-panel__tab-separator"
                   ></div>
                 </template>
@@ -270,7 +270,7 @@
                     <div class="lang-changer__button-container">
                       <template v-for="(langObj, langIndex) in langList">
                         <button
-                          :key="langIndex"
+                          :key="'button-' + langIndex"
                           type="button"
                           class="lang-changer__button"
                           :class="[
@@ -282,7 +282,7 @@
                         </button>
                         <div
                           v-show="langIndex !== langList.length - 1"
-                          :key="langIndex"
+                          :key="'separator-' + langIndex"
                           class="lang-changer__separator"
                         ></div>
                       </template>
@@ -382,7 +382,7 @@
                               result, resultIndex
                             ) in elementSearchResultList"
                           >
-                            <li :key="result.element.atomicNumber">
+                            <li :key="'button-' + result.element.atomicNumber">
                               <button
                                 type="button"
                                 class="element-search__result-item-button"
@@ -416,7 +416,7 @@
                                 resultIndex !==
                                 elementSearchResultList.length - 1
                               "
-                              :key="result.element.atomicNumber"
+                              :key="'separator-' + result.element.atomicNumber"
                               class="element-search__result-separator"
                             ></li>
                           </template>
@@ -485,7 +485,7 @@
               </div>
               <div
                 v-for="number in 18"
-                :key="number"
+                :key="'group-' + number"
                 class="periodic-table__group-number"
                 :class="'periodic-table__group-number--group-' + number"
               >
@@ -493,7 +493,7 @@
               </div>
               <div
                 v-for="number in 7"
-                :key="number"
+                :key="'period-' + number"
                 class="periodic-table__period-number"
                 :class="'periodic-table__period-number--period-' + number"
               >
@@ -501,7 +501,7 @@
               </div>
               <div
                 v-for="(cell, cellIndex) in otherCellList"
-                :key="cellIndex"
+                :key="'la-ac-' + cellIndex"
                 class="periodic-table__la-ac-wrapper"
                 :class="cell.cellWrapperClass"
               >
@@ -514,7 +514,7 @@
               </div>
               <button
                 v-for="(element, elementIndex) in elementList"
-                :key="elementIndex"
+                :key="'cell-' + elementIndex"
                 type="button"
                 class="periodic-table__cell-wrapper"
                 :class="[
