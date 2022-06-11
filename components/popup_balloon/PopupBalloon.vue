@@ -26,9 +26,10 @@
             ></i
             ><span>{{ popupBalloons[name].contents[index].title }}</span>
           </div>
-          <div class="popup-balloon__content">
-            <component :is="contentComponent"></component>
-          </div>
+          <component
+            :is="contentComponent"
+            class="popup-balloon__content"
+          ></component>
         </div>
         <button
           type="button"
