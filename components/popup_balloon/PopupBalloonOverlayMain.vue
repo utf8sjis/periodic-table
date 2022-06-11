@@ -9,7 +9,6 @@
         >状態や性質</span
       >を示しています。
     </p>
-    <figure></figure>
     <div class="state-image-legend">
       <figure class="state-image-legend__figure">
         <img
