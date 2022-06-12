@@ -26,10 +26,7 @@
             ></i
             ><span>{{ popupBalloons[name].contents[index].title }}</span>
           </div>
-          <component
-            :is="contentComponent"
-            class="popup-balloon__content"
-          ></component>
+          <component :is="contentComponent" :index="index"></component>
         </div>
         <button
           type="button"
@@ -66,11 +63,7 @@ export default {
           .join('-')
           .toLowerCase()
 
-      return (
-        'popup-balloon-' +
-        camelToKebab(this.name) +
-        (this.index ? '-' + this.index : '')
-      )
+      return 'popup-balloon-' + camelToKebab(this.name)
     },
   },
   methods: {
@@ -129,12 +122,6 @@ export default {
   &__title {
     @include g.font(ja, bold);
     color: g.$colorMain1;
-  }
-
-  &__content {
-    display: grid;
-    grid-template-columns: auto;
-    gap: 10px 0;
   }
 
   &__close-button {

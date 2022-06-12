@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content">
     <p>
       ここデータページでは元素の基本的なデータや漢字の情報を見ることができます。
     </p>
@@ -21,3 +21,11 @@ export default {
   name: 'PopupBalloonOverlayMain',
 }
 </script>
+
+<style lang="scss" scoped>
+.content {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 10px;
+}
+</style>
