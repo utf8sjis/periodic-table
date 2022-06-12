@@ -14,62 +14,12 @@
         :is-nav-opened="isNavOpened"
         @toggle-nav-open="toggleNavOpen"
       />
-
-      <transition name="bottom-fixed-area-">
-        <div v-show="!isAroundTop" class="bottom-fixed-area">
-          <div>
-            <div class="bottom-fixed-area__share-button-container">
-              <div class="bottom-fixed-area__share-button-wrapper">
-                <a
-                  class="bottom-fixed-area__share-button bottom-fixed-area__share-button--twitter"
-                  :class="{ 'is-expanded': isShareButtonExpanded }"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  href="https://twitter.com/share?url=https://gensokanji.netlify.app/periodic-table&text=元素の漢字周期表%20-%20gensokanji%20@gensokanji_bot"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-              </div>
-              <div class="bottom-fixed-area__share-button-wrapper">
-                <a
-                  class="bottom-fixed-area__share-button bottom-fixed-area__share-button--facebook"
-                  :class="{ 'is-expanded': isShareButtonExpanded }"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  href="https://www.facebook.com/sharer/sharer.php?u=https://gensokanji.netlify.app/periodic-table"
-                  ><i class="fab fa-facebook"></i
-                ></a>
-              </div>
-              <div class="bottom-fixed-area__share-button-wrapper">
-                <a
-                  class="bottom-fixed-area__share-button bottom-fixed-area__share-button--line"
-                  :class="{ 'is-expanded': isShareButtonExpanded }"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  href="https://social-plugins.line.me/lineit/share?url=https://gensokanji.netlify.app/periodic-table"
-                  ><i class="fab fa-line"></i
-                ></a>
-              </div>
-              <div class="bottom-fixed-area__share-button-wrapper">
-                <button
-                  type="button"
-                  class="bottom-fixed-area__share-expand-button"
-                  :class="{ 'is-expanded': isShareButtonExpanded }"
-                  @click="toggleShareExpandButton"
-                >
-                  <span class="material-icons">share</span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <button
-            type="button"
-            class="bottom-fixed-area__top-button"
-            @click="goToTop"
-          >
-            <i class="fas fa-angle-up"></i>
-          </button>
-        </div>
-      </transition>
+      <layout-bottom-fixed-area
+        :is-around-top="isAroundTop"
+        :is-share-button-expanded="isShareButtonExpanded"
+        @toggle-share-expand-button="toggleShareExpandButton"
+        @go-to-top="goToTop"
+      />
 
       <main v-cloak>
         <section class="main-app">
