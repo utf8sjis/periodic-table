@@ -1092,22 +1092,7 @@
         </article>
       </main>
 
-      <footer v-cloak class="footer">
-        <div class="footer__container">
-          <div class="footer__content">
-            <a
-              href="https://twitter.com/gensokanji_bot?ref_src=twsrc%5Etfw"
-              class="footer__twitter-follow-button twitter-follow-button"
-              data-lang="en"
-              data-size="large"
-              data-show-count="true"
-              >Follow @gensokanji_bot</a
-            >
-          </div>
-          <div class="footer__content">元素の漢字周期表 v3.1.4</div>
-          <div class="footer__content">© 2019-2022 gensokanji</div>
-        </div>
-      </footer>
+      <layout-footer />
 
       <transition-group v-cloak name="toast-" tag="div" class="toast">
         <div
