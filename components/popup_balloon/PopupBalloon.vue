@@ -137,13 +137,6 @@ export default {
     gap: 10px 0;
   }
 
-  &__insert {
-    padding: 0 20px;
-    @include g.mediaQuery() {
-      padding: 0;
-    }
-  }
-
   &__close-button {
     @include g.flexCentering();
     position: absolute;
