@@ -1,4 +1,107 @@
-/****** nav ******/
+<template>
+  <transition name="nav-">
+    <nav v-cloak v-show="isNavOpened" class="nav">
+      <div class="nav__content-wrapper">
+        <div class="nav__content">
+          <section class="nav__section">
+            <div class="nav__section-title">テーマカラー</div>
+            <div class="nav__theme-color-changer">
+              <div class="nav__theme-color-changer-button-wrapper">
+                <button
+                  v-for="(themeColor, themeColorIndex) in themeColorList"
+                  :key="themeColorIndex"
+                  type="button"
+                  class="nav__theme-color-changer-button"
+                  :class="'nav__theme-color-changer-button--' + themeColor.name"
+                  :style="{ background: themeColor.main2 }"
+                  @click="changeThemeColor(themeColor.name)"
+                >
+                  {{ themeColor.displayName }}
+                </button>
+              </div>
+            </div>
+          </section>
+          <template
+            v-for="(navLinkSection, navLinkSectionIndex) in navLinkSectionList"
+          >
+            <section :key="navLinkSectionIndex" class="nav__section">
+              <div class="nav__section-title">
+                {{ navLinkSection.title }}
+              </div>
+              <div class="nav__link-container">
+                <a
+                  v-for="(navLink, navLinkIndex) in navLinkSection.links"
+                  :key="navLinkIndex"
+                  class="nav__link"
+                  v-bind="
+                    navLink.isTargetBlank
+                      ? {
+                          target: '_blank',
+                          rel: 'noreferrer noopener',
+                        }
+                      : false
+                  "
+                  :href="navLink.href"
+                >
+                  <div class="nav__link-image-container">
+                    <img
+                      class="nav__link-image"
+                      :src="navLink.src"
+                      :alt="navLink.alt"
+                    />
+                    <div class="nav__image-inset-shadow"></div>
+                    <i
+                      v-show="navLink.isTargetBlank"
+                      class="nav__image-external-link-icon fas fa-external-link-alt"
+                    ></i>
+                  </div>
+                  <div class="nav__link-content">
+                    <div class="nav__link-title">{{ navLink.title }}</div>
+                    <div class="nav__link-desc">{{ navLink.desc }}</div>
+                  </div>
+                </a>
+              </div>
+            </section>
+          </template>
+          <div class="nav__illustration">
+            <img
+              class="nav__illustration-image"
+              src="@/assets/img/demon_core.png"
+              alt="デーモンコアのイラスト"
+            />
+          </div>
+        </div>
+      </div>
+    </nav>
+  </transition>
+</template>
+
+<script>
+import { navLinkSectionList } from '@/assets/js/nav_link_list.js'
+
+export default {
+  name: 'LayoutNav',
+
+  props: {
+    isNavOpened: { type: Boolean, required: true },
+    themeColorList: { type: Array, required: true },
+  },
+
+  data() {
+    return {
+      navLinkSectionList,
+    }
+  },
+
+  methods: {
+    changeThemeColor(name) {
+      this.$emit('change-theme-color', name)
+    },
+  },
+}
+</script>
+
+<style lang="scss">
 @use '@/assets/scss/global' as g;
 
 .nav {
@@ -183,3 +286,4 @@
     }
   }
 }
+</style>
