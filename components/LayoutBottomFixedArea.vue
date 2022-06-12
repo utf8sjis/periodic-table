@@ -61,14 +61,8 @@ export default {
   name: 'LayoutBottomFixedArea',
 
   props: {
-    isAroundTop: {
-      type: Boolean,
-      required: true,
-    },
-    isShareButtonExpanded: {
-      type: Boolean,
-      required: true,
-    },
+    isAroundTop: { type: Boolean, required: true },
+    isShareButtonExpanded: { type: Boolean, required: true },
   },
 
   methods: {
