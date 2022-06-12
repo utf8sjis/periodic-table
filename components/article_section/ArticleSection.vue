@@ -82,59 +82,5 @@ export default {
       padding: 30px 10px;
     }
   }
-
-  &__insert {
-    @include g.flexCentering();
-    padding: 40px 20px;
-    @include g.mediaQuery() {
-      padding: 30px 20px;
-    }
-  }
-
-  &__figure {
-    display: grid;
-    grid-template-columns: auto;
-    gap: 15px 0;
-    max-width: 600px;
-  }
-
-  &__caption {
-    text-align: center;
-    color: g.$colorBlackA;
-  }
-
-  &__table {
-    border-collapse: collapse;
-    border-spacing: 0;
-
-    th {
-      padding: 7px 20px;
-      text-align: center;
-      @include g.font(ja, bold);
-      color: g.$colorWhite;
-      background: g.$colorMain2;
-      @include g.mediaQuery() {
-        padding: 5px;
-      }
-    }
-
-    td {
-      padding: 7px 20px;
-      border-bottom: 1px solid g.$colorBlackA;
-      text-align: center;
-      @include g.mediaQuery() {
-        padding: 5px;
-      }
-    }
-  }
-
-  &__link-text {
-    cursor: pointer;
-    text-decoration: underline;
-    transition: color 0.2s;
-    &:hover {
-      color: g.$colorBlackA;
-    }
-  }
 }
 </style>
