@@ -10,15 +10,10 @@
         :theme-color-list="themeColorList"
         @change-theme-color="changeThemeColor"
       />
-
-      <transition name="nav-back-">
-        <div
-          v-cloak
-          v-show="isNavOpened"
-          class="nav-back"
-          @click="closeNav"
-        ></div>
-      </transition>
+      <layout-nav-back
+        :is-nav-opened="isNavOpened"
+        @toggle-nav-open="toggleNavOpen"
+      />
 
       <transition name="bottom-fixed-area-">
         <div v-show="!isAroundTop" class="bottom-fixed-area">
