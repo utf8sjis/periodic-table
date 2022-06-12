@@ -399,15 +399,12 @@
                                   {{ result.element.elementSymbol }}
                                   {{ result.element.japaneseName }}</span
                                 >
-                                <span
+                                <inline-tag
                                   v-for="type in result.matchTypeList"
                                   :key="type.tagName"
-                                  class="element-search__result-type-tag"
-                                  :class="
-                                    'element-search__result-type-tag--' +
-                                    type.className
-                                  "
-                                  >{{ type.tagName }}</span
+                                  class="u-mr5"
+                                  :type="type.className"
+                                  >{{ type.tagName }}</inline-tag
                                 >
                               </button>
                             </li>
