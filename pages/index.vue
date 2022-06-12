@@ -1,65 +1,10 @@
 <template>
   <div>
     <div id="app">
-      <header v-cloak class="header">
-        <div
-          class="header__fixed-container"
-          :class="{ 'is-active': isNavOpened }"
-        >
-          <div class="header__start">
-            <div class="header__logo">
-              <a href="https://gensokanji.netlify.app">gensokanji</a>
-            </div>
-            <div class="header__site">
-              <i class="u-pr5 fas fa-location-arrow"></i>元素の漢字周期表
-            </div>
-          </div>
-
-          <div class="header__end">
-            <div class="header__share-container">
-              <div class="header__share-label">SHARE</div>
-              <div class="header__share-button-container">
-                <a
-                  class="header__share-button header__share-button--twitter"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  href="https://twitter.com/share?url=https://gensokanji.netlify.app/periodic-table&text=元素の漢字周期表%20-%20gensokanji%20@gensokanji_bot"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a
-                  class="header__share-button header__share-button--facebook"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  href="https://www.facebook.com/sharer/sharer.php?u=https://gensokanji.netlify.app/periodic-table"
-                  ><i class="fab fa-facebook"></i
-                ></a>
-                <a
-                  class="header__share-button header__share-button--line"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  href="https://social-plugins.line.me/lineit/share?url=https://gensokanji.netlify.app/periodic-table"
-                  ><i class="fab fa-line"></i
-                ></a>
-              </div>
-            </div>
-            <button
-              type="button"
-              class="header__nav-open-button"
-              @click="toggleNavOpen"
-            >
-              <span v-show="!isNavOpened">MORE</span>
-              <span v-show="isNavOpened">CLOSE</span>
-              <span class="header__nav-open-button-icon-wrapper">
-                <i
-                  class="header__nav-open-button-arrow-icon fas fa-long-arrow-alt-down"
-                  :class="{ 'is-active': isNavOpened }"
-                ></i>
-                <i class="fas fa-list"></i>
-              </span>
-            </button>
-          </div>
-        </div>
-      </header>
+      <layout-header
+        :is-nav-opened="isNavOpened"
+        @toggle-nav-open="toggleNavOpen"
+      />
 
       <transition name="nav-">
         <nav v-cloak v-show="isNavOpened" class="nav">
@@ -1548,6 +1493,7 @@ export default {
      * ナビゲーションメニューを展開、格納する
      */
     toggleNavOpen() {
+      // eslint-disable-next-line vue/no-mutating-props
       this.isNavOpened = !this.isNavOpened
     },
     /**
