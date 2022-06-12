@@ -10,4 +10,12 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+@use '@/assets/scss/global' as g;
+
+.article-section {
+  &__paragraph {
+    line-height: 1.7;
+  }
+}
+</style>

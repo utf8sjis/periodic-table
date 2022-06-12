@@ -19,4 +19,122 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+@use '@/assets/scss/global' as g;
+
+.article-section {
+  padding-top: 20px;
+  border-radius: 5px;
+  @include g.boxShadow(2);
+  background: g.$colorWhite;
+
+  &__headline {
+    position: relative;
+    margin: 0 30px 0 -8px;
+    border-radius: 3px 0 0 0;
+    padding: 10px 20px;
+    @include g.font(ja, bold);
+    font-size: 25px;
+    color: g.$colorWhite;
+    background: g.$colorMain2;
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border: 8px solid;
+      border-color: g.$colorMain2Dark g.$colorWhite g.$colorWhite
+        g.$colorMain2Dark;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border: 4px solid;
+      border-color: g.$colorMain2Dark g.$colorMain2Dark transparent transparent;
+    }
+    @include g.mediaQuery() {
+      margin: 0 10px 0 -6px;
+      border-radius: 2px 0 0 0;
+      padding: 10px 15px;
+      font-size: 20px;
+      &::before {
+        border-width: 6px;
+      }
+      &::after {
+        bottom: -6px;
+        border-width: 3px;
+      }
+    }
+  }
+
+  &__contents {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 30px 0;
+    padding: 30px 20px;
+    @include g.mediaQuery() {
+      padding: 30px 10px;
+    }
+  }
+
+  &__insert {
+    @include g.flexCentering();
+    padding: 40px 20px;
+    @include g.mediaQuery() {
+      padding: 30px 20px;
+    }
+  }
+
+  &__figure {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 15px 0;
+    max-width: 600px;
+  }
+
+  &__caption {
+    text-align: center;
+    color: g.$colorBlackA;
+  }
+
+  &__table {
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    th {
+      padding: 7px 20px;
+      text-align: center;
+      @include g.font(ja, bold);
+      color: g.$colorWhite;
+      background: g.$colorMain2;
+      @include g.mediaQuery() {
+        padding: 5px;
+      }
+    }
+
+    td {
+      padding: 7px 20px;
+      border-bottom: 1px solid g.$colorBlackA;
+      text-align: center;
+      @include g.mediaQuery() {
+        padding: 5px;
+      }
+    }
+  }
+
+  &__link-text {
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s;
+    &:hover {
+      color: g.$colorBlackA;
+    }
+  }
+}
+</style>
