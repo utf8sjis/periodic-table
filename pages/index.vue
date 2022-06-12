@@ -22,7 +22,7 @@
       />
 
       <main v-cloak>
-        <section class="main-app">
+        <section>
           <section class="control-panel">
             <div class="control-panel__tab-container">
               <div
