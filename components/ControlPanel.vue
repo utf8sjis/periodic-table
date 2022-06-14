@@ -162,10 +162,7 @@
                         @click="
                           $emit(
                             'open-overlay',
-                            $utils.atomicNumberToIndex(
-                              result.element.atomicNumber,
-                              elementList
-                            )
+                            elementNumberToIndex(result.element.atomicNumber)
                           )
                         "
                       >
@@ -227,13 +224,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { controlList } from '@/assets/js/control_list.js'
 
 export default {
   name: 'ControlPanel',
 
   props: {
-    elementList: { type: Array, required: true },
     langList: { type: Array, required: true },
     popupBalloons: { type: Object, required: true },
     isBodyScrollLocked: { type: Boolean, required: true },
@@ -252,6 +249,10 @@ export default {
   },
 
   computed: {
+    ...mapGetters({
+      elementList: 'element/list',
+      elementNumberToIndex: 'element/numberToIndex',
+    }),
     /**
      * リスト中の現在選択されている操作のデータ
      * currentControlIndexに依存
