@@ -99,7 +99,8 @@ export default {
       },
       {
         hid: 'gtagScript',
-        innerHTML: "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-GBVV8SS85F');",
+        innerHTML:
+          "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-GBVV8SS85F');",
       },
     ],
     __dangerouslyDisableSanitizersByTagID: {
