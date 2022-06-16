@@ -162,7 +162,7 @@
                         @click="
                           $emit(
                             'open-overlay',
-                            elementNumberToIndex(result.element.atomicNumber)
+                            atomicNumberToIndex(result.element.atomicNumber)
                           )
                         "
                       >
@@ -251,7 +251,7 @@ export default {
   computed: {
     ...mapGetters({
       elementList: 'element/list',
-      elementNumberToIndex: 'element/numberToIndex',
+      atomicNumberToIndex: 'element/atomicNumberToIndex',
     }),
     /**
      * リスト中の現在選択されている操作のデータ

@@ -100,7 +100,7 @@
                 class="periodic-table__cell-wrapper"
                 :class="[
                   'periodic-table__cell-wrapper--cell-' + element.elementSymbol,
-                  { 'is-active': elementGetItem(elementIndex).isActive },
+                  { 'is-active': getElementItem(elementIndex).isActive },
                 ]"
                 @click="openOverlay(elementIndex)"
               >
@@ -134,9 +134,7 @@
             <section
               v-show="isOverlayDisplayed"
               class="overlay"
-              :class="
-                'is-' + elementGetItem(current.elementIndex).categoryClass
-              "
+              :class="'is-' + getElementItem().categoryClass"
             >
               <div
                 class="overlay__main-wrapper"
@@ -148,38 +146,24 @@
                       <div class="overlay__area overlay__area--element-symbol">
                         <div
                           class="data-area"
-                          :class="
-                            'is-' +
-                            elementGetItem(current.elementIndex).categoryClass
-                          "
+                          :class="'is-' + getElementItem().categoryClass"
                         >
                           <div class="data-area__item-state">
                             <img
                               class="data-area__state-image"
-                              :class="
-                                'is-' +
-                                elementGetItem(current.elementIndex)
-                                  .categoryClass
-                              "
-                              :src="
-                                elementGetItem(current.elementIndex).stateSrc
-                              "
+                              :class="'is-' + getElementItem().categoryClass"
+                              :src="getElementItem().stateSrc"
                             />
                           </div>
                           <div class="data-area__item-radioactivity">
                             <img
-                              v-show="
-                                elementGetItem(current.elementIndex)
-                                  .isRadioactive
-                              "
+                              v-show="getElementItem().isRadioactive"
                               class="data-area__radioactivity-image"
                               src="@/assets/img/state/radioactivity.svg"
                             />
                           </div>
                           <div class="data-area__item-element-symbol">
-                            {{
-                              elementGetItem(current.elementIndex).elementSymbol
-                            }}
+                            {{ getElementItem().elementSymbol }}
                           </div>
                         </div>
                       </div>
@@ -188,12 +172,9 @@
                           type="num"
                           label="Z ="
                           :category-class="
-                            'is-' +
-                            elementGetItem(current.elementIndex).categoryClass
+                            'is-' + getElementItem().categoryClass
                           "
-                          >{{
-                            elementGetItem(current.elementIndex).atomicNumber
-                          }}</data-area
+                          >{{ getElementItem().atomicNumber }}</data-area
                         >
                       </div>
                       <div class="overlay__area overlay__area--period">
@@ -201,12 +182,9 @@
                           type="num"
                           label="Period"
                           :category-class="
-                            'is-' +
-                            elementGetItem(current.elementIndex).categoryClass
+                            'is-' + getElementItem().categoryClass
                           "
-                          >{{
-                            elementGetItem(current.elementIndex).period
-                          }}</data-area
+                          >{{ getElementItem().period }}</data-area
                         >
                       </div>
                       <div class="overlay__area overlay__area--group">
@@ -214,12 +192,9 @@
                           type="num"
                           label="Group"
                           :category-class="
-                            'is-' +
-                            elementGetItem(current.elementIndex).categoryClass
+                            'is-' + getElementItem().categoryClass
                           "
-                          >{{
-                            elementGetItem(current.elementIndex).group
-                          }}</data-area
+                          >{{ getElementItem().group }}</data-area
                         >
                       </div>
                       <div class="overlay__area overlay__area--atomic-weight">
@@ -227,12 +202,9 @@
                           type="num"
                           label="Weight"
                           :category-class="
-                            'is-' +
-                            elementGetItem(current.elementIndex).categoryClass
+                            'is-' + getElementItem().categoryClass
                           "
-                          >{{
-                            elementGetItem(current.elementIndex).atomicWeight
-                          }}</data-area
+                          >{{ getElementItem().atomicWeight }}</data-area
                         >
                       </div>
                       <div class="overlay__area overlay__area--category">
@@ -240,16 +212,14 @@
                           type="category"
                           label="Category"
                           :category-class="
-                            'is-' +
-                            elementGetItem(current.elementIndex).categoryClass
+                            'is-' + getElementItem().categoryClass
                           "
                         >
                           <div class="data-area__category-text">
                             <template
                               v-for="(
                                 category, categoryIndex
-                              ) in elementGetItem(current.elementIndex)
-                                .categoryList"
+                              ) in getElementItem().categoryList"
                             >
                               <span
                                 :key="categoryIndex"
@@ -258,9 +228,7 @@
                                 }}<span
                                   v-show="
                                     categoryIndex !==
-                                    elementGetItem(current.elementIndex)
-                                      .categoryList.length -
-                                      1
+                                    getElementItem().categoryList.length - 1
                                   "
                                   >／</span
                                 ></span
@@ -276,37 +244,25 @@
                           type="kanji"
                           label="Mainland China"
                           :category-class="
-                            'is-' +
-                            elementGetItem(current.elementIndex).categoryClass
+                            'is-' + getElementItem().categoryClass
                           "
                         >
                           <div
                             class="data-area__kanji-character data-area__kanji-character--cn"
                           >
-                            {{
-                              elementGetItem(current.elementIndex)
-                                .simplifiedChinese
-                            }}
+                            {{ getElementItem().simplifiedChinese }}
                           </div>
                           <div class="data-area__kanji-code-point">
-                            U+{{
-                              elementGetItem(current.elementIndex)
-                                .unicodeCodePointCN
-                            }}
+                            U+{{ getElementItem().unicodeCodePointCN }}
                           </div>
                           <template #absolute>
                             <button
                               type="button"
                               class="data-area__item-kanji-copy-button"
-                              :class="
-                                'is-' +
-                                elementGetItem(current.elementIndex)
-                                  .categoryClass
-                              "
+                              :class="'is-' + getElementItem().categoryClass"
                               @click="
                                 copyToClipboard(
-                                  elementGetItem(current.elementIndex)
-                                    .simplifiedChinese
+                                  getElementItem().simplifiedChinese
                                 )
                               "
                             >
@@ -323,37 +279,24 @@
                           type="kanji"
                           label="Taiwan"
                           :category-class="
-                            'is-' +
-                            elementGetItem(current.elementIndex).categoryClass
+                            'is-' + getElementItem().categoryClass
                           "
                         >
                           <div
                             class="data-area__kanji-character data-area__kanji-character--tw"
                           >
-                            {{
-                              elementGetItem(current.elementIndex).taiwanTrad
-                            }}
+                            {{ getElementItem().taiwanTrad }}
                           </div>
                           <div class="data-area__kanji-code-point">
-                            U+{{
-                              elementGetItem(current.elementIndex)
-                                .unicodeCodePointTW
-                            }}
+                            U+{{ getElementItem().unicodeCodePointTW }}
                           </div>
                           <template #absolute>
                             <button
                               type="button"
                               class="data-area__item-kanji-copy-button"
-                              :class="
-                                'is-' +
-                                elementGetItem(current.elementIndex)
-                                  .categoryClass
-                              "
+                              :class="'is-' + getElementItem().categoryClass"
                               @click="
-                                copyToClipboard(
-                                  elementGetItem(current.elementIndex)
-                                    .taiwanTrad
-                                )
+                                copyToClipboard(getElementItem().taiwanTrad)
                               "
                             >
                               <i
@@ -369,37 +312,24 @@
                           type="kanji"
                           label="Hong Kong"
                           :category-class="
-                            'is-' +
-                            elementGetItem(current.elementIndex).categoryClass
+                            'is-' + getElementItem().categoryClass
                           "
                         >
                           <div
                             class="data-area__kanji-character data-area__kanji-character--hk"
                           >
-                            {{
-                              elementGetItem(current.elementIndex).hongkongTrad
-                            }}
+                            {{ getElementItem().hongkongTrad }}
                           </div>
                           <div class="data-area__kanji-code-point">
-                            U+{{
-                              elementGetItem(current.elementIndex)
-                                .unicodeCodePointHK
-                            }}
+                            U+{{ getElementItem().unicodeCodePointHK }}
                           </div>
                           <template #absolute>
                             <button
                               type="button"
                               class="data-area__item-kanji-copy-button"
-                              :class="
-                                'is-' +
-                                elementGetItem(current.elementIndex)
-                                  .categoryClass
-                              "
+                              :class="'is-' + getElementItem().categoryClass"
                               @click="
-                                copyToClipboard(
-                                  elementGetItem(current.elementIndex)
-                                    .hongkongTrad
-                                )
+                                copyToClipboard(getElementItem().hongkongTrad)
                               "
                             >
                               <i
@@ -418,12 +348,9 @@
                           label="Pinyin"
                           sub-label="Mainland China"
                           :category-class="
-                            'is-' +
-                            elementGetItem(current.elementIndex).categoryClass
+                            'is-' + getElementItem().categoryClass
                           "
-                          >{{
-                            elementGetItem(current.elementIndex).pinyin
-                          }}</data-area
+                          >{{ getElementItem().pinyin }}</data-area
                         >
                       </div>
                       <div class="overlay__area overlay__area--bopomofo">
@@ -432,14 +359,10 @@
                           label="Bopomofo"
                           sub-label="Taiwan"
                           :category-class="
-                            'is-' +
-                            elementGetItem(current.elementIndex).categoryClass
+                            'is-' + getElementItem().categoryClass
                           "
-                          >{{
-                            elementGetItem(current.elementIndex).bopomofo
-                          }}
-                          ({{
-                            elementGetItem(current.elementIndex).taiwanPinyin
+                          >{{ getElementItem().bopomofo }} ({{
+                            getElementItem().taiwanPinyin
                           }})</data-area
                         >
                       </div>
@@ -450,12 +373,9 @@
                           type="japanese-name"
                           label="Japanese Name"
                           :category-class="
-                            'is-' +
-                            elementGetItem(current.elementIndex).categoryClass
+                            'is-' + getElementItem().categoryClass
                           "
-                          >{{
-                            elementGetItem(current.elementIndex).japaneseName
-                          }}</data-area
+                          >{{ getElementItem().japaneseName }}</data-area
                         >
                       </div>
                       <div class="overlay__area overlay__area--english-name">
@@ -463,12 +383,9 @@
                           type="english-name"
                           label="English Name"
                           :category-class="
-                            'is-' +
-                            elementGetItem(current.elementIndex).categoryClass
+                            'is-' + getElementItem().categoryClass
                           "
-                          >{{
-                            elementGetItem(current.elementIndex).englishName
-                          }}</data-area
+                          >{{ getElementItem().englishName }}</data-area
                         >
                       </div>
                     </div>
@@ -476,17 +393,12 @@
                       <div class="overlay__area overlay__area--tweet">
                         <div
                           class="data-area data-area--tweet"
-                          :class="
-                            'is-' +
-                            elementGetItem(current.elementIndex).categoryClass
-                          "
+                          :class="'is-' + getElementItem().categoryClass"
                         >
                           <div
                             ref="contAreaTweet"
                             class="data-area__item-tweet"
-                            v-html="
-                              elementGetItem(current.elementIndex).twitterTweet
-                            "
+                            v-html="getElementItem().twitterTweet"
                           ></div>
                         </div>
                       </div>
@@ -495,18 +407,12 @@
                       <div class="overlay__area overlay__area--close">
                         <div
                           class="data-area"
-                          :class="
-                            'is-' +
-                            elementGetItem(current.elementIndex).categoryClass
-                          "
+                          :class="'is-' + getElementItem().categoryClass"
                         >
                           <button
                             type="button"
                             class="data-area__item-close-button"
-                            :class="
-                              'is-' +
-                              elementGetItem(current.elementIndex).categoryClass
-                            "
+                            :class="'is-' + getElementItem().categoryClass"
                             @click="closeOverlay"
                           >
                             CLOSE
@@ -518,9 +424,7 @@
                   <button
                     type="button"
                     class="overlay__main-info-icon"
-                    :class="
-                      'is-' + elementGetItem(current.elementIndex).categoryClass
-                    "
+                    :class="'is-' + getElementItem().categoryClass"
                     @click="togglePopupBalloon('overlayMain')"
                   >
                     <i class="fas fa-info-circle"></i>
@@ -539,9 +443,7 @@
               <button
                 type="button"
                 class="overlay__close-button"
-                :class="
-                  'is-' + elementGetItem(current.elementIndex).categoryClass
-                "
+                :class="'is-' + getElementItem().categoryClass"
                 @click="closeOverlay"
               >
                 <ion-icon
@@ -553,16 +455,11 @@
                 <div class="overlay__area overlay__area--element-changer">
                   <div
                     class="data-area"
-                    :class="
-                      'is-' + elementGetItem(current.elementIndex).categoryClass
-                    "
+                    :class="'is-' + getElementItem().categoryClass"
                   >
                     <div
                       class="data-area__item-element-changer"
-                      :class="
-                        'is-' +
-                        elementGetItem(current.elementIndex).categoryClass
-                      "
+                      :class="'is-' + getElementItem().categoryClass"
                     >
                       <button
                         type="button"
@@ -659,7 +556,6 @@ export default {
       /** 現在の表示言語とセル */
       current: {
         langIndex: 3,
-        elementIndex: 0,
       },
       /** オーバーレイ表示しているか否か */
       isOverlayDisplayed: false,
@@ -694,8 +590,8 @@ export default {
   computed: {
     ...mapGetters({
       elementList: 'element/list',
-      elementGetItem: 'element/getItem',
-      elementNumberToIndex: 'element/numberToIndex',
+      getElementItem: 'element/getItem',
+      atomicNumberToIndex: 'element/atomicNumberToIndex',
     }),
     /**
      * リスト中の現在選択されている言語のデータ
@@ -707,11 +603,10 @@ export default {
     },
     /**
      * 現在のデータページのページ遷移ボタンの表示内容
-     * current.elementIndexに依存
      * @returns {object} 表示内容の情報を含んだオブジェクト
      */
     elementChangeButton() {
-      const z = this.elementGetItem(this.current.elementIndex).atomicNumber
+      const z = this.getElementItem().atomicNumber
       const obj = {
         prev: {
           atomicNumber: 0,
@@ -725,28 +620,28 @@ export default {
         isEnd: false,
       }
       if (z - 1 < 1) {
-        const nextIndex = this.elementNumberToIndex(z + 1)
+        const nextIndex = this.atomicNumberToIndex(z + 1)
         obj.prev.atomicNumber = 0
         obj.prev.elementSymbol = 'n'
-        obj.next.atomicNumber = this.elementGetItem(nextIndex).atomicNumber
-        obj.next.elementSymbol = this.elementGetItem(nextIndex).elementSymbol
+        obj.next.atomicNumber = this.getElementItem(nextIndex).atomicNumber
+        obj.next.elementSymbol = this.getElementItem(nextIndex).elementSymbol
         obj.isStart = true
         obj.isEnd = false
       } else if (z + 1 > 118) {
-        const prevIndex = this.elementNumberToIndex(z - 1)
-        obj.prev.atomicNumber = this.elementGetItem(prevIndex).atomicNumber
-        obj.prev.elementSymbol = this.elementGetItem(prevIndex).elementSymbol
+        const prevIndex = this.atomicNumberToIndex(z - 1)
+        obj.prev.atomicNumber = this.getElementItem(prevIndex).atomicNumber
+        obj.prev.elementSymbol = this.getElementItem(prevIndex).elementSymbol
         obj.next.atomicNumber = 119
         obj.next.elementSymbol = 'Uue'
         obj.isStart = false
         obj.isEnd = true
       } else {
-        const nextIndex = this.elementNumberToIndex(z + 1)
-        const prevIndex = this.elementNumberToIndex(z - 1)
-        obj.prev.atomicNumber = this.elementGetItem(prevIndex).atomicNumber
-        obj.prev.elementSymbol = this.elementGetItem(prevIndex).elementSymbol
-        obj.next.atomicNumber = this.elementGetItem(nextIndex).atomicNumber
-        obj.next.elementSymbol = this.elementGetItem(nextIndex).elementSymbol
+        const nextIndex = this.atomicNumberToIndex(z + 1)
+        const prevIndex = this.atomicNumberToIndex(z - 1)
+        obj.prev.atomicNumber = this.getElementItem(prevIndex).atomicNumber
+        obj.prev.elementSymbol = this.getElementItem(prevIndex).elementSymbol
+        obj.next.atomicNumber = this.getElementItem(nextIndex).atomicNumber
+        obj.next.elementSymbol = this.getElementItem(nextIndex).elementSymbol
         obj.isStart = obj.isEnd = false
       }
       return obj
@@ -795,7 +690,7 @@ export default {
   },
   methods: {
     ...mapMutations({
-      elementToggle: 'element/toggle',
+      updateElementActiveness: 'element/updateActiveness',
     }),
     /**
      * 周期表の表示言語を変更する
@@ -811,8 +706,7 @@ export default {
      * @param {number} nextElementIndex - 選択された元素のelementListでのインデクス
      */
     openOverlay(nextElementIndex) {
-      this.current.elementIndex = nextElementIndex
-      this.elementToggle(this.current.elementIndex)
+      this.updateElementActiveness(nextElementIndex)
       this.isOverlayDisplayed = true
       this.runTwitterScript()
     },
@@ -822,23 +716,21 @@ export default {
     closeOverlay() {
       this.popupBalloons.overlayMain.isActive = false
       this.isOverlayDisplayed = false
-      this.elementToggle(this.current.elementIndex)
+      this.updateElementActiveness()
     },
     /**
      * データページを遷移する
      * @param {string} to - 'next'か'prev'
      */
     changeOverlay(to) {
-      let z = this.elementGetItem(this.current.elementIndex).atomicNumber
+      let z = this.getElementItem().atomicNumber
       if (to === 'next') {
         z++
       } else if (to === 'prev') {
         z--
       }
       if (z >= 1 && z <= 118) {
-        const toIndex = this.elementNumberToIndex(z)
-        this.elementToggle(this.current.elementIndex)
-        this.openOverlay(toIndex)
+        this.openOverlay(this.atomicNumberToIndex(z))
       }
     },
     /**
