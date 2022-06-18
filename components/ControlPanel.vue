@@ -206,17 +206,15 @@
               min="0.5"
               max="2"
               step="0.05"
-              :value="rangeValue"
-              @input="
-                $emit('update:range-value', parseFloat($event.target.value))
-              "
+              :value="periodicTableScale"
+              @input="updatePeriodicTableScale(parseFloat($event.target.value))"
             />
             <button
               type="button"
               class="periodic-table-scaler__value-display"
-              @click="$emit('default-range')"
+              @click="updatePeriodicTableScale(1)"
             >
-              {{ rangeValue + 'x' }}
+              {{ periodicTableScale + 'x' }}
             </button>
           </div>
         </div>
@@ -236,7 +234,6 @@ export default {
     popupBalloons: { type: Object, required: true },
     isBodyScrollLocked: { type: Boolean, required: true },
     isPhone: { type: Boolean, required: true },
-    rangeValue: { type: Number, required: true },
   },
 
   data() {
@@ -250,6 +247,7 @@ export default {
   },
 
   computed: {
+    ...mapGetters(['periodicTableScale']),
     ...mapGetters({
       elementList: 'element/list',
       atomicNumberToIndex: 'element/atomicNumberToIndex',
@@ -277,6 +275,7 @@ export default {
   },
 
   methods: {
+    ...mapMutations(['updatePeriodicTableScale']),
     ...mapMutations({
       updateLangActiveness: 'lang/updateActiveness',
     }),

@@ -27,10 +27,8 @@
             :popup-balloons="popupBalloons"
             :is-body-scroll-locked="isBodyScrollLocked"
             :is-phone="isPhone"
-            :range-value.sync="rangeValue"
             @toggle-popup-balloon="togglePopupBalloon"
             @open-overlay="openOverlay"
-            @default-range="defaultRange"
           />
 
           <section
@@ -39,13 +37,15 @@
               'is-overflow-scroll': isPeriodicTableOverflow,
               'is-overflow-hidden': isBodyScrollLocked,
             }"
-            :style="{ height: periodicTableRect.height * rangeValue + 'px' }"
+            :style="{
+              height: periodicTableRect.height * periodicTableScale + 'px',
+            }"
           >
             <div
               ref="periodicTable"
               class="periodic-table__grid-container"
               :class="{ 'is-overflow-scroll': isPeriodicTableOverflow }"
-              :style="{ transform: 'scale(' + rangeValue + ')' }"
+              :style="{ transform: 'scale(' + periodicTableScale + ')' }"
             >
               <div class="table-guide">
                 <div class="table-guide__category-container">
@@ -84,10 +84,7 @@
                 class="periodic-table__la-ac-wrapper"
                 :class="cell.cellWrapperClass"
               >
-                <div
-                  class="periodic-table__la-ac"
-                  :class="getLangItem().class"
-                >
+                <div class="periodic-table__la-ac" :class="getLangItem().class">
                   <span>{{ cell[getLangItem().key] }}</span>
                 </div>
               </div>
@@ -568,8 +565,6 @@ export default {
       periodicTableMQL: null,
       /** 画面幅が周期表の幅を超過しているか否か */
       isPeriodicTableOverflow: false,
-      /** 周期表の大きさの倍率 */
-      rangeValue: 1,
       /** 画面幅がスマートフォン幅か否か */
       isPhone: false,
       /** シェアボタンが展開されているか否か */
@@ -580,6 +575,7 @@ export default {
     bodyAttrs: { class: 'body-preload' },
   },
   computed: {
+    ...mapGetters(['periodicTableScale']),
     ...mapGetters({
       elementList: 'element/list',
       getElementItem: 'element/getItem',
@@ -636,11 +632,11 @@ export default {
     /**
      * 周期表の大きさの倍率を監視する
      */
-    rangeValue() {
+    periodicTableScale() {
       this.createMediaQuery()
       this.checkPeriodicTableOverflow()
       const itemObj = JSON.parse(localStorage.getItem('itemStorage'))
-      itemObj.rangeValue = this.rangeValue
+      itemObj.periodicTableScale = this.periodicTableScale
       localStorage.setItem('itemStorage', JSON.stringify(itemObj))
     },
   },
@@ -651,15 +647,15 @@ export default {
     window.addEventListener('scroll', this.handleScroll)
     // localStorageの初期化と読み出し
     let itemObj = JSON.parse(localStorage.getItem('itemStorage'))
-    if (!(itemObj && itemObj.themeColorName && itemObj.rangeValue)) {
+    if (!(itemObj && itemObj.themeColorName && itemObj.periodicTableScale)) {
       itemObj = {
         themeColorName: 'default',
-        rangeValue: 1,
+        periodicTableScale: 1,
       }
       localStorage.setItem('itemStorage', JSON.stringify(itemObj))
     }
     this.changeThemeColor(itemObj.themeColorName)
-    this.rangeValue = itemObj.rangeValue
+    this.updatePeriodicTableScale(itemObj.periodicTableScale)
     // 周期表の幅に対するメディアクエリを作成
     this.createMediaQuery()
     this.checkPeriodicTableOverflow()
@@ -674,6 +670,7 @@ export default {
     checkIsPhone()
   },
   methods: {
+    ...mapMutations(['updatePeriodicTableScale']),
     ...mapMutations({
       updateElementActiveness: 'element/updateActiveness',
     }),
@@ -877,7 +874,9 @@ export default {
      */
     createMediaQuery() {
       this.periodicTableMQL = window.matchMedia(
-        `(min-width: ${this.periodicTableRect.width * this.rangeValue}px)`
+        `(min-width: ${
+          this.periodicTableRect.width * this.periodicTableScale
+        }px)`
       )
       const handler = this.checkPeriodicTableOverflow
       try {
@@ -885,12 +884,6 @@ export default {
       } catch (e) {
         this.periodicTableMQL.addListener(handler) // for Safari 14 and earlier
       }
-    },
-    /**
-     * 周期表の大きさの倍率を1にする
-     */
-    defaultRange() {
-      this.rangeValue = 1
     },
     /**
      * シェアボタンを展開、格納する
