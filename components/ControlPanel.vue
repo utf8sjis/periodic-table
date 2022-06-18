@@ -54,15 +54,17 @@
             :class="{ 'is-overflow-hidden': isBodyScrollLocked }"
           >
             <div class="lang-changer__button-container">
-              <template v-for="(langObj, langIndex) in langList">
+              <template v-for="(lang, langIndex) in langList">
                 <button
                   :key="'button-' + langIndex"
                   type="button"
                   class="lang-changer__button"
-                  :class="[{ 'is-active-lang': langList[langIndex].isActive }]"
-                  @click="$emit('set-current-lang', langIndex)"
+                  :class="[
+                    { 'is-active-lang': getLangItem(langIndex).isActive },
+                  ]"
+                  @click="updateLangActiveness(langIndex)"
                 >
-                  {{ langObj.langName }}
+                  {{ lang.name }}
                 </button>
                 <div
                   v-show="langIndex !== langList.length - 1"
@@ -224,14 +226,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import { controlList } from '@/assets/js/control_list.js'
 
 export default {
   name: 'ControlPanel',
 
   props: {
-    langList: { type: Array, required: true },
     popupBalloons: { type: Object, required: true },
     isBodyScrollLocked: { type: Boolean, required: true },
     isPhone: { type: Boolean, required: true },
@@ -252,6 +253,8 @@ export default {
     ...mapGetters({
       elementList: 'element/list',
       atomicNumberToIndex: 'element/atomicNumberToIndex',
+      langList: 'lang/list',
+      getLangItem: 'lang/getItem',
     }),
     /**
      * リスト中の現在選択されている操作のデータ
@@ -274,6 +277,9 @@ export default {
   },
 
   methods: {
+    ...mapMutations({
+      updateLangActiveness: 'lang/updateActiveness',
+    }),
     /**
      * 操作パネルの操作の内容を変更する
      * @param {number} nextControlIndex - 選択された操作のcontrolListでのインデクス

@@ -24,13 +24,11 @@
       <main v-cloak>
         <section>
           <control-panel
-            :lang-list="langList"
             :popup-balloons="popupBalloons"
             :is-body-scroll-locked="isBodyScrollLocked"
             :is-phone="isPhone"
             :range-value.sync="rangeValue"
             @toggle-popup-balloon="togglePopupBalloon"
-            @set-current-lang="setCurrentLang"
             @open-overlay="openOverlay"
             @default-range="defaultRange"
           />
@@ -88,9 +86,9 @@
               >
                 <div
                   class="periodic-table__la-ac"
-                  :class="currentLang.langClass"
+                  :class="getLangItem().class"
                 >
-                  <span>{{ cell[currentLang.langKey] }}</span>
+                  <span>{{ cell[getLangItem().key] }}</span>
                 </div>
               </div>
               <button
@@ -108,7 +106,7 @@
                   class="periodic-table__cell"
                   :class="[
                     'periodic-table__cell--' + element.categoryClass,
-                    currentLang.langClass,
+                    getLangItem().class,
                   ]"
                 >
                   <span
@@ -116,9 +114,9 @@
                     :class="[
                       'periodic-table__cell-text--cell-' +
                         element.elementSymbol,
-                      currentLang.langClass,
+                      getLangItem().class,
                     ]"
-                    >{{ element[currentLang.langKey] }}</span
+                    >{{ element[getLangItem().key] }}</span
                   >
                 </div>
               </button>
@@ -531,7 +529,6 @@ import { mapGetters, mapMutations } from 'vuex'
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
 import { categoryList } from '@/assets/js/category_list.js'
-import { langList } from '@/assets/js/lang_list.js'
 import { otherCellList } from '@/assets/js/other_cell_list.js'
 import { themeColorList } from '@/assets/js/theme_color_list.js'
 import { popupBalloons } from '@/assets/js/popup_balloon_contents.js'
@@ -548,15 +545,10 @@ export default {
 
   data() {
     return {
-      langList,
       otherCellList,
       categoryList,
       themeColorList,
       popupBalloons,
-      /** 現在の表示言語とセル */
-      current: {
-        langIndex: 3,
-      },
       /** オーバーレイ表示しているか否か */
       isOverlayDisplayed: false,
       /** bodyScrollLockが有効か否か */
@@ -592,15 +584,8 @@ export default {
       elementList: 'element/list',
       getElementItem: 'element/getItem',
       atomicNumberToIndex: 'element/atomicNumberToIndex',
+      getLangItem: 'lang/getItem',
     }),
-    /**
-     * リスト中の現在選択されている言語のデータ
-     * current.langIndexに依存
-     * @returns {object} リスト中の言語のオブジェクト
-     */
-    currentLang() {
-      return this.langList[this.current.langIndex]
-    },
     /**
      * 現在のデータページのページ遷移ボタンの表示内容
      * @returns {object} 表示内容の情報を含んだオブジェクト
@@ -692,15 +677,6 @@ export default {
     ...mapMutations({
       updateElementActiveness: 'element/updateActiveness',
     }),
-    /**
-     * 周期表の表示言語を変更する
-     * @param {number} nextLangIndex - 選択された言語のlangListでのインデクス
-     */
-    setCurrentLang(nextLangIndex) {
-      this.currentLang.isActive = false
-      this.current.langIndex = nextLangIndex
-      this.currentLang.isActive = true
-    },
     /**
      * 元素のデータページをオーバーレイ表示する
      * @param {number} nextElementIndex - 選択された元素のelementListでのインデクス
