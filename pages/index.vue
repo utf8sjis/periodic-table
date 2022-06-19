@@ -5,11 +5,7 @@
         :is-nav-opened="isNavOpened"
         @toggle-nav-open="toggleNavOpen"
       />
-      <layout-nav
-        :is-nav-opened="isNavOpened"
-        :theme-color-list="themeColorList"
-        @change-theme-color="changeThemeColor"
-      />
+      <layout-nav :is-nav-opened="isNavOpened" />
       <layout-nav-back
         :is-nav-opened="isNavOpened"
         @toggle-nav-open="toggleNavOpen"
@@ -527,7 +523,6 @@ import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
 import { categoryList } from '@/assets/js/category_list.js'
 import { otherCellList } from '@/assets/js/other_cell_list.js'
-import { themeColorList } from '@/assets/js/theme_color_list.js'
 import { popupBalloons } from '@/assets/js/popup_balloon_contents.js'
 
 if (process.client) {
@@ -544,7 +539,6 @@ export default {
     return {
       otherCellList,
       categoryList,
-      themeColorList,
       popupBalloons,
       /** オーバーレイ表示しているか否か */
       isOverlayDisplayed: false,
@@ -645,16 +639,14 @@ export default {
     this.periodicTableRect = this.$refs.periodicTable.getBoundingClientRect()
     // スクロールのイベントリスナを追加
     window.addEventListener('scroll', this.handleScroll)
-    // localStorageの初期化と読み出し
+    // localStorageの読み出しとその設定
     let itemObj = JSON.parse(localStorage.getItem('itemStorage'))
-    if (!(itemObj && itemObj.themeColorName && itemObj.periodicTableScale)) {
-      itemObj = {
-        themeColorName: 'default',
-        periodicTableScale: 1,
-      }
-      localStorage.setItem('itemStorage', JSON.stringify(itemObj))
+    itemObj = {
+      themeId: itemObj?.themeId ?? 'default',
+      periodicTableScale: itemObj?.periodicTableScale ?? 1,
     }
-    this.changeThemeColor(itemObj.themeColorName)
+    localStorage.setItem('itemStorage', JSON.stringify(itemObj))
+    this.updateThemeActiveness(itemObj.themeId)
     this.updatePeriodicTableScale(itemObj.periodicTableScale)
     // 周期表の幅に対するメディアクエリを作成
     this.createMediaQuery()
@@ -672,6 +664,7 @@ export default {
   methods: {
     ...mapMutations(['updatePeriodicTableScale']),
     ...mapMutations({
+      updateThemeActiveness: 'theme/updateActiveness',
       updateElementActiveness: 'element/updateActiveness',
     }),
     /**
@@ -800,42 +793,6 @@ export default {
       } catch (e) {
         this.showPopupBox(failureMessage)
       }
-    },
-    /**
-     * テーマカラーを変更する
-     * @param {string} themeColorName - テーマカラーの名前
-     */
-    changeThemeColor(themeColorName) {
-      let themeColor = this.themeColorList.find(
-        (themeColor) => themeColor.name === themeColorName
-      )
-      if (typeof themeColor === 'undefined') {
-        themeColor = this.themeColorList[0]
-      }
-      const mainGrad =
-        'linear-gradient(0.375turn, ' +
-        themeColor.main1 +
-        'e6, ' +
-        themeColor.main2 +
-        'e6, ' +
-        themeColor.main3 +
-        'e6)'
-      const rootElement = document.documentElement
-      rootElement.style.setProperty('--theme-color-main-1', themeColor.main1)
-      rootElement.style.setProperty('--theme-color-main-2', themeColor.main2)
-      rootElement.style.setProperty(
-        '--theme-color-main-2-light',
-        themeColor.main2Light
-      )
-      rootElement.style.setProperty(
-        '--theme-color-main-2-dark',
-        themeColor.main2Dark
-      )
-      rootElement.style.setProperty('--theme-color-main-3', themeColor.main3)
-      rootElement.style.setProperty('--theme-color-main-grad', mainGrad)
-      const itemObj = JSON.parse(localStorage.getItem('itemStorage'))
-      itemObj.themeColorName = themeColorName
-      localStorage.setItem('itemStorage', JSON.stringify(itemObj))
     },
     /**
      * 新たなトースト通知を表示する

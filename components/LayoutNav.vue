@@ -5,18 +5,18 @@
         <div class="nav__content">
           <section class="nav__section">
             <div class="nav__section-title">テーマカラー</div>
-            <div class="nav__theme-color-changer">
-              <div class="nav__theme-color-changer-button-wrapper">
+            <div class="nav__theme-changer">
+              <div class="nav__theme-changer-button-wrapper">
                 <button
-                  v-for="(themeColor, themeColorIndex) in themeColorList"
-                  :key="themeColorIndex"
+                  v-for="(theme, themeId) in themeDict"
+                  :key="themeId"
                   type="button"
-                  class="nav__theme-color-changer-button"
-                  :class="'nav__theme-color-changer-button--' + themeColor.name"
-                  :style="{ background: themeColor.main2 }"
-                  @click="changeThemeColor(themeColor.name)"
+                  class="nav__theme-changer-button"
+                  :class="'nav__theme-changer-button--' + themeId"
+                  :style="{ background: theme.main2 }"
+                  @click="updateThemeActiveness(themeId)"
                 >
-                  {{ themeColor.displayName }}
+                  {{ theme.name }}
                 </button>
               </div>
             </div>
@@ -77,6 +77,7 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 import { navLinkSectionList } from '@/assets/js/nav_link_list.js'
 
 export default {
@@ -84,7 +85,6 @@ export default {
 
   props: {
     isNavOpened: { type: Boolean, required: true },
-    themeColorList: { type: Array, required: true },
   },
 
   data() {
@@ -93,10 +93,16 @@ export default {
     }
   },
 
+  computed: {
+    ...mapGetters({
+      themeDict: 'theme/dict',
+    }),
+  },
+
   methods: {
-    changeThemeColor(name) {
-      this.$emit('change-theme-color', name)
-    },
+    ...mapMutations({
+      updateThemeActiveness: 'theme/updateActiveness',
+    }),
   },
 }
 </script>
@@ -176,18 +182,18 @@ export default {
     }
   }
 
-  &__theme-color-changer {
+  &__theme-changer {
     @include g.flexCentering();
   }
 
-  &__theme-color-changer-button-wrapper {
+  &__theme-changer-button-wrapper {
     display: grid;
     grid-template-rows: repeat(2, 40px);
     grid-template-columns: repeat(3, 70px);
     gap: 15px 20px;
   }
 
-  &__theme-color-changer-button {
+  &__theme-changer-button {
     cursor: pointer;
     @include g.flexCentering();
     border: 1px solid g.$colorWhite;
