@@ -20,7 +20,6 @@
       <main v-cloak>
         <section>
           <control-panel
-            :is-phone="isPhone"
             @open-overlay="openOverlay"
           />
 
@@ -550,8 +549,6 @@ export default {
       periodicTableMQL: null,
       /** 画面幅が周期表の幅を超過しているか否か */
       isPeriodicTableOverflow: false,
-      /** 画面幅がスマートフォン幅か否か */
-      isPhone: false,
       /** シェアボタンが展開されているか否か */
       isShareButtonExpanded: false,
     }
@@ -644,7 +641,7 @@ export default {
     this.checkPeriodicTableOverflow()
     // スマートフォン幅に対するメディアクエリを作成 -> _variable.scss
     const phoneMQL = window.matchMedia('(max-width: 550px)')
-    const checkIsPhone = () => (this.isPhone = phoneMQL.matches)
+    const checkIsPhone = () => (this.updateIsPhone(phoneMQL.matches))
     try {
       phoneMQL.addEventListener('change', checkIsPhone)
     } catch (e) {
@@ -655,6 +652,7 @@ export default {
   methods: {
     ...mapMutations([
       'updateIsBodyScrollLocked',
+      'updateIsPhone',
       'updatePeriodicTableScale',
     ]),
     ...mapMutations({

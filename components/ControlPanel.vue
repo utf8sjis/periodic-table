@@ -228,10 +228,6 @@ import { controlList } from '@/assets/js/control_list.js'
 export default {
   name: 'ControlPanel',
 
-  props: {
-    isPhone: { type: Boolean, required: true },
-  },
-
   data() {
     return {
       controlList,
@@ -243,7 +239,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['isBodyScrollLocked', 'periodicTableScale']),
+    ...mapGetters(['isBodyScrollLocked', 'isPhone', 'periodicTableScale']),
     ...mapGetters({
       elementList: 'element/list',
       atomicNumberToIndex: 'element/atomicNumberToIndex',
