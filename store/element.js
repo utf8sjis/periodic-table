@@ -2,6 +2,7 @@ import { elementList } from '@/assets/js/element_list.js'
 
 export const state = () => ({
   list: elementList,
+  activeList: Array(elementList.length).fill(false),
   currentIndex: 0,
 })
 
@@ -9,6 +10,10 @@ export const getters = {
   // => list
   list: (state) => {
     return state.list
+  },
+  // => activeList
+  activeList: (state) => {
+    return state.activeList
   },
   // listのインデクス => listのアイテムのオブジェクト
   getItem: (state) => (index) => {
@@ -26,12 +31,12 @@ export const getters = {
 }
 
 export const mutations = {
-  // listのアクティブアイテムの更新
-  updateActiveness(state, index) {
-    state.list.forEach((item) => (item.isActive = false))
+  // アクティブアイテムの更新
+  updateActiveList(state, index) {
+    state.activeList = Array(state.list.length).fill(false)
     if (typeof index !== 'undefined') {
       state.currentIndex = index
-      state.list[index].isActive = true
+      state.activeList[index] = true
     }
     // 引数が与えられなかった場合はすべて非アクティブ化
   },

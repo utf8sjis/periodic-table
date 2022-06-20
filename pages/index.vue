@@ -19,9 +19,7 @@
 
       <main v-cloak>
         <section>
-          <control-panel
-            @open-overlay="openOverlay"
-          />
+          <control-panel />
 
           <section
             class="periodic-table"
@@ -87,9 +85,9 @@
                 class="periodic-table__cell-wrapper"
                 :class="[
                   'periodic-table__cell-wrapper--cell-' + element.elementSymbol,
-                  { 'is-active': getElementItem(elementIndex).isActive },
+                  { 'is-active': elementActiveList[elementIndex] },
                 ]"
-                @click="openOverlay(elementIndex)"
+                @click="updateElementActiveList(elementIndex)"
               >
                 <div
                   class="periodic-table__cell"
@@ -119,7 +117,7 @@
             @before-leave="beforeLeaveFade"
           >
             <section
-              v-show="isOverlayDisplayed"
+              v-show="isDataPageShown"
               class="overlay"
               :class="'is-' + getElementItem().categoryClass"
             >
@@ -400,7 +398,7 @@
                             type="button"
                             class="data-area__item-close-button"
                             :class="'is-' + getElementItem().categoryClass"
-                            @click="closeOverlay"
+                            @click="updateElementActiveList()"
                           >
                             CLOSE
                           </button>
@@ -429,7 +427,7 @@
                 type="button"
                 class="overlay__close-button"
                 :class="'is-' + getElementItem().categoryClass"
-                @click="closeOverlay"
+                @click="updateElementActiveList()"
               >
                 <ion-icon
                   class="overlay__close-button-icon"
@@ -451,7 +449,7 @@
                         :disabled="elementChangeButton.isStart"
                         class="data-area__element-changer-button"
                         :class="{ 'is-disabled': elementChangeButton.isStart }"
-                        @click="changeOverlay('prev')"
+                        @click="switchDataPage('prev')"
                       >
                         <ion-icon
                           class="data-area__element-changer-button-icon"
@@ -469,7 +467,7 @@
                         :disabled="elementChangeButton.isEnd"
                         class="data-area__element-changer-button"
                         :class="{ 'is-disabled': elementChangeButton.isEnd }"
-                        @click="changeOverlay('next')"
+                        @click="switchDataPage('next')"
                       >
                         <span class="data-area__element-changer-button-text">
                           <span
@@ -532,8 +530,8 @@ export default {
     return {
       otherCellList,
       categoryList,
-      /** オーバーレイ表示しているか否か */
-      isOverlayDisplayed: false,
+      /** データページ表示しているか否か */
+      isDataPageShown: false,
       /** ナビゲーションメニューが開いているか否か */
       isNavOpened: false,
       /** スクロール量がページのトップあたりか否か */
@@ -560,6 +558,7 @@ export default {
     ...mapGetters(['isBodyScrollLocked', 'periodicTableScale']),
     ...mapGetters({
       elementList: 'element/list',
+      elementActiveList: 'element/activeList',
       getElementItem: 'element/getItem',
       atomicNumberToIndex: 'element/atomicNumberToIndex',
       getLangItem: 'lang/getItem',
@@ -621,6 +620,23 @@ export default {
       itemObj.periodicTableScale = this.periodicTableScale
       localStorage.setItem('itemStorage', JSON.stringify(itemObj))
     },
+    /**
+     * アクティブな元素を監視し、データページの表示非表示を行う
+     */
+    elementActiveList: {
+      handler(value) {
+        if (value.some((item) => item)) {
+          // データページを開く
+          this.isDataPageShown = true
+          this.runTwitterScript()
+        } else {
+          // データページを閉じる
+          this.updateBalloonTipActiveness({ id: 'overlayMain', by: 'close' })
+          this.isDataPageShown = false
+        }
+      },
+      deep: true,
+    },
   },
   mounted() {
     // 周期表の幅と高さの初期値をセット
@@ -641,7 +657,7 @@ export default {
     this.checkPeriodicTableOverflow()
     // スマートフォン幅に対するメディアクエリを作成 -> _variable.scss
     const phoneMQL = window.matchMedia('(max-width: 550px)')
-    const checkIsPhone = () => (this.updateIsPhone(phoneMQL.matches))
+    const checkIsPhone = () => this.updateIsPhone(phoneMQL.matches)
     try {
       phoneMQL.addEventListener('change', checkIsPhone)
     } catch (e) {
@@ -657,31 +673,14 @@ export default {
     ]),
     ...mapMutations({
       updateThemeActiveness: 'theme/updateActiveness',
-      updateElementActiveness: 'element/updateActiveness',
+      updateElementActiveList: 'element/updateActiveList',
       updateBalloonTipActiveness: 'balloon_tip/updateActiveness',
     }),
-    /**
-     * 元素のデータページをオーバーレイ表示する
-     * @param {number} nextElementIndex - 選択された元素のelementListでのインデクス
-     */
-    openOverlay(nextElementIndex) {
-      this.updateElementActiveness(nextElementIndex)
-      this.isOverlayDisplayed = true
-      this.runTwitterScript()
-    },
-    /**
-     * 元素のデータページを閉じる
-     */
-    closeOverlay() {
-      this.updateBalloonTipActiveness({ id: 'overlayMain', by: 'close' })
-      this.isOverlayDisplayed = false
-      this.updateElementActiveness()
-    },
     /**
      * データページを遷移する
      * @param {string} to - 'next'か'prev'
      */
-    changeOverlay(to) {
+    switchDataPage(to) {
       let z = this.getElementItem().atomicNumber
       if (to === 'next') {
         z++
@@ -689,7 +688,7 @@ export default {
         z--
       }
       if (z >= 1 && z <= 118) {
-        this.openOverlay(this.atomicNumberToIndex(z))
+        this.updateElementActiveList(this.atomicNumberToIndex(z))
       }
     },
     /**

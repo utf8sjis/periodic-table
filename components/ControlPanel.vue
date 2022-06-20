@@ -47,31 +47,7 @@
     <div class="control-panel__content-container">
       <transition name="control-panel__content-">
         <div v-show="currentControlIndex === 0" class="control-panel__content">
-          <div
-            class="lang-changer"
-            :class="{ 'is-overflow-hidden': isBodyScrollLocked }"
-          >
-            <div class="lang-changer__button-container">
-              <template v-for="(lang, langIndex) in langList">
-                <button
-                  :key="'button-' + langIndex"
-                  type="button"
-                  class="lang-changer__button"
-                  :class="[
-                    { 'is-active-lang': getLangItem(langIndex).isActive },
-                  ]"
-                  @click="updateLangActiveness(langIndex)"
-                >
-                  {{ lang.name }}
-                </button>
-                <div
-                  v-show="langIndex !== langList.length - 1"
-                  :key="'separator-' + langIndex"
-                  class="lang-changer__separator"
-                ></div>
-              </template>
-            </div>
-          </div>
+          <lang-switch />
         </div>
       </transition>
 
@@ -160,8 +136,7 @@
                         type="button"
                         class="element-search__result-item-button"
                         @click="
-                          $emit(
-                            'open-overlay',
+                          updateElementActiveList(
                             atomicNumberToIndex(result.element.atomicNumber)
                           )
                         "
@@ -241,8 +216,6 @@ export default {
     ...mapGetters({
       elementList: 'element/list',
       atomicNumberToIndex: 'element/atomicNumberToIndex',
-      langList: 'lang/list',
-      getLangItem: 'lang/getItem',
     }),
     /**
      * リスト中の現在選択されている操作のデータ
@@ -267,7 +240,7 @@ export default {
   methods: {
     ...mapMutations(['updatePeriodicTableScale']),
     ...mapMutations({
-      updateLangActiveness: 'lang/updateActiveness',
+      updateElementActiveList: 'element/updateActiveList',
       updateBalloonTipActiveness: 'balloon_tip/updateActiveness',
     }),
     /**

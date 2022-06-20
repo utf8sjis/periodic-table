@@ -1,7 +1,53 @@
-/****** lang-changer ******/
+<template>
+  <div
+    class="lang-switch"
+    :class="{ 'is-overflow-hidden': isBodyScrollLocked }"
+  >
+    <div class="lang-switch__button-container">
+      <template v-for="(lang, langIndex) in langList">
+        <button
+          :key="'button-' + langIndex"
+          type="button"
+          class="lang-switch__button"
+          :class="[{ 'is-active-lang': getLangItem(langIndex).isActive }]"
+          @click="updateLangActiveness(langIndex)"
+        >
+          {{ lang.name }}
+        </button>
+        <div
+          v-show="langIndex !== langList.length - 1"
+          :key="'separator-' + langIndex"
+          class="lang-switch__separator"
+        ></div>
+      </template>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapGetters, mapMutations } from 'vuex'
+
+export default {
+  computed: {
+    ...mapGetters(['isBodyScrollLocked']),
+    ...mapGetters({
+      langList: 'lang/list',
+      getLangItem: 'lang/getItem',
+    }),
+  },
+
+  methods: {
+    ...mapMutations({
+      updateLangActiveness: 'lang/updateActiveness',
+    }),
+  },
+}
+</script>
+
+<style lang="scss">
 @use '@/assets/scss/global' as g;
 
-.lang-changer {
+.lang-switch {
   @include g.flexCentering();
   overflow-x: visible;
   height: 100%;
@@ -64,3 +110,4 @@
     background: g.$colorLightGray;
   }
 }
+</style>
