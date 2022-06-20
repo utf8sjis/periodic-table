@@ -229,7 +229,6 @@ export default {
   name: 'ControlPanel',
 
   props: {
-    isBodyScrollLocked: { type: Boolean, required: true },
     isPhone: { type: Boolean, required: true },
   },
 
@@ -244,7 +243,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['periodicTableScale']),
+    ...mapGetters(['isBodyScrollLocked', 'periodicTableScale']),
     ...mapGetters({
       elementList: 'element/list',
       atomicNumberToIndex: 'element/atomicNumberToIndex',

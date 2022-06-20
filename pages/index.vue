@@ -20,7 +20,6 @@
       <main v-cloak>
         <section>
           <control-panel
-            :is-body-scroll-locked="isBodyScrollLocked"
             :is-phone="isPhone"
             @open-overlay="openOverlay"
           />
@@ -536,8 +535,6 @@ export default {
       categoryList,
       /** オーバーレイ表示しているか否か */
       isOverlayDisplayed: false,
-      /** bodyScrollLockが有効か否か */
-      isBodyScrollLocked: false,
       /** ナビゲーションメニューが開いているか否か */
       isNavOpened: false,
       /** スクロール量がページのトップあたりか否か */
@@ -563,7 +560,7 @@ export default {
     bodyAttrs: { class: 'body-preload' },
   },
   computed: {
-    ...mapGetters(['periodicTableScale']),
+    ...mapGetters(['isBodyScrollLocked', 'periodicTableScale']),
     ...mapGetters({
       elementList: 'element/list',
       getElementItem: 'element/getItem',
@@ -656,7 +653,10 @@ export default {
     checkIsPhone()
   },
   methods: {
-    ...mapMutations(['updatePeriodicTableScale']),
+    ...mapMutations([
+      'updateIsBodyScrollLocked',
+      'updatePeriodicTableScale',
+    ]),
     ...mapMutations({
       updateThemeActiveness: 'theme/updateActiveness',
       updateElementActiveness: 'element/updateActiveness',
@@ -710,7 +710,7 @@ export default {
       disableBodyScroll(targetEl, {
         reserveScrollBarGap: true,
       })
-      this.isBodyScrollLocked = true
+      this.updateIsBodyScrollLocked(true)
     },
     /**
      * オーバーレイを閉じる前、bodyのスクロールを有効にする
@@ -718,7 +718,7 @@ export default {
      */
     beforeLeaveFade(el) {
       clearAllBodyScrollLocks()
-      this.isBodyScrollLocked = false
+      this.updateIsBodyScrollLocked(false)
     },
     /**
      * Twitterのスクリプトタグを明示的に設置し実行する
