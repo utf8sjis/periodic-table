@@ -81,8 +81,6 @@ import { mapGetters, mapMutations } from 'vuex'
 import { navLinkSectionList } from '@/assets/js/nav_link_list.js'
 
 export default {
-  name: 'LayoutNav',
-
   props: {
     isNavOpened: { type: Boolean, required: true },
   },

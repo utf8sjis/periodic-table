@@ -6,8 +6,6 @@
 
 <script>
 export default {
-  name: 'InlineTag',
-
   props: {
     type: { type: String, required: true },
   },

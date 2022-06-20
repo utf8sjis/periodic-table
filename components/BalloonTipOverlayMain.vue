@@ -16,12 +16,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'BalloonTipOverlayMain',
-}
-</script>
-
 <style lang="scss" scoped>
 .content {
   display: grid;

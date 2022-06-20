@@ -51,12 +51,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'StateImageLegend',
-}
-</script>
-
 <style lang="scss">
 @use '@/assets/scss/global' as g;
 

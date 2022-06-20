@@ -226,8 +226,6 @@ import { mapGetters, mapMutations } from 'vuex'
 import { controlList } from '@/assets/js/control_list.js'
 
 export default {
-  name: 'ControlPanel',
-
   data() {
     return {
       controlList,

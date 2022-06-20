@@ -312,12 +312,6 @@
   </article>
 </template>
 
-<script>
-export default {
-  name: 'MainArticle',
-}
-</script>
-
 <style lang="scss">
 @use '@/assets/scss/global' as g;
 

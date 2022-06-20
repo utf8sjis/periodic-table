@@ -55,8 +55,6 @@
 
 <script>
 export default {
-  name: 'BalloonTipControlPanel',
-
   props: {
     index: { type: Number, required: true },
   },

@@ -17,12 +17,6 @@
   </footer>
 </template>
 
-<script>
-export default {
-  name: 'LayoutFooter',
-}
-</script>
-
 <style lang="scss">
 @use '@/assets/scss/global' as g;
 

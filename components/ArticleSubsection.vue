@@ -9,8 +9,6 @@
 
 <script>
 export default {
-  name: 'ArticleSubsection',
-
   props: {
     isNoHeadline: { type: Boolean, default: false },
     headline: { type: String, default: '' },

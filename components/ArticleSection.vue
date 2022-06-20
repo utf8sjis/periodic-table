@@ -10,8 +10,6 @@
 
 <script>
 export default {
-  name: 'ArticleSection',
-
   props: {
     headline: { type: String, required: true },
     isLevelOne: { type: Boolean, default: false },

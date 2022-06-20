@@ -36,8 +36,6 @@
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {
-  name: 'BalloonTip',
-
   props: {
     id: { type: String, required: true },
     index: { type: Number, default: 0 },

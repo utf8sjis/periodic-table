@@ -59,8 +59,6 @@
 
 <script>
 export default {
-  name: 'LayoutHeader',
-
   props: {
     isNavOpened: { type: Boolean, required: true },
   },

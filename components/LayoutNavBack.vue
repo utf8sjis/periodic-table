@@ -6,8 +6,6 @@
 
 <script>
 export default {
-  name: 'LayoutNavBack',
-
   props: {
     isNavOpened: { type: Boolean, required: true },
   },

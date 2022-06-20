@@ -17,8 +17,6 @@
 
 <script>
 export default {
-  name: 'DataArea',
-
   props: {
     type: { type: String, required: true },
     label: { type: String, required: true },

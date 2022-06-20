@@ -4,12 +4,6 @@
   </p>
 </template>
 
-<script>
-export default {
-  name: 'ArticleP',
-}
-</script>
-
 <style lang="scss">
 @use '@/assets/scss/global' as g;
 
