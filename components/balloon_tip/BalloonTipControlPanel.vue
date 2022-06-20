@@ -55,7 +55,7 @@
 
 <script>
 export default {
-  name: 'PopupBalloonControlPanel',
+  name: 'BalloonTipControlPanel',
 
   props: {
     index: { type: Number, required: true },

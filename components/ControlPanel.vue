@@ -30,20 +30,18 @@
       <button
         type="button"
         class="control-panel__info-button"
-        @click="$emit('toggle-popup-balloon', 'controlPanel')"
+        @click="updateBalloonTipActiveness({ id: 'controlPanel' })"
       >
         <i class="fas fa-info-circle"></i>
       </button>
-      <popup-balloon
-        :popup-balloons="popupBalloons"
-        name="controlPanel"
+      <balloon-tip
+        id="controlPanel"
         :index="currentControlIndex"
         width="90%"
         top="28px"
         right="3px"
         beak-right="8px"
-        @toggle-popup-balloon="$emit('toggle-popup-balloon', 'controlPanel')"
-      ></popup-balloon>
+      ></balloon-tip>
     </div>
 
     <div class="control-panel__content-container">
@@ -231,7 +229,6 @@ export default {
   name: 'ControlPanel',
 
   props: {
-    popupBalloons: { type: Object, required: true },
     isBodyScrollLocked: { type: Boolean, required: true },
     isPhone: { type: Boolean, required: true },
   },
@@ -278,6 +275,7 @@ export default {
     ...mapMutations(['updatePeriodicTableScale']),
     ...mapMutations({
       updateLangActiveness: 'lang/updateActiveness',
+      updateBalloonTipActiveness: 'balloon_tip/updateActiveness',
     }),
     /**
      * 操作パネルの操作の内容を変更する

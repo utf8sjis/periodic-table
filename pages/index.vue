@@ -20,10 +20,8 @@
       <main v-cloak>
         <section>
           <control-panel
-            :popup-balloons="popupBalloons"
             :is-body-scroll-locked="isBodyScrollLocked"
             :is-phone="isPhone"
-            @toggle-popup-balloon="togglePopupBalloon"
             @open-overlay="openOverlay"
           />
 
@@ -416,19 +414,17 @@
                     type="button"
                     class="overlay__main-info-icon"
                     :class="'is-' + getElementItem().categoryClass"
-                    @click="togglePopupBalloon('overlayMain')"
+                    @click="updateBalloonTipActiveness({ id: 'overlayMain' })"
                   >
                     <i class="fas fa-info-circle"></i>
                   </button>
-                  <popup-balloon
-                    :popup-balloons="popupBalloons"
-                    name="overlayMain"
+                  <balloon-tip
+                    id="overlayMain"
                     width="90%"
                     top="-10px"
                     left="4px"
                     beak-left="6px"
-                    @toggle-popup-balloon="togglePopupBalloon('overlayMain')"
-                  ></popup-balloon>
+                  ></balloon-tip>
                 </div>
               </div>
               <button
@@ -523,7 +519,6 @@ import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
 import { categoryList } from '@/assets/js/category_list.js'
 import { otherCellList } from '@/assets/js/other_cell_list.js'
-import { popupBalloons } from '@/assets/js/popup_balloon_contents.js'
 
 if (process.client) {
   window.onload = () => {
@@ -539,7 +534,6 @@ export default {
     return {
       otherCellList,
       categoryList,
-      popupBalloons,
       /** オーバーレイ表示しているか否か */
       isOverlayDisplayed: false,
       /** bodyScrollLockが有効か否か */
@@ -666,6 +660,7 @@ export default {
     ...mapMutations({
       updateThemeActiveness: 'theme/updateActiveness',
       updateElementActiveness: 'element/updateActiveness',
+      updateBalloonTipActiveness: 'balloon_tip/updateActiveness',
     }),
     /**
      * 元素のデータページをオーバーレイ表示する
@@ -680,7 +675,7 @@ export default {
      * 元素のデータページを閉じる
      */
     closeOverlay() {
-      this.popupBalloons.overlayMain.isActive = false
+      this.updateBalloonTipActiveness({ id: 'overlayMain', by: 'close' })
       this.isOverlayDisplayed = false
       this.updateElementActiveness()
     },
@@ -847,13 +842,6 @@ export default {
      */
     toggleShareExpandButton() {
       this.isShareButtonExpanded = !this.isShareButtonExpanded
-    },
-    /**
-     * 吹き出しポップアップを表示、非表示する
-     * @param {string} name - 対象の吹き出しの名前のキー
-     */
-    togglePopupBalloon(name) {
-      this.popupBalloons[name].isActive = !this.popupBalloons[name].isActive
     },
   },
 }

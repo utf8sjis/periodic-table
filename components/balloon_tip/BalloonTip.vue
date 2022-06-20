@@ -1,37 +1,29 @@
 <template>
-  <transition name="popup-balloon-">
+  <transition name="balloon-tip-">
     <div
-      v-show="popupBalloons[name].isActive"
-      class="popup-balloon"
-      :style="{
-        width: width,
-        top: top ? top : 'auto',
-        right: right ? right : 'auto',
-        left: left ? left : 'auto',
-      }"
+      v-show="getBalloonTipItem(id).isActive"
+      class="balloon-tip"
+      :style="{ width: width, top: top, right: right, left: left }"
     >
-      <div class="popup-balloon__balloon">
+      <div class="balloon-tip__balloon">
         <div
-          class="popup-balloon__beak"
-          :style="{
-            right: beakRight ? beakRight : 'auto',
-            left: beakLeft ? beakLeft : 'auto',
-          }"
+          class="balloon-tip__beak"
+          :style="{ right: beakRight, left: beakLeft }"
         ></div>
-        <div class="popup-balloon__container">
-          <div class="popup-balloon__title">
+        <div class="balloon-tip__container">
+          <div class="balloon-tip__title">
             <i
               class="u-pr5"
-              :class="popupBalloons[name].contents[index].titleIconClass"
+              :class="getBalloonTipItem(id).contents[index].titleIconClass"
             ></i
-            ><span>{{ popupBalloons[name].contents[index].title }}</span>
+            ><span>{{ getBalloonTipItem(id).contents[index].title }}</span>
           </div>
           <component :is="contentComponent" :index="index"></component>
         </div>
         <button
           type="button"
-          class="popup-balloon__close-button"
-          @click="close"
+          class="balloon-tip__close-button"
+          @click="updateBalloonTipActiveness({ id: id, by: 'close' })"
         >
           <i class="fas fa-times"></i>
         </button>
@@ -41,21 +33,27 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
-  name: 'PopupBalloon',
+  name: 'BalloonTip',
 
   props: {
-    popupBalloons: { type: Object, required: true },
-    name: { type: String, required: true },
+    id: { type: String, required: true },
     index: { type: Number, default: 0 },
     width: { type: String, required: true },
-    top: { type: String, default: '' },
-    left: { type: String, default: '' },
-    right: { type: String, default: '' },
-    beakLeft: { type: String, default: '' },
-    beakRight: { type: String, default: '' },
+    top: { type: String, default: 'auto' },
+    right: { type: String, default: 'auto' },
+    left: { type: String, default: 'auto' },
+    beakRight: { type: String, default: 'auto' },
+    beakLeft: { type: String, default: 'auto' },
   },
+
   computed: {
+    ...mapGetters({
+      balloonTipDict: 'balloon_tip/dict',
+      getBalloonTipItem: 'balloon_tip/getItem',
+    }),
     contentComponent() {
       const camelToKebab = (str) =>
         str
@@ -63,13 +61,14 @@ export default {
           .join('-')
           .toLowerCase()
 
-      return 'popup-balloon-' + camelToKebab(this.name)
+      return 'balloon-tip-' + camelToKebab(this.id)
     },
   },
+
   methods: {
-    close() {
-      this.$emit('toggle-popup-balloon')
-    },
+    ...mapMutations({
+      updateBalloonTipActiveness: 'balloon_tip/updateActiveness',
+    }),
   },
 }
 </script>
@@ -77,7 +76,7 @@ export default {
 <style lang="scss">
 @use '@/assets/scss/global' as g;
 
-.popup-balloon {
+.balloon-tip {
   position: absolute;
   max-width: 400px;
   filter: drop-shadow(0 0 2px #0002);
