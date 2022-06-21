@@ -1,3 +1,30 @@
+const gtagScript = `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-GBVV8SS85F');
+`
+
+const twitterSnippet = `
+window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+`
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -72,12 +99,6 @@ export default {
       },
     ],
     script: [
-      // twitter widgets
-      {
-        async: true,
-        charset: 'utf-8',
-        src: 'https://platform.twitter.com/widgets.js',
-      },
       // micron.js
       {
         type: 'text/javascript',
@@ -99,12 +120,18 @@ export default {
       },
       {
         hid: 'gtagScript',
-        innerHTML:
-          "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-GBVV8SS85F');",
+        innerHTML: gtagScript,
+      },
+      // Twitter wedgets.js
+      // https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/guides/set-up-twitter-for-websites
+      {
+        hid: 'twitterSnippet',
+        innerHTML: twitterSnippet,
       },
     ],
     __dangerouslyDisableSanitizersByTagID: {
       gtagScript: ['innerHTML'],
+      twitterSnippet: ['innerHTML'],
     },
   },
 

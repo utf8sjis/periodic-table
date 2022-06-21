@@ -85,9 +85,12 @@
                 class="periodic-table__cell-wrapper"
                 :class="[
                   'periodic-table__cell-wrapper--cell-' + element.elementSymbol,
-                  { 'is-active': elementActiveList[elementIndex] },
+                  {
+                    'is-active':
+                      elementStatusList[elementIndex].isDataPageActive,
+                  },
                 ]"
-                @click="updateElementActiveList(elementIndex)"
+                @click="openDataPage(element.atomicNumber)"
               >
                 <div
                   class="periodic-table__cell"
@@ -117,9 +120,9 @@
             @before-leave="beforeLeaveFade"
           >
             <section
-              v-show="isDataPageShown"
+              v-show="isDataPageActive"
               class="overlay"
-              :class="'is-' + getElementItem().categoryClass"
+              :class="'is-' + currentDataPage.categoryClass"
             >
               <div
                 class="overlay__main-wrapper"
@@ -131,24 +134,24 @@
                       <div class="overlay__area overlay__area--element-symbol">
                         <div
                           class="data-area"
-                          :class="'is-' + getElementItem().categoryClass"
+                          :class="'is-' + currentDataPage.categoryClass"
                         >
                           <div class="data-area__item-state">
                             <img
                               class="data-area__state-image"
-                              :class="'is-' + getElementItem().categoryClass"
-                              :src="getElementItem().stateSrc"
+                              :class="'is-' + currentDataPage.categoryClass"
+                              :src="currentDataPage.stateSrc"
                             />
                           </div>
                           <div class="data-area__item-radioactivity">
                             <img
-                              v-show="getElementItem().isRadioactive"
+                              v-show="currentDataPage.isRadioactive"
                               class="data-area__radioactivity-image"
                               src="@/assets/img/state/radioactivity.svg"
                             />
                           </div>
                           <div class="data-area__item-element-symbol">
-                            {{ getElementItem().elementSymbol }}
+                            {{ currentDataPage.elementSymbol }}
                           </div>
                         </div>
                       </div>
@@ -157,9 +160,9 @@
                           type="num"
                           label="Z ="
                           :category-class="
-                            'is-' + getElementItem().categoryClass
+                            'is-' + currentDataPage.categoryClass
                           "
-                          >{{ getElementItem().atomicNumber }}</data-area
+                          >{{ currentDataPage.atomicNumber }}</data-area
                         >
                       </div>
                       <div class="overlay__area overlay__area--period">
@@ -167,9 +170,9 @@
                           type="num"
                           label="Period"
                           :category-class="
-                            'is-' + getElementItem().categoryClass
+                            'is-' + currentDataPage.categoryClass
                           "
-                          >{{ getElementItem().period }}</data-area
+                          >{{ currentDataPage.period }}</data-area
                         >
                       </div>
                       <div class="overlay__area overlay__area--group">
@@ -177,9 +180,9 @@
                           type="num"
                           label="Group"
                           :category-class="
-                            'is-' + getElementItem().categoryClass
+                            'is-' + currentDataPage.categoryClass
                           "
-                          >{{ getElementItem().group }}</data-area
+                          >{{ currentDataPage.group }}</data-area
                         >
                       </div>
                       <div class="overlay__area overlay__area--atomic-weight">
@@ -187,9 +190,9 @@
                           type="num"
                           label="Weight"
                           :category-class="
-                            'is-' + getElementItem().categoryClass
+                            'is-' + currentDataPage.categoryClass
                           "
-                          >{{ getElementItem().atomicWeight }}</data-area
+                          >{{ currentDataPage.atomicWeight }}</data-area
                         >
                       </div>
                       <div class="overlay__area overlay__area--category">
@@ -197,14 +200,14 @@
                           type="category"
                           label="Category"
                           :category-class="
-                            'is-' + getElementItem().categoryClass
+                            'is-' + currentDataPage.categoryClass
                           "
                         >
                           <div class="data-area__category-text">
                             <template
                               v-for="(
                                 category, categoryIndex
-                              ) in getElementItem().categoryList"
+                              ) in currentDataPage.categoryList"
                             >
                               <span
                                 :key="categoryIndex"
@@ -213,7 +216,7 @@
                                 }}<span
                                   v-show="
                                     categoryIndex !==
-                                    getElementItem().categoryList.length - 1
+                                    currentDataPage.categoryList.length - 1
                                   "
                                   >／</span
                                 ></span
@@ -229,25 +232,25 @@
                           type="kanji"
                           label="Mainland China"
                           :category-class="
-                            'is-' + getElementItem().categoryClass
+                            'is-' + currentDataPage.categoryClass
                           "
                         >
                           <div
                             class="data-area__kanji-character data-area__kanji-character--cn"
                           >
-                            {{ getElementItem().simplifiedChinese }}
+                            {{ currentDataPage.simplifiedChinese }}
                           </div>
                           <div class="data-area__kanji-code-point">
-                            U+{{ getElementItem().unicodeCodePointCN }}
+                            U+{{ currentDataPage.unicodeCodePointCN }}
                           </div>
                           <template #absolute>
                             <button
                               type="button"
                               class="data-area__item-kanji-copy-button"
-                              :class="'is-' + getElementItem().categoryClass"
+                              :class="'is-' + currentDataPage.categoryClass"
                               @click="
                                 copyToClipboard(
-                                  getElementItem().simplifiedChinese
+                                  currentDataPage.simplifiedChinese
                                 )
                               "
                             >
@@ -264,24 +267,24 @@
                           type="kanji"
                           label="Taiwan"
                           :category-class="
-                            'is-' + getElementItem().categoryClass
+                            'is-' + currentDataPage.categoryClass
                           "
                         >
                           <div
                             class="data-area__kanji-character data-area__kanji-character--tw"
                           >
-                            {{ getElementItem().taiwanTrad }}
+                            {{ currentDataPage.taiwanTrad }}
                           </div>
                           <div class="data-area__kanji-code-point">
-                            U+{{ getElementItem().unicodeCodePointTW }}
+                            U+{{ currentDataPage.unicodeCodePointTW }}
                           </div>
                           <template #absolute>
                             <button
                               type="button"
                               class="data-area__item-kanji-copy-button"
-                              :class="'is-' + getElementItem().categoryClass"
+                              :class="'is-' + currentDataPage.categoryClass"
                               @click="
-                                copyToClipboard(getElementItem().taiwanTrad)
+                                copyToClipboard(currentDataPage.taiwanTrad)
                               "
                             >
                               <i
@@ -297,24 +300,24 @@
                           type="kanji"
                           label="Hong Kong"
                           :category-class="
-                            'is-' + getElementItem().categoryClass
+                            'is-' + currentDataPage.categoryClass
                           "
                         >
                           <div
                             class="data-area__kanji-character data-area__kanji-character--hk"
                           >
-                            {{ getElementItem().hongkongTrad }}
+                            {{ currentDataPage.hongkongTrad }}
                           </div>
                           <div class="data-area__kanji-code-point">
-                            U+{{ getElementItem().unicodeCodePointHK }}
+                            U+{{ currentDataPage.unicodeCodePointHK }}
                           </div>
                           <template #absolute>
                             <button
                               type="button"
                               class="data-area__item-kanji-copy-button"
-                              :class="'is-' + getElementItem().categoryClass"
+                              :class="'is-' + currentDataPage.categoryClass"
                               @click="
-                                copyToClipboard(getElementItem().hongkongTrad)
+                                copyToClipboard(currentDataPage.hongkongTrad)
                               "
                             >
                               <i
@@ -333,9 +336,9 @@
                           label="Pinyin"
                           sub-label="Mainland China"
                           :category-class="
-                            'is-' + getElementItem().categoryClass
+                            'is-' + currentDataPage.categoryClass
                           "
-                          >{{ getElementItem().pinyin }}</data-area
+                          >{{ currentDataPage.pinyin }}</data-area
                         >
                       </div>
                       <div class="overlay__area overlay__area--bopomofo">
@@ -344,10 +347,10 @@
                           label="Bopomofo"
                           sub-label="Taiwan"
                           :category-class="
-                            'is-' + getElementItem().categoryClass
+                            'is-' + currentDataPage.categoryClass
                           "
-                          >{{ getElementItem().bopomofo }} ({{
-                            getElementItem().taiwanPinyin
+                          >{{ currentDataPage.bopomofo }} ({{
+                            currentDataPage.taiwanPinyin
                           }})</data-area
                         >
                       </div>
@@ -358,9 +361,9 @@
                           type="japanese-name"
                           label="Japanese Name"
                           :category-class="
-                            'is-' + getElementItem().categoryClass
+                            'is-' + currentDataPage.categoryClass
                           "
-                          >{{ getElementItem().japaneseName }}</data-area
+                          >{{ currentDataPage.japaneseName }}</data-area
                         >
                       </div>
                       <div class="overlay__area overlay__area--english-name">
@@ -368,9 +371,9 @@
                           type="english-name"
                           label="English Name"
                           :category-class="
-                            'is-' + getElementItem().categoryClass
+                            'is-' + currentDataPage.categoryClass
                           "
-                          >{{ getElementItem().englishName }}</data-area
+                          >{{ currentDataPage.englishName }}</data-area
                         >
                       </div>
                     </div>
@@ -378,12 +381,11 @@
                       <div class="overlay__area overlay__area--tweet">
                         <div
                           class="data-area data-area--tweet"
-                          :class="'is-' + getElementItem().categoryClass"
+                          :class="'is-' + currentDataPage.categoryClass"
                         >
                           <div
-                            ref="contAreaTweet"
                             class="data-area__item-tweet"
-                            v-html="getElementItem().twitterTweet"
+                            v-html="currentDataPage.twitterTweet"
                           ></div>
                         </div>
                       </div>
@@ -392,13 +394,13 @@
                       <div class="overlay__area overlay__area--close">
                         <div
                           class="data-area"
-                          :class="'is-' + getElementItem().categoryClass"
+                          :class="'is-' + currentDataPage.categoryClass"
                         >
                           <button
                             type="button"
                             class="data-area__item-close-button"
-                            :class="'is-' + getElementItem().categoryClass"
-                            @click="updateElementActiveList()"
+                            :class="'is-' + currentDataPage.categoryClass"
+                            @click="closeDataPage()"
                           >
                             CLOSE
                           </button>
@@ -409,7 +411,7 @@
                   <button
                     type="button"
                     class="overlay__main-info-icon"
-                    :class="'is-' + getElementItem().categoryClass"
+                    :class="'is-' + currentDataPage.categoryClass"
                     @click="updateBalloonTipActiveness({ id: 'overlayMain' })"
                   >
                     <i class="fas fa-info-circle"></i>
@@ -426,8 +428,8 @@
               <button
                 type="button"
                 class="overlay__close-button"
-                :class="'is-' + getElementItem().categoryClass"
-                @click="updateElementActiveList()"
+                :class="'is-' + currentDataPage.categoryClass"
+                @click="closeDataPage()"
               >
                 <ion-icon
                   class="overlay__close-button-icon"
@@ -438,11 +440,11 @@
                 <div class="overlay__area overlay__area--element-changer">
                   <div
                     class="data-area"
-                    :class="'is-' + getElementItem().categoryClass"
+                    :class="'is-' + currentDataPage.categoryClass"
                   >
                     <div
                       class="data-area__item-element-changer"
-                      :class="'is-' + getElementItem().categoryClass"
+                      :class="'is-' + currentDataPage.categoryClass"
                     >
                       <button
                         type="button"
@@ -510,7 +512,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
 import { categoryList } from '@/assets/js/category_list.js'
@@ -530,8 +532,6 @@ export default {
     return {
       otherCellList,
       categoryList,
-      /** データページ表示しているか否か */
-      isDataPageShown: false,
       /** ナビゲーションメニューが開いているか否か */
       isNavOpened: false,
       /** スクロール量がページのトップあたりか否か */
@@ -557,10 +557,10 @@ export default {
   computed: {
     ...mapGetters(['isBodyScrollLocked', 'periodicTableScale']),
     ...mapGetters({
-      elementList: 'element/list',
-      elementActiveList: 'element/activeList',
-      getElementItem: 'element/getItem',
-      atomicNumberToIndex: 'element/atomicNumberToIndex',
+      elementList: 'element/elementList',
+      elementStatusList: 'element/elementStatusList',
+      currentDataPage: 'element/currentDataPage',
+      isDataPageActive: 'element/isDataPageActive',
       getLangItem: 'lang/getItem',
     }),
     /**
@@ -568,7 +568,10 @@ export default {
      * @returns {object} 表示内容の情報を含んだオブジェクト
      */
     elementChangeButton() {
-      const z = this.getElementItem().atomicNumber
+      const atomicNumberToIndex = (atomicNumber) =>
+        this.elementList.findIndex((item) => item.atomicNumber === atomicNumber)
+
+      const z = this.currentDataPage.atomicNumber
       const obj = {
         prev: {
           atomicNumber: 0,
@@ -582,28 +585,28 @@ export default {
         isEnd: false,
       }
       if (z - 1 < 1) {
-        const nextIndex = this.atomicNumberToIndex(z + 1)
+        const nextIndex = atomicNumberToIndex(z + 1)
         obj.prev.atomicNumber = 0
         obj.prev.elementSymbol = 'n'
-        obj.next.atomicNumber = this.getElementItem(nextIndex).atomicNumber
-        obj.next.elementSymbol = this.getElementItem(nextIndex).elementSymbol
+        obj.next.atomicNumber = this.elementList[nextIndex].atomicNumber
+        obj.next.elementSymbol = this.elementList[nextIndex].elementSymbol
         obj.isStart = true
         obj.isEnd = false
       } else if (z + 1 > 118) {
-        const prevIndex = this.atomicNumberToIndex(z - 1)
-        obj.prev.atomicNumber = this.getElementItem(prevIndex).atomicNumber
-        obj.prev.elementSymbol = this.getElementItem(prevIndex).elementSymbol
+        const prevIndex = atomicNumberToIndex(z - 1)
+        obj.prev.atomicNumber = this.elementList[prevIndex].atomicNumber
+        obj.prev.elementSymbol = this.elementList[prevIndex].elementSymbol
         obj.next.atomicNumber = 119
         obj.next.elementSymbol = 'Uue'
         obj.isStart = false
         obj.isEnd = true
       } else {
-        const nextIndex = this.atomicNumberToIndex(z + 1)
-        const prevIndex = this.atomicNumberToIndex(z - 1)
-        obj.prev.atomicNumber = this.getElementItem(prevIndex).atomicNumber
-        obj.prev.elementSymbol = this.getElementItem(prevIndex).elementSymbol
-        obj.next.atomicNumber = this.getElementItem(nextIndex).atomicNumber
-        obj.next.elementSymbol = this.getElementItem(nextIndex).elementSymbol
+        const nextIndex = atomicNumberToIndex(z + 1)
+        const prevIndex = atomicNumberToIndex(z - 1)
+        obj.prev.atomicNumber = this.elementList[prevIndex].atomicNumber
+        obj.prev.elementSymbol = this.elementList[prevIndex].elementSymbol
+        obj.next.atomicNumber = this.elementList[nextIndex].atomicNumber
+        obj.next.elementSymbol = this.elementList[nextIndex].elementSymbol
         obj.isStart = obj.isEnd = false
       }
       return obj
@@ -619,23 +622,6 @@ export default {
       const itemObj = JSON.parse(localStorage.getItem('itemStorage'))
       itemObj.periodicTableScale = this.periodicTableScale
       localStorage.setItem('itemStorage', JSON.stringify(itemObj))
-    },
-    /**
-     * アクティブな元素を監視し、データページの表示非表示を行う
-     */
-    elementActiveList: {
-      handler(value) {
-        if (value.some((item) => item)) {
-          // データページを開く
-          this.isDataPageShown = true
-          this.runTwitterScript()
-        } else {
-          // データページを閉じる
-          this.updateBalloonTipActiveness({ id: 'overlayMain', by: 'close' })
-          this.isDataPageShown = false
-        }
-      },
-      deep: true,
     },
   },
   mounted() {
@@ -673,22 +659,26 @@ export default {
     ]),
     ...mapMutations({
       updateThemeActiveness: 'theme/updateActiveness',
-      updateElementActiveList: 'element/updateActiveList',
       updateBalloonTipActiveness: 'balloon_tip/updateActiveness',
+    }),
+    ...mapActions({
+      openDataPage: 'element/openDataPage',
+      closeDataPage: 'element/closeDataPage',
     }),
     /**
      * データページを遷移する
      * @param {string} to - 'next'か'prev'
      */
     switchDataPage(to) {
-      let z = this.getElementItem().atomicNumber
+      let z = this.currentDataPage.atomicNumber
       if (to === 'next') {
         z++
       } else if (to === 'prev') {
         z--
       }
       if (z >= 1 && z <= 118) {
-        this.updateElementActiveList(this.atomicNumberToIndex(z))
+        this.closeDataPage()
+        this.openDataPage(z)
       }
     },
     /**
@@ -716,15 +706,6 @@ export default {
     beforeLeaveFade(el) {
       clearAllBodyScrollLocks()
       this.updateIsBodyScrollLocked(false)
-    },
-    /**
-     * Twitterのスクリプトタグを明示的に設置し実行する
-     */
-    runTwitterScript() {
-      const scriptEl = document.createElement('script')
-      scriptEl.async = true
-      scriptEl.src = 'https://platform.twitter.com/widgets.js'
-      this.$refs.contAreaTweet.appendChild(scriptEl)
     },
     /**
      * ナビゲーションメニューを展開、格納する

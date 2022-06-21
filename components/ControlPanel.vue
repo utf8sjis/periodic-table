@@ -135,11 +135,7 @@
                       <button
                         type="button"
                         class="element-search__result-item-button"
-                        @click="
-                          updateElementActiveList(
-                            atomicNumberToIndex(result.element.atomicNumber)
-                          )
-                        "
+                        @click="openDataPage(result.element.atomicNumber)"
                       >
                         <span
                           >{{ result.element.atomicNumber }}
@@ -197,7 +193,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 import { controlList } from '@/assets/js/control_list.js'
 
 export default {
@@ -214,8 +210,7 @@ export default {
   computed: {
     ...mapGetters(['isBodyScrollLocked', 'isPhone', 'periodicTableScale']),
     ...mapGetters({
-      elementList: 'element/list',
-      atomicNumberToIndex: 'element/atomicNumberToIndex',
+      elementList: 'element/elementList',
     }),
     /**
      * リスト中の現在選択されている操作のデータ
@@ -238,10 +233,12 @@ export default {
   },
 
   methods: {
-    ...mapMutations(['updatePeriodicTableScale']),
     ...mapMutations({
-      updateElementActiveList: 'element/updateActiveList',
+      updatePeriodicTableScale: 'updatePeriodicTableScale',
       updateBalloonTipActiveness: 'balloon_tip/updateActiveness',
+    }),
+    ...mapActions({
+      openDataPage: 'element/openDataPage',
     }),
     /**
      * 操作パネルの操作の内容を変更する

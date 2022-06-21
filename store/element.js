@@ -1,43 +1,60 @@
 import { elementList } from '@/assets/js/element_list.js'
 
 export const state = () => ({
-  list: elementList,
-  activeList: Array(elementList.length).fill(false),
-  currentIndex: 0,
+  elementList,
+  elementStatusList: [...Array(elementList.length)].map(() => ({
+    isDataPageActive: false,
+  })),
+  currentDataPage: elementList[1],
 })
 
 export const getters = {
-  // => list
-  list: (state) => {
-    return state.list
+  // => 各元素のデータのリストを返す
+  elementList: (state) => {
+    return state.elementList
   },
-  // => activeList
-  activeList: (state) => {
-    return state.activeList
+  // => 現在の各元素の処理状態のリストを返す
+  elementStatusList: (state) => {
+    return state.elementStatusList
   },
-  // listのインデクス => listのアイテムのオブジェクト
-  getItem: (state) => (index) => {
-    if (typeof index === 'undefined') {
-      // 引数が与えられなかった場合は現在の元素のものを返す
-      return state.list[state.currentIndex]
-    } else {
-      return state.list[index]
-    }
+  // => 現在表示中および直近で表示されたデータページの元素のデータを返す
+  currentDataPage: (state) => {
+    return state.currentDataPage
   },
-  // 原子番号 => listのインデクス
-  atomicNumberToIndex: (state) => (atomicNumber) => {
-    return state.list.findIndex((item) => item.atomicNumber === atomicNumber)
+  // => いずれかのデータページが表示中か否かを返す
+  isDataPageActive: (state) => {
+    return state.elementStatusList.some((item) => item.isDataPageActive)
   },
 }
 
 export const mutations = {
-  // アクティブアイテムの更新
-  updateActiveList(state, index) {
-    state.activeList = Array(state.list.length).fill(false)
-    if (typeof index !== 'undefined') {
-      state.currentIndex = index
-      state.activeList[index] = true
-    }
-    // 引数が与えられなかった場合はすべて非アクティブ化
+  // 元素のインデクス => 表示するデータページの更新
+  activateDataPage(state, index) {
+    state.currentDataPage = state.elementList[index]
+    state.elementStatusList[index].isDataPageActive = true
+  },
+  // => 全てのデータページを非表示に更新
+  deactivateDataPage(state) {
+    state.elementStatusList.forEach((item) => (item.isDataPageActive = false))
+  },
+}
+
+export const actions = {
+  // 原子番号 => データページを表示し、Twitterのwedgets.jsを実行する
+  openDataPage({ state, commit }, atomicNumber) {
+    commit(
+      'activateDataPage',
+      state.elementList.findIndex((item) => item.atomicNumber === atomicNumber)
+    )
+    window.twttr.widgets.load(document.body)
+  },
+  // => バルーンチップも閉じ、データページを閉じる
+  closeDataPage({ commit }) {
+    commit(
+      'balloon_tip/updateActiveness',
+      { id: 'overlayMain', by: 'close' },
+      { root: true }
+    )
+    commit('deactivateDataPage')
   },
 }
