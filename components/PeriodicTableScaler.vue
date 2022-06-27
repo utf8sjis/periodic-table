@@ -1,5 +1,41 @@
+<template>
+  <div class="periodic-table-scaler">
+    <input
+      type="range"
+      class="periodic-table-scaler__input-range"
+      min="0.5"
+      max="2"
+      step="0.05"
+      :value="periodicTableScale"
+      @input="updatePeriodicTableScale(parseFloat($event.target.value))"
+    />
+    <button
+      type="button"
+      class="periodic-table-scaler__value-display"
+      @click="updatePeriodicTableScale(1)"
+    >
+      {{ periodicTableScale + 'x' }}
+    </button>
+  </div>
+</template>
 
-/****** periodic-table-scaler ******/
+<script>
+import { mapGetters, mapMutations } from 'vuex'
+
+export default {
+  computed: {
+    ...mapGetters(['periodicTableScale']),
+  },
+
+  methods: {
+    ...mapMutations({
+      updatePeriodicTableScale: 'updatePeriodicTableScale',
+    }),
+  },
+}
+</script>
+
+<style lang="scss">
 @use 'sass:math';
 @use '@/assets/scss/global' as g;
 
@@ -61,3 +97,4 @@ $thumbColor: g.$colorMain1;
     border-radius: 5px;
   }
 }
+</style>

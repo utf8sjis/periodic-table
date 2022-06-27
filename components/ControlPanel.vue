@@ -3,13 +3,13 @@
     <div class="control-panel__tab-container">
       <div class="control-panel__tab control-panel__tab--left-end"></div>
       <div class="control-panel__tab-button-container">
-        <template v-for="(control, controlIndex) in controlList">
+        <template v-for="(control, index) in controlList">
           <button
-            :key="'tab-' + controlIndex"
+            :key="'tab-' + index"
             type="button"
             class="control-panel__tab"
             :class="{ 'is-active': control.isActive }"
-            @click="setCurrentControl(controlIndex)"
+            @click="setCurrentControl(index)"
           >
             <div>
               <i class="u-pr5" :class="control.iconClass"></i
@@ -17,8 +17,8 @@
             </div>
           </button>
           <div
-            v-show="controlIndex !== controlList.length - 1"
-            :key="'separator-' + controlIndex"
+            v-show="index !== controlList.length - 1"
+            :key="'separator-' + index"
             class="control-panel__tab-separator"
           ></div>
         </template>
@@ -45,38 +45,16 @@
     </div>
 
     <div class="control-panel__content-container">
-      <transition name="control-panel__content-">
-        <div v-show="currentControlIndex === 0" class="control-panel__content">
-          <lang-switch />
-        </div>
-      </transition>
-
-      <transition name="control-panel__content-">
-        <div v-show="currentControlIndex === 1" class="control-panel__content">
-          <element-search />
-        </div>
-      </transition>
-
-      <transition name="control-panel__content-">
-        <div v-show="currentControlIndex === 2" class="control-panel__content">
-          <div class="periodic-table-scaler">
-            <input
-              type="range"
-              class="periodic-table-scaler__input-range"
-              min="0.5"
-              max="2"
-              step="0.05"
-              :value="periodicTableScale"
-              @input="updatePeriodicTableScale(parseFloat($event.target.value))"
-            />
-            <button
-              type="button"
-              class="periodic-table-scaler__value-display"
-              @click="updatePeriodicTableScale(1)"
-            >
-              {{ periodicTableScale + 'x' }}
-            </button>
-          </div>
+      <transition
+        v-for="(control, index) in controlList"
+        :key="index"
+        name="control-panel__content-"
+      >
+        <div
+          v-show="currentControlIndex === index"
+          class="control-panel__content"
+        >
+          <component :is="control.component" />
         </div>
       </transition>
     </div>
@@ -84,7 +62,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 import { controlList } from '@/assets/js/control_list.js'
 
 export default {
@@ -96,7 +74,6 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['periodicTableScale']),
     /**
      * リスト中の現在選択されている操作のデータ
      * currentControlIndexに依存
@@ -109,7 +86,6 @@ export default {
 
   methods: {
     ...mapMutations({
-      updatePeriodicTableScale: 'updatePeriodicTableScale',
       updateBalloonTipActiveness: 'balloon_tip/updateActiveness',
     }),
     /**
