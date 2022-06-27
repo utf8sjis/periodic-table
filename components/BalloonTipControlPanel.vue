@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-show="index === 0" class="content">
+    <div v-show="contentId === 'lang-switch'" class="content">
       <p>周期表の表示内容を変更します。</p>
       <p>
         選択できるのは<span class="u-bold">大陸簡体</span
@@ -13,7 +13,7 @@
         >、<span class="u-bold">英語名</span>を加えた計7種類です。
       </p>
     </div>
-    <div v-show="index === 1" class="content">
+    <div v-show="contentId === 'element-search'" class="content">
       <p>
         <span class="u-bold">原子番号</span>の一致、および<span class="u-bold"
           >元素記号</span
@@ -40,7 +40,7 @@
         >がオーバーレイ表示されます。
       </p>
     </div>
-    <div v-show="index === 2" class="content">
+    <div v-show="contentId === 'periodic-table-scaler'" class="content">
       <p>周期表を拡大・縮小します。</p>
       <p>
         スライドバーを動かすことによって<span class="u-bold">0.5倍から2倍</span
@@ -56,7 +56,7 @@
 <script>
 export default {
   props: {
-    index: { type: Number, required: true },
+    contentId: { type: String, required: true },
   },
 }
 </script>

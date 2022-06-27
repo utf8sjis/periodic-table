@@ -5,6 +5,7 @@ export const balloonTipDict = {
     isActive: false,
     contents: [
       ...controlList.map((item) => ({
+        contentId: item.component,
         title: item.name,
         titleIconClass: item.iconClass,
       })),

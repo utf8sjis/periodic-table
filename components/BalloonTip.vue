@@ -18,7 +18,10 @@
             ></i
             ><span>{{ getBalloonTipItem(id).contents[index].title }}</span>
           </div>
-          <component :is="contentComponent" :index="index"></component>
+          <component
+            :is="component"
+            :content-id="getBalloonTipItem(id).contents[index].contentId"
+          />
         </div>
         <button
           type="button"
@@ -52,7 +55,7 @@ export default {
       balloonTipDict: 'balloon_tip/dict',
       getBalloonTipItem: 'balloon_tip/getItem',
     }),
-    contentComponent() {
+    component() {
       const camelToKebab = (str) =>
         str
           .split(/(?=[A-Z])/)
