@@ -53,116 +53,7 @@
 
       <transition name="control-panel__content-">
         <div v-show="currentControlIndex === 1" class="control-panel__content">
-          <div class="element-search">
-            <div class="element-search__container">
-              <div class="element-search__select-wrapper">
-                <select
-                  v-model="elementSearchType"
-                  class="element-search__select"
-                >
-                  <option value="all">すべて</option>
-                  <option value="number">原子番号</option>
-                  <option value="symbol">元素記号</option>
-                  <option value="ja">日本語名</option>
-                  <option value="en">英語名</option>
-                  <option value="zh">中国語名</option>
-                </select>
-                <i class="element-search__select-icon fas fa-chevron-down"></i>
-              </div>
-              <div class="element-search__input-wrapper">
-                <input
-                  ref="elementSearchInput"
-                  type="text"
-                  class="element-search__input"
-                  @input="seachElements"
-                />
-                <button
-                  v-show="
-                    $refs.elementSearchInput && $refs.elementSearchInput.value
-                  "
-                  type="button"
-                  class="element-search__input-reset-button"
-                  @click="resetElementSearchInput"
-                >
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-              <div
-                v-show="
-                  !isPhone ||
-                  ($refs.elementSearchInput && $refs.elementSearchInput.value)
-                "
-                class="element-search__result-container"
-              >
-                <div class="element-search__result-bar">
-                  <div>検索結果：{{ elementSearchResultList.length }} 元素</div>
-                  <div class="u-spacer"></div>
-                  <button
-                    type="button"
-                    class="element-search__result-bar-button"
-                    @click="
-                      isDisplayedElementSearchResultList =
-                        !isDisplayedElementSearchResultList
-                    "
-                  >
-                    <i
-                      v-show="
-                        elementSearchResultList.length &&
-                        isDisplayedElementSearchResultList
-                      "
-                      class="fas fa-chevron-circle-up"
-                    ></i
-                    ><i
-                      v-show="
-                        elementSearchResultList.length &&
-                        !isDisplayedElementSearchResultList
-                      "
-                      class="fas fa-chevron-circle-down"
-                    ></i>
-                  </button>
-                </div>
-                <ul
-                  v-show="
-                    elementSearchResultList.length &&
-                    isDisplayedElementSearchResultList
-                  "
-                  class="element-search__result-list"
-                >
-                  <template
-                    v-for="(result, resultIndex) in elementSearchResultList"
-                  >
-                    <li :key="'button-' + result.element.atomicNumber">
-                      <button
-                        type="button"
-                        class="element-search__result-item-button"
-                        @click="openDataPage(result.element.atomicNumber)"
-                      >
-                        <span
-                          >{{ result.element.atomicNumber }}
-                          {{ result.element.elementSymbol }}
-                          {{ result.element.japaneseName }}</span
-                        >
-                        <inline-tag
-                          v-for="type in result.matchTypeList"
-                          :key="type.tagName"
-                          class="u-mr5"
-                          :type="type.className"
-                          >{{ type.tagName }}</inline-tag
-                        >
-                      </button>
-                    </li>
-                    <li
-                      v-show="
-                        resultIndex !== elementSearchResultList.length - 1
-                      "
-                      :key="'separator-' + result.element.atomicNumber"
-                      class="element-search__result-separator"
-                    ></li>
-                  </template>
-                </ul>
-              </div>
-            </div>
-          </div>
+          <element-search />
         </div>
       </transition>
 
@@ -193,7 +84,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapMutations } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import { controlList } from '@/assets/js/control_list.js'
 
 export default {
@@ -201,17 +92,11 @@ export default {
     return {
       controlList,
       currentControlIndex: 0,
-      elementSearchType: 'all',
-      isDisplayedElementSearchResultList: false,
-      elementSearchResultList: [],
     }
   },
 
   computed: {
-    ...mapGetters(['isBodyScrollLocked', 'isPhone', 'periodicTableScale']),
-    ...mapGetters({
-      elementList: 'element/elementList',
-    }),
+    ...mapGetters(['periodicTableScale']),
     /**
      * リスト中の現在選択されている操作のデータ
      * currentControlIndexに依存
@@ -222,23 +107,10 @@ export default {
     },
   },
 
-  watch: {
-    /**
-     * 元素の検索対象の変更を監視し、inputイベントを発生させる
-     */
-    elementSearchType() {
-      const e = new Event('input')
-      this.$refs.elementSearchInput.dispatchEvent(e)
-    },
-  },
-
   methods: {
     ...mapMutations({
       updatePeriodicTableScale: 'updatePeriodicTableScale',
       updateBalloonTipActiveness: 'balloon_tip/updateActiveness',
-    }),
-    ...mapActions({
-      openDataPage: 'element/openDataPage',
     }),
     /**
      * 操作パネルの操作の内容を変更する
@@ -248,97 +120,6 @@ export default {
       this.currentControl.isActive = false
       this.currentControlIndex = nextControlIndex
       this.currentControl.isActive = true
-    },
-    /**
-     * 検索対象をもとに元素を検索し結果をリストに格納する
-     * @param {object} e - InputEvent
-     */
-    seachElements(e) {
-      this.elementSearchResultList = []
-      const value = e.target.value.toLowerCase()
-
-      if (value) {
-        this.isDisplayedElementSearchResultList = true
-
-        const sortedElementList = this.elementList.slice()
-        if (this.elementSearchType === 'symbol') {
-          // 元素記号は完全一致likeな表示にした方がわかりやすい
-          sortedElementList.sort(
-            (a, b) => a.elementSymbol.length - b.elementSymbol.length
-          )
-        }
-
-        sortedElementList.forEach((element) => {
-          const typeList = []
-          typeList.push({
-            type: {
-              type: 'number',
-              className: 'atomic-number',
-              tagName: '番号',
-            },
-            // eslint-disable-next-line eqeqeq
-            isMatch: element.atomicNumber == value,
-          })
-          typeList.push({
-            type: {
-              type: 'symbol',
-              className: 'element-symbol',
-              tagName: '記号',
-            },
-            isMatch: element.elementSymbol.toLowerCase().includes(value),
-          })
-          typeList.push({
-            type: { type: 'en', className: 'english-name', tagName: '英' },
-            isMatch: element.englishName.toLowerCase().includes(value),
-          })
-          typeList.push({
-            type: { type: 'ja', className: 'japanese-name', tagName: '日' },
-            isMatch:
-              element.japaneseName.includes(value) ||
-              element.japaneseReading.includes(value),
-          })
-          typeList.push({
-            type: {
-              type: 'zh',
-              className: 'simplified-chinese',
-              tagName: '大陸',
-            },
-            isMatch: element.simplifiedChinese.includes(value),
-          })
-          typeList.push({
-            type: { type: 'zh', className: 'taiwan-trad', tagName: '台湾' },
-            isMatch: element.taiwanTrad.includes(value),
-          })
-          typeList.push({
-            type: { type: 'zh', className: 'hongkong-trad', tagName: '香港' },
-            isMatch: element.hongkongTrad.includes(value),
-          })
-
-          if (
-            typeList.some(
-              (item) =>
-                item.isMatch &&
-                (this.elementSearchType === 'all' ||
-                  item.type.type === this.elementSearchType)
-            )
-          ) {
-            const matchTypeList = []
-            typeList.forEach((item) => {
-              if (item.isMatch) {
-                matchTypeList.push(item.type)
-              }
-            })
-            this.elementSearchResultList.push({ element, matchTypeList })
-          }
-        })
-      }
-    },
-    /**
-     * 元素の検索結果と入力をリセットする
-     */
-    resetElementSearchInput() {
-      this.elementSearchResultList = []
-      this.$refs.elementSearchInput.value = ''
     },
   },
 }
