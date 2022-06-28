@@ -13,6 +13,7 @@
         >、<span class="u-bold">英語名</span>を加えた計7種類です。
       </p>
     </div>
+
     <div v-show="contentId === 'element-search'" class="content">
       <p>
         <span class="u-bold">原子番号</span>の一致、および<span class="u-bold"
