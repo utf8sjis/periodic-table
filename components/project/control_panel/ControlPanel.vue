@@ -30,7 +30,7 @@
       <button
         type="button"
         class="control-panel__info-button"
-        @click="updateBalloonTipActiveness({ id: 'controlPanel' })"
+        @click="toggleBalloonTip('controlPanel')"
       >
         <i class="fas fa-info-circle"></i>
       </button>
@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 import { controlList } from '@/assets/js/control_list.js'
 
 export default {
@@ -85,8 +85,8 @@ export default {
   },
 
   methods: {
-    ...mapMutations({
-      updateBalloonTipActiveness: 'balloon_tip/updateActiveness',
+    ...mapActions({
+      toggleBalloonTip: 'balloon_tip/toggleBalloonTip',
     }),
     /**
      * 操作パネルの操作の内容を変更する

@@ -1,7 +1,7 @@
 <template>
   <transition name="balloon-tip-">
     <div
-      v-show="getBalloonTipItem(id).isActive"
+      v-show="balloonTipStatusDict[id].isActive"
       class="balloon-tip"
       :style="{ width: width, top: top, right: right, left: left }"
     >
@@ -14,19 +14,19 @@
           <div class="balloon-tip__title">
             <i
               class="u-pr5"
-              :class="getBalloonTipItem(id).contents[index].titleIconClass"
+              :class="balloonTipDict[id][index].titleIconClass"
             ></i
-            ><span>{{ getBalloonTipItem(id).contents[index].title }}</span>
+            ><span>{{ balloonTipDict[id][index].title }}</span>
           </div>
           <component
             :is="component"
-            :content-id="getBalloonTipItem(id).contents[index].contentId"
+            :content-id="balloonTipDict[id][index].contentId"
           />
         </div>
         <button
           type="button"
           class="balloon-tip__close-button"
-          @click="updateBalloonTipActiveness({ id: id, by: 'close' })"
+          @click="closeBalloonTip(id)"
         >
           <i class="fas fa-times"></i>
         </button>
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   props: {
@@ -52,8 +52,8 @@ export default {
 
   computed: {
     ...mapGetters({
-      balloonTipDict: 'balloon_tip/dict',
-      getBalloonTipItem: 'balloon_tip/getItem',
+      balloonTipDict: 'balloon_tip/balloonTipDict',
+      balloonTipStatusDict: 'balloon_tip/balloonTipStatusDict',
     }),
     component() {
       const camelToKebab = (str) =>
@@ -67,8 +67,8 @@ export default {
   },
 
   methods: {
-    ...mapMutations({
-      updateBalloonTipActiveness: 'balloon_tip/updateActiveness',
+    ...mapActions({
+      closeBalloonTip: 'balloon_tip/closeBalloonTip',
     }),
   },
 }

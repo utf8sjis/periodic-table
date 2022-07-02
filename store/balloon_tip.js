@@ -1,30 +1,46 @@
 import { balloonTipDict } from '@/assets/js/balloon_tip_dict.js'
 
 export const state = () => ({
-  dict: balloonTipDict,
+  balloonTipDict,
+  balloonTipStatusDict: Object.keys(balloonTipDict).reduce((obj, key) => {
+    obj[key] = { isActive: false }
+    return obj
+  }, {}),
 })
 
 export const getters = {
-  // => dict
-  dict: (state) => {
-    return state.dict
+  // => 各バルーンチップのデータのリストを返す
+  balloonTipDict: (state) => {
+    return state.balloonTipDict
   },
-  // id => dictのアイテムのオブジェクト
-  getItem: (state) => (id) => {
-    return state.dict[id]
+  // => 現在の各バルーンチップの処理状態のリストを返す
+  balloonTipStatusDict: (state) => {
+    return state.balloonTipStatusDict
   },
 }
 
 export const mutations = {
-  // dictのアクティブアイテムの更新
-  updateActiveness(state, payload) {
-    if (typeof payload.by === 'undefined') {
-      // byの値が与えられなかった場合はトグル
-      state.dict[payload.id].isActive = !state.dict[payload.id].isActive
-    } else if (payload.by === 'close') {
-      state.dict[payload.id].isActive = false
+  // バルーンチップのID => バルーンチップをアクティブ化
+  activateBalloonTip(state, id) {
+    state.balloonTipStatusDict[id].isActive = true
+  },
+  // バルーンチップのID => バルーンチップを非アクティブ化
+  deactivateBalloonTip(state, id) {
+    state.balloonTipStatusDict[id].isActive = false
+  },
+}
+
+export const actions = {
+  // バルーンチップのID => バルーンチップを表示非表示
+  toggleBalloonTip({ state, commit }, id) {
+    if (state.balloonTipStatusDict[id].isActive) {
+      commit('deactivateBalloonTip', id)
     } else {
-      throw new Error('Unknown balloon tip activation option')
+      commit('activateBalloonTip', id)
     }
+  },
+  // バルーンチップのID => バルーンチップを閉じる
+  closeBalloonTip({ commit }, id) {
+    commit('deactivateBalloonTip', id)
   },
 }

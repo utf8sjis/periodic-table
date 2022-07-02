@@ -412,7 +412,7 @@
                     type="button"
                     class="overlay__main-info-icon"
                     :class="'is-' + currentDataPage.categoryClass"
-                    @click="updateBalloonTipActiveness({ id: 'overlayMain' })"
+                    @click="toggleBalloonTip('overlayMain')"
                   >
                     <i class="fas fa-info-circle"></i>
                   </button>
@@ -656,10 +656,8 @@ export default {
       'updateIsPhone',
       'updatePeriodicTableScale',
     ]),
-    ...mapMutations({
-      updateBalloonTipActiveness: 'balloon_tip/updateActiveness',
-    }),
     ...mapActions({
+      toggleBalloonTip: 'balloon_tip/toggleBalloonTip',
       openDataPage: 'element/openDataPage',
       closeDataPage: 'element/closeDataPage',
     }),
