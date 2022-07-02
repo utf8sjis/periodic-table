@@ -1,6 +1,5 @@
 export const themeDict = {
   default: {
-    isActive: true,
     name: 'デフォルト',
     main1: '#424c66',
     main2: '#758ba3',
@@ -9,7 +8,6 @@ export const themeDict = {
     main3: '#a6bbca',
   },
   wakaba: {
-    isActive: false,
     name: 'わかば',
     main1: '#3d8d69',
     main2: '#74bb83',
@@ -18,7 +16,6 @@ export const themeDict = {
     main3: '#a0be77',
   },
   ramune: {
-    isActive: false,
     name: 'ラムネ',
     main1: '#4568a8',
     main2: '#80acca',
@@ -27,7 +24,6 @@ export const themeDict = {
     main3: '#91c9d3',
   },
   momiji: {
-    isActive: false,
     name: 'もみじ',
     main1: '#994a4a',
     main2: '#c99f77',

@@ -5,16 +5,16 @@
         <div class="nav__content">
           <section class="nav__section">
             <div class="nav__section-title">テーマカラー</div>
-            <div class="nav__theme-changer">
-              <div class="nav__theme-changer-button-wrapper">
+            <div class="nav__theme-switch">
+              <div class="nav__theme-switch-button-wrapper">
                 <button
                   v-for="(theme, themeId) in themeDict"
                   :key="themeId"
                   type="button"
-                  class="nav__theme-changer-button"
-                  :class="'nav__theme-changer-button--' + themeId"
+                  class="nav__theme-switch-button"
+                  :class="'nav__theme-switch-button--' + themeId"
                   :style="{ background: theme.main2 }"
-                  @click="updateThemeActiveness(themeId)"
+                  @click="switchTheme(themeId)"
                 >
                   {{ theme.name }}
                 </button>
@@ -77,7 +77,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { themeDict } from '@/assets/js/theme_dict.js'
 import { navLinkSectionList } from '@/assets/js/nav_link_list.js'
 
 export default {
@@ -87,20 +87,31 @@ export default {
 
   data() {
     return {
+      themeDict,
       navLinkSectionList,
     }
   },
 
-  computed: {
-    ...mapGetters({
-      themeDict: 'theme/dict',
-    }),
+  mounted() {
+    const themeId = JSON.parse(localStorage.getItem('itemStorage')).themeId
+    this.switchTheme(themeId)
   },
 
   methods: {
-    ...mapMutations({
-      updateThemeActiveness: 'theme/updateActiveness',
-    }),
+    switchTheme(id) {
+      const theme = this.themeDict[id]
+      const rootElement = document.documentElement
+      const mainGrad = `linear-gradient(0.375turn, ${theme.main1}e6, ${theme.main2}e6, ${theme.main3}e6)`
+      rootElement.style.setProperty('--theme-main-1', theme.main1)
+      rootElement.style.setProperty('--theme-main-2', theme.main2)
+      rootElement.style.setProperty('--theme-main-2-light', theme.main2Light)
+      rootElement.style.setProperty('--theme-main-2-dark', theme.main2Dark)
+      rootElement.style.setProperty('--theme-main-3', theme.main3)
+      rootElement.style.setProperty('--theme-main-grad', mainGrad)
+      const itemStorage = JSON.parse(localStorage.getItem('itemStorage'))
+      itemStorage.themeId = id
+      localStorage.setItem('itemStorage', JSON.stringify(itemStorage))
+    },
   },
 }
 </script>
@@ -180,18 +191,18 @@ export default {
     }
   }
 
-  &__theme-changer {
+  &__theme-switch {
     @include g.flexCentering();
   }
 
-  &__theme-changer-button-wrapper {
+  &__theme-switch-button-wrapper {
     display: grid;
     grid-template-rows: repeat(2, 40px);
     grid-template-columns: repeat(3, 70px);
     gap: 15px 20px;
   }
 
-  &__theme-changer-button {
+  &__theme-switch-button {
     cursor: pointer;
     @include g.flexCentering();
     border: 1px solid g.$colorWhite;

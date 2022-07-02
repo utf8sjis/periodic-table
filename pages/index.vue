@@ -630,14 +630,13 @@ export default {
     // スクロールのイベントリスナを追加
     window.addEventListener('scroll', this.handleScroll)
     // localStorageの読み出しとその設定
-    let itemObj = JSON.parse(localStorage.getItem('itemStorage'))
-    itemObj = {
-      themeId: itemObj?.themeId ?? 'default',
-      periodicTableScale: itemObj?.periodicTableScale ?? 1,
+    let itemStorage = JSON.parse(localStorage.getItem('itemStorage'))
+    itemStorage = {
+      themeId: itemStorage?.themeId ?? 'default',
+      periodicTableScale: itemStorage?.periodicTableScale ?? 1,
     }
-    localStorage.setItem('itemStorage', JSON.stringify(itemObj))
-    this.updateThemeActiveness(itemObj.themeId)
-    this.updatePeriodicTableScale(itemObj.periodicTableScale)
+    localStorage.setItem('itemStorage', JSON.stringify(itemStorage))
+    this.updatePeriodicTableScale(itemStorage.periodicTableScale)
     // 周期表の幅に対するメディアクエリを作成
     this.createMediaQuery()
     this.checkPeriodicTableOverflow()
@@ -658,7 +657,6 @@ export default {
       'updatePeriodicTableScale',
     ]),
     ...mapMutations({
-      updateThemeActiveness: 'theme/updateActiveness',
       updateBalloonTipActiveness: 'balloon_tip/updateActiveness',
     }),
     ...mapActions({
