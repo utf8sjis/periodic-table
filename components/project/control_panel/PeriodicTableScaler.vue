@@ -28,9 +28,7 @@ export default {
   },
 
   methods: {
-    ...mapMutations({
-      updatePeriodicTableScale: 'updatePeriodicTableScale',
-    }),
+    ...mapMutations(['updatePeriodicTableScale']),
   },
 }
 </script>
