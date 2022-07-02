@@ -74,8 +74,8 @@
                 class="periodic-table__la-ac-wrapper"
                 :class="cell.cellWrapperClass"
               >
-                <div class="periodic-table__la-ac" :class="getLangItem().class">
-                  <span>{{ cell[getLangItem().key] }}</span>
+                <div class="periodic-table__la-ac" :class="currentLang.class">
+                  <span>{{ cell[currentLang.key] }}</span>
                 </div>
               </div>
               <button
@@ -96,7 +96,7 @@
                   class="periodic-table__cell"
                   :class="[
                     'periodic-table__cell--' + element.categoryClass,
-                    getLangItem().class,
+                    currentLang.class,
                   ]"
                 >
                   <span
@@ -104,9 +104,9 @@
                     :class="[
                       'periodic-table__cell-text--cell-' +
                         element.elementSymbol,
-                      getLangItem().class,
+                      currentLang.class,
                     ]"
-                    >{{ element[getLangItem().key] }}</span
+                    >{{ element[currentLang.key] }}</span
                   >
                 </div>
               </button>
@@ -561,7 +561,7 @@ export default {
       elementStatusList: 'element/elementStatusList',
       currentDataPage: 'element/currentDataPage',
       isDataPageActive: 'element/isDataPageActive',
-      getLangItem: 'lang/getItem',
+      currentLang: 'lang/currentLang',
     }),
     /**
      * 現在のデータページのページ遷移ボタンの表示内容

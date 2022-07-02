@@ -9,8 +9,8 @@
           :key="'button-' + langIndex"
           type="button"
           class="lang-switch__button"
-          :class="[{ 'is-active-lang': getLangItem(langIndex).isActive }]"
-          @click="updateLangActiveness(langIndex)"
+          :class="[{ 'is-active-lang': langStatusList[langIndex].isActive }]"
+          @click="switchLang(langIndex)"
         >
           {{ lang.name }}
         </button>
@@ -25,20 +25,20 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   computed: {
     ...mapGetters(['isBodyScrollLocked']),
     ...mapGetters({
-      langList: 'lang/list',
-      getLangItem: 'lang/getItem',
+      langList: 'lang/langList',
+      langStatusList: 'lang/langStatusList',
     }),
   },
 
   methods: {
-    ...mapMutations({
-      updateLangActiveness: 'lang/updateActiveness',
+    ...mapActions({
+      switchLang: 'lang/switchLang',
     }),
   },
 }

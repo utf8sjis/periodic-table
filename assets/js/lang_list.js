@@ -1,48 +1,41 @@
 export const langList = [
   {
-    isActive: false,
     class: 'is-atomic-number',
     key: 'atomicNumber',
     name: '原子番号',
     nameCN: '原子序數',
   },
   {
-    isActive: false,
     class: 'is-element-symbol',
     key: 'elementSymbol',
     name: '元素記号',
     nameCN: '元素符號',
   },
   {
-    isActive: false,
     class: 'is-simplified-chinese',
     key: 'simplifiedChinese',
     name: '大陸簡体',
     nameCN: '大陆简体',
   },
   {
-    isActive: true,
     class: 'is-taiwan-trad',
     key: 'taiwanTrad',
     name: '台湾正体',
     nameCN: '台灣正體',
   },
   {
-    isActive: false,
     class: 'is-hongkong-trad',
     key: 'hongkongTrad',
     name: '香港繁体',
     nameCN: '香港繁體',
   },
   {
-    isActive: false,
     class: 'is-japanese-name',
     key: 'japaneseName',
     name: '日本語名',
     nameCN: '日文',
   },
   {
-    isActive: false,
     class: 'is-english-name',
     key: 'englishName',
     name: '英語名',

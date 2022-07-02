@@ -1,34 +1,42 @@
 import { langList } from '@/assets/js/lang_list.js'
 
+const defaultLangIndex = 3
+
 export const state = () => ({
-  list: langList,
-  currentIndex: 3,
+  langList,
+  langStatusList: [...Array(langList.length)].map((_, index) => ({
+    isActive: index === defaultLangIndex,
+  })),
+  currentLang: langList[defaultLangIndex],
 })
 
 export const getters = {
-  // => list
-  list: (state) => {
-    return state.list
+  // => 各言語のデータのリストを返す
+  langList: (state) => {
+    return state.langList
   },
-  // listのインデクス => listのアイテムのオブジェクト
-  getItem: (state) => (index) => {
-    if (typeof index === 'undefined') {
-      // 引数が与えられなかった場合は現在の言語のものを返す
-      return state.list[state.currentIndex]
-    } else {
-      return state.list[index]
-    }
+  // => 現在の各言語の処理状態のリストを返す
+  langStatusList: (state) => {
+    return state.langStatusList
+  },
+  // => 現在表示中の言語のデータを返す
+  currentLang: (state) => {
+    return state.currentLang
   },
 }
 
 export const mutations = {
-  // listのアクティブアイテムの更新
-  updateActiveness(state, index) {
-    state.list.forEach((item) => (item.isActive = false))
-    if (typeof index !== 'undefined') {
-      state.currentIndex = index
-      state.list[index].isActive = true
-    }
-    // 引数が与えられなかった場合はすべて非アクティブ化
+  // 言語のインデクス => 表示する言語の変更
+  switchLang(state, index) {
+    state.langStatusList.forEach((item) => (item.isActive = false))
+    state.currentLang = state.langList[index]
+    state.langStatusList[index].isActive = true
+  },
+}
+
+export const actions = {
+  // 言語のインデクス => 表示する言語の変更
+  switchLang({ commit }, index) {
+    commit('switchLang', index)
   },
 }
