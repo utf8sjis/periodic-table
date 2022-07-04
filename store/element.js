@@ -50,7 +50,7 @@ export const actions = {
   },
   // => バルーンチップも閉じ、データページを閉じる
   closeDataPage({ commit }) {
-    commit('balloon_tip/closeBalloonTip', 'overlayMain', { root: true })
+    commit('balloon_tip/deactivateBalloonTip', 'overlayMain', { root: true })
     commit('deactivateDataPage')
   },
 }
