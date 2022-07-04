@@ -20,98 +20,7 @@
       <main v-cloak>
         <section>
           <control-panel />
-
-          <section
-            class="periodic-table"
-            :class="{
-              'is-overflow-scroll': isPeriodicTableOverflow,
-              'is-overflow-hidden': isBodyScrollLocked,
-            }"
-            :style="{
-              height: periodicTableRect.height * periodicTableScale + 'px',
-            }"
-          >
-            <div
-              ref="periodicTable"
-              class="periodic-table__grid-container"
-              :class="{ 'is-overflow-scroll': isPeriodicTableOverflow }"
-              :style="{ transform: 'scale(' + periodicTableScale + ')' }"
-            >
-              <div class="table-guide">
-                <div class="table-guide__category-container">
-                  <div
-                    v-for="(categoryObj, categoryIndex) in categoryList"
-                    :key="categoryIndex"
-                    class="table-guide__category"
-                  >
-                    <div
-                      class="table-guide__category-icon"
-                      :class="categoryObj.categoryClass"
-                    ></div>
-                    <div>{{ categoryObj.categoryName }}</div>
-                  </div>
-                </div>
-              </div>
-              <div
-                v-for="number in 18"
-                :key="'group-' + number"
-                class="periodic-table__group-number"
-                :class="'periodic-table__group-number--group-' + number"
-              >
-                {{ number }}
-              </div>
-              <div
-                v-for="number in 7"
-                :key="'period-' + number"
-                class="periodic-table__period-number"
-                :class="'periodic-table__period-number--period-' + number"
-              >
-                {{ number }}
-              </div>
-              <div
-                v-for="(cell, cellIndex) in otherCellList"
-                :key="'la-ac-' + cellIndex"
-                class="periodic-table__la-ac-wrapper"
-                :class="cell.cellWrapperClass"
-              >
-                <div class="periodic-table__la-ac" :class="currentLang.class">
-                  <span>{{ cell[currentLang.key] }}</span>
-                </div>
-              </div>
-              <button
-                v-for="(element, elementIndex) in elementList"
-                :key="'cell-' + elementIndex"
-                type="button"
-                class="periodic-table__cell-wrapper"
-                :class="[
-                  'periodic-table__cell-wrapper--cell-' + element.elementSymbol,
-                  {
-                    'is-active':
-                      elementStatusList[elementIndex].isDataPageActive,
-                  },
-                ]"
-                @click="openDataPage(element.atomicNumber)"
-              >
-                <div
-                  class="periodic-table__cell"
-                  :class="[
-                    'periodic-table__cell--' + element.categoryClass,
-                    currentLang.class,
-                  ]"
-                >
-                  <span
-                    class="periodic-table__cell-text"
-                    :class="[
-                      'periodic-table__cell-text--cell-' +
-                        element.elementSymbol,
-                      currentLang.class,
-                    ]"
-                    >{{ element[currentLang.key] }}</span
-                  >
-                </div>
-              </button>
-            </div>
-          </section>
+          <periodic-table />
 
           <transition
             name="overlay-"
@@ -515,9 +424,6 @@
 import { mapActions, mapGetters, mapMutations } from 'vuex'
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
-import { categoryList } from '@/assets/js/category_list.js'
-import { otherCellList } from '@/assets/js/other_cell_list.js'
-
 if (process.client) {
   window.onload = () => {
     const body = document.querySelector('body')
@@ -530,23 +436,12 @@ export default {
 
   data() {
     return {
-      otherCellList,
-      categoryList,
       /** ナビゲーションメニューが開いているか否か */
       isNavOpened: false,
       /** スクロール量がページのトップあたりか否か */
       isAroundTop: true,
       /** 表示中のトースト通知のリスト */
       toastList: [],
-      /** 周期表の幅と高さ */
-      periodicTableRect: {
-        width: 0,
-        height: 0,
-      },
-      /** 周期表の幅に対して作成したMediaQueryList */
-      periodicTableMQL: null,
-      /** 画面幅が周期表の幅を超過しているか否か */
-      isPeriodicTableOverflow: false,
       /** シェアボタンが展開されているか否か */
       isShareButtonExpanded: false,
     }
@@ -555,13 +450,11 @@ export default {
     bodyAttrs: { class: 'body-preload' },
   },
   computed: {
-    ...mapGetters(['isBodyScrollLocked', 'periodicTableScale']),
+    ...mapGetters(['isBodyScrollLocked']),
     ...mapGetters({
       elementList: 'element/elementList',
-      elementStatusList: 'element/elementStatusList',
       currentDataPage: 'element/currentDataPage',
       isDataPageActive: 'element/isDataPageActive',
-      currentLang: 'lang/currentLang',
     }),
     /**
      * 現在のデータページのページ遷移ボタンの表示内容
@@ -612,34 +505,16 @@ export default {
       return obj
     },
   },
-  watch: {
-    /**
-     * 周期表の大きさの倍率を監視する
-     */
-    periodicTableScale() {
-      this.createMediaQuery()
-      this.checkPeriodicTableOverflow()
-      const itemObj = JSON.parse(localStorage.getItem('itemStorage'))
-      itemObj.periodicTableScale = this.periodicTableScale
-      localStorage.setItem('itemStorage', JSON.stringify(itemObj))
-    },
-  },
   mounted() {
-    // 周期表の幅と高さの初期値をセット
-    this.periodicTableRect = this.$refs.periodicTable.getBoundingClientRect()
     // スクロールのイベントリスナを追加
     window.addEventListener('scroll', this.handleScroll)
-    // localStorageの読み出しとその設定
+    // localStorageの初期化
     let itemStorage = JSON.parse(localStorage.getItem('itemStorage'))
     itemStorage = {
       themeId: itemStorage?.themeId ?? 'default',
       periodicTableScale: itemStorage?.periodicTableScale ?? 1,
     }
     localStorage.setItem('itemStorage', JSON.stringify(itemStorage))
-    this.updatePeriodicTableScale(itemStorage.periodicTableScale)
-    // 周期表の幅に対するメディアクエリを作成
-    this.createMediaQuery()
-    this.checkPeriodicTableOverflow()
     // スマートフォン幅に対するメディアクエリを作成 -> _variable.scss
     const phoneMQL = window.matchMedia('(max-width: 550px)')
     const checkIsPhone = () => this.updateIsPhone(phoneMQL.matches)
@@ -651,11 +526,7 @@ export default {
     checkIsPhone()
   },
   methods: {
-    ...mapMutations([
-      'updateIsBodyScrollLocked',
-      'updateIsPhone',
-      'updatePeriodicTableScale',
-    ]),
+    ...mapMutations(['updateIsBodyScrollLocked', 'updateIsPhone']),
     ...mapActions({
       toggleBalloonTip: 'balloon_tip/toggleBalloonTip',
       openDataPage: 'element/openDataPage',
@@ -788,28 +659,6 @@ export default {
         this.toastList.findIndex((item) => item.timeoutID === timeoutID),
         1
       )
-    },
-    /**
-     * 画面幅が周期表の幅を超過しているかを示すハンドラ
-     */
-    checkPeriodicTableOverflow() {
-      this.isPeriodicTableOverflow = !this.periodicTableMQL.matches
-    },
-    /**
-     * 周期表の幅に対するメディアクエリを作成する
-     */
-    createMediaQuery() {
-      this.periodicTableMQL = window.matchMedia(
-        `(min-width: ${
-          this.periodicTableRect.width * this.periodicTableScale
-        }px)`
-      )
-      const handler = this.checkPeriodicTableOverflow
-      try {
-        this.periodicTableMQL.addEventListener('change', handler)
-      } catch (e) {
-        this.periodicTableMQL.addListener(handler) // for Safari 14 and earlier
-      }
     },
     /**
      * シェアボタンを展開、格納する
