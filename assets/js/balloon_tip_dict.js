@@ -8,7 +8,7 @@ export const balloonTipDict = {
       titleIconClass: item.iconClass,
     })),
   ],
-  overlayMain: [
+  dataPage: [
     {
       title: 'データページ',
       titleIconClass: 'fas fa-database',

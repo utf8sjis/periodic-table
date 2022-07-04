@@ -42,7 +42,7 @@ $borderColorHydrogen: #0003;
   color: g.$colorWhite;
   background: #0002;
   transition-property: border-color, background-color, color;
-  transition-duration: g.$overlayChangeDuration;
+  transition-duration: g.$dataPageTurnDuration;
   &.is-category-h {
     border-color: $borderColorHydrogen;
     color: g.$colorHydrogenBlack;
@@ -112,7 +112,7 @@ $borderColorHydrogen: #0003;
     user-select: none;
     @include g.flexCentering(space-between, center);
     transition-property: background-color, color;
-    transition-duration: g.$overlayChangeDuration;
+    transition-duration: g.$dataPageTurnDuration;
     @each $category in g.$categoryList {
       $categoryColor: nth(
         g.$categoryColorList2,
@@ -144,7 +144,7 @@ $borderColorHydrogen: #0003;
     font-size: 20px;
     color: g.$colorWhite;
     transition-property: border-color;
-    transition-duration: g.$overlayChangeDuration;
+    transition-duration: g.$dataPageTurnDuration;
     @include g.mediaQuery() {
       border: 14px solid $borderColor;
       border-radius: 12px 0 3px 0;
