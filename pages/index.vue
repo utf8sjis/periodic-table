@@ -411,7 +411,7 @@
           :key="toast.timeoutID"
           class="toast__item-wrapper"
         >
-          <div class="toast__item" @click="clearPopupBox(toast.timeoutID)">
+          <div class="toast__item" @click="clearToast(toast.timeoutID)">
             {{ toast.message }}
           </div>
         </div>
@@ -440,8 +440,6 @@ export default {
       isNavOpened: false,
       /** スクロール量がページのトップあたりか否か */
       isAroundTop: true,
-      /** 表示中のトースト通知のリスト */
-      toastList: [],
       /** シェアボタンが展開されているか否か */
       isShareButtonExpanded: false,
     }
@@ -455,6 +453,7 @@ export default {
       elementList: 'element/elementList',
       currentDataPage: 'element/currentDataPage',
       isDataPageActive: 'element/isDataPageActive',
+      toastList: 'toast/toastList',
     }),
     /**
      * 現在のデータページのページ遷移ボタンの表示内容
@@ -531,6 +530,8 @@ export default {
       toggleBalloonTip: 'balloon_tip/toggleBalloonTip',
       openDataPage: 'element/openDataPage',
       closeDataPage: 'element/closeDataPage',
+      showToast: 'toast/showToast',
+      clearToast: 'toast/clearToast',
     }),
     /**
      * データページを遷移する
@@ -623,42 +624,16 @@ export default {
           }
           document.addEventListener('copy', handler)
           document.execCommand('copy')
-          this.showPopupBox(successMessage)
+          this.showToast(successMessage)
         } else {
           navigator.clipboard.writeText(text).then(
-            () => this.showPopupBox(successMessage),
-            () => this.showPopupBox(failureMessage)
+            () => this.showToast(successMessage),
+            () => this.showToast(failureMessage)
           )
         }
       } catch (e) {
-        this.showPopupBox(failureMessage)
+        this.showToast(failureMessage)
       }
-    },
-    /**
-     * 新たなトースト通知を表示する
-     * @param {string} message - トースト通知に表示するメッセージ
-     */
-    showPopupBox(message) {
-      const delay = 3000
-      const maxLength = 8
-      this.toastList.unshift({
-        message,
-        timeoutID: setTimeout(() => this.toastList.pop(), delay),
-      })
-      if (this.toastList.length > maxLength) {
-        clearTimeout(this.toastList.pop().timeoutID)
-      }
-    },
-    /**
-     * 特定のトースト通知を閉じる
-     * @param {number} timeoutID - 閉じるトースト通知のtimeoutID
-     */
-    clearPopupBox(timeoutID) {
-      clearTimeout(timeoutID)
-      this.toastList.splice(
-        this.toastList.findIndex((item) => item.timeoutID === timeoutID),
-        1
-      )
     },
     /**
      * シェアボタンを展開、格納する
