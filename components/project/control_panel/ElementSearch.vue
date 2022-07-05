@@ -29,11 +29,11 @@
         </button>
       </div>
       <div
-        v-show="
-          !isPhone ||
-          ($refs.elementSearchInput && $refs.elementSearchInput.value)
-        "
         class="element-search__result-container"
+        :class="{
+          'has-no-results':
+            !$refs.elementSearchInput || !$refs.elementSearchInput.value,
+        }"
       >
         <div class="element-search__result-bar">
           <div>検索結果：{{ resultList.length }} 元素</div>
@@ -103,7 +103,6 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['isPhone']),
     ...mapGetters({
       elementList: 'element/elementList',
     }),
@@ -307,6 +306,9 @@ $inputHeight: 28px;
       border: 2px solid g.$colorLightGray;
       border-radius: 3px;
       background: g.$colorWhite;
+      &.has-no-results {
+        display: none;
+      }
     }
   }
 

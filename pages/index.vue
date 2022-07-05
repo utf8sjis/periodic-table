@@ -20,8 +20,6 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
-
 if (process.client) {
   window.onload = () => {
     const body = document.querySelector('body')
@@ -44,19 +42,6 @@ export default {
       periodicTableScale: itemStorage?.periodicTableScale ?? 1,
     }
     localStorage.setItem('itemStorage', JSON.stringify(itemStorage))
-    // スマートフォン幅に対するメディアクエリを作成 -> _variable.scss
-    const phoneMQL = window.matchMedia('(max-width: 550px)')
-    const checkIsPhone = () => this.updateIsPhone(phoneMQL.matches)
-    try {
-      phoneMQL.addEventListener('change', checkIsPhone)
-    } catch (e) {
-      phoneMQL.addListener(checkIsPhone) // for Safari 14 and earlier
-    }
-    checkIsPhone()
-  },
-
-  methods: {
-    ...mapMutations(['updateIsPhone']),
   },
 }
 </script>

@@ -1,7 +1,6 @@
 export const state = () => ({
   isBodyScrollLocked: false,
   isNavOpened: false,
-  isPhone: false,
   periodicTableScale: 1,
 })
 
@@ -13,10 +12,6 @@ export const getters = {
   // => ナビゲーションが開いているか否か
   isNavOpened: (state) => {
     return state.isNavOpened
-  },
-  // => 画面幅がスマートフォン幅か否か
-  isPhone: (state) => {
-    return state.isPhone
   },
   // => 周期表の大きさの倍率
   periodicTableScale: (state) => {
@@ -36,10 +31,6 @@ export const mutations = {
   // ナビゲーションを閉じる
   closeNav(state) {
     state.isNavOpened = false
-  },
-  // 画面幅がスマートフォン幅か否かの更新
-  updateIsPhone(state, isPhone) {
-    state.isPhone = isPhone
   },
   // 周期表の大きさの倍率の更新
   updatePeriodicTableScale(state, scale) {
