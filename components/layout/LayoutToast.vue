@@ -1,4 +1,36 @@
-/****** toast ******/
+<template>
+  <transition-group v-cloak name="toast-" tag="div" class="toast">
+    <div
+      v-for="toast in toastList"
+      :key="toast.timeoutID"
+      class="toast__item-wrapper"
+    >
+      <div class="toast__item" @click="clearToast(toast.timeoutID)">
+        {{ toast.message }}
+      </div>
+    </div>
+  </transition-group>
+</template>
+
+<script>
+import { mapActions, mapGetters } from 'vuex'
+
+export default {
+  computed: {
+    ...mapGetters({
+      toastList: 'toast/toastList',
+    }),
+  },
+
+  methods: {
+    ...mapActions({
+      clearToast: 'toast/clearToast',
+    }),
+  },
+}
+</script>
+
+<style lang="scss">
 @use '@/assets/scss/global' as g;
 
 .toast {
@@ -38,3 +70,4 @@
     }
   }
 }
+</style>

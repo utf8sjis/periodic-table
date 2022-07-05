@@ -1,52 +1,37 @@
 <template>
   <div>
-    <div id="app">
-      <layout-header
-        :is-nav-opened="isNavOpened"
-        @toggle-nav-open="toggleNavOpen"
-      />
-      <layout-nav :is-nav-opened="isNavOpened" />
-      <layout-nav-back
-        :is-nav-opened="isNavOpened"
-        @toggle-nav-open="toggleNavOpen"
-      />
-      <layout-bottom-fixed-area
-        :is-around-top="isAroundTop"
-        :is-share-button-expanded="isShareButtonExpanded"
-        @toggle-share-expand-button="toggleShareExpandButton"
-        @go-to-top="goToTop"
-      />
-
-      <main v-cloak>
-        <section>
-          <control-panel />
-          <periodic-table />
-          <data-page />
-        </section>
-        <section>
-          <layout-article />
-        </section>
-      </main>
-
-      <layout-footer />
-
-      <transition-group v-cloak name="toast-" tag="div" class="toast">
-        <div
-          v-for="toast in toastList"
-          :key="toast.timeoutID"
-          class="toast__item-wrapper"
-        >
-          <div class="toast__item" @click="clearToast(toast.timeoutID)">
-            {{ toast.message }}
-          </div>
-        </div>
-      </transition-group>
-    </div>
+    <layout-header
+      :is-nav-opened="isNavOpened"
+      @toggle-nav-open="toggleNavOpen"
+    />
+    <layout-nav :is-nav-opened="isNavOpened" />
+    <layout-nav-back
+      :is-nav-opened="isNavOpened"
+      @toggle-nav-open="toggleNavOpen"
+    />
+    <layout-bottom-fixed-area
+      :is-around-top="isAroundTop"
+      :is-share-button-expanded="isShareButtonExpanded"
+      @toggle-share-expand-button="toggleShareExpandButton"
+      @go-to-top="goToTop"
+    />
+    <main v-cloak>
+      <section>
+        <control-panel />
+        <periodic-table />
+        <data-page />
+      </section>
+      <section>
+        <layout-article />
+      </section>
+    </main>
+    <layout-footer />
+    <layout-toast />
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 
 if (process.client) {
   window.onload = () => {
@@ -68,14 +53,11 @@ export default {
       isShareButtonExpanded: false,
     }
   },
+
   head: {
     bodyAttrs: { class: 'body-preload' },
   },
-  computed: {
-    ...mapGetters({
-      toastList: 'toast/toastList',
-    }),
-  },
+
   mounted() {
     // スクロールのイベントリスナを追加
     window.addEventListener('scroll', this.handleScroll)
@@ -96,11 +78,9 @@ export default {
     }
     checkIsPhone()
   },
+
   methods: {
     ...mapMutations(['updateIsPhone']),
-    ...mapActions({
-      clearToast: 'toast/clearToast',
-    }),
     /**
      * ナビゲーションメニューを展開、格納する
      */
@@ -143,5 +123,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss"></style>
