@@ -5,15 +5,15 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
-  props: {
-    isNavOpened: { type: Boolean, required: true },
+  computed: {
+    ...mapGetters(['isNavOpened']),
   },
 
   methods: {
-    closeNav() {
-      this.$emit('toggle-nav-open')
-    },
+    ...mapMutations(['closeNav']),
   },
 }
 </script>

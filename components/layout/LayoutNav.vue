@@ -77,19 +77,21 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import { themeDict } from '@/assets/js/theme_dict.js'
 import { navLinkSectionList } from '@/assets/js/nav_link_list.js'
 
 export default {
-  props: {
-    isNavOpened: { type: Boolean, required: true },
-  },
-
   data() {
     return {
       themeDict,
       navLinkSectionList,
     }
+  },
+
+  computed: {
+    ...mapGetters(['isNavOpened']),
   },
 
   mounted() {

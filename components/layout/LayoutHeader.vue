@@ -40,7 +40,7 @@
         <button
           type="button"
           class="header__nav-open-button"
-          @click="toggleNavOpen"
+          @click="toggleNav"
         >
           <span v-show="!isNavOpened">MORE</span>
           <span v-show="isNavOpened">CLOSE</span>
@@ -58,15 +58,15 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
-  props: {
-    isNavOpened: { type: Boolean, required: true },
+  computed: {
+    ...mapGetters(['isNavOpened']),
   },
 
   methods: {
-    toggleNavOpen() {
-      this.$emit('toggle-nav-open')
-    },
+    ...mapMutations(['toggleNav']),
   },
 }
 </script>

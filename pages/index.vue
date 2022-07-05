@@ -1,14 +1,8 @@
 <template>
   <div>
-    <layout-header
-      :is-nav-opened="isNavOpened"
-      @toggle-nav-open="toggleNavOpen"
-    />
-    <layout-nav :is-nav-opened="isNavOpened" />
-    <layout-nav-back
-      :is-nav-opened="isNavOpened"
-      @toggle-nav-open="toggleNavOpen"
-    />
+    <layout-header />
+    <layout-nav />
+    <layout-nav-back />
     <main v-cloak>
       <section>
         <control-panel />
@@ -38,13 +32,6 @@ if (process.client) {
 export default {
   name: 'IndexPage',
 
-  data() {
-    return {
-      /** ナビゲーションメニューが開いているか否か */
-      isNavOpened: false,
-    }
-  },
-
   head: {
     bodyAttrs: { class: 'body-preload' },
   },
@@ -70,19 +57,6 @@ export default {
 
   methods: {
     ...mapMutations(['updateIsPhone']),
-    /**
-     * ナビゲーションメニューを展開、格納する
-     */
-    toggleNavOpen() {
-      // eslint-disable-next-line vue/no-mutating-props
-      this.isNavOpened = !this.isNavOpened
-    },
-    /**
-     * ナビゲーションメニューを格納する
-     */
-    closeNav() {
-      this.isNavOpened = false
-    },
   },
 }
 </script>
