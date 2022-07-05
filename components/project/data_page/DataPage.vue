@@ -42,39 +42,39 @@
                 </div>
               </div>
               <div class="data-page__area data-page__area--atomic-number">
-                <data-area
+                <common-data-area
                   type="num"
                   label="Z ="
                   :category-class="'is-' + currentDataPage.categoryClass"
-                  >{{ currentDataPage.atomicNumber }}</data-area
+                  >{{ currentDataPage.atomicNumber }}</common-data-area
                 >
               </div>
               <div class="data-page__area data-page__area--period">
-                <data-area
+                <common-data-area
                   type="num"
                   label="Period"
                   :category-class="'is-' + currentDataPage.categoryClass"
-                  >{{ currentDataPage.period }}</data-area
+                  >{{ currentDataPage.period }}</common-data-area
                 >
               </div>
               <div class="data-page__area data-page__area--group">
-                <data-area
+                <common-data-area
                   type="num"
                   label="Group"
                   :category-class="'is-' + currentDataPage.categoryClass"
-                  >{{ currentDataPage.group }}</data-area
+                  >{{ currentDataPage.group }}</common-data-area
                 >
               </div>
               <div class="data-page__area data-page__area--atomic-weight">
-                <data-area
+                <common-data-area
                   type="num"
                   label="Weight"
                   :category-class="'is-' + currentDataPage.categoryClass"
-                  >{{ currentDataPage.atomicWeight }}</data-area
+                  >{{ currentDataPage.atomicWeight }}</common-data-area
                 >
               </div>
               <div class="data-page__area data-page__area--category">
-                <data-area
+                <common-data-area
                   type="category"
                   label="Category"
                   :category-class="'is-' + currentDataPage.categoryClass"
@@ -99,12 +99,12 @@
                       >
                     </template>
                   </div>
-                </data-area>
+                </common-data-area>
               </div>
             </div>
             <div class="data-page__container-kanji">
               <div class="data-page__area data-page__area--cn">
-                <data-area
+                <common-data-area
                   type="kanji"
                   label="Mainland China"
                   :category-class="'is-' + currentDataPage.categoryClass"
@@ -129,10 +129,10 @@
                       <i class="fas fa-clipboard" data-micron="swing"></i>
                     </button>
                   </template>
-                </data-area>
+                </common-data-area>
               </div>
               <div class="data-page__area data-page__area--tw">
-                <data-area
+                <common-data-area
                   type="kanji"
                   label="Taiwan"
                   :category-class="'is-' + currentDataPage.categoryClass"
@@ -155,10 +155,10 @@
                       <i class="fas fa-clipboard" data-micron="swing"></i>
                     </button>
                   </template>
-                </data-area>
+                </common-data-area>
               </div>
               <div class="data-page__area data-page__area--hk">
-                <data-area
+                <common-data-area
                   type="kanji"
                   label="Hong Kong"
                   :category-class="'is-' + currentDataPage.categoryClass"
@@ -181,46 +181,46 @@
                       <i class="fas fa-clipboard" data-micron="swing"></i>
                     </button>
                   </template>
-                </data-area>
+                </common-data-area>
               </div>
             </div>
             <div class="data-page__container-reading">
               <div class="data-page__area data-page__area--pinyin">
-                <data-area
+                <common-data-area
                   type="pinyin"
                   label="Pinyin"
                   sub-label="Mainland China"
                   :category-class="'is-' + currentDataPage.categoryClass"
-                  >{{ currentDataPage.pinyin }}</data-area
+                  >{{ currentDataPage.pinyin }}</common-data-area
                 >
               </div>
               <div class="data-page__area data-page__area--bopomofo">
-                <data-area
+                <common-data-area
                   type="pinyin"
                   label="Bopomofo"
                   sub-label="Taiwan"
                   :category-class="'is-' + currentDataPage.categoryClass"
                   >{{ currentDataPage.bopomofo }} ({{
                     currentDataPage.taiwanPinyin
-                  }})</data-area
+                  }})</common-data-area
                 >
               </div>
             </div>
             <div class="data-page__container-name">
               <div class="data-page__area data-page__area--japanese-name">
-                <data-area
+                <common-data-area
                   type="japanese-name"
                   label="Japanese Name"
                   :category-class="'is-' + currentDataPage.categoryClass"
-                  >{{ currentDataPage.japaneseName }}</data-area
+                  >{{ currentDataPage.japaneseName }}</common-data-area
                 >
               </div>
               <div class="data-page__area data-page__area--english-name">
-                <data-area
+                <common-data-area
                   type="english-name"
                   label="English Name"
                   :category-class="'is-' + currentDataPage.categoryClass"
-                  >{{ currentDataPage.englishName }}</data-area
+                  >{{ currentDataPage.englishName }}</common-data-area
                 >
               </div>
             </div>
@@ -476,6 +476,11 @@ export default {
 
 <style lang="scss">
 @use '@/assets/scss/global' as g;
+
+/*
+NOTICE: The style of the data-area block is defined globally
+in the CommonDataArea component.
+*/
 
 $areaGap: 10px;
 
