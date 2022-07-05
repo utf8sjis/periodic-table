@@ -1,6 +1,6 @@
 <template>
   <transition name="nav-">
-    <nav v-cloak v-show="isNavOpened" class="nav">
+    <nav v-show="isNavOpened" class="nav">
       <div class="nav__content-wrapper">
         <div class="nav__content">
           <section class="nav__section">

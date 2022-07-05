@@ -5,17 +5,6 @@
   transition: none !important;
 }
 
-/* v-cloak */
-[v-cloak] {
-  @include g.font(user);
-  &:not(.footer) {
-    display: none;
-  }
-  &.footer {
-    background: #aaa;
-  }
-}
-
 /* 埋め込みツイート */
 .twitter-tweet {
   margin: 0 !important;

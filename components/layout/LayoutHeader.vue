@@ -1,5 +1,5 @@
 <template>
-  <header v-cloak class="header">
+  <header class="header">
     <div class="header__fixed-container" :class="{ 'is-active': isNavOpened }">
       <div class="header__start">
         <div class="header__logo">

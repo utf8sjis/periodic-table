@@ -1,6 +1,6 @@
 <template>
   <transition name="nav-back-">
-    <div v-cloak v-show="isNavOpened" class="nav-back" @click="closeNav"></div>
+    <div v-show="isNavOpened" class="nav-back" @click="closeNav"></div>
   </transition>
 </template>
 

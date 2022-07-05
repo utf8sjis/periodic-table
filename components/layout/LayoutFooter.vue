@@ -1,5 +1,5 @@
 <template>
-  <footer v-cloak class="footer">
+  <footer class="footer">
     <div class="footer__container">
       <div class="footer__content">
         <a

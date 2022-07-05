@@ -1,5 +1,5 @@
 <template>
-  <transition-group v-cloak name="toast-" tag="div" class="toast">
+  <transition-group name="toast-" tag="div" class="toast">
     <div
       v-for="toast in toastList"
       :key="toast.timeoutID"

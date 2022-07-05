@@ -3,7 +3,7 @@
     <layout-header />
     <layout-nav />
     <layout-nav-back />
-    <main v-cloak>
+    <main>
       <section>
         <control-panel />
         <periodic-table />
