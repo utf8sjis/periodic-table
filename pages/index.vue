@@ -9,12 +9,6 @@
       :is-nav-opened="isNavOpened"
       @toggle-nav-open="toggleNavOpen"
     />
-    <layout-bottom-fixed-area
-      :is-around-top="isAroundTop"
-      :is-share-button-expanded="isShareButtonExpanded"
-      @toggle-share-expand-button="toggleShareExpandButton"
-      @go-to-top="goToTop"
-    />
     <main v-cloak>
       <section>
         <control-panel />
@@ -26,6 +20,7 @@
       </section>
     </main>
     <layout-footer />
+    <layout-bottom-fixed-area />
     <layout-toast />
   </div>
 </template>
@@ -47,10 +42,6 @@ export default {
     return {
       /** ナビゲーションメニューが開いているか否か */
       isNavOpened: false,
-      /** スクロール量がページのトップあたりか否か */
-      isAroundTop: true,
-      /** シェアボタンが展開されているか否か */
-      isShareButtonExpanded: false,
     }
   },
 
@@ -59,8 +50,6 @@ export default {
   },
 
   mounted() {
-    // スクロールのイベントリスナを追加
-    window.addEventListener('scroll', this.handleScroll)
     // localStorageの初期化
     let itemStorage = JSON.parse(localStorage.getItem('itemStorage'))
     itemStorage = {
@@ -93,32 +82,6 @@ export default {
      */
     closeNav() {
       this.isNavOpened = false
-    },
-    /**
-     * スクロール量がページのトップあたりかを示すハンドラ
-     */
-    handleScroll() {
-      if (window.scrollY > 200) {
-        this.isAroundTop = false
-      } else {
-        this.isAroundTop = true
-        this.isShareButtonExpanded = false
-      }
-    },
-    /**
-     * ページトップまでスクロールする
-     */
-    goToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
-    },
-    /**
-     * シェアボタンを展開、格納する
-     */
-    toggleShareExpandButton() {
-      this.isShareButtonExpanded = !this.isShareButtonExpanded
     },
   },
 }

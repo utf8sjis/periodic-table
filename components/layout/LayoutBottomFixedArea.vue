@@ -58,17 +58,38 @@
 
 <script>
 export default {
-  props: {
-    isAroundTop: { type: Boolean, required: true },
-    isShareButtonExpanded: { type: Boolean, required: true },
+  data() {
+    return {
+      /** スクロール量がページのトップあたりか否か */
+      isAroundTop: true,
+      /** シェアボタンが展開されているか否か */
+      isShareButtonExpanded: false,
+    }
+  },
+
+  mounted() {
+    // スクロールのイベントリスナを追加
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        this.isAroundTop = false
+      } else {
+        this.isAroundTop = true
+        this.isShareButtonExpanded = false
+      }
+    })
   },
 
   methods: {
-    toggleShareExpandButton() {
-      this.$emit('toggle-share-expand-button')
-    },
+    /** ページトップまでスクロールする */
     goToTop() {
-      this.$emit('go-to-top')
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      })
+    },
+    /** シェアボタンを展開、格納する */
+    toggleShareExpandButton() {
+      this.isShareButtonExpanded = !this.isShareButtonExpanded
     },
   },
 }
