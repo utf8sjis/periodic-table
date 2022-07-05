@@ -301,6 +301,7 @@ $borderColorHydrogen: #0003;
 
   &__element-changer-button-icon {
     font-size: 70px;
+    transform: translateY(3px);
   }
 
   &__element-changer-button-text {

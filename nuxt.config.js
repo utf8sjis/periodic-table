@@ -104,15 +104,6 @@ export default {
         type: 'text/javascript',
         src: 'https://unpkg.com/webkul-micron@1.1.6/dist/script/micron.min.js',
       },
-      // ionicons
-      {
-        type: 'module',
-        src: 'https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js',
-      },
-      {
-        nomodule: true,
-        src: 'https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js',
-      },
       // <!-- Global site tag (gtag.js) - Google Analytics -->
       {
         async: true,
@@ -166,8 +157,6 @@ export default {
   build: {},
 
   vue: {
-    config: {
-      ignoredElements: ['ion-icon'],
-    },
+    config: {},
   },
 }

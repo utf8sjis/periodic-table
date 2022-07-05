@@ -278,10 +278,7 @@
         :class="'is-' + currentDataPage.categoryClass"
         @click="closeDataPage()"
       >
-        <ion-icon
-          class="data-page__close-button-icon"
-          name="close-circle"
-        ></ion-icon>
+        <span class="data-page__close-button-icon material-icons">cancel</span>
       </button>
       <div class="data-page__container-element-changer">
         <div class="data-page__area data-page__area--element-changer">
@@ -297,10 +294,10 @@
                 :class="{ 'is-disabled': elementChangeButton.isStart }"
                 @click="switchDataPage('prev')"
               >
-                <ion-icon
-                  class="data-area__element-changer-button-icon"
-                  name="arrow-back"
-                ></ion-icon>
+                <span
+                  class="data-area__element-changer-button-icon material-icons"
+                  >arrow_back</span
+                >
                 <span class="data-area__element-changer-button-text">
                   <span
                     class="data-area__element-changer-button-atomic-number"
@@ -321,10 +318,10 @@
                     >{{ elementChangeButton.next.atomicNumber }}</span
                   >{{ elementChangeButton.next.elementSymbol }}
                 </span>
-                <ion-icon
-                  class="data-area__element-changer-button-icon"
-                  name="arrow-forward"
-                ></ion-icon>
+                <span
+                  class="data-area__element-changer-button-icon material-icons"
+                  >arrow_forward</span
+                >
               </button>
             </div>
           </div>
