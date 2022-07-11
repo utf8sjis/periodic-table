@@ -85,7 +85,7 @@ export default {
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Blinker:wght@200;300&family=M+PLUS+1p:wght@300;500&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Blinker:wght@200;300&family=Ubuntu&family=M+PLUS+1p:wght@300;500&display=swap',
       },
       // material icons
       {

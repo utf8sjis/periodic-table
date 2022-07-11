@@ -17,6 +17,7 @@
 /* フォントファミリーとその太さ */
 @mixin font($family, $weight: normal) {
   $fontWebEnglish: 'Blinker', 'Helvetica Neue', Arial, sans-serif;
+  $fontWebEnglish2: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif;
   $fontWebJapanese: 'M PLUS 1p', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
     Meiryo, sans-serif;
   $fontKanjiTW: 'Source Han Sans TW', 'Source Han Sans CN', 'Noto Sans TC',
@@ -40,6 +41,9 @@
     } @else {
       font-weight: 300;
     }
+  } @else if $family == en2 {
+    // 英語（Ubuntu）
+    font-family: $fontWebEnglish2;
   } @else if $family == ja {
     // 日本語
     font-family: $fontWebJapanese;
