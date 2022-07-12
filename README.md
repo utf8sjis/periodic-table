@@ -1,3 +1,5 @@
+**This project has been merged into [gensokanji](https://github.com/utf8sjis/gensokanji).**
+
 # periodic-table
 
 This repository is for [元素の漢字周期表 - gensokanji](https://gensokanji.netlify.app/periodic-table), an interactive website inspired by the periodic table in China.
