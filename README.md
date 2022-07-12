@@ -1,4 +1,4 @@
-**This project has been merged into [gensokanji](https://github.com/utf8sjis/gensokanji).**
+⚠️**This project has been merged into [gensokanji](https://github.com/utf8sjis/gensokanji).**
 
 # periodic-table
 
