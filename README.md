@@ -2,7 +2,7 @@
 
 # periodic-table
 
-This repository is for [元素の漢字周期表 - gensokanji](https://gensokanji.pages.dev/periodic-table), an interactive website inspired by the periodic table in China.
+This repository is for 元素の漢字周期表 - gensokanji, an interactive website inspired by the periodic table in China.
 
 # Change Log
 
